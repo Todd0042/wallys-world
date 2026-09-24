@@ -1,0 +1,15 @@
+{
+  "_doc": "HERO CLASS — the Shop Captain: voice of the service bay. Physical and electric, built around the oil-change and tire line rhythm.",
+  "id": "shop_captain",
+  "title": "Shop Captain",
+  "subtitle": "Voice of the Service Bay",
+  "description": "The one who runs the oil and tire line and keeps every bay moving. Plain torque, spread across the shop like the bay floor.",
+  "startingHp": 350,
+  "startingMp": 100,
+  "startingSpeed": 58,
+  "startingBaseAttack": 32,
+  "preferredSchool": "PHYSICAL",
+  "starterSpellIds": ["lube_line", "tire_grind", "bay_charge", "jack_hold", "volt_snap", "coolant_chill", "bay_heat", "belt_mend", "breathe"],
+  "voiceKeywords": ["captain", "bay", "shop", "tires", "oil", "mechanic", "service"],
+  "growth": { "maxHp": 17, "maxMp": 9, "speed": 1, "defense": 2, "potencyPct": 0.03 }
+}

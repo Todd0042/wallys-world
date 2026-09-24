@@ -1,0 +1,13 @@
+{
+  "_doc": "Azalia — the South Carolina borderlands store manager. Genuinely kind, warm, and supportive to every face in the building — and profoundly unable to hold anyone accountable, which is exactly how a wheel almost comes off in the back lot. The kindness was never a lie; it was just never accountable. Dialogue-only.",
+  "id": "azalia",
+  "role": "npc",
+  "name": "Azalia",
+  "title": "Store Manager, The Borderlands",
+  "portraitAsset": "portraits/azalia.jpg",
+  "themeColor": "#F48FB1",
+  "ttsPitch": 1.0,
+  "samplePhrase": "The people in this building are the reason I stay in this job.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["azalia", "the store manager", "store manager", "the manager", "az"]
+}

@@ -1,0 +1,13 @@
+{
+  "_doc": "Miss Trudy — the legacy store manager of the Lamar megamart, a genuine sweetheart who treats people with real warmth. Forced out of the store by corporate 'early retirement' in Act 2. Dialogue-only.",
+  "id": "trudy",
+  "role": "npc",
+  "name": "Miss Trudy",
+  "title": "Legacy Store Manager",
+  "portraitAsset": "portraits/trudy.jpg",
+  "themeColor": "#F8BBD0",
+  "ttsPitch": 1.05,
+  "samplePhrase": "You'll do fine out here, sugar. The people'll tell you the truth if you let 'em.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["trudy", "miss trudy", "the store manager", "trudy the manager", "ms trudy"]
+}

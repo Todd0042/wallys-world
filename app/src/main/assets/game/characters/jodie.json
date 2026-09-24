@@ -1,13 +1,13 @@
 {
-  "_doc": "Jodie — the friendly people-services rep who carries the folder. Dialogue-only support character in Act 1.",
+  "_doc": "Jodie — Todd's former Freight Supervisor, now working Area HR out of Colorado; the one who offers the Lamar slot and vouches for Todd firsthand. Dialogue-only support character in Act 1.",
   "id": "jodie",
   "role": "npc",
   "name": "Jodie",
-  "title": "People Services",
+  "title": "Area HR, Colorado",
   "portraitAsset": "portraits/jodie.jpg",
   "themeColor": "#64B5F6",
   "ttsPitch": 1.05,
   "samplePhrase": "I'm not supposed to say this out loud, Todd.",
   "preferredVoiceId": null,
-  "voiceAliases": ["jodie", "people services", "hr", "the folder", "paperwork"]
+  "voiceAliases": ["jodie", "area hr", "hr", "the folder", "supervisor manager"]
 }

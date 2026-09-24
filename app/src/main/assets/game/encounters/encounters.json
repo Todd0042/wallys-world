@@ -27,7 +27,7 @@
     {
       "id": "mattie_t_showdown",
       "name": "The Manager's Office",
-      "description": "The poisoned email, CC'd to everyone, and the woman who sent it, smiling behind the desk. Everything you built this act is on the line.",
+      "description": "The email is already out — a short 'not ready' note sitting in the area manager's inbox, sent before you ever walked in — and the man who sent it smiles behind the desk. Everything you built this act is on the line.",
       "environment": "CASTLE",
       "party": ["hero"],
       "enemies": [
@@ -38,8 +38,8 @@
         {
           "enemyId": "mattie_boss",
           "hpBelow": 0.66,
-          "bannerText": "MATTIE-T PIVOTS — THE EMAIL GOES WIDE",
-          "narrationText": "Mattie-T keys three sentences and hits send. A fresh copy of the poisoned email slithers onto the floor.",
+          "bannerText": "THE EMAIL'S ALREADY OUT",
+          "narrationText": "The copy Mattie-T already sent — the one addressed to Cap'n Skagg — slithers across the desk like it was always there. It was.",
           "summonEnemyId": "poisoned_email",
           "summonCount": 1
         },
@@ -50,6 +50,258 @@
           "narrationText": "The quarterly squeeze hits the store: hours slashed mid-shift, the crew scattered, and the board demanding blood. The building itself leans on you.",
           "reducePartyToHpPct": 0.4,
           "executeBelowHpPct": 0.2
+        }
+      ]
+    },
+    {
+      "id": "lamar_oil_rush",
+      "name": "The Friday Oil Rush",
+      "description": "Six bays, a line of pickups around the block, and the clock running on every one. The service shop's first big push — the honeymoon happens here, on your feet.",
+      "environment": "DUNGEON",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "friday_rush", "id": "rush_a", "name": "The Friday Rush", "isTargeted": true, "atbGauge": 0.4 },
+        { "templateId": "bay_grime", "id": "grime_a", "name": "The Bay Grime", "atbGauge": 0.25 },
+        { "templateId": "tire_tower", "id": "tower_a", "name": "The Tire Tower", "atbGauge": 0.2 }
+      ]
+    },
+    {
+      "id": "purge_audit",
+      "name": "The Purge Audit",
+      "description": "Jury's watch is on every bay and the retirement memo is already moving up the chain. The friendly air of the building condenses into something sharp.",
+      "environment": "CASTLE",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "retirement_memo", "id": "memo_a", "name": "The Retirement Memo", "isTargeted": true, "atbGauge": 0.35 },
+        { "templateId": "jury_watch", "id": "watch_a", "name": "The Watchful Eye", "atbGauge": 0.35 },
+        { "templateId": "fluorescent_hum", "id": "hum_c", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+      ]
+    },
+    {
+      "id": "brick_wall_hearing",
+      "name": "The Brick Wall",
+      "description": "The grievance grinds for a week and comes back with the only stamp the machine owns: yes, they said it, and no, it didn't happen.",
+      "environment": "FOREST",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "want_man", "id": "wanted_boss", "name": "The Man They Wanted", "isTargeted": true, "atbGauge": 0.4 },
+        { "templateId": "grievance_file", "id": "file_a", "name": "The Grievance File", "atbGauge": 0.3 }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "wanted_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THEY WANTED A MAN",
+          "narrationText": "The denial is on the record in plain words, the way it was said to Adriana's face. Nothing is redacted. Nothing is admitted.",
+          "summonEnemyId": "grievance_file",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "wanted_boss",
+          "hpBelow": 0.33,
+          "bannerText": "UNSUBSTANTIATED",
+          "narrationText": "The investigator spoke to the very people who said it, accepted their denial at face value, and closed the file. The door was never a door.",
+          "executeBelowHpPct": 0.2
+        }
+      ]
+    },
+    {
+      "id": "jury_showdown",
+      "name": "The Christmas Party Slur",
+      "description": "The rented community hall under fluorescent glare. Jury walks up with casual malice and says it twice, in front of witnesses. The second grievance is already signing itself.",
+      "environment": "CASTLE",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "jury_enemy", "id": "jury_boss", "name": "Jury", "isTargeted": true, "atbGauge": 0.4 },
+        { "templateId": "grievance_file", "id": "file_b", "name": "The Grievance File", "atbGauge": 0.25 }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "jury_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE SLUR LANDS TWICE",
+          "narrationText": "Twice, with witnesses, the word she used hangs in the party air. The second grievance is filed that same night.",
+          "summonEnemyId": "grievance_file",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "jury_boss",
+          "hpBelow": 0.33,
+          "bannerText": "UNSUBSTANTIATED. AGAIN.",
+          "narrationText": "Same stamp, same closed file, same lesson: truth, ethics, and human dignity do not exist inside this system. Only liability exists — so the apparatus will aggressively lie to protect itself.",
+          "reducePartyToHpPct": 0.4,
+          "executeBelowHpPct": 0.2
+        }
+      ]
+    },
+    {
+      "id": "shingles_fire",
+      "name": "The Body Keeps the Score",
+      "description": "The burning nerve fire that flares across your forehead for the first time — shingles, the body's own scorecard for the year. Fight through it to pack the truck.",
+      "environment": "CAVE",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "shingles_fire", "id": "fire_boss", "name": "The Shingles Fire", "isTargeted": true, "atbGauge": 0.4 },
+        { "templateId": "fluorescent_hum", "id": "hum_d", "name": "The Fluorescent Hum", "hp": 70, "attack": 18, "atbGauge": 0.2 }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "fire_boss",
+          "hpBelow": 0.5,
+          "bannerText": "THE FIRST OUTBREAK",
+          "narrationText": "The pain is a line of fire across your forehead, and it's honest where the store never was: it is telling you to leave.",
+          "summonEnemyId": "fluorescent_hum",
+          "summonCount": 1
+        }
+      ]
+    },
+    {
+      "id": "carolina_neglect",
+      "name": "The Neglected Bays",
+      "description": "Six bays under a roof that hasn't been repainted since the previous decade, years of deferred maintenance, and a clock already running on your first ticket. The neglect is a living thing in the room with you.",
+      "environment": "DUNGEON",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "bay_debt", "id": "debt_a", "name": "The Bay Debt", "isTargeted": true, "atbGauge": 0.4 },
+        { "templateId": "calibration_lapse", "id": "lapse_a", "name": "The Calibration Lapse", "atbGauge": 0.3 },
+        { "templateId": "fluorescent_hum", "id": "hum_e", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+      ]
+    },
+    {
+      "id": "carolina_gated_tour",
+      "name": "The Gated Tour",
+      "description": "The quarterly leadership tour walled off behind glass — only the Store Manager walks with the visitors, and the edict lands on the bays before the cars leave the lot. Hold the floor against the sold-out number.",
+      "environment": "CASTLE",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "gated_tour", "id": "tour_boss", "name": "The Gated Tour", "isTargeted": true, "atbGauge": 0.4 },
+        { "templateId": "executive_edict", "id": "edict_a", "name": "The Executive Edict", "atbGauge": 0.3 }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "tour_boss",
+          "hpBelow": 0.66,
+          "bannerText": "LOCKED OUT OF THE ROOM",
+          "narrationText": "Only the Store Manager walked with them. The rest of you guessed at the edicts from the floor, watching the glass doors close before a single question was asked.",
+          "summonEnemyId": "executive_edict",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "tour_boss",
+          "hpBelow": 0.33,
+          "bannerText": "THE EDICT ROLLS DOWN",
+          "narrationText": "Turn-time clocks, streamlined sign-offs, zero questions taken. The whole sold-out order lands on the bays at once.",
+          "reducePartyToHpPct": 0.4,
+          "executeBelowHpPct": 0.2
+        }
+      ]
+    },
+    {
+      "id": "carolina_paralysis",
+      "name": "The Paralysis of Kindness",
+      "description": "The smile that never stamps, the warmth that never weighs — a store where nothing will ever happen to anyone. The paralysis wants to teach you the same lesson it teaches everyone: don't bother caring.",
+      "environment": "DUNGEON",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "paralysis_smile", "id": "paralysis_boss", "name": "The Paralysis of Kindness", "isTargeted": true, "atbGauge": 0.4 },
+        { "templateId": "unstamped_smile", "id": "smile_a", "name": "The Unstamped Smile", "atbGauge": 0.3 }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "paralysis_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE SMILE STAMPS NOTHING",
+          "narrationText": "Every failure reported and every consequence absent. The kindness absorbs the problem like a sponge, and the problem stays exactly where it was.",
+          "summonEnemyId": "unstamped_smile",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "paralysis_boss",
+          "hpBelow": 0.33,
+          "bannerText": "NO ONE IS EVER HELD",
+          "narrationText": "The conscientious managers pick up everyone's slack while walking on eggshells — and the smile keeps smiling.",
+          "reducePartyToHpPct": 0.4,
+          "executeBelowHpPct": 0.2
+        }
+      ]
+    },
+    {
+      "id": "carolina_fall_guy",
+      "name": "The Fall Guy",
+      "description": "The wheel was never loose, the witnesses saw nothing, and the only person who kept saying the shop was unsafe was the manager who refused to sign. The blame is pre-fitted before the tire is back on.",
+      "environment": "FOREST",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "fall_guy_index", "id": "fallguy_boss", "name": "The Fall Guy", "isTargeted": true, "atbGauge": 0.4 },
+        { "templateId": "buried_report", "id": "report_a", "name": "The Buried Report", "atbGauge": 0.3 }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "fallguy_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE WHEEL WAS NEVER LOOSE",
+          "narrationText": "The report is rewritten, the witnesses reminded what they didn't see, the blame slid toward the manager who refused to sign.",
+          "summonEnemyId": "buried_report",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "fallguy_boss",
+          "hpBelow": 0.33,
+          "bannerText": "SOMEONE HAS TO SIGN",
+          "narrationText": "The store needs a signature it can bury — and yours is the one it wants. The whole building leans on the pen.",
+          "reducePartyToHpPct": 0.4,
+          "executeBelowHpPct": 0.2
+        }
+      ]
+    },
+    {
+      "id": "carolina_regional_desk",
+      "name": "The Regional Desk",
+      "description": "Three hundred miles away behind phones and calendars, built to absorb complaints until they fossilize — but the complaint is already running past it, on a CC line that bypasses every smiling gatekeeper in the building.",
+      "environment": "CASTLE",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "regional_desk", "id": "desk_boss", "name": "The Regional Desk", "isTargeted": true, "atbGauge": 0.42 },
+        { "templateId": "cc_protocol", "id": "cc_a", "name": "The CC Line", "atbGauge": 0.3 },
+        { "templateId": "fluorescent_hum", "id": "hum_f", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "desk_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE CC LINE RUNS THROUGH",
+          "narrationText": "The complaint is already past the store, past the area desk, sitting on a regional calendar where the smile has no power.",
+          "summonEnemyId": "cc_protocol",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "desk_boss",
+          "hpBelow": 0.33,
+          "bannerText": "THE MACHINE MOVES — BARELY",
+          "narrationText": "For one small week the machine blinks when you push. Not justice. A crack. A crack is a start.",
+          "reducePartyToHpPct": 0.5,
+          "executeBelowHpPct": 0.15
+        }
+      ]
+    },
+    {
+      "id": "shingles_fire_two",
+      "name": "The Body Keeps the Score (Again)",
+      "description": "The second outbreak — the same burning line across the same forehead, drawn where everyone can see it. One per state, one store per price paid. Fight through it to finish the load.",
+      "environment": "CAVE",
+      "party": ["todd_shop"],
+      "enemies": [
+        { "templateId": "shingles_fire", "id": "fire2_boss", "name": "The Second Outbreak", "hp": 520, "attack": 28, "isTargeted": true, "atbGauge": 0.4 },
+        { "templateId": "fluorescent_hum", "id": "hum_g", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "fire2_boss",
+          "hpBelow": 0.5,
+          "bannerText": "THE SECOND OUTBREAK",
+          "narrationText": "The same line of fire across the forehead — the second entry on the body's ledger, written where everyone can see it.",
+          "summonEnemyId": "fluorescent_hum",
+          "summonCount": 1
         }
       ]
     }

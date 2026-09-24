@@ -1,0 +1,13 @@
+{
+  "_doc": "Jury — the new store manager who replaces Miss Trudy. Hyper-surveillant, authoritarian, and cruel: the human face of the machine's tightening grip in Lamar, and the antagonist behind the Christmas-party slur. Dialogue-only as a character; her combat presence manifests as a boss encounter.",
+  "id": "jury",
+  "role": "npc",
+  "name": "Jury",
+  "title": "Store Manager",
+  "portraitAsset": "portraits/jury.jpg",
+  "themeColor": "#7E57C2",
+  "ttsPitch": 0.78,
+  "samplePhrase": "Nothing bounces upward to the region. That's your only job, and it is the whole job.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["jury", "the store manager", "the new manager", "jury the manager", "store manager"]
+}

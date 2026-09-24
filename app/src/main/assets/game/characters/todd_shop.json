@@ -1,0 +1,27 @@
+{
+  "_doc": "Todd, reclassified — the same man, now a salaried Shop Manager over the oil and tire bays. Uses the engine's companion slot (joinWhenFlag) to represent the same person 'reclassing' into a new role with a new skill kit, since the campaign has no true companions.",
+  "id": "todd_shop",
+  "role": "npc",
+  "name": "Todd",
+  "title": "Shop Manager",
+  "portraitAsset": "portraits/todd.jpg",
+  "spriteId": "hero",
+  "themeColor": "#F5B041",
+  "ttsPitch": 0.92,
+  "samplePhrase": "Six bays and a line of pickups — let's move some oil.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["todd", "shop manager", "the manager", "bay boss", "me"],
+  "loreClass": "Shop Captain",
+  "joinWhenFlag": "flag_todd_shop",
+  "combat": {
+    "maxHp": 350,
+    "maxMp": 100,
+    "speed": 58,
+    "defense": 6,
+    "avatarTint": "#F5B041",
+    "startAtb": 0.45,
+    "spellIds": ["lube_line", "tire_grind", "bay_charge", "jack_hold", "volt_snap", "coolant_chill", "bay_heat", "belt_mend", "breathe"],
+    "growth": { "maxHp": 17, "maxMp": 9, "speed": 1, "defense": 2, "potencyPct": 0.03 }
+  },
+  "spellGrants": []
+}

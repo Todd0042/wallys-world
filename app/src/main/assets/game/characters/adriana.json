@@ -1,0 +1,13 @@
+{
+  "_doc": "Adriana — Todd's wife. Deeply experienced and fully capable in her own right; applies internally for the Shop Manager position and is denied because 'they wanted a man for the job.' The discrimination that ultimately drives the family out of the area. Dialogue-only.",
+  "id": "adriana",
+  "role": "npc",
+  "name": "Adriana",
+  "title": "Todd's Wife",
+  "portraitAsset": "portraits/adriana.jpg",
+  "themeColor": "#F06292",
+  "ttsPitch": 0.98,
+  "samplePhrase": "They wanted a man for the job. They didn't even try to hide it.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["adriana", "my wife", "the wife", "adri", "my wife adriana", "her"]
+}

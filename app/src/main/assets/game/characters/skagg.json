@@ -1,0 +1,13 @@
+{
+  "_doc": "Cap'n Skagg — the Colorado Area Manager. Turns out to be the real thing: an area manager who actively trains his management teams while touring the stores. Duped by Mattie-T's email at first, he sees through it quickly as he gets to know Todd, and becomes the act's mentor figure. Dialogue-only.",
+  "id": "skagg",
+  "role": "npc",
+  "name": "Cap'n Skagg",
+  "title": "Area Manager",
+  "portraitAsset": "portraits/skagg.jpg",
+  "themeColor": "#26A69A",
+  "ttsPitch": 0.85,
+  "samplePhrase": "I read what Mattie-T sent about you before you ever set foot out here. I tell you what — I'm glad I looked for myself.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["skagg", "cap'n skagg", "captain skagg", "the captain", "area manager", "cap"]
+}

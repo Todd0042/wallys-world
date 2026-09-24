@@ -23,7 +23,7 @@ the scene contains.
 
 In-store wall signage may read "Always Low Morale" (the campaign's own inverse slogan) as plain
 wall graphics. Do **not** use the real "Everyday Low Price", "Always Save Money", "rollback",
-"Always" slogans of any real chain, the yellow spark, or any Walmart wordmark/logo. This is a
+"Always" slogans of any real chain, the yellow spark, or any real retailer's wordmark/logo. This is a
 fictional megastore named **Wally's World**; keep every real-brand mark out by construction.
 No barcodes, no real logos, no founder likenesses, no real store names.
 
@@ -132,13 +132,138 @@ No barcodes, no real logos, no founder likenesses, no real store names.
 
 ---
 
+## Act 2 — Lamar, Colorado
+
+## 10. Lamar — the highway oasis / service shop
+**File:** `app/src/main/assets/story/squeeze_colorado_lamar.jpg` (1280x720)
+
+> Wide shot of a fictional megastore service shop on a flat high-plains highway corridor in
+> winter: six bays under a sagging canopy, a line of semi-trucks and dusty pickups pulled up at
+> the pumps, faded orange-and-teal equipment (no readable text). A lone shop manager in a teal
+> vest stands under the canopy with a clipboard, breath steaming in the cold, a stack of oil jugs
+> by the bay door. A **melting smiley** hangs on the canopy sign, the wax face running in the
+> wind. Low winter sun, long shadows, honest small-town commerce. No real logos, no readable
+> text.
+
+## 11. Lamar — the store floor under the new watch
+**File:** `app/src/main/assets/story/squeeze_colorado_store.jpg` (1280x720)
+
+> Interior of a big-box store floor gone quiet and tight: perfectly neat aisles with not a single
+> worker chatting, ceiling-mounted cameras every few rows, an orange-vested associate glancing
+> over their shoulder, a store manager's silhouette watching from the mezzanine. A far wall reads
+> "ALWAYS LOW MORALE" in muted mustard as plain wallpaper, and a **melting smiley** poster droops
+> on an endcap. Flat fluorescent light, the atmosphere of being watched. No real logos, no
+> readable text.
+
+## 12. Lamar — the area office / the brick wall
+**File:** `app/src/main/assets/story/squeeze_colorado_office.jpg` (1280x720)
+
+> A fluorescent hallway and small area office inside a big-box store: a stack of file folders on a
+> plastic office desk, one folder open showing a single word stamped across a page —
+> "UNSUBSTANTIATED" (half-readable, editorial do-not-fully-render instruction) — a tired couple
+> sitting across from an empty investigator's chair, a frosted-glass meeting-room door behind. A
+> **melting smiley** coffee cup on the desk, face running. Cold institutional light, muted
+> mustard accents. No real logos, no readable text except the one half-read stamped word.
+
+## 13. Lamar — the community hall / Christmas party
+**File:** `app/src/main/assets/story/squeeze_colorado_hall.jpg` (1280x720)
+
+> A rented community hall set for an awkward office holiday party under harsh fluorescent glare:
+> paper tablecloths, a punch bowl, sad catering trays, cheap tinsel. A sharp-faced store manager
+> in a neat blazer stands mid-laugh with a drink while a weary shop manager in a teal vest stands
+> apart, two witnesses glancing between them. A drooping **melting smiley** balloon and a garland
+> banner frame the scene. Ugly lighting, social dread. No readable text, no real logos.
+
+## 14. Lamar — the road out
+**File:** `app/src/main/assets/story/squeeze_colorado_road.jpg` (1280x720)
+
+> A packed box truck in a gravel driveway at dusk on the Colorado high plains: furniture lashed
+> under load straps, the house behind it dark and emptied, a tall figure loading the last box
+> with one hand pressed to his forehead beneath the brim of his cap. A single **melting smiley**
+> sticker droops on the last box. Flat empty highway in the distance, cold blue dusk light, the
+> truck's taillights glowing red. No readable text, no real logos.
+
+## 15. Miss Trudy — legacy store manager
+**File:** `app/src/main/assets/portraits/trudy.jpg` (640x800, portrait)
+
+> Editorial portrait of a warm, weathered woman in her 60s — a legacy store manager. Silver hair
+> pulled back, kind creased eyes, a teal-and-orange vest over a comfortable cardigan, a worn
+> **melting smiley** button on the collar. She smiles with real warmth, tired but genuine,
+> holding a plastic coffee cup. Soft back-office light, blurred storefront behind her. 35mm
+> photorealistic, muted mustard palette. No name tags, no real logos.
+
+## 16. Jury — the new store manager
+**File:** `app/src/main/assets/portraits/jury.jpg` (640x800, portrait)
+
+> Editorial portrait of a sharp-faced woman in her 40s — a newly installed store manager known
+> for surveillance. A neat dark blazer over a teal shirt, a thin smile that doesn't reach flat
+> eyes, arms crossed, standing in a doorway with a wall of security monitors faintly blurring
+> behind her. A small **melting smiley** pin on the lapel, face running. Cool fluorescent light,
+> brittle tension. 35mm photorealistic. No name tags, no real logos, no readable text.
+
+## 17. Adriana — Todd's wife
+**File:** `app/src/main/assets/portraits/adriana.jpg` (640x800, portrait)
+
+> Editorial portrait of a capable, quietly tired woman in her early 30s — the protagonist's wife.
+> Wavy dark hair, warm intelligent eyes with dark circles behind them, an open cardigan over a
+> blouse, one hand folded on a stack of papers beside a mug of coffee. Soft warm kitchen light
+> against a blurred lamp-lit window. She looks kind, steady, and quietly furious. 35mm
+> photorealistic, honest working-class warmth. No name tags, no real logos, no readable text.
+
+## 18. Cap'n Skagg — area manager
+**File:** `app/src/main/assets/portraits/skagg.jpg` (640x800, portrait)
+
+> Editorial portrait of a weathered, big-hearted man in his 50s — a veteran area manager. Broad
+> shoulders, salt-and-pepper close-cropped hair, deep laugh lines, an open-collar shirt under a
+> well-worn jacket with a small **melting smiley** pin, face running. He stands on a truck-stop
+> apron with a semi and the dusk high plains behind him, one hand on his hip, looking at you with
+> knowing, kind eyes. 35mm photorealistic, warm working-class dignity. No name tags, no readable
+> text, no real logos.
+
+---
+
+## Act 3 — The Georgia–South Carolina Borderlands
+
+## 19. State-line commute
+**File:** `app/src/main/assets/story/squeeze_carolina_commute.jpg` (1280x720)
+
+> Pre-dawn on a two-lane country road crossing from Georgia into South Carolina: a rented farmhouse with a single warm porch light shrinking in the side mirror, kudzu and scrub pines along the shoulder, a green highway sign for the state line (no readable text), low banks of fog, and a tired sedan in the middle distance heading toward a flat, distant megastore. A thermos on the dash, a folded orange vest on the passenger seat. Gritty but warm editorial tone, muted early-2000s palette, soft fluorescent glow from the big box on the horizon. No real logos, no barcodes, no text except one green state-line sign rendered half-read.
+
+## 20. Gated hierarchy / leadership tour
+**File:** `app/src/main/assets/story/squeeze_carolina_store.jpg` (1280x720)
+
+> Wide interior shot of a big-box store's main aisle during a leadership walkthrough: a small pack of executives in pressed shirts and polished shoes being shown around by a single smiling store manager, while a line of junior salaried managers in teal-and-orange vests stand at the edge of the sales floor, clearly kept out, watching through the endcap stacks. Above them a hanging banner carries a single **melting smiley** (wax face dripping), and a far wall reads "ALWAYS LOW MORALE" as plain muted wallpaper. Fluorescent light, empty-cart silence, tension in the bodies. No real logos, no readable badges.
+
+## 21. The neglected service shop / paralysis of kindness
+**File:** `app/src/main/assets/story/squeeze_carolina_bays.jpg` (1280x720)
+
+> Interior of a run-down big-box service shop: six bays under a sagging roof, worn toolboxes with missing wheels, unlabeled parts bins, a lift that looks decades old, work-order boards jammed with yellow tickets. A tired shop manager in a teal vest inspects a greasy torque wrench while green apprentices watch him from a distance, hopeful and wary. A peeling wall poster of a **melting smiley** hangs by the office door, wax running down its face. Warm-but-tired fluorescent light, honest working-class grit. No real logos, no readable text.
+
+## 22. The safety breach / regional office
+**File:** `app/src/main/assets/story/squeeze_carolina_office.jpg` (1280x720)
+
+> A fluorescent-lit hallway and office at the back of a big-box store: a small manager's desk stacked with binders and a loose-wheel report, a single warm CRT monitor showing a spreadsheet, frosted glass doors leading down a corridor. An exhausted shop manager in a teal vest stands at the desk holding a printed complaint, one hand on a keyboard, a hard copy of the report visible on the desk. On the wall a **melting smiley** poster droops. Tense, quiet, slightly claustrophobic. No real logos, no readable text.
+
+## 23. The second scar / road out of the borderlands
+**File:** `app/src/main/assets/story/squeeze_carolina_road.jpg` (1280x720)
+
+> Dusk on a scrub-pine highway pointed west out of the borderlands: a rented box truck loaded to the seams with furniture and boxes, taillights glowing, Georgia pines and a dark porch light receding behind it. A scarred, tired man in an orange vest sits at the wheel, one hand on the dash, a bandage edge visible above his eyebrow. A single **melting smiley** sticker droops on the last cardboard box strapped to the load. Long shadows, warm dying light, a quiet road into the mountains ahead. No real logos, no readable text.
+
+## 24. Azalia — the borderlands store manager
+**File:** `app/src/main/assets/portraits/azalia.jpg` (640x800, portrait)
+
+> Editorial portrait of a warm, soft-featured woman in her late 40s — the store manager of a neglect-plagued big-box service shop. She wears the teal-and-orange vest over a button-up blouse, a worn **melting smiley** button on the chest, face running like warm wax. She smiles kindly, genuinely, eyes that look at you with real care — and just behind the warmth, a faint brittleness, the small tell of someone who has never once stamped a consequence. Soft fluorescent office light, blurred service-shop aisle behind her, muted mustard palette. 35mm, photorealistic. No real logos, no name tags.
+
+---
+
 ## Regeneration notes
 
-- If Gemini refuses a prompt for "Walmart trademark", the image already uses the fictional
+- If Gemini refuses a prompt for "any real retailer trademark", the image already uses the fictional
   "Wally's World" name — just re-run; the fallback is fine.
 - The **melting smiley** and **Always Low Morale** rules are baked into every block above; an
   intact, happy smiley or the real "Everyday Low Price" wording is the one thing that's an
   automatic reject-and-regenerate.
 - Portraits are hot-swappable by file name alone (`todd.jpg`, `jodie.jpg`, `mattie_t.jpg`,
-  `narrator.jpg`) — the engine never references specific art beyond these names, so you may
-  upgrade any of them without a rebuild.
+  `narrator.jpg`, `trudy.jpg`, `jury.jpg`, `adriana.jpg`, `skagg.jpg`, `azalia.jpg`) — the
+  engine never references specific art beyond these names, so you may upgrade any of them
+  without a rebuild.
