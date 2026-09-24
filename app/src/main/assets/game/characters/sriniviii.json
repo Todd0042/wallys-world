@@ -1,0 +1,20 @@
+{
+  "_doc": "Sriniviii — the unrelenting St. Augustine Store Manager. Intense, relentless, and for three golden months almost kind: he praises the logistics competence, validates the operational approach, and makes the curse of the overnight manager look broken. The vacation ends the sunshine, and the praise curdles into a cold predatory stare. Dialogue-only.",
+  "id": "sriniviii",
+  "role": "npc",
+  "name": "Sriniviii",
+  "title": "Store Manager, St. Augustine",
+  "portraitAsset": "portraits/sriniviii.jpg",
+  "themeColor": "#FFB300",
+  "ttsPitch": 0.9,
+  "samplePhrase": "The freight moves like a river. Keep it that way.",
+  "preferredVoiceId": null,
+  "voiceAliases": [
+    "sriniviii",
+    "store manager",
+    "the store manager",
+    "srin",
+    "srini",
+    "the manager"
+  ]
+}

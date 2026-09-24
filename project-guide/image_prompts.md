@@ -313,6 +313,48 @@ No barcodes, no real logos, no founder likenesses, no real store names.
 
 > Editorial portrait of a young man in his late 20s — a regional compliance manager on his way up the corporate ladder. Broad-shouldered, freshly pressed light-blue shirt, a crisp new badge, hair styled stiffly, a big gleaming smile of practiced confidence. He holds a stocking report folded in a way that reveals he has no idea how to read it — but the smile assures you otherwise. A single **melting smiley** pin droops on his lapel, face running. Clean fluorescent light, boardroom eagerness, the empty confidence of a man about to be taught his own job. 35mm photorealistic. No name tags, no readable text.
 
+## Act 5 — St. Augustine, Florida
+
+## 36. The asphalt gauntlet
+**File:** `app/src/main/assets/story/squeeze_florida_road.jpg` (1280x720)
+
+> Florida Interstate 95 at night between Jacksonville and St. Augustine: a single car heading south into the dark, brake-light walls ahead, construction barriers with blinking arrow boards, swamp-dark billboards and sodium street lamps, a glare of Florida sunrise just starting on the horizon behind. On a roadside board a **melting smiley** is drawn, face slowly running. The commute as a psychological torture test made landscape. Bright humming fluorescent headlight light, gritty and endless. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 37. The honeymoon floor
+**File:** `app/src/main/assets/story/squeeze_florida_store.jpg` (1280x720)
+
+> The overnight floor of a big-box store in its golden months: freight moving like a river, associates passing cases hand to hand in one fluid motion, bins breathing, a store manager in shirtsleeves shaking hands with a manager in a teal vest with both of his, beaming genuine approval. The store glows green and alive with improbable optimism. A **melting smiley** pin droops on a vest, face running; a far wall reads "ALWAYS LOW MORALE" in muted mustard. Bright, almost-kind fluorescent light — the machine at its best behavior. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 38. The flip — the office
+**File:** `app/src/main/assets/story/squeeze_florida_office.jpg` (1280x720)
+
+> A big-box store manager's office after the honeymoon has flipped: charts on the wall with goalposts literally drawn mounted on wheels, a cold predatory stare from the manager behind the broad desk, and a tired teal-vest manager standing before him at the end of a night shift, deflated. A **melting smiley** coffee mug sits between them, face running. Harsh morning light through the blinds, the warmth gone from the room. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 39. The hostage backroom
+**File:** `app/src/main/assets/story/squeeze_florida_backroom.jpg` (1280x720)
+
+> An ownerless backroom after close: folded shirts in a dead color on a peg wall, a single teal-vest manager alone under a bank of fluorescent lights at 2 AM recounting pegs nobody will check, a clock high on the wall, the dim exit door glowing at the far end of an empty store stretching beyond. A single **melting smiley** sticker droops on a pallet, face fully run. The building holding a man past his shift, fluorescent hum you can almost hear. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 40. The sanctuary floor
+**File:** `app/src/main/assets/story/squeeze_florida_overnight.jpg` (1280x720)
+
+> The overnight floor at 3 AM, the good crew: warm honest people working together — a cart girl laughing, a receiver sharing coffee, a kid's photo taped to a cart — and a teal-vest manager standing watch between them and a harsh doorway of daylight at the far end. Genuine warmth in the dark, the pure opposite of the office. A **melting smiley** pin on the manager's vest, face running. Quiet, human, luminous fluorescent light. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 41. The 3 AM
+**File:** `app/src/main/assets/story/squeeze_florida_3am.jpg` (1280x720)
+
+> The cavernous backroom at 3 AM on medical leave: one man sitting alone on the baler with his hands in his lap, a single struggling fluorescent panel overhead, deep shadow swallowing the rafters, the exit door a far faint glowing rectangle, a stopped clock, and the first crack of dawn light beginning at a high window. Solemn, dark, isolating — never a depiction of harm, only the weight of a long night and the light that finally comes. A **melting smiley** sticker on the wall, face completely run. Heavy shadow, film grain, 35mm photorealistic. No real logos, no readable text.
+
+## 42. Sriniviii — store manager
+**File:** `app/src/main/assets/portraits/sriniviii.jpg` (640x800, portrait)
+
+> Editorial portrait of an intense, unrelenting South Asian man in his 40s — a big-box store manager. Neat short hair, sharp pressed shirt, and for now a genuine two-handed warmth: a broad approving smile, direct intense eyes that don't blink, teal vest over a white shirt, small **melting smiley** pin, face running. Warm-to-flat transition light, the man who can praise you like gold and then read you like a ledger. 35mm photorealistic. No name tags, no readable text.
+
+## 43. Ohmar — store lead
+**File:** `app/src/main/assets/portraits/ohmar.jpg` (640x800, portrait)
+
+> Editorial portrait of a huge, unnervingly calm man in his late 30s — the store lead and the region's enforcer. Impeccably pressed dark polo, arms folded across broad shoulders, a small polite flat smile that does not reach the eyes, head tilted slightly like weather, radiating controlled menace without raising his voice. A **melting smiley** pin on his chest, face run to a smear. Cold fluorescent office light, black backdrop, the kind of quiet that empties a hallway. 35mm photorealistic. No name tags, no readable text.
+
 ---
 
 ## Regeneration notes
@@ -324,6 +366,7 @@ No barcodes, no real logos, no founder likenesses, no real store names.
   automatic reject-and-regenerate.
 - Portraits are hot-swappable by file name alone (`todd.jpg`, `jodie.jpg`, `mattie_t.jpg`,
   `narrator.jpg`, `trudy.jpg`, `jury.jpg`, `adriana.jpg`, `skagg.jpg`, `azalia.jpg`,
-  `jay_dau.jpg`, `amandy.jpg`, `steffie.jpg`, `richard.jpg`) — the
+  `jay_dau.jpg`, `amandy.jpg`, `steffie.jpg`, `richard.jpg`, `sriniviii.jpg`,
+  `ohmar.jpg`) — the
   engine never references specific art beyond these names, so you may upgrade any of them
   without a rebuild.

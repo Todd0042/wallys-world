@@ -6,10 +6,23 @@
       "name": "The 4 AM Unload",
       "description": "Forty-eight feet of freight in a dead building. You versus the wall, with the ballast hum grinding in your ears.",
       "environment": "CAVE",
-      "party": ["hero"],
+      "party": [
+        "hero"
+      ],
       "enemies": [
-        { "templateId": "freight_wall", "id": "freight_wall_a", "name": "The Freight Wall", "isTargeted": true, "atbGauge": 0.35 },
-        { "templateId": "fluorescent_hum", "id": "hum_a", "name": "The Fluorescent Hum", "atbGauge": 0.2 }
+        {
+          "templateId": "freight_wall",
+          "id": "freight_wall_a",
+          "name": "The Freight Wall",
+          "isTargeted": true,
+          "atbGauge": 0.35
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_a",
+          "name": "The Fluorescent Hum",
+          "atbGauge": 0.2
+        }
       ]
     },
     {
@@ -17,11 +30,31 @@
       "name": "Front-End Storm",
       "description": "The hour-occupancy dashboard is red, and management's pet is running the paging wand. Hold the floor.",
       "environment": "DUNGEON",
-      "party": ["hero"],
+      "party": [
+        "hero"
+      ],
       "enemies": [
-        { "templateId": "metrics_dashboard", "id": "dashboard_a", "name": "The Dashboard", "isTargeted": true, "atbGauge": 0.35 },
-        { "templateId": "the_ringer", "id": "ringer_a", "name": "The Ringer", "atbGauge": 0.3 },
-        { "templateId": "fluorescent_hum", "id": "hum_b", "name": "The Fluorescent Hum", "hp": 70, "attack": 18, "atbGauge": 0.2 }
+        {
+          "templateId": "metrics_dashboard",
+          "id": "dashboard_a",
+          "name": "The Dashboard",
+          "isTargeted": true,
+          "atbGauge": 0.35
+        },
+        {
+          "templateId": "the_ringer",
+          "id": "ringer_a",
+          "name": "The Ringer",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_b",
+          "name": "The Fluorescent Hum",
+          "hp": 70,
+          "attack": 18,
+          "atbGauge": 0.2
+        }
       ]
     },
     {
@@ -29,10 +62,23 @@
       "name": "The Manager's Office",
       "description": "The email is already out — a short 'not ready' note sitting in the area manager's inbox, sent before you ever walked in — and the man who sent it smiles behind the desk. Everything you built this act is on the line.",
       "environment": "CASTLE",
-      "party": ["hero"],
+      "party": [
+        "hero"
+      ],
       "enemies": [
-        { "templateId": "mattie_t_enemy", "id": "mattie_boss", "name": "Mattie-T", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "poisoned_email", "id": "email_a", "name": "The Poisoned Email", "atbGauge": 0.25 }
+        {
+          "templateId": "mattie_t_enemy",
+          "id": "mattie_boss",
+          "name": "Mattie-T",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "poisoned_email",
+          "id": "email_a",
+          "name": "The Poisoned Email",
+          "atbGauge": 0.25
+        }
       ],
       "bossPhases": [
         {
@@ -58,11 +104,29 @@
       "name": "The Friday Oil Rush",
       "description": "Six bays, a line of pickups around the block, and the clock running on every one. The service shop's first big push — the honeymoon happens here, on your feet.",
       "environment": "DUNGEON",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "friday_rush", "id": "rush_a", "name": "The Friday Rush", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "bay_grime", "id": "grime_a", "name": "The Bay Grime", "atbGauge": 0.25 },
-        { "templateId": "tire_tower", "id": "tower_a", "name": "The Tire Tower", "atbGauge": 0.2 }
+        {
+          "templateId": "friday_rush",
+          "id": "rush_a",
+          "name": "The Friday Rush",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "bay_grime",
+          "id": "grime_a",
+          "name": "The Bay Grime",
+          "atbGauge": 0.25
+        },
+        {
+          "templateId": "tire_tower",
+          "id": "tower_a",
+          "name": "The Tire Tower",
+          "atbGauge": 0.2
+        }
       ]
     },
     {
@@ -70,11 +134,31 @@
       "name": "The Purge Audit",
       "description": "Jury's watch is on every bay and the retirement memo is already moving up the chain. The friendly air of the building condenses into something sharp.",
       "environment": "CASTLE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "retirement_memo", "id": "memo_a", "name": "The Retirement Memo", "isTargeted": true, "atbGauge": 0.35 },
-        { "templateId": "jury_watch", "id": "watch_a", "name": "The Watchful Eye", "atbGauge": 0.35 },
-        { "templateId": "fluorescent_hum", "id": "hum_c", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+        {
+          "templateId": "retirement_memo",
+          "id": "memo_a",
+          "name": "The Retirement Memo",
+          "isTargeted": true,
+          "atbGauge": 0.35
+        },
+        {
+          "templateId": "jury_watch",
+          "id": "watch_a",
+          "name": "The Watchful Eye",
+          "atbGauge": 0.35
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_c",
+          "name": "The Fluorescent Hum",
+          "hp": 80,
+          "attack": 19,
+          "atbGauge": 0.2
+        }
       ]
     },
     {
@@ -82,10 +166,23 @@
       "name": "The Brick Wall",
       "description": "The grievance grinds for a week and comes back with the only stamp the machine owns: yes, they said it, and no, it didn't happen.",
       "environment": "FOREST",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "want_man", "id": "wanted_boss", "name": "The Man They Wanted", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "grievance_file", "id": "file_a", "name": "The Grievance File", "atbGauge": 0.3 }
+        {
+          "templateId": "want_man",
+          "id": "wanted_boss",
+          "name": "The Man They Wanted",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "grievance_file",
+          "id": "file_a",
+          "name": "The Grievance File",
+          "atbGauge": 0.3
+        }
       ],
       "bossPhases": [
         {
@@ -110,10 +207,23 @@
       "name": "The Christmas Party Slur",
       "description": "The rented community hall under fluorescent glare. Jury walks up with casual malice and says it twice, in front of witnesses. The second grievance is already signing itself.",
       "environment": "CASTLE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "jury_enemy", "id": "jury_boss", "name": "Jury", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "grievance_file", "id": "file_b", "name": "The Grievance File", "atbGauge": 0.25 }
+        {
+          "templateId": "jury_enemy",
+          "id": "jury_boss",
+          "name": "Jury",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "grievance_file",
+          "id": "file_b",
+          "name": "The Grievance File",
+          "atbGauge": 0.25
+        }
       ],
       "bossPhases": [
         {
@@ -139,10 +249,25 @@
       "name": "The Body Keeps the Score",
       "description": "The burning nerve fire that flares across your forehead for the first time — shingles, the body's own scorecard for the year. Fight through it to pack the truck.",
       "environment": "CAVE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "shingles_fire", "id": "fire_boss", "name": "The Shingles Fire", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "fluorescent_hum", "id": "hum_d", "name": "The Fluorescent Hum", "hp": 70, "attack": 18, "atbGauge": 0.2 }
+        {
+          "templateId": "shingles_fire",
+          "id": "fire_boss",
+          "name": "The Shingles Fire",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_d",
+          "name": "The Fluorescent Hum",
+          "hp": 70,
+          "attack": 18,
+          "atbGauge": 0.2
+        }
       ],
       "bossPhases": [
         {
@@ -160,11 +285,31 @@
       "name": "The Neglected Bays",
       "description": "Six bays under a roof that hasn't been repainted since the previous decade, years of deferred maintenance, and a clock already running on your first ticket. The neglect is a living thing in the room with you.",
       "environment": "DUNGEON",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "bay_debt", "id": "debt_a", "name": "The Bay Debt", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "calibration_lapse", "id": "lapse_a", "name": "The Calibration Lapse", "atbGauge": 0.3 },
-        { "templateId": "fluorescent_hum", "id": "hum_e", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+        {
+          "templateId": "bay_debt",
+          "id": "debt_a",
+          "name": "The Bay Debt",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "calibration_lapse",
+          "id": "lapse_a",
+          "name": "The Calibration Lapse",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_e",
+          "name": "The Fluorescent Hum",
+          "hp": 80,
+          "attack": 19,
+          "atbGauge": 0.2
+        }
       ]
     },
     {
@@ -172,10 +317,23 @@
       "name": "The Gated Tour",
       "description": "The quarterly leadership tour walled off behind glass — only the Store Manager walks with the visitors, and the edict lands on the bays before the cars leave the lot. Hold the floor against the sold-out number.",
       "environment": "CASTLE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "gated_tour", "id": "tour_boss", "name": "The Gated Tour", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "executive_edict", "id": "edict_a", "name": "The Executive Edict", "atbGauge": 0.3 }
+        {
+          "templateId": "gated_tour",
+          "id": "tour_boss",
+          "name": "The Gated Tour",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "executive_edict",
+          "id": "edict_a",
+          "name": "The Executive Edict",
+          "atbGauge": 0.3
+        }
       ],
       "bossPhases": [
         {
@@ -201,10 +359,23 @@
       "name": "The Paralysis of Kindness",
       "description": "The store manager's kindness unmakes every consequence you draw before the ink dries — the warmth that never weighs, the smile that quietly cancels your paperwork. The paralysis wants to teach you the same lesson it teaches everyone: don't bother caring.",
       "environment": "DUNGEON",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "paralysis_smile", "id": "paralysis_boss", "name": "The Paralysis of Kindness", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "unstamped_smile", "id": "smile_a", "name": "The Unstamped Smile", "atbGauge": 0.3 }
+        {
+          "templateId": "paralysis_smile",
+          "id": "paralysis_boss",
+          "name": "The Paralysis of Kindness",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "unstamped_smile",
+          "id": "smile_a",
+          "name": "The Unstamped Smile",
+          "atbGauge": 0.3
+        }
       ],
       "bossPhases": [
         {
@@ -230,10 +401,23 @@
       "name": "The Fall Guy",
       "description": "The wheel was never loose, the witnesses saw nothing, and the only person who kept saying the shop was unsafe was the manager who refused to sign. The blame is pre-fitted before the tire is back on.",
       "environment": "FOREST",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "fall_guy_index", "id": "fallguy_boss", "name": "The Fall Guy", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "buried_report", "id": "report_a", "name": "The Buried Report", "atbGauge": 0.3 }
+        {
+          "templateId": "fall_guy_index",
+          "id": "fallguy_boss",
+          "name": "The Fall Guy",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "buried_report",
+          "id": "report_a",
+          "name": "The Buried Report",
+          "atbGauge": 0.3
+        }
       ],
       "bossPhases": [
         {
@@ -259,11 +443,31 @@
       "name": "The Regional Desk",
       "description": "Three hundred miles away behind phones and calendars, built to absorb complaints until they fossilize — but the complaint is already running past it, on a CC line that bypasses every smiling gatekeeper in the building.",
       "environment": "CASTLE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "regional_desk", "id": "desk_boss", "name": "The Regional Desk", "isTargeted": true, "atbGauge": 0.42 },
-        { "templateId": "cc_protocol", "id": "cc_a", "name": "The CC Line", "atbGauge": 0.3 },
-        { "templateId": "fluorescent_hum", "id": "hum_f", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+        {
+          "templateId": "regional_desk",
+          "id": "desk_boss",
+          "name": "The Regional Desk",
+          "isTargeted": true,
+          "atbGauge": 0.42
+        },
+        {
+          "templateId": "cc_protocol",
+          "id": "cc_a",
+          "name": "The CC Line",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_f",
+          "name": "The Fluorescent Hum",
+          "hp": 80,
+          "attack": 19,
+          "atbGauge": 0.2
+        }
       ],
       "bossPhases": [
         {
@@ -289,10 +493,27 @@
       "name": "The Body Keeps the Score (Again)",
       "description": "The second outbreak — the same burning line across the same forehead, drawn where everyone can see it. One per state, one store per price paid. Fight through it to finish the load.",
       "environment": "CAVE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "shingles_fire", "id": "fire2_boss", "name": "The Second Outbreak", "hp": 520, "attack": 28, "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "fluorescent_hum", "id": "hum_g", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+        {
+          "templateId": "shingles_fire",
+          "id": "fire2_boss",
+          "name": "The Second Outbreak",
+          "hp": 520,
+          "attack": 28,
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_g",
+          "name": "The Fluorescent Hum",
+          "hp": 80,
+          "attack": 19,
+          "atbGauge": 0.2
+        }
       ],
       "bossPhases": [
         {
@@ -310,11 +531,29 @@
       "name": "The Front-End Swarm",
       "description": "Nine o'clock and six deep at every register, the service desk blinking, and no supervisor anywhere to page. Tell them their number, then save the five ahead of them.",
       "environment": "DUNGEON",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "sixth_in_line", "id": "sixth_a", "name": "The Sixth in Line", "isTargeted": true, "atbGauge": 0.35 },
-        { "templateId": "queue_wall", "id": "wall_a", "name": "The Queue Wall", "atbGauge": 0.3 },
-        { "templateId": "register_blitz", "id": "blitz_a", "name": "The Register Blitz", "atbGauge": 0.25 }
+        {
+          "templateId": "sixth_in_line",
+          "id": "sixth_a",
+          "name": "The Sixth in Line",
+          "isTargeted": true,
+          "atbGauge": 0.35
+        },
+        {
+          "templateId": "queue_wall",
+          "id": "wall_a",
+          "name": "The Queue Wall",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "register_blitz",
+          "id": "blitz_a",
+          "name": "The Register Blitz",
+          "atbGauge": 0.25
+        }
       ]
     },
     {
@@ -322,10 +561,25 @@
       "name": "The One-Man Close",
       "description": "Midnight: forty thousand square feet of dark, every till to count, every door to check — and the building, empty, pressing in like it's keeping count of you too.",
       "environment": "CASTLE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "one_man_close", "id": "close_boss", "name": "The One-Man Close", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "queue_wall", "id": "wall_b", "name": "The Queue Wall", "hp": 260, "attack": 19, "atbGauge": 0.25 }
+        {
+          "templateId": "one_man_close",
+          "id": "close_boss",
+          "name": "The One-Man Close",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "queue_wall",
+          "id": "wall_b",
+          "name": "The Queue Wall",
+          "hp": 260,
+          "attack": 19,
+          "atbGauge": 0.25
+        }
       ],
       "bossPhases": [
         {
@@ -351,11 +605,31 @@
       "name": "The Blotter Regulars",
       "description": "Weekly visitors, a weather system: the team that sweeps housewares and electronics, and the grab-and-run that empties a shelf in eleven seconds.",
       "environment": "DUNGEON",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "blotter_regulars", "id": "blotter_a", "name": "The Blotter Regulars", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "grab_and_run", "id": "grab_a", "name": "The Grab-and-Run", "atbGauge": 0.3 },
-        { "templateId": "fluorescent_hum", "id": "hum_h", "name": "The Fluorescent Hum", "hp": 70, "attack": 18, "atbGauge": 0.2 }
+        {
+          "templateId": "blotter_regulars",
+          "id": "blotter_a",
+          "name": "The Blotter Regulars",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "grab_and_run",
+          "id": "grab_a",
+          "name": "The Grab-and-Run",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_h",
+          "name": "The Fluorescent Hum",
+          "hp": 70,
+          "attack": 18,
+          "atbGauge": 0.2
+        }
       ]
     },
     {
@@ -363,11 +637,31 @@
       "name": "The Claim Blizzard",
       "description": "Everyone claims on everyone: associate against associate, manager against associate, and a closing manager who files his own to stay out of the way.",
       "environment": "FOREST",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "claim_blizzard", "id": "claim_a", "name": "The Claim Blizzard", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "hostile_floor", "id": "hostile_a", "name": "The Hostile Floor", "atbGauge": 0.35 },
-        { "templateId": "grievance_file", "id": "file_c", "name": "The Filed Claim", "hp": 160, "attack": 19, "atbGauge": 0.25 }
+        {
+          "templateId": "claim_blizzard",
+          "id": "claim_a",
+          "name": "The Claim Blizzard",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "hostile_floor",
+          "id": "hostile_a",
+          "name": "The Hostile Floor",
+          "atbGauge": 0.35
+        },
+        {
+          "templateId": "grievance_file",
+          "id": "file_c",
+          "name": "The Filed Claim",
+          "hp": 160,
+          "attack": 19,
+          "atbGauge": 0.25
+        }
       ]
     },
     {
@@ -375,11 +669,33 @@
       "name": "The Parking Lot Draw",
       "description": "Eleven at night, a dispute walking to its cars, two hands going to two waistbands. The lot is dark, the line is thin, and it's yours to hold.",
       "environment": "CAVE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "parking_draw", "id": "parking_boss", "name": "The Parking Lot Draw", "isTargeted": true, "atbGauge": 0.42 },
-        { "templateId": "grab_and_run", "id": "grab_b", "name": "The Crowd", "hp": 170, "attack": 21, "atbGauge": 0.3 },
-        { "templateId": "fluorescent_hum", "id": "hum_i", "name": "The Sodium Light", "hp": 70, "attack": 18, "atbGauge": 0.2 }
+        {
+          "templateId": "parking_draw",
+          "id": "parking_boss",
+          "name": "The Parking Lot Draw",
+          "isTargeted": true,
+          "atbGauge": 0.42
+        },
+        {
+          "templateId": "grab_and_run",
+          "id": "grab_b",
+          "name": "The Crowd",
+          "hp": 170,
+          "attack": 21,
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_i",
+          "name": "The Sodium Light",
+          "hp": 70,
+          "attack": 18,
+          "atbGauge": 0.2
+        }
       ],
       "bossPhases": [
         {
@@ -405,11 +721,33 @@
       "name": "The Freight-to-Floor",
       "description": "The overhaul hits the floor all at once — the dock, the bins, the topstock, the whole rebuild under a clock that wants it faster. Proves whether the system works when leadership equips its people.",
       "environment": "DUNGEON",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "overhaul_wall", "id": "overhaul_boss", "name": "The Freight-to-Floor", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "freight_wall", "id": "fw_a", "name": "The Freight Wall", "hp": 240, "attack": 18, "atbGauge": 0.3 },
-        { "templateId": "fluorescent_hum", "id": "hum_j", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+        {
+          "templateId": "overhaul_wall",
+          "id": "overhaul_boss",
+          "name": "The Freight-to-Floor",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "freight_wall",
+          "id": "fw_a",
+          "name": "The Freight Wall",
+          "hp": 240,
+          "attack": 18,
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_j",
+          "name": "The Fluorescent Hum",
+          "hp": 80,
+          "attack": 19,
+          "atbGauge": 0.2
+        }
       ],
       "bossPhases": [
         {
@@ -435,11 +773,31 @@
       "name": "The Compliance Visit",
       "description": "Richard leading a walkthrough he half-understands, a regional director at his shoulder, and the whole overhaul under the microscope of people who didn't build it. Keep the show on the rails.",
       "environment": "CASTLE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "aspirant_zero", "id": "richard_boss", "name": "The Compliance Aspirant", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "zero_report", "id": "report_b", "name": "The Zero Report", "atbGauge": 0.3 },
-        { "templateId": "fluorescent_hum", "id": "hum_k", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+        {
+          "templateId": "aspirant_zero",
+          "id": "richard_boss",
+          "name": "The Compliance Aspirant",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "zero_report",
+          "id": "report_b",
+          "name": "The Zero Report",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_k",
+          "name": "The Fluorescent Hum",
+          "hp": 80,
+          "attack": 19,
+          "atbGauge": 0.2
+        }
       ],
       "bossPhases": [
         {
@@ -465,11 +823,33 @@
       "name": "The Paradox of Jay-Dau",
       "description": "Friend by daylight, hell on the clock: the quarterly pressure at his back, the regional call in his ear, and a willingness to hand you to the machine if the numbers need a body.",
       "environment": "CASTLE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "paradox_face", "id": "paradox_boss", "name": "The Paradox of Jay-Dau", "isTargeted": true, "atbGauge": 0.42 },
-        { "templateId": "hostile_floor", "id": "hostile_b", "name": "The Clock", "hp": 180, "attack": 23, "atbGauge": 0.3 },
-        { "templateId": "claim_blizzard", "id": "claim_b", "name": "The Office Subtraction", "hp": 150, "attack": 21, "atbGauge": 0.25 }
+        {
+          "templateId": "paradox_face",
+          "id": "paradox_boss",
+          "name": "The Paradox of Jay-Dau",
+          "isTargeted": true,
+          "atbGauge": 0.42
+        },
+        {
+          "templateId": "hostile_floor",
+          "id": "hostile_b",
+          "name": "The Clock",
+          "hp": 180,
+          "attack": 23,
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "claim_blizzard",
+          "id": "claim_b",
+          "name": "The Office Subtraction",
+          "hp": 150,
+          "attack": 21,
+          "atbGauge": 0.25
+        }
       ],
       "bossPhases": [
         {
@@ -495,11 +875,31 @@
       "name": "Amandy's Chaos",
       "description": "The impossible demand, the re-done plan, the names said within earshot of the crew. Hand the impossible number back done, and don't expect a thank you.",
       "environment": "DUNGEON",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "hostile_floor", "id": "hostile_c", "name": "Amandy's Chaos", "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "claim_blizzard", "id": "claim_c", "name": "The Impossible Number", "atbGauge": 0.3 },
-        { "templateId": "fluorescent_hum", "id": "hum_l", "name": "The Fluorescent Hum", "hp": 70, "attack": 18, "atbGauge": 0.2 }
+        {
+          "templateId": "hostile_floor",
+          "id": "hostile_c",
+          "name": "Amandy's Chaos",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "claim_blizzard",
+          "id": "claim_c",
+          "name": "The Impossible Number",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_l",
+          "name": "The Fluorescent Hum",
+          "hp": 70,
+          "attack": 18,
+          "atbGauge": 0.2
+        }
       ]
     },
     {
@@ -507,11 +907,33 @@
       "name": "The Overnight Meat Grinder",
       "description": "Three in the morning: empty shelves, freight pallets breathing in the dark, and a whole building with no one to help. The grinder doesn't need to do anything. It just needs to be the only thing.",
       "environment": "CAVE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "meat_grinder", "id": "grinder_boss", "name": "The Overnight Meat Grinder", "isTargeted": true, "atbGauge": 0.42 },
-        { "templateId": "register_blitz", "id": "blitz_b", "name": "The Empty Trailer", "hp": 160, "attack": 22, "atbGauge": 0.3 },
-        { "templateId": "fluorescent_hum", "id": "hum_m", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+        {
+          "templateId": "meat_grinder",
+          "id": "grinder_boss",
+          "name": "The Overnight Meat Grinder",
+          "isTargeted": true,
+          "atbGauge": 0.42
+        },
+        {
+          "templateId": "register_blitz",
+          "id": "blitz_b",
+          "name": "The Empty Trailer",
+          "hp": 160,
+          "attack": 22,
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_m",
+          "name": "The Fluorescent Hum",
+          "hp": 80,
+          "attack": 19,
+          "atbGauge": 0.2
+        }
       ],
       "bossPhases": [
         {
@@ -537,10 +959,27 @@
       "name": "The Body Keeps the Score (Third Entry)",
       "description": "Outbreak Number Three: the same burning line across the same forehead, harder and hungrier. The body has been shouting for three years. Now it's screaming.",
       "environment": "CAVE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "shingles_fire", "id": "fire3_boss", "name": "The Third Outbreak", "hp": 560, "attack": 30, "isTargeted": true, "atbGauge": 0.4 },
-        { "templateId": "fluorescent_hum", "id": "hum_n", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+        {
+          "templateId": "shingles_fire",
+          "id": "fire3_boss",
+          "name": "The Third Outbreak",
+          "hp": 560,
+          "attack": 30,
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_n",
+          "name": "The Fluorescent Hum",
+          "hp": 80,
+          "attack": 19,
+          "atbGauge": 0.2
+        }
       ],
       "bossPhases": [
         {
@@ -558,11 +997,31 @@
       "name": "The Relocation Contract",
       "description": "The clawback, the repayment, the years of the machine leaning on you all at once — the collar that's been waiting since Lamar, asking you to put it on willingly.",
       "environment": "CASTLE",
-      "party": ["todd_shop"],
+      "party": [
+        "todd_shop"
+      ],
       "enemies": [
-        { "templateId": "relocation_contract", "id": "contract_boss", "name": "The Relocation Contract", "isTargeted": true, "atbGauge": 0.44 },
-        { "templateId": "cc_protocol", "id": "cc_b", "name": "The Clawback", "atbGauge": 0.3 },
-        { "templateId": "fluorescent_hum", "id": "hum_o", "name": "The Fluorescent Hum", "hp": 80, "attack": 19, "atbGauge": 0.2 }
+        {
+          "templateId": "relocation_contract",
+          "id": "contract_boss",
+          "name": "The Relocation Contract",
+          "isTargeted": true,
+          "atbGauge": 0.44
+        },
+        {
+          "templateId": "cc_protocol",
+          "id": "cc_b",
+          "name": "The Clawback",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_o",
+          "name": "The Fluorescent Hum",
+          "hp": 80,
+          "attack": 19,
+          "atbGauge": 0.2
+        }
       ],
       "bossPhases": [
         {
@@ -578,6 +1037,410 @@
           "hpBelow": 0.33,
           "bannerText": "TWO THOUSAND MILES FROM EVERYONE",
           "narrationText": "Florida, in the sunshine, at the end of a two-hour drive in the dark — with a lease that talks like a leash. He knows what it is. He walks in anyway.",
+          "reducePartyToHpPct": 0.45,
+          "executeBelowHpPct": 0.15
+        }
+      ]
+    },
+    {
+      "id": "florida_interstate",
+      "name": "The Asphalt Gauntlet",
+      "description": "I-95 south in the dead of night: brake-light walls, construction barriers, and the open road that takes an hour on a good night and three on a bad one. The geography of the act, armed.",
+      "environment": "DUNGEON",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "interstate_gauntlet",
+          "id": "gauntlet_boss",
+          "name": "The Asphalt Gauntlet",
+          "isTargeted": true,
+          "atbGauge": 0.44
+        },
+        {
+          "templateId": "friday_rush",
+          "id": "traffic_wall",
+          "name": "The Brake-Light Wall",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_road",
+          "name": "The Highway Hum",
+          "atbGauge": 0.2
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "gauntlet_boss",
+          "hpBelow": 0.66,
+          "bannerText": "WALL OF BRAKE LIGHTS",
+          "narrationText": "An accident a hundred miles ahead: the traffic congeals into a red wall, and the one-hour drive becomes three. The commute is a psychological torture test in its own right.",
+          "summonEnemyId": "friday_rush",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "gauntlet_boss",
+          "hpBelow": 0.33,
+          "bannerText": "SUNRISE BLINDNESS",
+          "narrationText": "Driving north into the Florida sunrise after fourteen hours on the floor — the glare that blanks the road and the shoulders, the last mile home that takes forever.",
+          "reducePartyToHpPct": 0.55,
+          "executeBelowHpPct": 0.2
+        }
+      ]
+    },
+    {
+      "id": "florida_green_metrics",
+      "name": "The Green Meters",
+      "description": "Three months of gold: the unload runs, the bins breathe, the board stays green. The machine finally working the way you always told them it could — a victory-light fight, the honeymoon in meter form.",
+      "environment": "CASTLE",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "metrics_dashboard",
+          "id": "green_board",
+          "name": "The Green Board",
+          "isTargeted": true,
+          "atbGauge": 0.4
+        },
+        {
+          "templateId": "freight_wall",
+          "id": "smooth_wall",
+          "name": "The Unload That Moves",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_store",
+          "name": "The Fluorescent Hum",
+          "atbGauge": 0.2
+        }
+      ]
+    },
+    {
+      "id": "florida_morning_verdict",
+      "name": "The Morning Verdict",
+      "description": "Every morning after the overnight shift: the ritual. No matter how much freight cleared, no matter how clean the building — the goalposts are permanently mounted on wheels.",
+      "environment": "CASTLE",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "goalpost_cart",
+          "id": "goalpost_boss",
+          "name": "The Moving Goalposts",
+          "isTargeted": true,
+          "atbGauge": 0.44
+        },
+        {
+          "templateId": "metrics_dashboard",
+          "id": "red_board",
+          "name": "The Red Board",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "hostile_floor",
+          "id": "cold_floor",
+          "name": "The Cold Floor",
+          "atbGauge": 0.25
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "goalpost_boss",
+          "hpBelow": 0.66,
+          "bannerText": "GOALPOSTS ON WHEELS",
+          "narrationText": "You clear the freight; the target climbs. You clean the floor; the target shifts. No finished store has ever satisfied a goalpost that can roll.",
+          "summonEnemyId": "metrics_dashboard",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "goalpost_boss",
+          "hpBelow": 0.33,
+          "bannerText": "IT IS NOT GOOD ENOUGH",
+          "narrationText": "The verdict, delivered to a man who just finished a perfect night: the ritual phrase that makes a store manager break one morning at a time.",
+          "reducePartyToHpPct": 0.5,
+          "executeBelowHpPct": 0.18
+        }
+      ]
+    },
+    {
+      "id": "florida_ohmar_interrogation",
+      "name": "Ohmar's Formal Office",
+      "description": "The formal chair, the closed door, the biggest man in the building asking questions in a voice that never rises. The terror of the region, made flesh — a man who runs on the aggressive management style the area favors.",
+      "environment": "CASTLE",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "ohmar_enemy",
+          "id": "ohmar_boss",
+          "name": "Ohmar, the Store Lead",
+          "isTargeted": true,
+          "atbGauge": 0.46
+        },
+        {
+          "templateId": "cc_protocol",
+          "id": "formal_paper",
+          "name": "The Formal Paper",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_office",
+          "name": "The Fluorescent Hum",
+          "atbGauge": 0.2
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "ohmar_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE FORMAL INVITATION",
+          "narrationText": "He doesn't need to shout. He asks a question, waits, and the silence does the work. The walkie on his hip is a warning the whole building reads.",
+          "summonEnemyId": "cc_protocol",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "ohmar_boss",
+          "hpBelow": 0.33,
+          "bannerText": "NOT GOOD ENOUGH",
+          "narrationText": "The phrase again, delivered flat. The interview is over; the verdict is not. He stands, and the door is next to your back.",
+          "reducePartyToHpPct": 0.45,
+          "executeBelowHpPct": 0.15
+        }
+      ]
+    },
+    {
+      "id": "florida_hostage_hours",
+      "name": "The Ownerless Building",
+      "description": "The store after everyone else has gone: three hours on a task nobody will ever check, then a fourth on the one beneath it. The building holds you not because it needs you, but because it can.",
+      "environment": "DUNGEON",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "ownerless_building",
+          "id": "hostage_building",
+          "name": "The Ownerless Building",
+          "isTargeted": true,
+          "atbGauge": 0.44
+        },
+        {
+          "templateId": "buried_report",
+          "id": "pointless_task",
+          "name": "The Pointless Task",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_hostage",
+          "name": "The Hum of the Empty Store",
+          "atbGauge": 0.2
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "hostage_building",
+          "hpBelow": 0.66,
+          "bannerText": "THREE MORE HOURS",
+          "narrationText": "Unofficial, unspoken, unbreakable: every day the shift 'runs long.' The clock becomes a hostage negotiator.",
+          "summonEnemyId": "buried_report",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "hostage_building",
+          "hpBelow": 0.33,
+          "bannerText": "THE OWNERLESS BUILDING",
+          "narrationText": "No boss, no checklist, no end. Just the fluorescent hum and the exit door — and the thought, once, that the drive home is only the halfway point of the machine.",
+          "reducePartyToHpPct": 0.5,
+          "executeBelowHpPct": 0.2
+        }
+      ]
+    },
+    {
+      "id": "florida_shingles_four",
+      "name": "The Fourth Signal",
+      "description": "The body's scorecard, fourth entry: shingles erupting across the forehead in full agonizing force, the immune system at its absolute limit after the commute, the hostage hours, and the terror. Mandatory third-party medical leave.",
+      "environment": "CAVE",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "shingles_four",
+          "id": "fire_four",
+          "name": "The Fourth Signal",
+          "isTargeted": true,
+          "atbGauge": 0.48
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_fire",
+          "name": "The Hum Behind the Pain",
+          "atbGauge": 0.2
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "fire_four",
+          "hpBelow": 0.66,
+          "bannerText": "THE FOURTH SIGNAL",
+          "narrationText": "One, two, three — and now four. The body has run out of ways to say it other than this: across the brow, unignorable, on the face the interviewers will see."
+        },
+        {
+          "enemyId": "fire_four",
+          "hpBelow": 0.33,
+          "bannerText": "ACROSS THE FOREHEAD",
+          "narrationText": "The leave is not a mercy; it is a containment. The building wants you out of sight while it decides if you still fit the schedule.",
+          "reducePartyToHpPct": 0.5,
+          "executeBelowHpPct": 0.2
+        }
+      ]
+    },
+    {
+      "id": "florida_redemption_schedule",
+      "name": "The Redemption Schedule",
+      "description": "The relocation collar in its purest form: the thousands of dollars owed if you walk or are fired, the amortized doom that keeps a person driving south into the dark. The arithmetic the machine bet you'd never learn to read.",
+      "environment": "CASTLE",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "redemption_schedule",
+          "id": "redemption_boss",
+          "name": "The Redemption Schedule",
+          "isTargeted": true,
+          "atbGauge": 0.46
+        },
+        {
+          "templateId": "cc_protocol",
+          "id": "clawback_florida",
+          "name": "The Clawback",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_redemption",
+          "name": "The Hum of the Loan",
+          "atbGauge": 0.2
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "redemption_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE COLLAR TIGHTENS",
+          "narrationText": "Walk away, get fired — either way, thousands back. The contract is a leash with a repayment schedule stamped on the collar.",
+          "summonEnemyId": "cc_protocol",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "redemption_boss",
+          "hpBelow": 0.33,
+          "bannerText": "TWO THOUSAND MILES AWAY",
+          "narrationText": "Salt Lake is a plane ride plus a life away. The debt is a wall in every direction — except the one you build yourself.",
+          "reducePartyToHpPct": 0.45,
+          "executeBelowHpPct": 0.15
+        }
+      ]
+    },
+    {
+      "id": "florida_three_am",
+      "name": "The 3 AM",
+      "description": "The darkest hour of the memoir: the alternative, fully formed, visiting night after night — the place, the time, the plan, the silence — offered like a solution to the morning. You do not defeat it with a spell. You refuse it with a name: Adriana.",
+      "environment": "CAVE",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "the_alternative",
+          "id": "alternative_boss",
+          "name": "The Alternative",
+          "isTargeted": true,
+          "atbGauge": 0.5
+        },
+        {
+          "templateId": "metrics_dashboard",
+          "id": "the_arithmetic",
+          "name": "The Arithmetic of the Machine",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_3am",
+          "name": "The Hum of the Silent Store",
+          "atbGauge": 0.2
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "alternative_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE 3 AM VISITOR",
+          "narrationText": "Two and a half weeks, every night, considered seriously and completely planned — an alternative to the morning. It appears with the hum, fully formed, patient."
+        },
+        {
+          "enemyId": "alternative_boss",
+          "hpBelow": 0.33,
+          "bannerText": "SHE NEEDS ME",
+          "narrationText": "The fog lifts on the face of the woman who needs him — and the alternative loses its patience, its arithmetic, its whole grip. The reason he refused it every single night, and the reason he refuses it now, for good.",
+          "reducePartyToHpPct": 0.4,
+          "executeBelowHpPct": 0.12
+        }
+      ]
+    },
+    {
+      "id": "florida_parting_shot",
+      "name": "The Parting Shot",
+      "description": "The step-down is accepted without resistance — colder than screaming. And as the final act of malice, the whisper carries down the hall to the team lead: 'He'll be out of the company in two months anyway.' The last boss of the crucible.",
+      "environment": "DUNGEON",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "parting_shot_enemy",
+          "id": "parting_boss",
+          "name": "The Parting Shot",
+          "isTargeted": true,
+          "atbGauge": 0.46
+        },
+        {
+          "templateId": "cc_protocol",
+          "id": "whisper_line",
+          "name": "The Whisper Chain",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_parting",
+          "name": "The Hum That Doesn't Care",
+          "atbGauge": 0.2
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "parting_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE WHISPER",
+          "narrationText": "Management lets him go soft and quiet, the way a trap lets a spring go. The whisper is the only honest sentence they'll say all year — and it's about the exit, not the career.",
+          "summonEnemyId": "cc_protocol",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "parting_boss",
+          "hpBelow": 0.33,
+          "bannerText": "TWO MONTHS ANYWAY",
+          "narrationText": "They're wrong — and it doesn't matter if they're right. The machine doesn't get to write the epilogue. He's already walking out the north door.",
           "reducePartyToHpPct": 0.45,
           "executeBelowHpPct": 0.15
         }

@@ -1,0 +1,20 @@
+{
+  "_doc": "Ohmar — the terrifying Store Lead and the region's enforcer: an enormous, unnervingly calm man who never raises his voice, and the whole building moves when he breathes. The human face of the management terror that drives every morning's ritual interrogation. Dialogue-only; his 'formal office' manifests as an enemy encounter.",
+  "id": "ohmar",
+  "role": "npc",
+  "name": "Ohmar",
+  "title": "Store Lead, St. Augustine",
+  "portraitAsset": "portraits/ohmar.jpg",
+  "themeColor": "#B71C1C",
+  "ttsPitch": 0.7,
+  "samplePhrase": "The night shift is the store's face at three in the morning. Right now, that face is yours. It is not good enough.",
+  "preferredVoiceId": null,
+  "voiceAliases": [
+    "ohmar",
+    "store lead",
+    "the store lead",
+    "omar",
+    "omar the lead",
+    "the lead"
+  ]
+}

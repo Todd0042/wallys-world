@@ -1,5 +1,5 @@
 {
-  "_doc": "STORY GRAPH for The Squeeze (Acts I-IV). Every engine story feature is exercised: linear narration, character dialogue, choice hubs with voiceKeywords + completionFlag elimination, combat triggers (triggerBattleEncounterId + nextNodeId), scene changes (changeSceneId), hub auto-redirect when all flags are set (hubCompletion), companion reclass (joinWhenFlag on the reclassified Todd), the grievance arcs, the CC-regional secret protocol, a victory chain, and the engine-convention 'game_completed' flag that ends the playthrough at the end of Act Three (until Act Five is written). All names, titles, and policies are fictional (Content Neutrality: see AGENTS.md).",
+  "_doc": "STORY GRAPH for The Squeeze (Acts I-V). Every engine story feature is exercised: linear narration, character dialogue, choice hubs with voiceKeywords + completionFlag elimination, combat triggers (triggerBattleEncounterId + nextNodeId), scene changes (changeSceneId), hub auto-redirect when all flags are set (hubCompletion), companion reclass (joinWhenFlag on the reclassified Todd), the grievance arcs, the CC-regional secret protocol, a victory chain, and the engine-convention 'game_completed' flag that ends the playthrough at the end of Act Five (until Act Six is written). All names, titles, and policies are fictional (Content Neutrality: see AGENTS.md).",
   "nodes": [
     {
       "id": "squeeze_intro",
@@ -21,41 +21,82 @@
       "side": "CENTER_NARRATOR",
       "text": "The building hums. Half a dozen lawn chairs and a ten-year-old coffee maker sit in the break pit like a monument. Speak a choice aloud, or tap it.",
       "hubCompletion": {
-        "requiredFlags": ["flag_trench_floor_read", "flag_trench_crew_met", "flag_trench_coffee"],
+        "requiredFlags": [
+          "flag_trench_floor_read",
+          "flag_trench_crew_met",
+          "flag_trench_coffee"
+        ],
         "redirectToNodeId": "trench_to_floor"
       },
       "choices": [
         {
           "id": "choice_learn_floor",
           "text": "Learn the freight line before you touch it.",
-          "voiceKeywords": ["learn", "freight", "line", "floor", "how does this work", "training"],
+          "voiceKeywords": [
+            "learn",
+            "freight",
+            "line",
+            "floor",
+            "how does this work",
+            "training"
+          ],
           "nextNodeId": "branch_learn_floor",
           "completionFlag": "flag_trench_floor_read"
         },
         {
           "id": "choice_meet_crew",
           "text": "Meet the overnight crew in the break pit.",
-          "voiceKeywords": ["crew", "meet", "overnight", "associates", "people", "co-workers"],
+          "voiceKeywords": [
+            "crew",
+            "meet",
+            "overnight",
+            "associates",
+            "people",
+            "co-workers"
+          ],
           "nextNodeId": "branch_meet_crew",
           "completionFlag": "flag_trench_crew_met"
         },
         {
           "id": "choice_brew_coffee",
           "text": "Brew the ancient coffee before anyone needs it.",
-          "voiceKeywords": ["coffee", "brew", "the pot", "caffeine", "break"],
+          "voiceKeywords": [
+            "coffee",
+            "brew",
+            "the pot",
+            "caffeine",
+            "break"
+          ],
           "nextNodeId": "branch_brew_coffee",
           "completionFlag": "flag_trench_coffee"
         },
         {
           "id": "choice_first_shift",
           "text": "Throw the bay door open and run the unload.",
-          "voiceKeywords": ["unload", "bay", "the wall", "freight wall", "trailer", "run it", "battle", "fight"],
+          "voiceKeywords": [
+            "unload",
+            "bay",
+            "the wall",
+            "freight wall",
+            "trailer",
+            "run it",
+            "battle",
+            "fight"
+          ],
           "nextNodeId": "trench_trigger_battle"
         },
         {
           "id": "choice_open_floor",
           "text": "Head up to the sales floor to see what the day holds.",
-          "voiceKeywords": ["floor", "sales floor", "store", "go upstairs", "open", "next", "proceed"],
+          "voiceKeywords": [
+            "floor",
+            "sales floor",
+            "store",
+            "go upstairs",
+            "open",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "trench_to_floor"
         }
       ]
@@ -127,34 +168,69 @@
       "side": "CENTER_NARRATOR",
       "text": "The floor stretches out, waiting. What do you do with your new little square of the machine?",
       "hubCompletion": {
-        "requiredFlags": ["flag_floor_led", "flag_floor_process"],
+        "requiredFlags": [
+          "flag_floor_led",
+          "flag_floor_process"
+        ],
         "redirectToNodeId": "floor_to_front"
       },
       "choices": [
         {
           "id": "choice_lead_crew",
           "text": "Take the overnight crews to the floor and lead the morning.",
-          "voiceKeywords": ["lead", "crew", "morning", "overnight", "supervise", "walk the floor"],
+          "voiceKeywords": [
+            "lead",
+            "crew",
+            "morning",
+            "overnight",
+            "supervise",
+            "walk the floor"
+          ],
           "nextNodeId": "branch_lead_crew",
           "completionFlag": "flag_floor_led"
         },
         {
           "id": "choice_fix_process",
           "text": "Rebuild the stocking process from the label sheets up.",
-          "voiceKeywords": ["process", "fix", "labels", "system", "stocking", "efficiency", "change"],
+          "voiceKeywords": [
+            "process",
+            "fix",
+            "labels",
+            "system",
+            "stocking",
+            "efficiency",
+            "change"
+          ],
           "nextNodeId": "branch_fix_process",
           "completionFlag": "flag_floor_process"
         },
         {
           "id": "choice_floor_battle",
           "text": "Hold the floor through the front-end storm.",
-          "voiceKeywords": ["front end", "storm", "rush", "dashboard", "hold", "battle", "fight", "customers"],
+          "voiceKeywords": [
+            "front end",
+            "storm",
+            "rush",
+            "dashboard",
+            "hold",
+            "battle",
+            "fight",
+            "customers"
+          ],
           "nextNodeId": "floor_trigger_battle"
         },
         {
           "id": "choice_front_end",
           "text": "Walk up to the front end and see the machine's mouth.",
-          "voiceKeywords": ["front", "registers", "checkout", "exit", "walk up", "next", "proceed"],
+          "voiceKeywords": [
+            "front",
+            "registers",
+            "checkout",
+            "exit",
+            "walk up",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "floor_to_front"
         }
       ]
@@ -225,28 +301,56 @@
       "side": "CENTER_NARRATOR",
       "text": "The folder is open on the desk. The truck that could take you to Colorado is parked out front. What do you need to know first?",
       "hubCompletion": {
-        "requiredFlags": ["flag_front_offer_details", "flag_front_rot_seen"],
+        "requiredFlags": [
+          "flag_front_offer_details",
+          "flag_front_rot_seen"
+        ],
         "redirectToNodeId": "front_to_office"
       },
       "choices": [
         {
           "id": "choice_ask_jodie",
           "text": "Ask Jodie what the slot really is.",
-          "voiceKeywords": ["ask", "jodie", "slot", "details", "shop manager", "ladder", "what really"],
+          "voiceKeywords": [
+            "ask",
+            "jodie",
+            "slot",
+            "details",
+            "shop manager",
+            "ladder",
+            "what really"
+          ],
           "nextNodeId": "branch_ask_jodie",
           "completionFlag": "flag_front_offer_details"
         },
         {
           "id": "choice_see_rot",
           "text": "Watch the front end work one more time.",
-          "voiceKeywords": ["watch", "front end", "rot", "registers", "see", "observe", "one more"],
+          "voiceKeywords": [
+            "watch",
+            "front end",
+            "rot",
+            "registers",
+            "see",
+            "observe",
+            "one more"
+          ],
           "nextNodeId": "branch_see_rot",
           "completionFlag": "flag_front_rot_seen"
         },
         {
           "id": "choice_office",
           "text": "Walk to the manager's office to give the answer.",
-          "voiceKeywords": ["office", "manager", "answer", "decision", "mattie", "walk", "next", "proceed"],
+          "voiceKeywords": [
+            "office",
+            "manager",
+            "answer",
+            "decision",
+            "mattie",
+            "walk",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "front_to_office"
         }
       ]
@@ -355,41 +459,90 @@
       "side": "CENTER_NARRATOR",
       "text": "The service shop hums around you — lifts, tire machines, air guns, and the permanent smell of grease. The honeymoon window is open. What do you do first?",
       "hubCompletion": {
-        "requiredFlags": ["flag_lamar_bays", "flag_lamar_crew", "flag_skagg_praise"],
+        "requiredFlags": [
+          "flag_lamar_bays",
+          "flag_lamar_crew",
+          "flag_skagg_praise"
+        ],
         "redirectToNodeId": "lamar_metrics"
       },
       "choices": [
         {
           "id": "choice_lamar_bays",
           "text": "Streamline the bays: safety, parts inventory, and workflow.",
-          "voiceKeywords": ["bays", "safety", "parts", "inventory", "workflow", "process", "streamline", "fix the shop"],
+          "voiceKeywords": [
+            "bays",
+            "safety",
+            "parts",
+            "inventory",
+            "workflow",
+            "process",
+            "streamline",
+            "fix the shop"
+          ],
           "nextNodeId": "branch_lamar_bays",
           "completionFlag": "flag_lamar_bays"
         },
         {
           "id": "choice_lamar_crew",
           "text": "Meet the techs and build the crew into a team.",
-          "voiceKeywords": ["crew", "techs", "technicians", "team", "meet", "associates", "people", "build"],
+          "voiceKeywords": [
+            "crew",
+            "techs",
+            "technicians",
+            "team",
+            "meet",
+            "associates",
+            "people",
+            "build"
+          ],
           "nextNodeId": "branch_lamar_crew",
           "completionFlag": "flag_lamar_crew"
         },
         {
           "id": "choice_lamar_skagg",
           "text": "Show Cap'n Skagg around before he leaves the store.",
-          "voiceKeywords": ["skagg", "captain", "cap'n", "area manager", "tour", "show around", "visit"],
+          "voiceKeywords": [
+            "skagg",
+            "captain",
+            "cap'n",
+            "area manager",
+            "tour",
+            "show around",
+            "visit"
+          ],
           "nextNodeId": "lamar_skagg",
           "completionFlag": "flag_skagg_praise"
         },
         {
           "id": "choice_lamar_rush",
           "text": "Throw the bays open and run the Friday oil rush.",
-          "voiceKeywords": ["friday", "rush", "oil", "bays", "open", "battle", "fight", "customers"],
+          "voiceKeywords": [
+            "friday",
+            "rush",
+            "oil",
+            "bays",
+            "open",
+            "battle",
+            "fight",
+            "customers"
+          ],
           "nextNodeId": "lamar_trigger_battle"
         },
         {
           "id": "choice_lamar_metrics",
           "text": "Close out the year and see where the numbers landed.",
-          "voiceKeywords": ["metrics", "year", "close out", "numbers", "results", "csat", "shrink", "next", "proceed"],
+          "voiceKeywords": [
+            "metrics",
+            "year",
+            "close out",
+            "numbers",
+            "results",
+            "csat",
+            "shrink",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "lamar_metrics"
         }
       ]
@@ -476,41 +629,84 @@
       "side": "CENTER_NARRATOR",
       "text": "The friendly store is gone. The watchful eye is on everything — cameras, check-ins, the walkie chirping with suspicion. How do you hold your crew together under the new regime?",
       "hubCompletion": {
-        "requiredFlags": ["flag_fall_watch", "flag_fall_shield"],
+        "requiredFlags": [
+          "flag_fall_watch",
+          "flag_fall_shield"
+        ],
         "redirectToNodeId": "fall_to_wall"
       },
       "choices": [
         {
           "id": "choice_fall_watch",
           "text": "Learn the pattern of the watchful eye.",
-          "voiceKeywords": ["watch", "pattern", "cameras", "jury", "surveillance", "new manager", "learn"],
+          "voiceKeywords": [
+            "watch",
+            "pattern",
+            "cameras",
+            "jury",
+            "surveillance",
+            "new manager",
+            "learn"
+          ],
           "nextNodeId": "branch_fall_watch",
           "completionFlag": "flag_fall_watch"
         },
         {
           "id": "choice_fall_shield",
           "text": "Shield the bay crew from the tightening grip.",
-          "voiceKeywords": ["shield", "protect", "crew", "techs", "bays", "shelter", "defend", "people"],
+          "voiceKeywords": [
+            "shield",
+            "protect",
+            "crew",
+            "techs",
+            "bays",
+            "shelter",
+            "defend",
+            "people"
+          ],
           "nextNodeId": "branch_fall_shield",
           "completionFlag": "flag_fall_shield"
         },
         {
           "id": "choice_fall_battle",
           "text": "Stand against the purge audit on the store floor.",
-          "voiceKeywords": ["audit", "purge", "fight", "battle", "stand", "memo", "defend", "floor"],
+          "voiceKeywords": [
+            "audit",
+            "purge",
+            "fight",
+            "battle",
+            "stand",
+            "memo",
+            "defend",
+            "floor"
+          ],
           "nextNodeId": "fall_trigger_battle"
         },
         {
           "id": "choice_fall_skagg",
           "text": "Ask Cap'n Skagg what this purge means for the area.",
-          "voiceKeywords": ["skagg", "captain", "area", "purge", "region", "ask", "what happens next"],
+          "voiceKeywords": [
+            "skagg",
+            "captain",
+            "area",
+            "purge",
+            "region",
+            "ask",
+            "what happens next"
+          ],
           "nextNodeId": "fall_skagg",
           "completionFlag": "flag_fall_skagg"
         },
         {
           "id": "choice_fall_next",
           "text": "Move on and see what the new regime demands next.",
-          "voiceKeywords": ["next", "proceed", "move on", "continue", "forward"],
+          "voiceKeywords": [
+            "next",
+            "proceed",
+            "move on",
+            "continue",
+            "forward"
+          ],
           "nextNodeId": "fall_to_wall"
         }
       ]
@@ -590,34 +786,70 @@
       "side": "CENTER_NARRATOR",
       "text": "The grievance paperwork sits on the kitchen table — the formal grievance to the area level, typed, signed, witnessed by no one but the two of you. What's the first move?",
       "hubCompletion": {
-        "requiredFlags": ["flag_wall_evidence", "flag_wall_jodie"],
+        "requiredFlags": [
+          "flag_wall_evidence",
+          "flag_wall_jodie"
+        ],
         "redirectToNodeId": "wall_hearing"
       },
       "choices": [
         {
           "id": "choice_wall_evidence",
           "text": "Write down everything said in the interview, word for word.",
-          "voiceKeywords": ["write", "evidence", "statement", "words", "document", "transcript", "interview"],
+          "voiceKeywords": [
+            "write",
+            "evidence",
+            "statement",
+            "words",
+            "document",
+            "transcript",
+            "interview"
+          ],
           "nextNodeId": "branch_wall_evidence",
           "completionFlag": "flag_wall_evidence"
         },
         {
           "id": "choice_wall_jodie",
           "text": "Call Jodie in Area HR and ask how the process works.",
-          "voiceKeywords": ["jodie", "hr", "area", "call", "process", "ask", "grievance", "how"],
+          "voiceKeywords": [
+            "jodie",
+            "hr",
+            "area",
+            "call",
+            "process",
+            "ask",
+            "grievance",
+            "how"
+          ],
           "nextNodeId": "wall_jodie",
           "completionFlag": "flag_wall_jodie"
         },
         {
           "id": "choice_wall_hearing",
           "text": "Slip the grievance into the machine and let it grind.",
-          "voiceKeywords": ["file", "grievance", "submit", "grind", "battle", "hearing", "fight"],
+          "voiceKeywords": [
+            "file",
+            "grievance",
+            "submit",
+            "grind",
+            "battle",
+            "hearing",
+            "fight"
+          ],
           "nextNodeId": "wall_trigger_battle"
         },
         {
           "id": "choice_wall_verdict",
           "text": "Wait out the week and hear what they decide.",
-          "voiceKeywords": ["verdict", "wait", "week", "decision", "result", "next", "proceed"],
+          "voiceKeywords": [
+            "verdict",
+            "wait",
+            "week",
+            "decision",
+            "result",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "wall_hearing"
         }
       ]
@@ -696,34 +928,69 @@
       "side": "CENTER_NARRATOR",
       "text": "The second grievance is filed that same night — the complaint against a store manager who degraded an associate in front of witnesses. The machine now has twice the paperwork and exactly the same answer. What do you do while it grinds?",
       "hubCompletion": {
-        "requiredFlags": ["flag_hall_swallow", "flag_hall_adriana"],
+        "requiredFlags": [
+          "flag_hall_swallow",
+          "flag_hall_adriana"
+        ],
         "redirectToNodeId": "hall_verdict"
       },
       "choices": [
         {
           "id": "choice_hall_swallow",
           "text": "Swallow it in front of the crew so the party stays whole.",
-          "voiceKeywords": ["swallow", "party", "crew", "stay", "hold it", "compose", "keep it together"],
+          "voiceKeywords": [
+            "swallow",
+            "party",
+            "crew",
+            "stay",
+            "hold it",
+            "compose",
+            "keep it together"
+          ],
           "nextNodeId": "branch_hall_swallow",
           "completionFlag": "flag_hall_swallow"
         },
         {
           "id": "choice_hall_adriana",
           "text": "Tell Adriana what happened as soon as you're both home.",
-          "voiceKeywords": ["adriana", "tell", "home", "talk", "wife", "confess", "share"],
+          "voiceKeywords": [
+            "adriana",
+            "tell",
+            "home",
+            "talk",
+            "wife",
+            "confess",
+            "share"
+          ],
           "nextNodeId": "hall_adriana",
           "completionFlag": "flag_hall_adriana"
         },
         {
           "id": "choice_hall_showdown",
           "text": "Face Jury in the glare of the hall, in front of everyone.",
-          "voiceKeywords": ["jury", "showdown", "face", "confront", "battle", "fight", "stand up"],
+          "voiceKeywords": [
+            "jury",
+            "showdown",
+            "face",
+            "confront",
+            "battle",
+            "fight",
+            "stand up"
+          ],
           "nextNodeId": "hall_trigger_battle"
         },
         {
           "id": "choice_hall_verdict",
           "text": "Wait out the grind and hear the machine's answer.",
-          "voiceKeywords": ["verdict", "wait", "answer", "decision", "result", "next", "proceed"],
+          "voiceKeywords": [
+            "verdict",
+            "wait",
+            "answer",
+            "decision",
+            "result",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "hall_verdict"
         }
       ]
@@ -816,28 +1083,57 @@
       "side": "CENTER_NARRATOR",
       "text": "The truck fills up over two weeks: box after box, the house shrinking into the driveway. But before the last box goes in, Cap'n Skagg pulls up to the curb — the area manager, on his own time, doing the one thing the machine never authorized.",
       "hubCompletion": {
-        "requiredFlags": ["flag_road_skagg", "flag_road_fire"],
+        "requiredFlags": [
+          "flag_road_skagg",
+          "flag_road_fire"
+        ],
         "redirectToNodeId": "road_exit"
       },
       "choices": [
         {
           "id": "choice_road_fire",
           "text": "Fight through the nerve fire to finish the load.",
-          "voiceKeywords": ["fire", "nerve", "pain", "shingles", "fight", "battle", "load", "finish"],
+          "voiceKeywords": [
+            "fire",
+            "nerve",
+            "pain",
+            "shingles",
+            "fight",
+            "battle",
+            "load",
+            "finish"
+          ],
           "nextNodeId": "road_trigger_battle",
           "completionFlag": "flag_road_fire"
         },
         {
           "id": "choice_road_skagg",
           "text": "Say goodbye to Cap'n Skagg by the packed truck.",
-          "voiceKeywords": ["skagg", "captain", "goodbye", "farewell", "truck", "say goodbye", "see you"],
+          "voiceKeywords": [
+            "skagg",
+            "captain",
+            "goodbye",
+            "farewell",
+            "truck",
+            "say goodbye",
+            "see you"
+          ],
           "nextNodeId": "road_skagg",
           "completionFlag": "flag_road_skagg"
         },
         {
           "id": "choice_road_exit",
           "text": "Load the last box and point the truck east.",
-          "voiceKeywords": ["exit", "leave", "east", "load", "go", "drive", "next", "proceed"],
+          "voiceKeywords": [
+            "exit",
+            "leave",
+            "east",
+            "load",
+            "go",
+            "drive",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "road_exit"
         }
       ]
@@ -937,41 +1233,84 @@
       "side": "CENTER_NARRATOR",
       "text": "The neglected shop hums around you — compressors, tire machines, and the quiet weight of years of nobody running the line. The honeymoon window is open here too, same as everywhere. What do you do first?",
       "hubCompletion": {
-        "requiredFlags": ["flag_carolina_bays", "flag_carolina_crew", "flag_carolina_home"],
+        "requiredFlags": [
+          "flag_carolina_bays",
+          "flag_carolina_crew",
+          "flag_carolina_home"
+        ],
         "redirectToNodeId": "carolina_to_tour"
       },
       "choices": [
         {
           "id": "choice_carolina_bays",
           "text": "Learn the true state of the bays before you touch anything.",
-          "voiceKeywords": ["learn", "bays", "inspect", "state", "condition", "look around", "assess"],
+          "voiceKeywords": [
+            "learn",
+            "bays",
+            "inspect",
+            "state",
+            "condition",
+            "look around",
+            "assess"
+          ],
           "nextNodeId": "branch_carolina_bays",
           "completionFlag": "flag_carolina_bays"
         },
         {
           "id": "choice_carolina_crew",
           "text": "Meet the techs and apprentices over the shop's sad coffee.",
-          "voiceKeywords": ["crew", "techs", "apprentices", "meet", "people", "coffee", "team"],
+          "voiceKeywords": [
+            "crew",
+            "techs",
+            "apprentices",
+            "meet",
+            "people",
+            "coffee",
+            "team"
+          ],
           "nextNodeId": "branch_carolina_crew",
           "completionFlag": "flag_carolina_crew"
         },
         {
           "id": "choice_carolina_home",
           "text": "Drive home across the state line and end the day the right way.",
-          "voiceKeywords": ["home", "georgia", "adriana", "drive", "state line", "evening", "wife"],
+          "voiceKeywords": [
+            "home",
+            "georgia",
+            "adriana",
+            "drive",
+            "state line",
+            "evening",
+            "wife"
+          ],
           "nextNodeId": "carolina_home_bookend",
           "completionFlag": "flag_carolina_home"
         },
         {
           "id": "choice_carolina_war",
           "text": "Take the first work order and fight the neglect head-on.",
-          "voiceKeywords": ["work order", "neglect", "fight", "battle", "bays", "first job"],
+          "voiceKeywords": [
+            "work order",
+            "neglect",
+            "fight",
+            "battle",
+            "bays",
+            "first job"
+          ],
           "nextNodeId": "carolina_trigger_battle"
         },
         {
           "id": "choice_carolina_tour",
           "text": "Close out the week and learn how this store is actually run.",
-          "voiceKeywords": ["week", "store", "tour", "management", "next", "proceed", "continue"],
+          "voiceKeywords": [
+            "week",
+            "store",
+            "tour",
+            "management",
+            "next",
+            "proceed",
+            "continue"
+          ],
           "nextNodeId": "carolina_to_tour"
         }
       ]
@@ -1093,34 +1432,66 @@
       "side": "CENTER_NARRATOR",
       "text": "The tour is gone and the edict is running through the building like a current. The other locked-out managers are on the floor with you, doing the math on what just got sold out from under them. What do you do with the rest of this day?",
       "hubCompletion": {
-        "requiredFlags": ["flag_tour_watch", "flag_tour_scope"],
+        "requiredFlags": [
+          "flag_tour_watch",
+          "flag_tour_scope"
+        ],
         "redirectToNodeId": "tour_to_azalia"
       },
       "choices": [
         {
           "id": "choice_tour_watch",
           "text": "Watch the rest of the walkthrough's shadow land on the floor.",
-          "voiceKeywords": ["watch", "walkthrough", "shadow", "tour", "visitors", "observe"],
+          "voiceKeywords": [
+            "watch",
+            "walkthrough",
+            "shadow",
+            "tour",
+            "visitors",
+            "observe"
+          ],
           "nextNodeId": "branch_tour_watch",
           "completionFlag": "flag_tour_watch"
         },
         {
           "id": "choice_tour_scope",
           "text": "Scope the edict with the other locked-out managers.",
-          "voiceKeywords": ["edict", "scope", "managers", "locked out", "memo", "what changed", "talk"],
+          "voiceKeywords": [
+            "edict",
+            "scope",
+            "managers",
+            "locked out",
+            "memo",
+            "what changed",
+            "talk"
+          ],
           "nextNodeId": "branch_tour_scope",
           "completionFlag": "flag_tour_scope"
         },
         {
           "id": "choice_tour_battle",
           "text": "Endure the edict as it hits the bay floor all at once.",
-          "voiceKeywords": ["edict", "hit", "fight", "battle", "floor", "gauntlet"],
+          "voiceKeywords": [
+            "edict",
+            "hit",
+            "fight",
+            "battle",
+            "floor",
+            "gauntlet"
+          ],
           "nextNodeId": "tour_trigger_battle"
         },
         {
           "id": "choice_tour_azalia",
           "text": "Move on and learn what the kind store manager actually does with power.",
-          "voiceKeywords": ["azalia", "store manager", "next", "proceed", "continue", "move on"],
+          "voiceKeywords": [
+            "azalia",
+            "store manager",
+            "next",
+            "proceed",
+            "continue",
+            "move on"
+          ],
           "nextNodeId": "tour_to_azalia"
         }
       ]
@@ -1213,34 +1584,64 @@
       "side": "CENTER_NARRATOR",
       "text": "Enforcing cost you more than the failure itself: every consequence you draw gets unmade before the ink dries, and every tech in the bays knows it. You care, and caring in this building makes you the bad guy — the one who keeps writing fair paperwork that the store manager kindly disappears. What do you do with what you just learned?",
       "hubCompletion": {
-        "requiredFlags": ["flag_azalia_warmth", "flag_azalia_account"],
+        "requiredFlags": [
+          "flag_azalia_warmth",
+          "flag_azalia_account"
+        ],
         "redirectToNodeId": "azalia_to_breach"
       },
       "choices": [
         {
           "id": "choice_azalia_warmth",
           "text": "Give Azalia one more chance to be the good version of herself.",
-          "voiceKeywords": ["azalia", "warmth", "chance", "good", "talk", "again"],
+          "voiceKeywords": [
+            "azalia",
+            "warmth",
+            "chance",
+            "good",
+            "talk",
+            "again"
+          ],
           "nextNodeId": "azalia_warmth",
           "completionFlag": "flag_azalia_warmth"
         },
         {
           "id": "choice_azalia_account",
           "text": "Hold the failing tech accountable yourself, carefully.",
-          "voiceKeywords": ["accountable", "tech", "discipline", "hold the line", "confront", "own it"],
+          "voiceKeywords": [
+            "accountable",
+            "tech",
+            "discipline",
+            "hold the line",
+            "confront",
+            "own it"
+          ],
           "nextNodeId": "branch_azalia_account",
           "completionFlag": "flag_azalia_account"
         },
         {
           "id": "choice_azalia_battle",
           "text": "Push against the paralysis directly while it still has a cost.",
-          "voiceKeywords": ["push", "paralysis", "fight", "battle", "direct", "stand"],
+          "voiceKeywords": [
+            "push",
+            "paralysis",
+            "fight",
+            "battle",
+            "direct",
+            "stand"
+          ],
           "nextNodeId": "azalia_trigger_battle"
         },
         {
           "id": "choice_azalia_breach",
           "text": "Move on — the corner-cutting is only going to get worse from here.",
-          "voiceKeywords": ["next", "proceed", "continue", "worse", "move on"],
+          "voiceKeywords": [
+            "next",
+            "proceed",
+            "continue",
+            "worse",
+            "move on"
+          ],
           "nextNodeId": "azalia_to_breach"
         }
       ]
@@ -1354,40 +1755,82 @@
       "side": "CENTER_NARRATOR",
       "text": "The near-miss is being buried in real time — the report rewritten, the witnesses reminded what they didn't see, the blame sliding toward the one manager who refused to sign. You've been here before, twice. But you learned something in Colorado that this store doesn't know you know. What's the move?",
       "hubCompletion": {
-        "requiredFlags": ["flag_breach_file", "flag_breach_protocol"],
+        "requiredFlags": [
+          "flag_breach_file",
+          "flag_breach_protocol"
+        ],
         "redirectToNodeId": "breach_verdict"
       },
       "choices": [
         {
           "id": "choice_breach_file",
           "text": "Refuse to sign anything and write your own account of the near-miss.",
-          "voiceKeywords": ["refuse", "sign", "write", "account", "document", "own record", "statement"],
+          "voiceKeywords": [
+            "refuse",
+            "sign",
+            "write",
+            "account",
+            "document",
+            "own record",
+            "statement"
+          ],
           "nextNodeId": "branch_breach_file",
           "completionFlag": "flag_breach_file"
         },
         {
           "id": "choice_breach_protocol",
           "text": "Use the secret protocol: run the grievance straight past the store — CC regional.",
-          "voiceKeywords": ["regional", "cc", "bypass", "grievance", "protocol", "straight up", "direct"],
+          "voiceKeywords": [
+            "regional",
+            "cc",
+            "bypass",
+            "grievance",
+            "protocol",
+            "straight up",
+            "direct"
+          ],
           "nextNodeId": "breach_protocol",
           "completionFlag": "flag_breach_protocol"
         },
         {
           "id": "choice_breach_battle",
           "text": "Stand against the fall-guy gauntlet as the blame comes for you.",
-          "voiceKeywords": ["fall guy", "blame", "stand", "fight", "battle", "gauntlet"],
+          "voiceKeywords": [
+            "fall guy",
+            "blame",
+            "stand",
+            "fight",
+            "battle",
+            "gauntlet"
+          ],
           "nextNodeId": "breach_trigger_battle"
         },
         {
           "id": "choice_breach_regional",
           "text": "Push the complaint past the desk and fight the machine from outside it.",
-          "voiceKeywords": ["regional", "desk", "push", "machine", "fight", "battle", "outside"],
+          "voiceKeywords": [
+            "regional",
+            "desk",
+            "push",
+            "machine",
+            "fight",
+            "battle",
+            "outside"
+          ],
           "nextNodeId": "breach_trigger_regional"
         },
         {
           "id": "choice_breach_verdict",
           "text": "Wait — let the store bury it and see what the machine actually does.",
-          "voiceKeywords": ["wait", "verdict", "bury", "let it go", "decision", "next", "proceed"],
+          "voiceKeywords": [
+            "wait",
+            "verdict",
+            "bury",
+            "let it go",
+            "decision",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "breach_verdict"
         }
       ]
@@ -1516,27 +1959,55 @@
       "side": "CENTER_NARRATOR",
       "text": "The Georgia porch light burns out the night before the packing starts. The truck rental is booked, Pueblo is a dot on a map three states away, and the machine doesn't know you're leaving yet. Say what needs to be said before the last box goes in.",
       "hubCompletion": {
-        "requiredFlags": ["flag_scar_fire", "flag_scar_azalia"],
+        "requiredFlags": [
+          "flag_scar_fire",
+          "flag_scar_azalia"
+        ],
         "redirectToNodeId": "carolina_exit"
       },
       "choices": [
         {
           "id": "choice_scar_fire",
           "text": "Fight through the second nerve fire to finish the load.",
-          "voiceKeywords": ["fire", "nerve", "shingles", "pain", "fight", "battle", "load", "finish"],
+          "voiceKeywords": [
+            "fire",
+            "nerve",
+            "shingles",
+            "pain",
+            "fight",
+            "battle",
+            "load",
+            "finish"
+          ],
           "nextNodeId": "scar_trigger_battle"
         },
         {
           "id": "choice_scar_azalia",
           "text": "Take Azalia's goodbye by the door while she still has one.",
-          "voiceKeywords": ["azalia", "goodbye", "farewell", "door", "say goodbye", "see you"],
+          "voiceKeywords": [
+            "azalia",
+            "goodbye",
+            "farewell",
+            "door",
+            "say goodbye",
+            "see you"
+          ],
           "nextNodeId": "scar_azalia",
           "completionFlag": "flag_scar_azalia"
         },
         {
           "id": "choice_scar_exit",
           "text": "Load the last box and point the truck west.",
-          "voiceKeywords": ["exit", "leave", "west", "load", "go", "drive", "next", "proceed"],
+          "voiceKeywords": [
+            "exit",
+            "leave",
+            "west",
+            "load",
+            "go",
+            "drive",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "carolina_exit"
         }
       ]
@@ -1622,40 +2093,81 @@
       "side": "CENTER_NARRATOR",
       "text": "The store at dusk is a zoo being fed one aisle at a time: the registers backing up, the service desk blinking, the parking lot doing whatever the parking lot does. And it's yours — all of it, alone. What do you do with your first close?",
       "hubCompletion": {
-        "requiredFlags": ["flag_pueblo_close_learned", "flag_pueblo_crew_met"],
+        "requiredFlags": [
+          "flag_pueblo_close_learned",
+          "flag_pueblo_crew_met"
+        ],
         "redirectToNodeId": "pueblo_beats_intro"
       },
       "choices": [
         {
           "id": "choice_pueblo_close",
           "text": "Walk the building and learn what actually breaks at night.",
-          "voiceKeywords": ["learn", "walk", "building", "close", "breaks", "darkness", "checklist"],
+          "voiceKeywords": [
+            "learn",
+            "walk",
+            "building",
+            "close",
+            "breaks",
+            "darkness",
+            "checklist"
+          ],
           "nextNodeId": "branch_pueblo_close",
           "completionFlag": "flag_pueblo_close_learned"
         },
         {
           "id": "choice_pueblo_crew",
           "text": "Meet the closing crew before the sun is gone.",
-          "voiceKeywords": ["crew", "meet", "closing", "associates", "people", "team"],
+          "voiceKeywords": [
+            "crew",
+            "meet",
+            "closing",
+            "associates",
+            "people",
+            "team"
+          ],
           "nextNodeId": "branch_pueblo_crew",
           "completionFlag": "flag_pueblo_crew_met"
         },
         {
           "id": "choice_pueblo_front",
           "text": "Hold the front end as the queues stack to the doors.",
-          "voiceKeywords": ["front", "queue", "registers", "storm", "fight", "battle", "hold"],
+          "voiceKeywords": [
+            "front",
+            "queue",
+            "registers",
+            "storm",
+            "fight",
+            "battle",
+            "hold"
+          ],
           "nextNodeId": "pueblo_front_trigger"
         },
         {
           "id": "choice_pueblo_boss",
           "text": "Close the store alone at midnight — every light, every till.",
-          "voiceKeywords": ["close", "midnight", "lights", "tills", "battle", "alone", "fight"],
+          "voiceKeywords": [
+            "close",
+            "midnight",
+            "lights",
+            "tills",
+            "battle",
+            "alone",
+            "fight"
+          ],
           "nextNodeId": "pueblo_close_trigger"
         },
         {
           "id": "choice_pueblo_beats",
           "text": "Let the night happen and see what it brings.",
-          "voiceKeywords": ["night", "ride", "happen", "next", "proceed", "continue"],
+          "voiceKeywords": [
+            "night",
+            "ride",
+            "happen",
+            "next",
+            "proceed",
+            "continue"
+          ],
           "nextNodeId": "pueblo_beats_intro"
         }
       ]
@@ -1833,54 +2345,110 @@
       "side": "CENTER_NARRATOR",
       "text": "The offer sits on the table. Year two is already running the way year one did — the queues, the blotter regulars, the nights — and now the overhaul wants your head too. What do you do with the year while the machine remakes itself?",
       "hubCompletion": {
-        "requiredFlags": ["flag_pueblo_armor", "flag_pueblo_bomb", "flag_pueblo_fire", "flag_pueblo_claims"],
+        "requiredFlags": [
+          "flag_pueblo_armor",
+          "flag_pueblo_bomb",
+          "flag_pueblo_fire",
+          "flag_pueblo_claims"
+        ],
         "redirectToNodeId": "pueblo_accept_offer"
       },
       "choices": [
         {
           "id": "choice_pueblo_armor",
           "text": "Armor the closing crew before you take a single meeting.",
-          "voiceKeywords": ["armor", "crew", "protect", "closing", "prepare", "shield"],
+          "voiceKeywords": [
+            "armor",
+            "crew",
+            "protect",
+            "closing",
+            "prepare",
+            "shield"
+          ],
           "nextNodeId": "branch_pueblo_armor",
           "completionFlag": "flag_pueblo_armor"
         },
         {
           "id": "choice_pueblo_bomb",
           "text": "Answer the anonymous call that empties the whole building.",
-          "voiceKeywords": ["bomb", "threat", "call", "empty", "evacuate", "police"],
+          "voiceKeywords": [
+            "bomb",
+            "threat",
+            "call",
+            "empty",
+            "evacuate",
+            "police"
+          ],
           "nextNodeId": "pueblo_bomb",
           "completionFlag": "flag_pueblo_bomb"
         },
         {
           "id": "choice_pueblo_fire",
           "text": "Put out the man who set himself on fire in the lot.",
-          "voiceKeywords": ["fire", "butane", "lighter", "parking lot", "burn", "put out"],
+          "voiceKeywords": [
+            "fire",
+            "butane",
+            "lighter",
+            "parking lot",
+            "burn",
+            "put out"
+          ],
           "nextNodeId": "pueblo_fire",
           "completionFlag": "flag_pueblo_fire"
         },
         {
           "id": "choice_pueblo_claims",
           "text": "Read the claim blizzard and add your own name to the pile.",
-          "voiceKeywords": ["claim", "discrimination", "file", "blizzard", "complaint", "hr"],
+          "voiceKeywords": [
+            "claim",
+            "discrimination",
+            "file",
+            "blizzard",
+            "complaint",
+            "hr"
+          ],
           "nextNodeId": "pueblo_claims",
           "completionFlag": "flag_pueblo_claims"
         },
         {
           "id": "choice_pueblo_blotter",
           "text": "Chase the blotter regulars out of housewares one more time.",
-          "voiceKeywords": ["regulars", "blotter", "shoplift", "theft", "chase", "fight", "battle"],
+          "voiceKeywords": [
+            "regulars",
+            "blotter",
+            "shoplift",
+            "theft",
+            "chase",
+            "fight",
+            "battle"
+          ],
           "nextNodeId": "pueblo_blotter_trigger"
         },
         {
           "id": "choice_pueblo_parking",
           "text": "Cut off the parking-lot escalation before it draws.",
-          "voiceKeywords": ["parking", "lot", "draw", "escalate", "gun", "fight", "battle"],
+          "voiceKeywords": [
+            "parking",
+            "lot",
+            "draw",
+            "escalate",
+            "gun",
+            "fight",
+            "battle"
+          ],
           "nextNodeId": "pueblo_parking_trigger"
         },
         {
           "id": "choice_pueblo_accept",
           "text": "Take the overhaul offer and get started.",
-          "voiceKeywords": ["offer", "overhaul", "accept", "take it", "next", "proceed"],
+          "voiceKeywords": [
+            "offer",
+            "overhaul",
+            "accept",
+            "take it",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "pueblo_accept_offer"
         }
       ]
@@ -2011,34 +2579,65 @@
       "side": "CENTER_NARRATOR",
       "text": "The backroom wall is a whiteboard the size of a bay door. The overhaul won't run itself, and it won't survive a manager who doesn't understand the floor. What do you build first?",
       "hubCompletion": {
-        "requiredFlags": ["flag_pueblo_unload", "flag_pueblo_bins"],
+        "requiredFlags": [
+          "flag_pueblo_unload",
+          "flag_pueblo_bins"
+        ],
         "redirectToNodeId": "pueblo_peak"
       },
       "choices": [
         {
           "id": "choice_pueblo_unload",
           "text": "Rebuild the unload line from the dock to the floor.",
-          "voiceKeywords": ["unload", "dock", "line", "rebuild", "trucks", "freight"],
+          "voiceKeywords": [
+            "unload",
+            "dock",
+            "line",
+            "rebuild",
+            "trucks",
+            "freight"
+          ],
           "nextNodeId": "branch_pueblo_unload",
           "completionFlag": "flag_pueblo_unload"
         },
         {
           "id": "choice_pueblo_bins",
           "text": "Build the bin and topstock army that feeds the shelves.",
-          "voiceKeywords": ["bins", "topstock", "army", "shelves", "stock", "process"],
+          "voiceKeywords": [
+            "bins",
+            "topstock",
+            "army",
+            "shelves",
+            "stock",
+            "process"
+          ],
           "nextNodeId": "branch_pueblo_bins",
           "completionFlag": "flag_pueblo_bins"
         },
         {
           "id": "choice_pueblo_fight",
           "text": "Push the first impossible metric and see if the machine moves.",
-          "voiceKeywords": ["metric", "fight", "battle", "number", "push", "run it"],
+          "voiceKeywords": [
+            "metric",
+            "fight",
+            "battle",
+            "number",
+            "push",
+            "run it"
+          ],
           "nextNodeId": "pueblo_overhaul_trigger"
         },
         {
           "id": "choice_pueblo_peak",
           "text": "Watch the overhaul take hold and see where the numbers land.",
-          "voiceKeywords": ["numbers", "peak", "next", "proceed", "land", "result"],
+          "voiceKeywords": [
+            "numbers",
+            "peak",
+            "next",
+            "proceed",
+            "land",
+            "result"
+          ],
           "nextNodeId": "pueblo_peak"
         }
       ]
@@ -2160,34 +2759,66 @@
       "side": "CENTER_NARRATOR",
       "text": "Richard is sincere and completely useless — the most dangerous combination in corporate America. How do you spend his week?",
       "hubCompletion": {
-        "requiredFlags": ["flag_pueblo_taught", "flag_pueblo_shadow"],
+        "requiredFlags": [
+          "flag_pueblo_taught",
+          "flag_pueblo_shadow"
+        ],
         "redirectToNodeId": "pueblo_richard_promoted"
       },
       "choices": [
         {
           "id": "choice_pueblo_taught",
           "text": "Teach Richard the floor one honest hour at a time.",
-          "voiceKeywords": ["teach", "richard", "floor", "hour", "honest", "explain"],
+          "voiceKeywords": [
+            "teach",
+            "richard",
+            "floor",
+            "hour",
+            "honest",
+            "explain"
+          ],
           "nextNodeId": "branch_pueblo_taught",
           "completionFlag": "flag_pueblo_taught"
         },
         {
           "id": "choice_pueblo_shadow",
           "text": "Let Richard shadow the overnight unload until it scares him.",
-          "voiceKeywords": ["shadow", "unload", "overnight", "scare", "watch", "follow"],
+          "voiceKeywords": [
+            "shadow",
+            "unload",
+            "overnight",
+            "scare",
+            "watch",
+            "follow"
+          ],
           "nextNodeId": "branch_pueblo_shadow",
           "completionFlag": "flag_pueblo_shadow"
         },
         {
           "id": "choice_pueblo_visit",
           "text": "Survive the compliance visit Richard is leading.",
-          "voiceKeywords": ["compliance", "visit", "audit", "richard", "battle", "fight", "lead"],
+          "voiceKeywords": [
+            "compliance",
+            "visit",
+            "audit",
+            "richard",
+            "battle",
+            "fight",
+            "lead"
+          ],
           "nextNodeId": "pueblo_visit_trigger"
         },
         {
           "id": "choice_pueblo_promote",
           "text": "Send him up the ladder and watch what happens next.",
-          "voiceKeywords": ["promote", "ladder", "richard", "area", "next", "proceed"],
+          "voiceKeywords": [
+            "promote",
+            "ladder",
+            "richard",
+            "area",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "pueblo_richard_promoted"
         }
       ]
@@ -2323,40 +2954,78 @@
       "side": "CENTER_NARRATOR",
       "text": "The office is a minefield and the friend is upstairs. The paradox of Pueblo's leadership is the last great lesson of the store — Jay-Dau will throw you to save his standing, Amandy's chaos never stops, and Steffie's smile is doing subtraction behind your back. What do you do with the contradiction?",
       "hubCompletion": {
-        "requiredFlags": ["flag_pueblo_friend", "flag_pueblo_steffie"],
+        "requiredFlags": [
+          "flag_pueblo_friend",
+          "flag_pueblo_steffie"
+        ],
         "redirectToNodeId": "pueblo_amandy_promo"
       },
       "choices": [
         {
           "id": "choice_pueblo_friend",
           "text": "Keep the off-the-clock friend and learn the on-the-clock monster.",
-          "voiceKeywords": ["friend", "jay-dau", "clock", "learn", "study", "know"],
+          "voiceKeywords": [
+            "friend",
+            "jay-dau",
+            "clock",
+            "learn",
+            "study",
+            "know"
+          ],
           "nextNodeId": "branch_pueblo_friend",
           "completionFlag": "flag_pueblo_friend"
         },
         {
           "id": "choice_pueblo_survive",
           "text": "Survive the clock version with everything he's throwing.",
-          "voiceKeywords": ["survive", "clock", "throw", "battle", "fight", "gauntlet"],
+          "voiceKeywords": [
+            "survive",
+            "clock",
+            "throw",
+            "battle",
+            "fight",
+            "gauntlet"
+          ],
           "nextNodeId": "pueblo_paradox_trigger"
         },
         {
           "id": "choice_pueblo_amandy",
           "text": "Stand in the path of Amandy's chaos and hold the floor.",
-          "voiceKeywords": ["amandy", "chaos", "hold", "floor", "stand", "battle", "fight"],
+          "voiceKeywords": [
+            "amandy",
+            "chaos",
+            "hold",
+            "floor",
+            "stand",
+            "battle",
+            "fight"
+          ],
           "nextNodeId": "pueblo_amandy_trigger"
         },
         {
           "id": "choice_pueblo_steffie",
           "text": "Decode Steffie's two faces before they swallow you.",
-          "voiceKeywords": ["steffie", "two-faced", "decode", "office", "learn", "watch"],
+          "voiceKeywords": [
+            "steffie",
+            "two-faced",
+            "decode",
+            "office",
+            "learn",
+            "watch"
+          ],
           "nextNodeId": "branch_pueblo_steffie",
           "completionFlag": "flag_pueblo_steffie"
         },
         {
           "id": "choice_pueblo_promo",
           "text": "Move on and watch the climbers come and go.",
-          "voiceKeywords": ["promo", "climbers", "move on", "next", "proceed"],
+          "voiceKeywords": [
+            "promo",
+            "climbers",
+            "move on",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "pueblo_amandy_promo"
         }
       ]
@@ -2472,34 +3141,66 @@
       "side": "CENTER_NARRATOR",
       "text": "The graveyard keeps accepting volunteers. Jay-Dau keeps asking. And somewhere under all of it, the third scar is already writing itself on your forehead. What do you do while the overnight machine runs?",
       "hubCompletion": {
-        "requiredFlags": ["flag_pueblo_exits", "flag_pueblo_protect"],
+        "requiredFlags": [
+          "flag_pueblo_exits",
+          "flag_pueblo_protect"
+        ],
         "redirectToNodeId": "pueblo_take_the_job"
       },
       "choices": [
         {
           "id": "choice_pueblo_exits",
           "text": "Learn each of the thirteen exits by heart.",
-          "voiceKeywords": ["exits", "thirteen", "learn", "names", "numbers", "graveyard"],
+          "voiceKeywords": [
+            "exits",
+            "thirteen",
+            "learn",
+            "names",
+            "numbers",
+            "graveyard"
+          ],
           "nextNodeId": "branch_pueblo_exits",
           "completionFlag": "flag_pueblo_exits"
         },
         {
           "id": "choice_pueblo_protect",
           "text": "Protect the overnight crew as best a day manager can.",
-          "voiceKeywords": ["protect", "overnight", "crew", "shield", "help", "night"],
+          "voiceKeywords": [
+            "protect",
+            "overnight",
+            "crew",
+            "shield",
+            "help",
+            "night"
+          ],
           "nextNodeId": "branch_pueblo_protect",
           "completionFlag": "flag_pueblo_protect"
         },
         {
           "id": "choice_pueblo_grinder",
           "text": "Feel the meat grinder for what it is, once, on purpose.",
-          "voiceKeywords": ["grinder", "meat", "overnight", "feel", "battle", "fight", "machine"],
+          "voiceKeywords": [
+            "grinder",
+            "meat",
+            "overnight",
+            "feel",
+            "battle",
+            "fight",
+            "machine"
+          ],
           "nextNodeId": "pueblo_grinder_trigger"
         },
         {
           "id": "choice_pueblo_ask",
           "text": "Keep saying no until the machine runs out of patience.",
-          "voiceKeywords": ["no", "refuse", "ask", "patience", "next", "proceed"],
+          "voiceKeywords": [
+            "no",
+            "refuse",
+            "ask",
+            "patience",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "pueblo_take_the_job"
         }
       ]
@@ -2635,34 +3336,65 @@
       "side": "CENTER_NARRATOR",
       "text": "The contract glows on the kitchen table, and the third scar burns under your hat. Say what needs to be said before the pen touches the page.",
       "hubCompletion": {
-        "requiredFlags": ["flag_pueblo_terms", "flag_pueblo_settle"],
+        "requiredFlags": [
+          "flag_pueblo_terms",
+          "flag_pueblo_settle"
+        ],
         "redirectToNodeId": "pueblo_contract_final_part1"
       },
       "choices": [
         {
           "id": "choice_pueblo_terms",
           "text": "Read the terms line by line, the way you've earned the right to.",
-          "voiceKeywords": ["terms", "read", "line", "contract", "fine print", "learn"],
+          "voiceKeywords": [
+            "terms",
+            "read",
+            "line",
+            "contract",
+            "fine print",
+            "learn"
+          ],
           "nextNodeId": "branch_pueblo_terms",
           "completionFlag": "flag_pueblo_terms"
         },
         {
           "id": "choice_pueblo_settle",
           "text": "Say goodbye to the building that's been trying to kill you.",
-          "voiceKeywords": ["goodbye", "settle", "building", "last walk", "close", "keys"],
+          "voiceKeywords": [
+            "goodbye",
+            "settle",
+            "building",
+            "last walk",
+            "close",
+            "keys"
+          ],
           "nextNodeId": "branch_pueblo_settle",
           "completionFlag": "flag_pueblo_settle"
         },
         {
           "id": "choice_pueblo_fight",
           "text": "Face the contract and everything it stands for, one last time.",
-          "voiceKeywords": ["contract", "face", "fight", "battle", "machine", "stand"],
+          "voiceKeywords": [
+            "contract",
+            "face",
+            "fight",
+            "battle",
+            "machine",
+            "stand"
+          ],
           "nextNodeId": "pueblo_contract_trigger"
         },
         {
           "id": "choice_pueblo_sign",
           "text": "Sign the line and take the road to Florida.",
-          "voiceKeywords": ["sign", "road", "florida", "go", "next", "proceed"],
+          "voiceKeywords": [
+            "sign",
+            "road",
+            "florida",
+            "go",
+            "next",
+            "proceed"
+          ],
           "nextNodeId": "pueblo_contract_final"
         }
       ]
@@ -2731,6 +3463,1095 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "Augustine, Florida, at the end of a two-hour drive in the dark, a store that talks like sunshine and a contract that talks like a leash. He knows what he's walking into. He walks in anyway — because that's what the machine does to good people who keep saying yes. The stage is set for the final, catastrophic crucible.",
+      "healPartyOnEnter": "full",
+      "changeSceneId": "scene_florida_road",
+      "nextNodeId": "florida_arrival"
+    },
+    {
+      "id": "florida_arrival",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Jacksonville, at the end of the relocation ledger: two thousand miles of moving boxes and promises, and a house that actually holds your wife's laugh. The first morning off the truck is the brightest this chapter gets — and it knows it.",
+      "nextNodeId": "florida_arrival_part2"
+    },
+    {
+      "id": "florida_arrival_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Adriana unpacks the kitchen with the windows open, drinking the humidity like it's a fountain instead of weather. For one whole evening the machine seems to have let go. The first shift is an hour south in the dark. The drive will teach you the shape of things.",
+      "nextNodeId": "florida_house"
+    },
+    {
+      "id": "florida_house",
+      "speakerId": "adriana",
+      "side": "LEFT",
+      "text": "We made it. Two thousand miles of taillights and here we are. Look at that light — this place could be good to us, Todd. It could really, finally be good to us.",
+      "nextNodeId": "florida_house_part2"
+    },
+    {
+      "id": "florida_house_part2",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I want to believe her so badly it hurts behind the ribs. But my body remembers the other promises the machine made, and the scars it delivered instead. I hold her anyway. Whatever comes next, she's the reason I keep showing up.",
+      "nextNodeId": "florida_commute_intro"
+    },
+    {
+      "id": "florida_commute_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The commute is its own country: I-95 south in the dead of night, a standard hour when the world cooperates and a soul-crushing three-hour crawl when it doesn't — accidents, construction, snarls that move like the furniture of hell.",
+      "nextNodeId": "florida_commute_intro_part2"
+    },
+    {
+      "id": "florida_commute_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "South into the dark before the overnight shift; north into the blinding Florida sunrise after twelve to fourteen hours on the floor. Holding you in place: the relocation contract. Walk away or get fired, and you owe it back — thousands, from two thousand miles out.",
+      "nextNodeId": "florida_road_hub"
+    },
+    {
+      "id": "florida_road_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The road and the collar, both waiting. Say what needs to be said before the first shift south.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_florida_road_learned",
+          "flag_florida_collar_read",
+          "flag_florida_anchor_held"
+        ],
+        "redirectToNodeId": "florida_first_drive"
+      },
+      "choices": [
+        {
+          "id": "choice_florida_road",
+          "text": "Walk the road in your head — the snarls, the sunrise, the hours.",
+          "voiceKeywords": [
+            "road",
+            "drive",
+            "commute",
+            "route",
+            "gauntlet",
+            "highway",
+            "learn"
+          ],
+          "nextNodeId": "branch_florida_road",
+          "completionFlag": "flag_florida_road_learned"
+        },
+        {
+          "id": "choice_florida_collar",
+          "text": "Read the relocation clawback line by line.",
+          "voiceKeywords": [
+            "collar",
+            "contract",
+            "clawback",
+            "read",
+            "debt",
+            "terms",
+            "relocation"
+          ],
+          "nextNodeId": "branch_florida_collar",
+          "completionFlag": "flag_florida_collar_read"
+        },
+        {
+          "id": "choice_florida_anchor",
+          "text": "Hold the morning with Adriana before the road takes you.",
+          "voiceKeywords": [
+            "adriana",
+            "anchor",
+            "morning",
+            "home",
+            "wife",
+            "hold",
+            "her"
+          ],
+          "nextNodeId": "branch_florida_anchor",
+          "completionFlag": "flag_florida_anchor_held"
+        },
+        {
+          "id": "choice_florida_gauntlet",
+          "text": "Ride the asphalt gauntlet into St. Augustine.",
+          "voiceKeywords": [
+            "gauntlet",
+            "ride",
+            "battle",
+            "fight",
+            "drive",
+            "asphalt",
+            "95"
+          ],
+          "nextNodeId": "florida_interstate_trigger"
+        },
+        {
+          "id": "choice_florida_south",
+          "text": "Drive south into the dark — the first shift waits.",
+          "voiceKeywords": [
+            "south",
+            "first",
+            "shift",
+            "go",
+            "next",
+            "proceed",
+            "drive"
+          ],
+          "nextNodeId": "florida_first_drive"
+        }
+      ]
+    },
+    {
+      "id": "branch_florida_road",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Tonight the road will congeal at four different bridges; by sunrise it will be a glare and a prayer. You learn it the way you learn a hostile coworker — routes, exits, the shoulder that can save you. The gauntlet has a geography. You intend to outlast it.",
+      "nextNodeId": "florida_road_hub"
+    },
+    {
+      "id": "branch_florida_collar",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The clawback, page by page: corporate paid for the move, and corporate owns you until the miles repay it. Walk before the term, lose the job, and the debt follows you like a second relocation. A leash wearing a loan officer's smile.",
+      "nextNodeId": "florida_road_hub"
+    },
+    {
+      "id": "branch_florida_anchor",
+      "speakerId": "adriana",
+      "side": "LEFT",
+      "text": "Come home when you can, not when they say you can. I'll be awake. I'll be right here. You didn't survive everything else just to hand them your nights, Todd. Whatever this store is — I'm not afraid of it.",
+      "nextNodeId": "florida_road_hub"
+    },
+    {
+      "id": "florida_interstate_trigger",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The road ahead: headlights, construction walls, and the long dark between two states of exhaustion. Say 'Enemies' and hold your lane — this one wants to be both the fastest and the slowest hour of your life.",
+      "triggerBattleEncounterId": "florida_interstate",
+      "nextNodeId": "florida_interstate_post"
+    },
+    {
+      "id": "florida_interstate_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "The bridge lights finally thin out and the store glows on the horizon like something that knows my name. The road and I have come to terms: it will always be this hard. So will I.",
+      "nextNodeId": "florida_road_hub"
+    },
+    {
+      "id": "florida_first_drive",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The first night south, odometer ticking like a debt collector: past the truck stops and the swamp-dark billboards, past exits that smell like rain and diesel. The radio dies somewhere around midnight and the hum of sixty-five takes over.",
+      "nextNodeId": "florida_store_sight"
+    },
+    {
+      "id": "florida_store_sight",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "St. Augustine at last — a megamart rising out of the flat, its parking lot a sea of sodium light, its sign a promise the size of a city block. The building talks like sunshine. The contract in your folder talks like a leash.",
+      "healPartyOnEnter": "full",
+      "changeSceneId": "scene_florida_store",
+      "nextNodeId": "florida_store_intro"
+    },
+    {
+      "id": "florida_store_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The St. Augustine overnight floor under new management: a real crew, a real plan, and a store manager waiting at the dock like a father at a recital. Sriniviii shakes your hand with both of his, and for three whole months he will mean it.",
+      "nextNodeId": "florida_sriniviii"
+    },
+    {
+      "id": "florida_sriniviii",
+      "speakerId": "sriniviii",
+      "side": "LEFT",
+      "text": "Your freight moves like a river. You hear me? A river. I've watched thirteen overnight managers drown in this building, and I've never once seen the unload run like this. You were worth every mile of the transfer.",
+      "nextNodeId": "florida_sriniviii_part2"
+    },
+    {
+      "id": "florida_sriniviii_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The golden period: metrics green, bins breathing, the region calling to check which manager finally fixed the night. The curse of the overnight manager looks broken. You let yourself believe it for a season, because the crew believes it too.",
+      "nextNodeId": "florida_ohmar_intro"
+    },
+    {
+      "id": "florida_ohmar_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "And then there is Ohmar. Not loud, not cruel in public — enormous, calm, watchful. The store lead moves through the building like weather: everyone feels him before they see him. His smile is a courtesy. The whole region runs on his particular kind of heat.",
+      "nextNodeId": "florida_ohmar_face"
+    },
+    {
+      "id": "florida_ohmar_face",
+      "speakerId": "ohmar",
+      "side": "RIGHT",
+      "text": "You run the night. I run what the night means to the region. Don't confuse the two, and we'll get along fine. The freight moves like a river, they say. Rivers can be moved.",
+      "nextNodeId": "florida_honeymoon_hub"
+    },
+    {
+      "id": "florida_honeymoon_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Three months of sunshine while the meters hold green. Say what needs saying before the vacation — the last bright page this memoir owns.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_florida_green_known",
+          "flag_florida_crew_met",
+          "flag_florida_sun_wondered"
+        ],
+        "redirectToNodeId": "florida_vacation_decision"
+      },
+      "choices": [
+        {
+          "id": "choice_florida_green",
+          "text": "Read the green board and feel the drought end.",
+          "voiceKeywords": [
+            "green",
+            "metrics",
+            "board",
+            "numbers",
+            "dashboard",
+            "read",
+            "meters"
+          ],
+          "nextNodeId": "branch_florida_green",
+          "completionFlag": "flag_florida_green_known"
+        },
+        {
+          "id": "choice_florida_crew",
+          "text": "Meet the overnight crew before the shift.",
+          "voiceKeywords": [
+            "crew",
+            "meet",
+            "associates",
+            "team",
+            "overnight",
+            "people"
+          ],
+          "nextNodeId": "branch_florida_crew",
+          "completionFlag": "flag_florida_crew_met"
+        },
+        {
+          "id": "choice_florida_sun_wonder",
+          "text": "Wonder why it's all easy now.",
+          "voiceKeywords": [
+            "wonder",
+            "easy",
+            "suspicious",
+            "honeymoon",
+            "sunshine",
+            "doubt"
+          ],
+          "nextNodeId": "branch_florida_sun_wonder",
+          "completionFlag": "flag_florida_sun_wondered"
+        },
+        {
+          "id": "choice_florida_meters",
+          "text": "Hold the meters with the crew.",
+          "voiceKeywords": [
+            "meters",
+            "hold",
+            "board",
+            "fight",
+            "battle",
+            "metric",
+            "river"
+          ],
+          "nextNodeId": "florida_green_trigger"
+        },
+        {
+          "id": "choice_florida_vacation",
+          "text": "Take the first vacation — a week with Adriana.",
+          "voiceKeywords": [
+            "vacation",
+            "week",
+            "adriana",
+            "off",
+            "rest",
+            "go",
+            "sun"
+          ],
+          "nextNodeId": "florida_vacation_decision"
+        }
+      ]
+    },
+    {
+      "id": "branch_florida_green",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Green for three months straight: unload under hours, bins above the line, the regional dashboard finally singing your name. It's real. It's earned. And you've lived long enough to know the machine only sings before it swallows.",
+      "nextNodeId": "florida_honeymoon_hub"
+    },
+    {
+      "id": "branch_florida_crew",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The crew is the best you've ever had: people who remember the creed — clear expectations, no administrative ambushes, proper tools, and respect. They trust you by April. By June they'd follow you into the fire of the receiving dock.",
+      "nextNodeId": "florida_honeymoon_hub"
+    },
+    {
+      "id": "branch_florida_sun_wonder",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "It's never this easy. It was never this easy in any store, in any state, on any shift I've ever worked. Somebody up there is smiling at me, and my spine can't decide if that's praise or the countdown.",
+      "nextNodeId": "florida_honeymoon_hub"
+    },
+    {
+      "id": "florida_green_trigger",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The meters, alive and green, humming with all the good months at once. Say 'Enemies' and hold them — a victory-light fight, proof the machine works when it chooses to. Savour it now. The bill comes due in one week.",
+      "triggerBattleEncounterId": "florida_green_metrics",
+      "nextNodeId": "florida_green_post"
+    },
+    {
+      "id": "florida_green_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "The board glows green and the floor is quiet and the whole building feels like it finally learned my name for real. It won't last. It never does. But for one shift, I stand under the light and let it be enough.",
+      "nextNodeId": "florida_honeymoon_hub"
+    },
+    {
+      "id": "florida_vacation_decision",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The very first vacation: a week in the sun with Adriana, no walkie, no backroom, no I-95. You tell yourself it's a reward. The machine tells itself it's a trigger. For one bookended week, you both get what they want.",
+      "nextNodeId": "florida_vacation_week"
+    },
+    {
+      "id": "florida_vacation_week",
+      "speakerId": "adriana",
+      "side": "LEFT",
+      "text": "Seven days of not-clock. You sleep like a civilian. You laugh at something stupid on the boardwalk. You watch the ocean do its pointless, perfect work and realize — this is what people mean by alive.",
+      "nextNodeId": "florida_vacation_return"
+    },
+    {
+      "id": "florida_vacation_return",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The week ends. The drive south is longer than it was in April. And the moment you step back onto the overnight floor, you feel it: the temperature of the building has changed, like a house whose owners decided you were never welcome.",
+      "nextNodeId": "florida_vacation_return_part2"
+    },
+    {
+      "id": "florida_vacation_return_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The friendliness is gone. What waits is a cold, predatory stare from the office — and a morning ritual that will rewrite what the word 'enough' means.",
+      "healPartyOnEnter": "full",
+      "changeSceneId": "scene_florida_office",
+      "nextNodeId": "florida_flip_intro"
+    },
+    {
+      "id": "florida_flip_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The store manager's office. Sriniviii's welcome-back smile has been replaced by a line where the warmth used to be. Behind the desk: charts you can't win, numbers that move at night, and the smell of a switch that has been flipped.",
+      "nextNodeId": "florida_flip_intro_part2"
+    },
+    {
+      "id": "florida_flip_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "'We need to talk about last month,' he says, and means the opposite. Nothing changed in the store. Everything changed in the room. You left for one week and came back as the problem.",
+      "nextNodeId": "florida_morning_verdict"
+    },
+    {
+      "id": "florida_morning_verdict",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Morning, every morning, after the full overnight shift: the ritual. Stand before the office and hear the verdict on a floor that was already perfect. No matter how much freight cleared, no matter how clean the building — the phrase never changes.",
+      "nextNodeId": "florida_ohmar_terror"
+    },
+    {
+      "id": "florida_ohmar_terror",
+      "speakerId": "ohmar",
+      "side": "RIGHT",
+      "text": "The night shift is the store's face at three in the morning. Right now that face is yours, and I'm telling you plainly: it is not good enough. It was good enough in May. It is not good enough now. Find out why before I do.",
+      "nextNodeId": "florida_flip_hub"
+    },
+    {
+      "id": "florida_flip_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The goalposts are on wheels and the office is a furnace. Say what needs saying before the beatdowns reset the clock.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_florida_goalposts_read",
+          "flag_florida_terror_faced"
+        ],
+        "redirectToNodeId": "florida_beatdowns_intro"
+      },
+      "choices": [
+        {
+          "id": "choice_florida_goalposts",
+          "text": "Map the goalposts that move every morning.",
+          "voiceKeywords": [
+            "goalposts",
+            "map",
+            "moving",
+            "metrics",
+            "morning",
+            "read",
+            "target"
+          ],
+          "nextNodeId": "branch_florida_goalposts",
+          "completionFlag": "flag_florida_goalposts_read"
+        },
+        {
+          "id": "choice_florida_terror",
+          "text": "Name what Ohmar is — and face it.",
+          "voiceKeywords": [
+            "ohmar",
+            "terror",
+            "face",
+            "name",
+            "enforcer",
+            "stand"
+          ],
+          "nextNodeId": "branch_florida_terror",
+          "completionFlag": "flag_florida_terror_faced"
+        },
+        {
+          "id": "choice_florida_ohmar",
+          "text": "Submit to Ohmar's formal office, alone.",
+          "voiceKeywords": [
+            "formal",
+            "office",
+            "interrogation",
+            "ohmar",
+            "battle",
+            "fight"
+          ],
+          "nextNodeId": "florida_ohmar_trigger"
+        },
+        {
+          "id": "choice_florida_verdict",
+          "text": "Stand through a week of morning verdicts.",
+          "voiceKeywords": [
+            "verdict",
+            "stand",
+            "beatdown",
+            "week",
+            "survive",
+            "morning",
+            "fight"
+          ],
+          "nextNodeId": "florida_verdict_trigger"
+        },
+        {
+          "id": "choice_florida_accept",
+          "text": "Let the office have its morning and keep moving.",
+          "voiceKeywords": [
+            "accept",
+            "endure",
+            "let",
+            "continue",
+            "next",
+            "office"
+          ],
+          "nextNodeId": "florida_beatdowns_intro"
+        }
+      ]
+    },
+    {
+      "id": "branch_florida_goalposts",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "You chart it like freight: Monday the target climbs, Tuesday it moves sideways, Wednesday it retroactively retro-dates. No finished store has ever satisfied a goalpost mounted on wheels — because the point was never the goal. The point was the moving.",
+      "nextNodeId": "florida_flip_hub"
+    },
+    {
+      "id": "branch_florida_terror",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "He's not a manager. He's the region's enforcement, the reason lower stores run clean and scared. I've faced the machine in four states now, and Ohmar is the first man who made the machine look like it had a heartbeat.",
+      "nextNodeId": "florida_flip_hub"
+    },
+    {
+      "id": "florida_ohmar_trigger",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The formal office: door closed, chair empty, silence doing the math. Say 'Enemies' and walk in. This is the terror of the region in a room with you — the interview that never ends and never goes your way, and somehow always finds you 'not good enough.'",
+      "triggerBattleEncounterId": "florida_ohmar_interrogation",
+      "nextNodeId": "florida_ohmar_post"
+    },
+    {
+      "id": "florida_ohmar_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I walk out of the formal office with my heart a clean eight-eighty and my job (for now) still my own. He didn't break me; he confirmed me. Whatever else this man is — I know exactly what he is now, and fear was the last thing he taught me.",
+      "nextNodeId": "florida_flip_hub"
+    },
+    {
+      "id": "florida_verdict_trigger",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "A week of mornings, one verdict each, the goalposts rolling between them. Say 'Enemies' and endure the gauntlet of 'not good enough' — beat it back long enough to remember the floor was never the problem.",
+      "triggerBattleEncounterId": "florida_morning_verdict",
+      "nextNodeId": "florida_verdict_post"
+    },
+    {
+      "id": "florida_verdict_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Seven verdicts. Seven mornings. The store stayed clean and perfect all week, and the phrase stayed exactly the same. That's when it finally clicks for good: the verdict was never about the store. It was always about making me small.",
+      "nextNodeId": "florida_flip_hub"
+    },
+    {
+      "id": "florida_beatdowns_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "And then the hours begin to stretch. Unofficial at first — 'one more thing,' 'help the day crew,' 'quick walk before you punch out.' The store starts keeping you three, then four hours past the end of your shift, on tasks with no name and no owner.",
+      "nextNodeId": "florida_beatdowns_intro_part2"
+    },
+    {
+      "id": "florida_beatdowns_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Shift ends; you stay. The day crew trickles out; you stay. The building lights drop to the night circuit; you stay — folding, recounting, aligning things nobody will check, hostage to a clock with the face of the machine.",
+      "healPartyOnEnter": "full",
+      "changeSceneId": "scene_florida_backroom",
+      "nextNodeId": "florida_hostage_intro"
+    },
+    {
+      "id": "florida_hostage_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The ownerless building at the end of a shift that never ends: your crew gone home, the day crew gone home, the store manager gone home, and you still here — three hours deep into a task nobody will ever look at. The clock is the only supervisor left.",
+      "nextNodeId": "florida_hostage_intro_part2"
+    },
+    {
+      "id": "florida_hostage_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Three, then four hours. The microscopically meaningless: recount an aisle by hand, straighten a line of pegs, fold the shirts in a size that doesn't sell. Zero bearing on the business. All of the bearing on you.",
+      "nextNodeId": "florida_almost_home"
+    },
+    {
+      "id": "florida_almost_home",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The night it bottoms out: hour eighteen of a day that started before the sun — the exit door twenty feet away, empty parking lot, the I-95 ramp glowing past the sodium, and a thought that arrives in your own voice, calm as a supervisor: what if you just… didn't.",
+      "nextNodeId": "florida_almost_home_part2"
+    },
+    {
+      "id": "florida_almost_home_part2",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "If I drive home I'll barely sleep before I have to drive right back — so what's the point of the hundred-mile round trip? For a second I stand there doing the math of the machine: shift, commute, hostage hours, and no home in between.",
+      "nextNodeId": "florida_hostage_hub"
+    },
+    {
+      "id": "florida_hostage_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The building holds you; the road waits. Say what needs saying before you decide which door means home.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_florida_noose_read",
+          "flag_florida_home_phone",
+          "flag_florida_crew_human"
+        ],
+        "redirectToNodeId": "florida_drive_choice"
+      },
+      "choices": [
+        {
+          "id": "choice_florida_noose",
+          "text": "Add up the hours — the noose's arithmetic.",
+          "voiceKeywords": [
+            "noose",
+            "hours",
+            "math",
+            "commute",
+            "add",
+            "count",
+            "arithmetic"
+          ],
+          "nextNodeId": "branch_florida_noose",
+          "completionFlag": "flag_florida_noose_read"
+        },
+        {
+          "id": "choice_florida_phone",
+          "text": "Call home from the backroom in the dark.",
+          "voiceKeywords": [
+            "call",
+            "home",
+            "adriana",
+            "phone",
+            "dark",
+            "porch",
+            "voice"
+          ],
+          "nextNodeId": "branch_florida_home_phone",
+          "completionFlag": "flag_florida_home_phone"
+        },
+        {
+          "id": "choice_florida_crew_human",
+          "text": "Let the crew keep you human past midnight.",
+          "voiceKeywords": [
+            "crew",
+            "human",
+            "associates",
+            "keep",
+            "hold",
+            "people",
+            "midnight"
+          ],
+          "nextNodeId": "branch_florida_crew_human",
+          "completionFlag": "flag_florida_crew_human"
+        },
+        {
+          "id": "choice_florida_hostage",
+          "text": "Break the ownerless building's hold.",
+          "voiceKeywords": [
+            "building",
+            "hostage",
+            "fight",
+            "battle",
+            "break",
+            "hours"
+          ],
+          "nextNodeId": "florida_hostage_trigger"
+        },
+        {
+          "id": "choice_florida_drive",
+          "text": "Drive home into the dark.",
+          "voiceKeywords": [
+            "drive",
+            "home",
+            "go",
+            "night",
+            "leave",
+            "proceed",
+            "exit"
+          ],
+          "nextNodeId": "florida_drive_choice"
+        }
+      ]
+    },
+    {
+      "id": "branch_florida_noose",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The arithmetic, done once so it can never be undone: an hour minimum each way, a twelve-hour shift, an hour back — fourteen to sixteen on the short days. Add the four hostage hours and the day runs eighteen to twenty. The commute stops being a mile marker and becomes the hangman's knot.",
+      "nextNodeId": "florida_hostage_hub"
+    },
+    {
+      "id": "branch_florida_home_phone",
+      "speakerId": "adriana",
+      "side": "LEFT",
+      "text": "Hey. Hey — you sound like you're underwater. Todd, I don't care what time it is. Get in the car and come home. I'll leave the porch light on. I'll be right here. The store can hold itself for four more hours.",
+      "nextNodeId": "florida_hostage_hub"
+    },
+    {
+      "id": "branch_florida_crew_human",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "At 1 AM the crew finds you still folding and starts folding beside you — nobody said a word, nobody was asked. They just fall in like a wall. Italian night at the back baler, and for four hours the building forgets it owns the clock.",
+      "nextNodeId": "florida_hostage_hub"
+    },
+    {
+      "id": "florida_hostage_trigger",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The building, ownerless and patient, holding you in its fluorescent grip. Say 'Enemies' and take back the hours — the clock, the pointless pegs, the hum without a heart. The only hostage this store keeps is you, and you are leaving.",
+      "triggerBattleEncounterId": "florida_hostage_hours",
+      "nextNodeId": "florida_hostage_post"
+    },
+    {
+      "id": "florida_hostage_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I walk the last aisle at 4 AM and the building finally lets me go — not because it's kind, but because even a machine gets tired of holding a man it can't break. The clock argues. The exit door wins.",
+      "nextNodeId": "florida_hostage_hub"
+    },
+    {
+      "id": "florida_drive_choice",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "You choose the door — and the dark, and the hundred-mile porch light. The drive north is the hardest hour of the day, and the only one you take for free. Somewhere past the truck stops, your hands stop shaking and the road agrees to take you home.",
+      "nextNodeId": "florida_drive_choice_part2"
+    },
+    {
+      "id": "florida_drive_choice_part2",
+      "speakerId": "adriana",
+      "side": "LEFT",
+      "text": "The porch light on, the coffee made, her eyes on the driveway. You look like you've been gone for a month, she says, and wraps you in the reason the machine will never understand.",
+      "healPartyOnEnter": "full",
+      "changeSceneId": "scene_florida_overnight",
+      "nextNodeId": "florida_sanctuary_intro"
+    },
+    {
+      "id": "florida_sanctuary_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "And then — three in the morning, the pure opposite of everything the office is: the overnight associates. No politics, no goalposts, no two faces. Just people doing honest work in the dark, and a manager who stands between them and the vultures.",
+      "nextNodeId": "florida_sanctuary_intro_part2"
+    },
+    {
+      "id": "florida_sanctuary_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "They are the reason the building hasn't eaten you: the ones who fold at your side, who trade you coffee for a better aisle, who trust you with the small kept things of their lives. The sanctuary of the floor is not a place. It's them.",
+      "nextNodeId": "florida_creed_intro"
+    },
+    {
+      "id": "florida_creed_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The creed, forged years ago in Utah, tends itself here: clear expectations, zero administrative headaches, proper tools, and a respectful environment. You give them what the machine never gives anyone — and they give you back the only pure, peaceful element left in the job.",
+      "nextNodeId": "florida_creed_intro_part2"
+    },
+    {
+      "id": "florida_creed_intro_part2",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "The vultures are real: daytime management that treats humans like biological trash, audits that blame the freight for the missing hours. I stand in front of my crew the way I stood in front of every crew before them. I absorb the blows so they don't have to.",
+      "nextNodeId": "florida_sanctuary_hub"
+    },
+    {
+      "id": "florida_sanctuary_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The sanctuary hums at 3 AM. Say what needs saying while the day crew sleeps and the good people do the work.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_florida_story_heard",
+          "flag_florida_shield_raised"
+        ],
+        "redirectToNodeId": "florida_body_intro"
+      },
+      "choices": [
+        {
+          "id": "choice_florida_story",
+          "text": "Hear one associate's whole life in the dark.",
+          "voiceKeywords": [
+            "story",
+            "hear",
+            "listen",
+            "life",
+            "associate",
+            "human"
+          ],
+          "nextNodeId": "branch_florida_story",
+          "completionFlag": "flag_florida_story_heard"
+        },
+        {
+          "id": "choice_florida_shield",
+          "text": "Raise the shield between them and the vultures.",
+          "voiceKeywords": [
+            "shield",
+            "protect",
+            "vultures",
+            "absorb",
+            "raise",
+            "guard"
+          ],
+          "nextNodeId": "branch_florida_shield",
+          "completionFlag": "flag_florida_shield_raised"
+        },
+        {
+          "id": "choice_florida_body",
+          "text": "Let the night do its quiet work and feel the cost.",
+          "voiceKeywords": [
+            "night",
+            "quiet",
+            "work",
+            "stay",
+            "hold",
+            "proceed",
+            "floor"
+          ],
+          "nextNodeId": "florida_body_intro"
+        }
+      ]
+    },
+    {
+      "id": "branch_florida_story",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "A cart girl with a son who reads three grades up; a night receiver who left a construction job for a schedule that lets him see his wife; a kid who saves every tip shift for a used hatchback. Not numbers. Not biological trash. People — and your job is to keep them whole in a machine that breaks people for sport.",
+      "nextNodeId": "florida_sanctuary_hub"
+    },
+    {
+      "id": "branch_florida_shield",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "A day-side auditor wants to write up my night cart guy for a fill that sat two hours. I take the write-up instead — scalpel to the bone, my name on the line. They never wanted the guy; they wanted the fear. I hand them mine so his stays in his chest.",
+      "nextNodeId": "florida_sanctuary_hub"
+    },
+    {
+      "id": "florida_body_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "But the body keeps the score. It always has. The commute, the hostage hours, the goalposts, the terror — the ledger runs in your skin now: the forehead burning low and constant, the first shadows of the fourth outbreak creeping in like a confession you didn't make.",
+      "nextNodeId": "florida_body_intro_part2"
+    },
+    {
+      "id": "florida_body_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "By the end of the month you're working with a fever you refuse to name, and the store's own policy does what management never would: a mandatory third-party medical leave. The building sends you home to heal — out of care, no, out of liability.",
+      "healPartyOnEnter": "full",
+      "changeSceneId": "scene_florida_3am",
+      "nextNodeId": "florida_leave_intro"
+    },
+    {
+      "id": "florida_leave_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Medical leave. The cavernous backroom at three in the morning, after the sun has given up and the fluorescent has not: shingles across the forehead in full agonizing force, and the relocation debt humming in the rafters like a fridge.",
+      "nextNodeId": "florida_leave_intro_part2"
+    },
+    {
+      "id": "florida_leave_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Alone. No crew, no walkie, no folding wall of bodies — just the hum, the pain, and the arithmetic that has been compounding since April. The body has done its job. Now the mind gets its turn, and the mind has been taking notes all year.",
+      "nextNodeId": "florida_leave_battle"
+    },
+    {
+      "id": "florida_leave_battle",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The fourth signal, burning across the forehead in full force: the body's final scorecard, the immune system at its absolute limit. Say 'Enemies' and fight the fever — the leave has a door, and the pain is standing in it.",
+      "triggerBattleEncounterId": "florida_shingles_four",
+      "nextNodeId": "florida_leave_post"
+    },
+    {
+      "id": "florida_leave_post",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The fever finally breaks into the small hours. But in its place, in the quiet it leaves behind, something else arrives with the hum — patient, rational, fully formed. And it will visit again tomorrow night. And the night after.",
+      "nextNodeId": "florida_leave_post_part2"
+    },
+    {
+      "id": "florida_leave_post_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Two and a half weeks. Every night the visitor comes: the plan, the place, the timing, the silence — considered seriously, completed to the last detail, offered like a solution to the morning. The only thing that has stopped it, every single night, is a name.",
+      "nextNodeId": "florida_night_one"
+    },
+    {
+      "id": "florida_night_one",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Night one of the dark arithmetic. I sit in the hum and write the reasons it would all end. The commute. The collar. Ohmar at five in the morning with his flat smile and his not good enough. For the first time in my life, the exit isn't a door. It's an answer.",
+      "nextNodeId": "florida_night_two"
+    },
+    {
+      "id": "florida_night_two",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Night two, and the answer gets a shape: the exact space between the last shift and the first meeting, the method, the place where nobody would find me in time. Planned. Complete. Mine. It's the only power the job has left me, and it terrifies me how calm it feels.",
+      "nextNodeId": "florida_night_three"
+    },
+    {
+      "id": "florida_night_three",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Night three: the ledger. Eighteen-hour days, the clawback schedule, two thousand miles from every face that raised you, and a store that will replace you by the signing. Every argument the machine has ever made, balled up and handed back to you as an ending.",
+      "nextNodeId": "florida_night_four"
+    },
+    {
+      "id": "florida_night_four",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Night four: the plan ticks like a loaded trailer — everything aligned, everything quiet, nothing left to assembly but the final decision. It is the most decision-ready you have ever been in your life, and that is precisely what it wants.",
+      "nextNodeId": "florida_night_five"
+    },
+    {
+      "id": "florida_night_five",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "And on night five, in the middle of the perfect plan, I see her face — Adriana, asleep in the next room, trusting the world to still have me in it. She needs me. Not as a reason. As the reason. The plan breaks in the same breath it was born, and I breathe like I've been underwater.",
+      "nextNodeId": "florida_night_six"
+    },
+    {
+      "id": "florida_night_six",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The second week. Some nights the visitor gets all the way to the door. Some nights it's the sound of her stirring in the next room that calls it back. Every night it returns with the hum. Every night the same two words stand against it: she needs me.",
+      "nextNodeId": "florida_night_seven"
+    },
+    {
+      "id": "florida_night_seven",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The third week: exhaustion does what the machine couldn't — it argues with her. But the image holds. The porch light, the coffee, the way she says the store can hold itself. Night after night, a woman's stubborn love outlasts a perfect plan.",
+      "nextNodeId": "florida_night_eight"
+    },
+    {
+      "id": "florida_night_eight",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Night eight, and the fog finally breaks in the fluorescent silence. The corporation, the metrics, the relocation contract — none of it is worth dying for. I can read the ledger now, and the answer isn't the ending. The answer is the exit sign, the step down, the refusal. I choose to live.",
+      "nextNodeId": "florida_three_am_trigger"
+    },
+    {
+      "id": "florida_three_am_trigger",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The darkest hour, one last time: the alternative itself, standing in the backroom at 3 AM, patient as a supervisor. Say 'Enemies' and refuse it — not by fighting the plan, but by holding the face that broke it. Defeat the visitor by choosing the morning.",
+      "nextNodeId": "florida_three_am_post",
+      "triggerBattleEncounterId": "florida_three_am"
+    },
+    {
+      "id": "florida_three_am_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I choose to live. I say it out loud in the empty backroom, and the hum changes key, like the building finally lost the argument. The plan dies in my chest where it was born. I am not the machine's last metric. I am not handing them my body for the score.",
+      "nextNodeId": "florida_three_am_post_part2"
+    },
+    {
+      "id": "florida_three_am_post_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Knowing is the armor the machine can't claw back: the epiphany, real at last — the corporation, the metrics, the contract are not worth dying for, and the answer was never endurance. It was the door. The radical choice is finally in reach.",
+      "nextNodeId": "florida_choice_hub"
+    },
+    {
+      "id": "florida_choice_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The 3 AM is behind you and the way out is ahead. Say what needs saying — the title, the collar, and the one decision that ends the loop.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_florida_stepdown_chosen",
+          "flag_florida_collar_refused"
+        ],
+        "redirectToNodeId": "florida_parting_intro"
+      },
+      "choices": [
+        {
+          "id": "choice_florida_stepdown",
+          "text": "Step down from salary — refuse the death spiral.",
+          "voiceKeywords": [
+            "step down",
+            "salary",
+            "refuse",
+            "demote",
+            "title",
+            "quit"
+          ],
+          "nextNodeId": "branch_florida_stepdown",
+          "completionFlag": "flag_florida_stepdown_chosen"
+        },
+        {
+          "id": "choice_florida_collar_refuse",
+          "text": "Refuse the relocation collar for good.",
+          "voiceKeywords": [
+            "collar",
+            "refuse",
+            "contract",
+            "debt",
+            "clawback"
+          ],
+          "nextNodeId": "branch_florida_collar_refuse",
+          "completionFlag": "flag_florida_collar_refused"
+        },
+        {
+          "id": "choice_florida_redemption",
+          "text": "Walk the redemption schedule one last time.",
+          "voiceKeywords": [
+            "redemption",
+            "debt",
+            "schedule",
+            "battle",
+            "fight",
+            "collar"
+          ],
+          "nextNodeId": "florida_redemption_trigger"
+        },
+        {
+          "id": "choice_florida_get_out",
+          "text": "Get the hell out of St. Augustine.",
+          "voiceKeywords": [
+            "out",
+            "leave",
+            "escape",
+            "get out",
+            "exit",
+            "go"
+          ],
+          "nextNodeId": "florida_parting_intro"
+        }
+      ]
+    },
+    {
+      "id": "branch_florida_stepdown",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I take the pay cut — twenty-four grand, the machine keeping its clawback wound — and hand back the title that was really a leash. Salary was never the point. The overnight manager death spiral was the point, and I am done being its next number.",
+      "nextNodeId": "florida_choice_hub"
+    },
+    {
+      "id": "branch_florida_collar_refuse",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The relocation contract, refused at last: the collar stays in the drawer with the two-faced promises. Owing thousands is cheaper than owing your body. For the first time since April, the arithmetic comes out ahead of the machine.",
+      "nextNodeId": "florida_choice_hub"
+    },
+    {
+      "id": "florida_redemption_trigger",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The redemption schedule, the collar's pure ledger: every dollar owed for walking, every year of the repayment knot. Say 'Enemies' and settle the debt on your terms. The machine expects you to fear it. You expect it to be paper.",
+      "triggerBattleEncounterId": "florida_redemption_schedule",
+      "nextNodeId": "florida_redemption_post"
+    },
+    {
+      "id": "florida_redemption_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "The schedule lies shredded in the backroom bin. The debt is still real — the money is still owed. But it's paper now, not a leash. I can pay paper. I can't pay with my life, and I was never going to.",
+      "nextNodeId": "florida_choice_hub"
+    },
+    {
+      "id": "florida_parting_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The step-down is accepted without resistance — colder than any fight: forms signed in silence, no questions, no counter-offer, no goodbye. Management has already moved on, updating the replacement list in their heads before you've left the building.",
+      "nextNodeId": "florida_parting_intro_part2"
+    },
+    {
+      "id": "florida_parting_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "And as the final act of malice, the whisper — meant for the team lead, designed to reach you anyway, delivered in the flat confident tone of a man who believes his own weather forecast: 'He'll be out of the company in two months anyway.'",
+      "nextNodeId": "florida_parting_trigger"
+    },
+    {
+      "id": "florida_parting_trigger",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The parting shot, one last boss standing in the hallway: the whisper, the prediction, the machine's final arithmetic about your corpse. Say 'Enemies' and answer it — not with a defense, with the north door.",
+      "triggerBattleEncounterId": "florida_parting_shot",
+      "nextNodeId": "florida_parting_post"
+    },
+    {
+      "id": "florida_parting_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Two months anyway. Let them wait for it. I didn't drag my body out of four states and a full dark year to hand the machine the satisfaction of being right. Whatever happens in two months, it happens with my name, not theirs.",
+      "nextNodeId": "florida_last_drive"
+    },
+    {
+      "id": "florida_last_drive",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The last drive north: the St. Augustine megamart receding in the mirror, the sodium ocean shrinking to a smudge, the passenger seat holding Adriana's hand and the rest of your savings. Eight months in the crucible, and the machine's final scorecard reads: you refused to submit.",
+      "nextNodeId": "florida_last_drive_part2"
+    },
+    {
+      "id": "florida_last_drive_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "No Hollywood ending — the debt is real, the pay cut is real, Ohmar is real and will do all of it again to the next soul who signs. But integrity intact, sanity intact, body intact, the collar in the drawer and the sunrise in the windshield.",
+      "nextNodeId": "florida_final"
+    },
+    {
+      "id": "florida_final",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "He walked out of the St. Augustine crucible alive — the darkest chapter of the memoir overcome and escaped, the machine denied its last metric. The road north runs into Act Six, and whatever waits there, he arrives with his whole life in his hands, and his wife's hand in one of his.",
       "setFlagOnEnter": "game_completed"
     }
   ]
