@@ -1,0 +1,14 @@
+{
+  "_doc": "Tani — one of the two exceptional shop leaders who anchor the technician pit in Act 6. Competent, fair, and fiercely protective of her crew. Altered from Tanya. She and Cap'n H represent the rarest thing the machine accidentally produces: genuinely good leaders operating in a pocket the machine forgot to surveil. Dialogue-only.",
+  "id": "tani",
+  "role": "npc",
+  "name": "Tani",
+  "title": "Shop Team Lead",
+  "portraitAsset": "portraits/tani.jpg",
+  "themeColor": "#26C6DA",
+  "ttsPitch": 1.08,
+  "ttsRate": 1.02,
+  "samplePhrase": "Nobody touches my crew without going through me first. That includes whatever that is coming down from the office.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["tani", "team lead", "the lead", "tanya", "the shop lead"]
+}

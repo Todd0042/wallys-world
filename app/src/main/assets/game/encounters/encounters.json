@@ -1445,6 +1445,185 @@
           "executeBelowHpPct": 0.15
         }
       ]
+    },
+    {
+      "id": "act6_pay_cut",
+      "name": "The Pay Cut",
+      "description": "Twenty-four thousand dollars a year, vanished in a single signed form. The depression isn't about the money — it's about watching the machine prove, once again, that there is no landing pad between the crushing altitude of salaried management and the floor.",
+      "environment": "DUNGEON",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "pay_cut_weight",
+          "id": "pay_cut_boss",
+          "name": "The Pay Cut",
+          "isTargeted": true,
+          "atbGauge": 0.38
+        },
+        {
+          "templateId": "metrics_dashboard",
+          "id": "dash_act6",
+          "name": "The Adjusted Dashboard",
+          "atbGauge": 0.28
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_act6_crash",
+          "name": "The Fluorescent Hum",
+          "atbGauge": 0.18
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "pay_cut_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE LANDING",
+          "narrationText": "The form is signed. The salaried title is gone. Twenty-four thousand dollars a year, just like that — and the machine never even looked up from its own paperwork."
+        },
+        {
+          "enemyId": "pay_cut_boss",
+          "hpBelow": 0.33,
+          "bannerText": "THE WEIGHT OF BEING RIGHT",
+          "narrationText": "Back at the bottom of the hourly ladder, watching management treat workers as disposable — and knowing, quietly, that you were right all along. The vindication is real. So is the grief.",
+          "reducePartyToHpPct": 0.5
+        }
+      ]
+    },
+    {
+      "id": "act6_abdoolie_ghost",
+      "name": "Abdoolie's Ghost",
+      "description": "Abdoolie doesn't need to be Ohmar to be Ohmar. The cadence is the same — the flat declarative sentences, the pause before the verdict, the room that empties around him. The body doesn't wait for logic. It's already back in St. Augustine.",
+      "environment": "CASTLE",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "abdoolie_ghost",
+          "id": "abdoolie_boss",
+          "name": "Abdoolie's Ghost",
+          "isTargeted": true,
+          "atbGauge": 0.44
+        },
+        {
+          "templateId": "cc_protocol",
+          "id": "old_memo_echo",
+          "name": "The Old Memo Echo",
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_act6_ptsd",
+          "name": "The Fluorescent Hum",
+          "atbGauge": 0.2
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "abdoolie_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE VOICE RETURNS",
+          "narrationText": "He hasn't raised his voice once. He doesn't need to. That cadence — flat, certain, waiting — is a frequency the nervous system already knows by name.",
+          "summonEnemyId": "cc_protocol",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "abdoolie_boss",
+          "hpBelow": 0.33,
+          "bannerText": "NOT ST. AUGUSTINE",
+          "narrationText": "This is not St. Augustine. Abdoolie is not Ohmar. The store is not the crucible. Naming the difference is the only weapon left — and it works.",
+          "reducePartyToHpPct": 0.42,
+          "executeBelowHpPct": 0.12
+        }
+      ]
+    },
+    {
+      "id": "act6_phantom_threat",
+      "name": "The Phantom Manager's Threat",
+      "description": "Five appearances on the floor in six months. On the sixth, he calls an all-hands meeting to blindly threaten everyone's jobs because the spreadsheet is angry and he has nowhere else to aim.",
+      "environment": "DUNGEON",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "phantom_manager",
+          "id": "phantom_boss",
+          "name": "The Phantom Manager",
+          "isTargeted": true,
+          "atbGauge": 0.46
+        },
+        {
+          "templateId": "customer_grind",
+          "id": "customer_act6",
+          "name": "The Customer Gauntlet",
+          "atbGauge": 0.32
+        },
+        {
+          "templateId": "fluorescent_hum",
+          "id": "hum_act6_threat",
+          "name": "The Fluorescent Hum",
+          "atbGauge": 0.2
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "phantom_boss",
+          "hpBelow": 0.66,
+          "bannerText": "THE RARE APPEARANCE",
+          "narrationText": "He materializes from the office like a myth proving itself briefly real — blinking under the bay lights, holding a printout, already building to the threat.",
+          "summonEnemyId": "customer_grind",
+          "summonCount": 1
+        },
+        {
+          "enemyId": "phantom_boss",
+          "hpBelow": 0.33,
+          "bannerText": "EVERYONE'S JOB",
+          "narrationText": "He threatens every job in the bay because he doesn't know any of your names. The spreadsheet told him to panic, and panic is the only management style he ever learned.",
+          "reducePartyToHpPct": 0.48
+        }
+      ]
+    },
+    {
+      "id": "act6_final_balance",
+      "name": "The Final Balance Sheet",
+      "description": "Four shingles outbreaks. A $24,000 pay cut. Five states in eight years. The machine's ledger versus the one thing it could never enter: integrity intact, empathy intact, a life still in your hands.",
+      "environment": "CAVE",
+      "party": [
+        "todd_shop"
+      ],
+      "enemies": [
+        {
+          "templateId": "final_balance_sheet",
+          "id": "balance_boss",
+          "name": "The Final Balance Sheet",
+          "isTargeted": true,
+          "atbGauge": 0.3
+        },
+        {
+          "templateId": "metrics_dashboard",
+          "id": "last_dashboard",
+          "name": "The Machine's Last Metric",
+          "atbGauge": 0.25
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "balance_boss",
+          "hpBelow": 0.66,
+          "bannerText": "WHAT THE MACHINE SPENT",
+          "narrationText": "Four states. Four shingles. A salary. A marriage that survived anyway. The machine itemizes the damage and calls it a performance review."
+        },
+        {
+          "enemyId": "balance_boss",
+          "hpBelow": 0.33,
+          "bannerText": "WHAT SURVIVED",
+          "narrationText": "The balance is not in the machine's favor. It cannot enter: the people protected, the associates who got home in one piece, the nights held together by one name. Adriana. This column wins.",
+          "reducePartyToHpPct": 0.6
+        }
+      ]
     }
   ]
 }

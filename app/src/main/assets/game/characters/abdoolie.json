@@ -1,0 +1,14 @@
+{
+  "_doc": "Abdoolie — Timmy's replacement as store manager. Devoid of people skills; speaks rarely, and when he does his cadence and autocratic tone trigger severe PTSD in Todd, dragging him back to the terror of Ohmar in St. Augustine. Not physically large like Ohmar — the danger is purely sonic and procedural. The ghost of the old regime in a new body. Dialogue-only.",
+  "id": "abdoolie",
+  "role": "npc",
+  "name": "Abdoolie",
+  "title": "Store Manager",
+  "portraitAsset": "portraits/abdoolie.jpg",
+  "themeColor": "#B71C1C",
+  "ttsPitch": 0.72,
+  "ttsRate": 0.88,
+  "samplePhrase": "I am going to need you to walk me through why this number is what it is.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["abdoolie", "store manager", "the new manager", "the replacement", "the ghost"]
+}

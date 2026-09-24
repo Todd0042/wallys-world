@@ -1,5 +1,5 @@
 {
-  "_doc": "STORY GRAPH for The Squeeze (Acts I-V). Every engine story feature is exercised: linear narration, character dialogue, choice hubs with voiceKeywords + completionFlag elimination, combat triggers (triggerBattleEncounterId + nextNodeId), scene changes (changeSceneId), hub auto-redirect when all flags are set (hubCompletion), companion reclass (joinWhenFlag on the reclassified Todd), the grievance arcs, the CC-regional secret protocol, a victory chain, and the engine-convention 'game_completed' flag that ends the playthrough at the end of Act Five (until Act Six is written). All names, titles, and policies are fictional (Content Neutrality: see AGENTS.md).",
+  "_doc": "STORY GRAPH for The Squeeze (Acts I-VI). Every engine story feature is exercised: linear narration, character dialogue, choice hubs with voiceKeywords + completionFlag elimination, combat triggers (triggerBattleEncounterId + nextNodeId), scene changes (changeSceneId), hub auto-redirect when all flags are set (hubCompletion), companion reclass (joinWhenFlag on the reclassified Todd), the grievance arcs, the CC-regional secret protocol, a victory chain, and the engine-convention 'game_completed' flag that ends the playthrough at the close of Act Six. All names, titles, and policies are fictional (Content Neutrality: see AGENTS.md).",
   "nodes": [
     {
       "id": "squeeze_intro",
@@ -624,9 +624,16 @@
     },
     {
       "id": "fall_jury",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "They send Jury. She arrives on a Monday with a binder, a trim smile, and a single sentence she says to every department head before she's unpacked her office: she doesn't care about your results as long as nothing reaches the region.",
+      "nextNodeId": "fall_jury_speaks"
+    },
+    {
+      "id": "fall_jury_speaks",
       "speakerId": "jury",
       "side": "RIGHT",
-      "text": "Jury. New store manager. I'll tell you what I tell every department head in this building: nothing bounces upward to the region. That is your only job, and it is the whole job. I don't care about your bay metrics as long as it's quiet. Keep it quiet.",
+      "text": "Nothing bounces upward to the region. That is your only job, and it is the whole job. I don't care about your bay metrics as long as it's quiet. Keep it quiet.",
       "nextNodeId": "fall_hub"
     },
     {
@@ -771,7 +778,7 @@
       "id": "wall_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The wall between the family and a better life is not a wall at all — it's a process. A week of forms, a polite interview in a area office, and one sentence spoken to Adriana that the paperwork will never contain the same way she'll hear it forever.",
+      "text": "The wall between the family and a better life is not a wall at all — it's a process. A week of forms, a polite interview in an area office, and one sentence spoken to Adriana that the paperwork will never contain the same way she'll hear it forever.",
       "nextNodeId": "wall_adriana"
     },
     {
@@ -1075,14 +1082,7 @@
       "id": "road_decision",
       "speakerId": "adriana",
       "side": "RIGHT",
-      "text": "We talk about it the way we've talked about every real thing — sitting at the table, honest, no performance. South Carolina. The East Coast, the long-held dream. And we pay for it out of our own pocket, every",
-      "nextNodeId": "road_decision_part2"
-    },
-    {
-      "id": "road_decision_part2",
-      "speakerId": "adriana",
-      "side": "RIGHT",
-      "text": "cent, because a relocation benefit contract around our necks is how the machine keeps you — and we are done letting it keep us. We leave on our own terms, with nothing owed and nothing weighing us down.",
+      "text": "We talk about it the way we've talked about every real thing — sitting at the table, honest, no performance. South Carolina. The East Coast, the long-held dream. And we pay for it out of our own pocket, every cent, because a relocation benefit contract around our necks is how the machine keeps you — and we are done letting it keep us. We leave on our own terms, with nothing owed and nothing weighing us down.",
       "nextNodeId": "road_hub"
     },
     {
@@ -1166,31 +1166,17 @@
       "id": "road_skagg",
       "speakerId": "skagg",
       "side": "RIGHT",
-      "text": "I read both files, kid. I read what they stamped on 'em. And I want you to know — I didn't come here as Area Manager. I came here as a man who watched you run that shop like it mattered, who saw the machine take a",
-      "nextNodeId": "road_skagg_part2"
-    },
-    {
-      "id": "road_skagg_part2",
-      "speakerId": "skagg",
-      "side": "RIGHT",
-      "text": "good woman off the floor and a better one at your kitchen table. You're gonna build something real, out there where a person can breathe. And if you ever run a shop in my area again, I'll be first in line to bet on you.",
-      "setFlagOnEnter": "flag_road_skagg",
-      "nextNodeId": "road_exit"
+      "text": "I read both files, kid. I read what they stamped on 'em. And I want you to know — I didn't come here as Area Manager. I came here as a man who watched you run that shop like it mattered, who saw the machine take a good woman off the floor and a better one at your kitchen table. You're gonna build something real, out there where a person can breathe. And if you ever run a shop in my area again, I'll be first in line to bet on you.",
+      "nextNodeId": "road_exit",
+      "setFlagOnEnter": "flag_road_skagg"
     },
     {
       "id": "road_exit",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The truck is packed, the apartment is empty, and Lamar is in the mirror. Todd and Adriana leave Colorado the same way they came into it — together, out of pocket, pointed east with the scar of the first outbreak burning across Todd's",
+      "text": "The truck is packed, the apartment is empty, and Lamar is in the mirror. Todd and Adriana leave Colorado the same way they came into it — together, out of pocket, pointed east with the scar of the first outbreak burning across Todd's forehead like a receipt for everything the machine took and everything they refused to give it. Georgia first, then the state line, then a service shop in South Carolina that doesn't know them yet. End of Act Two — the borderlands ahead.",
       "healPartyOnEnter": "full",
       "changeSceneId": "scene_carolina_commute",
-      "nextNodeId": "road_exit_part2"
-    },
-    {
-      "id": "road_exit_part2",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "forehead like a receipt for everything the machine took and everything they refused to give it. Georgia first, then the state line, then a service shop in South Carolina that doesn't know them yet. End of Act Two — the borderlands ahead.",
       "nextNodeId": "carolina_intro"
     },
     {
@@ -1225,14 +1211,7 @@
       "id": "carolina_arrival",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The shop is six bays under a roof that hasn't been repainted since the previous decade. Toolboxes missing wheels, a wall of work orders nobody has touched, parts stacked in unlabeled bins like a hoard. The crew is a mixed bag — a couple of seasoned techs",
-      "nextNodeId": "carolina_arrival_part2"
-    },
-    {
-      "id": "carolina_arrival_part2",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "who keep their eyes down, and three green apprentices who look at the lifts like the lifts might bite. Deferred maintenance, every square inch of it. The whole place has been waiting for someone to care — or for someone to sign the wrong thing.",
+      "text": "The shop is six bays under a roof that hasn't been repainted since the previous decade. Toolboxes missing wheels, a wall of work orders nobody has touched, parts stacked in unlabeled bins like a hoard. The crew is a mixed bag — a couple of seasoned techs who keep their eyes down, and three green apprentices who look at the lifts like the lifts might bite. Deferred maintenance, every square inch of it. The whole place has been waiting for someone to care — or for someone to sign the wrong thing.",
       "nextNodeId": "carolina_hub"
     },
     {
@@ -1405,14 +1384,7 @@
       "id": "tour_gate",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The rules are rigid and total: only the Store Manager walks with the visitors. Every junior salaried manager — every department head, every shop manager, every one of the people who actually run the building — is",
-      "nextNodeId": "tour_gate_part2"
-    },
-    {
-      "id": "tour_gate_part2",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "told to stay on the floor and keep the store looking alive. You stand at the edge of the sales floor and watch the glass doors close on the tour before a single question is asked.",
+      "text": "The rules are rigid and total: only the Store Manager walks with the visitors. Every junior salaried manager — every department head, every shop manager, every one of the people who actually run the building — is told to stay on the floor and keep the store looking alive. You stand at the edge of the sales floor and watch the glass doors close on the tour before a single question is asked.",
       "nextNodeId": "tour_todd"
     },
     {
@@ -1552,14 +1524,7 @@
       "id": "azalia_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Azalia is a contradiction you can't quite file. She's the store manager and your boss, and she remembers your wife's name after one conversation. She sends a card when the shop fixes your hot water heater, and when an apprentice's grandmother passes she cries a little and tells the",
-      "nextNodeId": "azalia_intro_part2"
-    },
-    {
-      "id": "azalia_intro_part2",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "kid to take the week — no questions, no forms. The shop is yours to run: you own the bays, the tickets, and the discipline. Walk the floor with her and the store feels almost humane. Then watch what happens the first time you hold somebody accountable.",
+      "text": "Azalia is a contradiction you can't quite file. She's the store manager and your boss, and she remembers your wife's name after one conversation. She sends a card when the shop fixes your hot water heater, and when an apprentice's grandmother passes she cries a little and tells the kid to take the week — no questions, no forms. The shop is yours to run: you own the bays, the tickets, and the discipline. Walk the floor with her and the store feels almost humane. Then watch what happens the first time you hold somebody accountable.",
       "nextNodeId": "azalia_meet"
     },
     {
@@ -1725,28 +1690,14 @@
       "id": "breach_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The signs are all there if you know how to read them: a tech who stops using the torque wrench because the clock is faster without it, brake pads that get slapped in without a look at",
-      "nextNodeId": "breach_intro_part2"
-    },
-    {
-      "id": "breach_intro_part2",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "the rotors, an apprentice fussed and rushed because the edict counts tickets, not safety. You've flagged every one of them. The file on your desk is the only consequence in the building — and it's yours.",
+      "text": "The signs are all there if you know how to read them: a tech who stops using the torque wrench because the clock is faster without it, brake pads that get slapped in without a look at the rotors, an apprentice fussed and rushed because the edict counts tickets, not safety. You've flagged every one of them. The file on your desk is the only consequence in the building — and it's yours.",
       "nextNodeId": "breach_stand"
     },
     {
       "id": "breach_stand",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I draw the line where the line has always been: I will not sign off on work I can't verify. A wheel is torque-checked or it doesn't leave the bay. A brake job gets the caliper measured or it gets redone. Azalia pulls me aside — gently, warmly — and says",
-      "nextNodeId": "breach_stand_part2"
-    },
-    {
-      "id": "breach_stand_part2",
-      "speakerId": "todd_shop",
-      "side": "LEFT",
-      "text": "the visitors need the numbers, and the numbers need the rush, and doesn't that sound reasonable? She has unmade two of my write-ups this month; I know the soft voice by now. I tell her no, it sounds like a lawsuit with my name on it. That's the whole conversation.",
+      "text": "I draw the line where the line has always been: I will not sign off on work I can't verify. A wheel is torque-checked or it doesn't leave the bay. A brake job gets the caliper measured or it gets redone. Azalia pulls me aside — gently, warmly — and says the visitors need the numbers, and the numbers need the rush, and doesn't that sound reasonable? She has unmade two of my write-ups this month; I know the soft voice by now. I tell her no, it sounds like a lawsuit with my name on it. That's the whole conversation.",
       "nextNodeId": "breach_near_miss"
     },
     {
@@ -1924,16 +1875,9 @@
       "id": "breach_aftermath",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "And that's when I know we're leaving. Not because regional acted — because of what it took. The store celebrated the fix like the fix was its own idea. Azalia smiled at me, warm as ever, like none of it happened. The building had a near-miss on its conscience and",
+      "text": "And that's when I know we're leaving. Not because regional acted — because of what it took. The store celebrated the fix like the fix was its own idea. Azalia smiled at me, warm as ever, like none of it happened. The building had a near-miss on its conscience and the only real consequence was a transfer nobody cares about and a shop manager the whole store now resents. This place will eat someone else the way it tried to eat me. I stand in the bays, and the scar on my forehead already knows what comes next.",
       "healPartyOnEnter": "full",
       "changeSceneId": "scene_carolina_road",
-      "nextNodeId": "breach_aftermath_part2"
-    },
-    {
-      "id": "breach_aftermath_part2",
-      "speakerId": "todd_shop",
-      "side": "LEFT",
-      "text": "the only real consequence was a transfer nobody cares about and a shop manager the whole store now resents. This place will eat someone else the way it tried to eat me. I stand in the bays, and the scar on my forehead already knows what comes next.",
       "nextNodeId": "carolina_scar"
     },
     {
@@ -1947,14 +1891,7 @@
       "id": "scar_todd",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "Second time, I know it before the doctor says it. I stand in the mirror in the shop's back room and look at the line of fire above my eyebrow, and I think about what my body is trying to",
-      "nextNodeId": "scar_todd_part2"
-    },
-    {
-      "id": "scar_todd_part2",
-      "speakerId": "todd_shop",
-      "side": "LEFT",
-      "text": "tell me: ethical compromise and systemic neglect burn the nervous system exactly the way impossible metrics do. I stopped signing the machine's lies. The machine is a lie you still have to live beside. Not for much longer.",
+      "text": "Second time, I know it before the doctor says it. I stand in the mirror in the shop's back room and look at the line of fire above my eyebrow, and I think about what my body is trying to tell me: ethical compromise and systemic neglect burn the nervous system exactly the way impossible metrics do. I stopped signing the machine's lies. The machine is a lie you still have to live beside. Not for much longer.",
       "nextNodeId": "scar_home"
     },
     {
@@ -2089,14 +2026,7 @@
       "id": "pueblo_arrival",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The driveshaft of the country: I-25 south out of the Front Range, and Pueblo sitting in its bowl of prairie heat and steel-town haze. The store is a slab of concrete and light on the edge",
-      "nextNodeId": "pueblo_arrival_part2"
-    },
-    {
-      "id": "pueblo_arrival_part2",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "of the sprawl — big enough to swallow the borderlands shop whole. The office slot they hired you for says Stocking Manager. The building will tell you what that really means by nine o'clock tonight.",
+      "text": "The driveshaft of the country: I-25 south out of the Front Range, and Pueblo sitting in its bowl of prairie heat and steel-town haze. The store is a slab of concrete and light on the edge of the sprawl — big enough to swallow the borderlands shop whole. The office slot they hired you for says Stocking Manager. The building will tell you what that really means by nine o'clock tonight.",
       "nextNodeId": "pueblo_role"
     },
     {
@@ -2751,14 +2681,7 @@
       "id": "pueblo_richard_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Richard. Pressed shirt, new badge, a smile that's been practiced in front of a mirror. Regional Compliance Manager, on his way up, and your store is the last stop before his promotion. He holds the stocking report like it's a menu in a language he doesn't",
-      "nextNodeId": "pueblo_richard_intro_part2"
-    },
-    {
-      "id": "pueblo_richard_intro_part2",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "speak — the bin labels, the turn times, the freight counts, all of it inert to him. Your job, per the region: teach him to read and execute your team's reports. His job, per him: don't let a single thing expose what he doesn't know.",
+      "text": "Richard. Pressed shirt, new badge, a smile that's been practiced in front of a mirror. Regional Compliance Manager, on his way up, and your store is the last stop before his promotion. He holds the stocking report like it's a menu in a language he doesn't speak — the bin labels, the turn times, the freight counts, all of it inert to him. Your job, per the region: teach him to read and execute your team's reports. His job, per him: don't let a single thing expose what he doesn't know.",
       "nextNodeId": "pueblo_richard_ask"
     },
     {
@@ -2772,14 +2695,7 @@
       "id": "pueblo_richard_todd",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "They've sent me the man who'll be my boss someday, and he can't read a bin label. And this is the part that never stops being strange: he needs me — badly — and I know it, and he knows I know it, and",
-      "nextNodeId": "pueblo_richard_todd_part2"
-    },
-    {
-      "id": "pueblo_richard_todd_part2",
-      "speakerId": "todd_shop",
-      "side": "LEFT",
-      "text": "neither of us is allowed to say it out loud. So I do what the machine has always done: I make him look good. If he looks good, the region looks good, and the region remembers the name standing next to him.",
+      "text": "They've sent me the man who'll be my boss someday, and he can't read a bin label. And this is the part that never stops being strange: he needs me — badly — and I know it, and he knows I know it, and neither of us is allowed to say it out loud. So I do what the machine has always done: I make him look good. If he looks good, the region looks good, and the region remembers the name standing next to him.",
       "nextNodeId": "pueblo_richard_hub"
     },
     {
@@ -2934,14 +2850,7 @@
       "id": "pueblo_paradox_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Jay-Dau is the store manager, and Jay-Dau is also your friend, and the two facts never meet in the same room. Off the clock he's the best company the job ever gave you — beer at the kitchen table, honest talk about the machine, the two of",
-      "nextNodeId": "pueblo_paradox_intro_part2"
-    },
-    {
-      "id": "pueblo_paradox_intro_part2",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "you laughing like the building doesn't own you. On the clock he is pure hell: driven, relentless, and utterly willing to hand you to the machine if his standing costs less than you do. You've seen both versions. You've never seen them apologize to each other.",
+      "text": "Jay-Dau is the store manager, and Jay-Dau is also your friend, and the two facts never meet in the same room. Off the clock he's the best company the job ever gave you — beer at the kitchen table, honest talk about the machine, the two of you laughing like the building doesn't own you. On the clock he is pure hell: driven, relentless, and utterly willing to hand you to the machine if his standing costs less than you do. You've seen both versions. You've never seen them apologize to each other.",
       "nextNodeId": "pueblo_paradox_jd"
     },
     {
@@ -2955,14 +2864,7 @@
       "id": "pueblo_paradox_todd",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "And under him, the store leads. Amandy — small, thin, Hispanic, and the most hostile presence in the building, spitting impossible numbers and chaotic demands like they were policy, the daily bane of every shift that crosses her. And Steffie — average height, a little heavier set,",
-      "nextNodeId": "pueblo_paradox_todd_part2"
-    },
-    {
-      "id": "pueblo_paradox_todd_part2",
-      "speakerId": "todd_shop",
-      "side": "LEFT",
-      "text": "also Hispanic, the reason I've stopped believing anything I hear in that office: sweet to my face, warm and calm, and carving me up in meetings the second the door closes. Two styles, one effect: the floor can't trust either one, and the floor knows it.",
+      "text": "And under him, the store leads. Amandy — small, precise, furiously energetic, and the most hostile presence in the building, spitting impossible numbers and chaotic demands like they were policy. And Steffie — warm to your face, always in your corner, always offering to take care of it personally — and carving you up in meetings the second the door closes. Two styles, one effect: the floor can't trust either one, and the floor knows it.",
       "nextNodeId": "pueblo_amandy_snarl"
     },
     {
@@ -3252,7 +3154,7 @@
       "id": "branch_pueblo_exits_part2",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Four's nerves gave out — he vomited in the receiving office and was gone by sunrise. Five quit on his lunch break. Six through Twelve — each one hired bright, and each one dimmed so fast you could watch it from the day shift like weather. Thirteen lasted eleven days and told Jay-Dau exactly what the store is. Nobody liked Thirteen. Everybody agreed with him.",
+      "text": "Four's nerves gave out — he vomited in the receiving office and was gone by sunrise. Five quit on his lunch break, left his walkie on the table beside his half-eaten sandwich. Six lasted three weeks and wrote a letter nobody read. Seven through Twelve — each one hired bright, and each one dimmed so fast you could watch it from the day shift like weather. Thirteen lasted eleven days and told Jay-Dau exactly what the store is. Nobody liked Thirteen. Everybody agreed with him.",
       "setFlagOnEnter": "flag_pueblo_exits",
       "nextNodeId": "pueblo_graveyard_hub"
     },
@@ -3284,16 +3186,9 @@
       "id": "pueblo_take_the_job",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "So you take it. That's the fatal step, and it's the quietest one you've ever taken: Jay-Dau asks, the money says yes, the exhaustion says anything, and the part of you that watched thirteen people die in the",
+      "text": "So you take it. That's the fatal step, and it's the quietest one you've ever taken: Jay-Dau asks, the money says yes, the exhaustion says anything, and the part of you that watched thirteen people die in the job says one more time — this one's different, this one is me. It's never different. The Overnight Stocking Manager position is yours, and for two months it will eat you the exact way it ate them.",
       "healPartyOnEnter": "full",
       "changeSceneId": "scene_pueblo_road",
-      "nextNodeId": "pueblo_take_the_job_part2"
-    },
-    {
-      "id": "pueblo_take_the_job_part2",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "job says one more time — this one's different, this one is me. It's never different. The Overnight Stocking Manager position is yours, and for two months it will eat you the exact way it ate them.",
       "nextNodeId": "pueblo_overnight_intro"
     },
     {
@@ -3433,7 +3328,7 @@
             "next",
             "proceed"
           ],
-          "nextNodeId": "pueblo_contract_final"
+          "nextNodeId": "pueblo_contract_final_part1"
         }
       ]
     },
@@ -3479,32 +3374,18 @@
       "id": "pueblo_contract_post",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I take the whole weight of it — every store, every scar, every manager I watched get eaten — and I hold the line like I've held every line: one breath at a time, until the",
-      "nextNodeId": "pueblo_contract_post_part2",
+      "text": "I take the whole weight of it — every store, every scar, every manager I watched get eaten — and I hold the line like I've held every line: one breath at a time, until the machine runs out of new things to throw. The contract is still there. It will always be there. But I know what it is now. Knowing is the only armor the machine can't claw back.",
+      "nextNodeId": "pueblo_contract_hub",
       "setFlagOnEnter": "flag_pueblo_contract"
-    },
-    {
-      "id": "pueblo_contract_post_part2",
-      "speakerId": "todd_shop",
-      "side": "LEFT",
-      "text": "machine runs out of new things to throw. The contract is still there. It will always be there. But I know what it is now. Knowing is the only armor the machine can't claw back.",
-      "nextNodeId": "pueblo_contract_hub"
     },
     {
       "id": "pueblo_contract_final_part1",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The pen goes down. End of Act Four. Todd and Adriana leave Pueblo behind with the third scar burning across his forehead — three stores, three states, three entries on the body's ledger — and the relocation contract folded into a coat pocket like a bar tab the machine intends to collect. Ahead: St.",
-      "nextNodeId": "pueblo_contract_final"
-    },
-    {
-      "id": "pueblo_contract_final",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "Augustine, Florida, at the end of a two-hour drive in the dark, a store that talks like sunshine and a contract that talks like a leash. He knows what he's walking into. He walks in anyway — because that's what the machine does to good people who keep saying yes. The stage is set for the final, catastrophic crucible.",
-      "healPartyOnEnter": "full",
+      "text": "The pen goes down. End of Act Four. Todd and Adriana leave Pueblo behind with the third scar burning across his forehead — three stores, three states, three entries on the body's ledger — and the relocation contract folded into a coat pocket like a bar tab the machine intends to collect. Ahead: St. Augustine, Florida, at the end of a two-hour drive in the dark, a store that talks like sunshine and a contract that talks like a leash. He knows what he's walking into. He walks in anyway — because that's what the machine does to good people who keep saying yes. The stage is set for the final, catastrophic crucible.",
+      "nextNodeId": "florida_arrival",
       "changeSceneId": "scene_florida_road",
-      "nextNodeId": "florida_arrival"
+      "healPartyOnEnter": "full"
     },
     {
       "id": "florida_arrival",
@@ -3523,7 +3404,7 @@
     {
       "id": "florida_house",
       "speakerId": "adriana",
-      "side": "LEFT",
+      "side": "RIGHT",
       "text": "We made it. Two thousand miles of taillights and here we are. Look at that light — this place could be good to us, Todd. It could really, finally be good to us.",
       "nextNodeId": "florida_house_part2"
     },
@@ -3657,7 +3538,7 @@
     {
       "id": "branch_florida_anchor",
       "speakerId": "adriana",
-      "side": "LEFT",
+      "side": "RIGHT",
       "text": "Come home when you can, not when they say you can. I'll be awake. I'll be right here. You didn't survive everything else just to hand them your nights, Todd. Whatever this store is — I'm not afraid of it.",
       "nextNodeId": "florida_road_hub",
       "setFlagOnEnter": "flag_florida_anchor_held"
@@ -3704,7 +3585,7 @@
     {
       "id": "florida_sriniviii",
       "speakerId": "sriniviii",
-      "side": "LEFT",
+      "side": "RIGHT",
       "text": "Your freight moves like a river. You hear me? A river. I've watched thirteen overnight managers drown in this building, and I've never once seen the unload run like this. You were worth every mile of the transfer.",
       "nextNodeId": "florida_sriniviii_part2"
     },
@@ -3868,7 +3749,7 @@
       "id": "florida_vacation_week",
       "speakerId": "adriana",
       "side": "LEFT",
-      "text": "Seven days of not-clock. You sleep like a civilian. You laugh at something stupid on the boardwalk. You watch the ocean do its pointless, perfect work and realize — this is what people mean by alive.",
+      "text": "Seven days of not-clock. I watched you sleep like a civilian for the first time in two years. You laughed at something stupid on the boardwalk and then looked surprised that you did. We watched the ocean do its pointless, perfect work, and I thought — this is what we're protecting. This right here. Don't let them have it.",
       "nextNodeId": "florida_vacation_return"
     },
     {
@@ -3898,7 +3779,7 @@
       "id": "florida_flip_intro_part2",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "'We need to talk about last month,' he says, and means the opposite. Nothing changed in the store. Everything changed in the room. You left for one week and came back as the problem.",
+      "text": "Sriniviii calls you into the office. \"We need to talk about last month,\" he says — and means the opposite. Nothing changed in the store. Everything changed in the room. You left for one week and came back as the problem.",
       "nextNodeId": "florida_morning_verdict"
     },
     {
@@ -4005,7 +3886,7 @@
       "id": "branch_florida_goalposts",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "You chart it like freight: Monday the target climbs, Tuesday it moves sideways, Wednesday it retroactively retro-dates. No finished store has ever satisfied a goalpost mounted on wheels — because the point was never the goal. The point was the moving.",
+      "text": "You chart it like freight: Monday the target climbs, Tuesday it moves sideways, Wednesday it retroactively back-dates last month's baseline to make the new number look achievable. No finished store has ever satisfied a goalpost mounted on wheels — because the point was never the goal. The point was the moving.",
       "nextNodeId": "florida_flip_hub",
       "setFlagOnEnter": "flag_florida_goalposts_read"
     },
@@ -4029,7 +3910,7 @@
       "id": "florida_ohmar_post",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I walk out of the formal office with my heart a clean eight-eighty and my job (for now) still my own. He didn't break me; he confirmed me. Whatever else this man is — I know exactly what he is now, and fear was the last thing he taught me.",
+      "text": "I walk out of the formal office with my jaw set and my name still on the schedule. He didn't break me; he confirmed me. Whatever else this man is — I know exactly what he is now, and fear was the last thing he taught me.",
       "nextNodeId": "florida_flip_hub",
       "setFlagOnEnter": "flag_florida_ohmar"
     },
@@ -4232,7 +4113,7 @@
     {
       "id": "florida_drive_choice_part2",
       "speakerId": "adriana",
-      "side": "LEFT",
+      "side": "RIGHT",
       "text": "The porch light on, the coffee made, her eyes on the driveway. You look like you've been gone for a month, she says, and wraps you in the reason the machine will never understand.",
       "healPartyOnEnter": "full",
       "changeSceneId": "scene_florida_overnight",
@@ -4263,7 +4144,7 @@
       "id": "florida_creed_intro_part2",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "The vultures are real: daytime management that treats humans like biological trash, audits that blame the freight for the missing hours. I stand in front of my crew the way I stood in front of every crew before them. I absorb the blows so they don't have to.",
+      "text": "The vultures are real: daytime management that treats the people in this building like a line item on a spreadsheet, audits that blame the freight for the missing hours. I stand in front of my crew the way I stood in front of every crew before them. I absorb the blows so they don't have to.",
       "nextNodeId": "florida_sanctuary_hub"
     },
     {
@@ -4416,7 +4297,7 @@
       "id": "florida_night_four",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Night four: the plan ticks like a loaded trailer — everything aligned, everything quiet, nothing left to assembly but the final decision. It is the most decision-ready you have ever been in your life, and that is precisely what it wants.",
+      "text": "Night four: the plan ticks like a loaded trailer — everything aligned, everything quiet, nothing left to assemble but the final decision. It is the most decision-ready you have ever been in your life, and that is precisely what it wants.",
       "nextNodeId": "florida_night_five"
     },
     {
@@ -4618,6 +4499,979 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "He walked out of the St. Augustine crucible alive — the darkest chapter of the memoir overcome and escaped, the machine denied its last metric. The road north runs into Act Six, and whatever waits there, he arrives with his whole life in his hands, and his wife's hand in one of his.",
+      "changeSceneId": "scene_act6_crash",
+      "nextNodeId": "act6_crash_intro"
+    },
+    {
+      "id": "act6_crash_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The paperwork took four minutes. Four minutes to un-be a salaried manager — to hand back the title and the keys to the salaried office, and walk back out onto the hourly floor as a Team Lead. The fluorescent lights look the same. They always look the same.",
+      "nextNodeId": "act6_crash_intro_part2"
+    },
+    {
+      "id": "act6_crash_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Twenty-four thousand dollars a year, gone in those four minutes. The math is simple and merciless: salaried management was $X; team lead is $X minus twenty-four thousand. The body doesn't care about math. The body feels the floor shift.",
+      "nextNodeId": "act6_crash_todd_1"
+    },
+    {
+      "id": "act6_crash_todd_1",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I keep waiting for regret. It doesn't come. What comes instead is something quieter and stranger — a kind of relief that doesn't know what to do with itself. The overnight manager title is gone. The building hasn't eaten me this morning. That's new.",
+      "nextNodeId": "act6_crash_todd_2"
+    },
+    {
+      "id": "act6_crash_todd_2",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Then the bills land, and the relief gets complicated. The rent is the same. Adriana's still there. The machine is still right outside the door, dressed up as a different department, and it is still run by people who think the human beings inside it are a line item.",
+      "nextNodeId": "act6_crash_narrator_3"
+    },
+    {
+      "id": "act6_crash_narrator_3",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The depression is not dramatic. It has no particular hour. It is the low-grade static of a person who knew exactly what the machine was, refused to let it win, and now has to live inside it anyway — on its terms, its schedule, its fluorescent sky.",
+      "nextNodeId": "act6_crash_narrator_4"
+    },
+    {
+      "id": "act6_crash_narrator_4",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "And the quiet vindication is its own torture: you were right. The job could have been done humanely. They simply chose not to. Knowing you were right changes nothing about the paycheck.",
+      "nextNodeId": "act6_crash_hub"
+    },
+    {
+      "id": "act6_crash_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The crash has a few different weights to it. Name them before you walk back out.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_act6_crash_financial",
+          "flag_act6_crash_depression",
+          "flag_act6_crash_vindication"
+        ],
+        "redirectToNodeId": "act6_crash_battle_intro"
+      },
+      "choices": [
+        {
+          "id": "choice_act6_crash_financial",
+          "text": "Run the numbers — what $24,000 less actually means.",
+          "voiceKeywords": [
+            "numbers",
+            "money",
+            "financial",
+            "twenty four",
+            "pay cut",
+            "salary",
+            "run"
+          ],
+          "nextNodeId": "branch_act6_crash_financial",
+          "completionFlag": "flag_act6_crash_financial"
+        },
+        {
+          "id": "choice_act6_crash_depression",
+          "text": "Sit with the depression — the specific weight of being back at the bottom.",
+          "voiceKeywords": [
+            "depression",
+            "bottom",
+            "weight",
+            "bottom of the ladder",
+            "sit",
+            "feel",
+            "heavy"
+          ],
+          "nextNodeId": "branch_act6_crash_depression",
+          "completionFlag": "flag_act6_crash_depression"
+        },
+        {
+          "id": "choice_act6_crash_vindication",
+          "text": "Name the vindication — the proof you were right all along.",
+          "voiceKeywords": [
+            "vindication",
+            "right",
+            "proof",
+            "correct",
+            "knew it",
+            "was right",
+            "name it"
+          ],
+          "nextNodeId": "branch_act6_crash_vindication",
+          "completionFlag": "flag_act6_crash_vindication"
+        },
+        {
+          "id": "choice_act6_crash_battle",
+          "text": "Face the pay cut head-on.",
+          "voiceKeywords": [
+            "face it",
+            "battle",
+            "fight",
+            "pay cut",
+            "head on",
+            "confront"
+          ],
+          "nextNodeId": "act6_crash_battle_intro"
+        }
+      ]
+    },
+    {
+      "id": "branch_act6_crash_financial",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Rent doesn't negotiate. The car doesn't care. The grocery total doesn't know I stepped down. I have to build a life that fits inside a smaller container than the one I woke up in last year, and the container has sharp edges.",
+      "nextNodeId": "act6_crash_hub"
+    },
+    {
+      "id": "branch_act6_crash_depression",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The depression is the specific kind that comes from doing the right thing for the right reasons and arriving at the bottom anyway. It isn't failure — it's the machine's tax on integrity. The toll is real even when the choice was correct.",
+      "nextNodeId": "act6_crash_hub"
+    },
+    {
+      "id": "branch_act6_crash_vindication",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I walk past my replacement on the floor. The team already looks exhausted. Two weeks in and the new overnight manager has the same look I had in month seven in St. Augustine. I was right. That was never the question. The question is what you do with being right when being right didn't save you.",
+      "nextNodeId": "act6_crash_hub"
+    },
+    {
+      "id": "act6_crash_battle_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The pay cut doesn't arrive as a single blow. It arrives the way the machine always does: in paperwork, in silence, in the specific indignity of a number. Say 'Enemies' to face what twenty-four thousand dollars less actually feels like.",
+      "triggerBattleEncounterId": "act6_pay_cut",
+      "nextNodeId": "act6_crash_post"
+    },
+    {
+      "id": "act6_crash_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "The numbers don't disappear. But they stop being the only number in the room. I am alive. Adriana is in the house. The overnight title is gone, and the 3 AM is not my personal problem anymore. That math is harder to run, but it balances.",
+      "nextNodeId": "act6_crash_to_timmy",
+      "setFlagOnEnter": "flag_act6_crash_done"
+    },
+    {
+      "id": "act6_crash_to_timmy",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "A new store manager has just been assigned to the building. The associates say his name like it's a held breath. Timmy.",
+      "changeSceneId": "scene_act6_timmy",
+      "nextNodeId": "act6_timmy_intro"
+    },
+    {
+      "id": "act6_timmy_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Timmy shakes your hand on the first day and looks you in the eye while he does it. He knows your name by the end of the week — not from the schedule, from the floor, from asking. The building begins to breathe at a different rate.",
+      "nextNodeId": "act6_timmy_intro_part2"
+    },
+    {
+      "id": "act6_timmy_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "He learns about the St. Augustine crucible without being told the whole story — pieces of it come through in how you carry yourself, in the way you flinch at nothing and hold the line at everything. He doesn't push. He accommodates. He is a genuine rarity.",
+      "nextNodeId": "act6_timmy_speaks_1"
+    },
+    {
+      "id": "act6_timmy_speaks_1",
+      "speakerId": "timmy",
+      "side": "RIGHT",
+      "text": "I don't need you to be who you were before whatever happened before. I need you to be here and do the work. That's the whole job description. Everything else is the machine talking, and the machine doesn't run this particular store.",
+      "nextNodeId": "act6_timmy_speaks_2"
+    },
+    {
+      "id": "act6_timmy_speaks_2",
+      "speakerId": "timmy",
+      "side": "RIGHT",
+      "text": "You did the hard thing. Stepping down when the alternative was worse — that's not failure. People who think stepping down is failure have never been in the building at three in the morning wondering if they're going to make it to morning.",
+      "nextNodeId": "act6_timmy_todd_respond"
+    },
+    {
+      "id": "act6_timmy_todd_respond",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I don't know what to do with a manager who talks to me like that. I have been in this company long enough that basic human decency from a store manager feels like a trick. But his eyes don't move the way trick eyes move. He means it.",
+      "nextNodeId": "act6_timmy_hub"
+    },
+    {
+      "id": "act6_timmy_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The peace has its own texture. Learn it before it changes.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_act6_timmy_trust",
+          "flag_act6_timmy_pace",
+          "flag_act6_timmy_wall"
+        ],
+        "redirectToNodeId": "act6_timmy_promotion_intro"
+      },
+      "choices": [
+        {
+          "id": "choice_act6_timmy_trust",
+          "text": "Build the trust — let Timmy prove he means what he says.",
+          "voiceKeywords": [
+            "trust",
+            "believe him",
+            "prove it",
+            "let him",
+            "build",
+            "open up"
+          ],
+          "nextNodeId": "branch_act6_timmy_trust",
+          "completionFlag": "flag_act6_timmy_trust"
+        },
+        {
+          "id": "choice_act6_timmy_pace",
+          "text": "Learn the new pace — a store that moves without terror.",
+          "voiceKeywords": [
+            "pace",
+            "rhythm",
+            "speed",
+            "new pace",
+            "store moves",
+            "without fear"
+          ],
+          "nextNodeId": "branch_act6_timmy_pace",
+          "completionFlag": "flag_act6_timmy_pace"
+        },
+        {
+          "id": "choice_act6_timmy_wall",
+          "text": "Notice what the peace is costing the old reflex.",
+          "voiceKeywords": [
+            "peace",
+            "reflex",
+            "wall",
+            "guard",
+            "down",
+            "old habits",
+            "notice"
+          ],
+          "nextNodeId": "branch_act6_timmy_wall",
+          "completionFlag": "flag_act6_timmy_wall"
+        },
+        {
+          "id": "choice_act6_timmy_skip",
+          "text": "Hold the moment — something this good never lasts.",
+          "voiceKeywords": [
+            "hold it",
+            "moment",
+            "won't last",
+            "temporary",
+            "wait",
+            "enjoy"
+          ],
+          "nextNodeId": "act6_timmy_promotion_intro"
+        }
+      ]
+    },
+    {
+      "id": "branch_act6_timmy_trust",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Trust is a muscle the machine spent years atrophying. Under Timmy it begins, slowly and with considerable suspicion, to move again. It is not comfortable. It is the correct kind of uncomfortable.",
+      "nextNodeId": "act6_timmy_hub"
+    },
+    {
+      "id": "branch_act6_timmy_pace",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "The floor moves at a human pace. Nobody is sprinting to avoid a consequence. The freight still gets done — faster, if anything, because people aren't burning half their energy managing fear. I already knew this. I have been trying to tell people this for eight years. Timmy just lives it.",
+      "nextNodeId": "act6_timmy_hub"
+    },
+    {
+      "id": "branch_act6_timmy_wall",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The nervous system that spent eight years in survival mode does not easily believe there is no threat. Every time Timmy walks past without an interrogation, some part of the brain flags it as a pending interrogation that hasn't landed yet. Learning that the wall is unnecessary is the slowest form of healing.",
+      "nextNodeId": "act6_timmy_hub"
+    },
+    {
+      "id": "act6_timmy_promotion_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Three months in, the regional office calls Timmy up. Not out — up. He earned it. He is exactly the kind of manager the company accidentally promotes and immediately deploys somewhere they can do the least personal damage to the territory they were good for.",
+      "nextNodeId": "act6_timmy_promotion_part2"
+    },
+    {
+      "id": "act6_timmy_promotion_part2",
+      "speakerId": "timmy",
+      "side": "RIGHT",
+      "text": "I'm sorry about the timing. I know what this building has been for you. I made sure the incoming record shows a solid team lead with a clean operational history and zero administrative flags. That's what the paper says. It's also what I believe.",
+      "nextNodeId": "act6_timmy_goodbye"
+    },
+    {
+      "id": "act6_timmy_goodbye",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I shake his hand and watch him leave the building. He will be somebody else's rare and decent manager now. Whoever they are, they won't know how rare he is until they meet the next one.",
+      "nextNodeId": "act6_timmy_to_abdoolie",
+      "setFlagOnEnter": "flag_act6_timmy_done"
+    },
+    {
+      "id": "act6_timmy_to_abdoolie",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The new store manager arrives on a Monday. His name is Abdoolie. He does not shake hands on the first day.",
+      "changeSceneId": "scene_act6_abdoolie",
+      "nextNodeId": "act6_abdoolie_intro"
+    },
+    {
+      "id": "act6_abdoolie_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Abdoolie speaks in complete, deliberate sentences with a flat cadence that never varies. The precision of it is not clinical — it is something older. The body recognizes it before the mind has processed the first word.",
+      "nextNodeId": "act6_abdoolie_intro_part2"
+    },
+    {
+      "id": "act6_abdoolie_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "He has said nothing threatening. He has said almost nothing at all — four sentences in his first staff meeting, two questions, one directive. But the nervous system doesn't care about content. It cares about frequency. And his frequency is Ohmar.",
+      "nextNodeId": "act6_abdoolie_speaks"
+    },
+    {
+      "id": "act6_abdoolie_speaks",
+      "speakerId": "abdoolie",
+      "side": "RIGHT",
+      "text": "I am going to need you to walk me through why this number is what it is. Take your time. I want to understand your reasoning completely before I say anything else.",
+      "nextNodeId": "act6_abdoolie_ptsd_hit"
+    },
+    {
+      "id": "act6_abdoolie_ptsd_hit",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The room doesn't change. The fluorescent lights continue at the same frequency. Abdoolie waits, patient and perfectly still — and the brain is suddenly, completely, entirely back in St. Augustine. The formal chair. The closed door. The biggest man in the building asking questions in a voice that never rises.",
+      "nextNodeId": "act6_abdoolie_ptsd_todd"
+    },
+    {
+      "id": "act6_abdoolie_ptsd_todd",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I'm not in St. Augustine. I know I'm not in St. Augustine. Abdoolie is not Ohmar. The fluorescent lights are identical because they are always identical — the light in these buildings is federally mandated mediocrity. I know this. The body is not interested in what I know.",
+      "nextNodeId": "act6_abdoolie_hub"
+    },
+    {
+      "id": "act6_abdoolie_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The ghost of the old regime is standing in the new building wearing a different face. Name what it is before it finishes the work Ohmar started.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_act6_abdoolie_named",
+          "flag_act6_abdoolie_separated"
+        ],
+        "redirectToNodeId": "act6_abdoolie_battle_intro"
+      },
+      "choices": [
+        {
+          "id": "choice_act6_abdoolie_name",
+          "text": "Name the trigger — this is PTSD, not a new threat.",
+          "voiceKeywords": [
+            "name it",
+            "ptsd",
+            "trigger",
+            "recognize",
+            "trauma",
+            "not him",
+            "not ohmar"
+          ],
+          "nextNodeId": "branch_act6_abdoolie_named",
+          "completionFlag": "flag_act6_abdoolie_named"
+        },
+        {
+          "id": "choice_act6_abdoolie_separate",
+          "text": "Separate the man from the memory — Abdoolie is not Ohmar.",
+          "voiceKeywords": [
+            "separate",
+            "different",
+            "not ohmar",
+            "abdoolie",
+            "different person",
+            "this is not",
+            "distinguish"
+          ],
+          "nextNodeId": "branch_act6_abdoolie_separated",
+          "completionFlag": "flag_act6_abdoolie_separated"
+        },
+        {
+          "id": "choice_act6_abdoolie_fight",
+          "text": "Face the ghost head-on — meet Abdoolie on his own terms.",
+          "voiceKeywords": [
+            "face it",
+            "fight",
+            "ghost",
+            "battle",
+            "confront",
+            "head on"
+          ],
+          "nextNodeId": "act6_abdoolie_battle_intro"
+        }
+      ]
+    },
+    {
+      "id": "branch_act6_abdoolie_named",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "This is what PTSD looks like when it's wearing a company polo. A specific cadence, a specific waiting posture — and the nervous system files it under the same emergency that almost didn't have a morning. Naming it doesn't end it. But naming it gives it a drawer instead of a doorway.",
+      "nextNodeId": "act6_abdoolie_hub"
+    },
+    {
+      "id": "branch_act6_abdoolie_separated",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Abdoolie is a poor communicator with no people skills. He is not a predator. He has never been in the same room as Ohmar. The danger he poses is administrative, not existential — and the body has not yet received this update. That's the work: filing the update until the body believes it.",
+      "nextNodeId": "act6_abdoolie_hub"
+    },
+    {
+      "id": "act6_abdoolie_battle_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The ghost is fully formed and patient. It doesn't need to win — it only needs to stay. Say 'Enemies' and refuse it the room it's trying to occupy.",
+      "triggerBattleEncounterId": "act6_abdoolie_ghost",
+      "nextNodeId": "act6_abdoolie_post"
+    },
+    {
+      "id": "act6_abdoolie_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "The meeting ends. Abdoolie goes back to his office, which he barely leaves. He was never Ohmar. He was the shape of Ohmar, arriving in a building that still carried the frequency. I named the difference in time. That counts.",
+      "nextNodeId": "act6_abdoolie_to_frontend",
+      "setFlagOnEnter": "flag_act6_abdoolie_done"
+    },
+    {
+      "id": "act6_abdoolie_to_frontend",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The team lead position still means the front end, the service desk, and the full weight of the customer-facing operation. The entitled and the abusive do not know or care about what you survived to get here.",
+      "changeSceneId": "scene_act6_front_end",
+      "nextNodeId": "act6_frontend_intro"
+    },
+    {
+      "id": "act6_frontend_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The front-end grind is its own particular kind of attrition. It is not the terror of Ohmar or the slow machine of overnight metrics. It is the constant, relentless, petty erosion of ten hours of public-facing work — complaints, demands, abuses, and returns that have no right answer.",
+      "nextNodeId": "act6_frontend_intro_part2"
+    },
+    {
+      "id": "act6_frontend_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "You have survived four shingles outbreaks, five states, one 3 AM, and two relentless store leads. And yet: a customer who yells at you for the price of a tire they already agreed to fifteen minutes ago still takes something from you. The machine is everywhere.",
+      "nextNodeId": "act6_frontend_todd_1"
+    },
+    {
+      "id": "act6_frontend_todd_1",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I can absorb a hostile customer. I have absorbed hostile customers for eight years, across every role the machine offers. What I cannot absorb is absorbing a hostile customer and then walking into a staff meeting where Abdoolie looks at the service-desk satisfaction number and asks me — in that cadence — why it isn't higher.",
+      "nextNodeId": "act6_frontend_phantom_appears"
+    },
+    {
+      "id": "act6_frontend_phantom_appears",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The shop manager — the actual manager of the automotive bays — materializes on the floor for the sixth time in six months. The technicians have taken to calling him the ghost. Today he has a printout and an expression that means the regional spreadsheet said something unpleasant.",
+      "nextNodeId": "act6_frontend_phantom_speaks"
+    },
+    {
+      "id": "act6_frontend_phantom_speaks",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "He calls an all-hands meeting in bay three — every tech, both team leads, the service writer. He holds the printout up as if it were a verdict.",
+      "nextNodeId": "act6_frontend_phantom_threat"
+    },
+    {
+      "id": "act6_frontend_phantom_threat",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "\"The numbers are not where they need to be, and I want to be very clear: nobody in this room has a job they cannot lose.\" He does not know any of their names. He has been in this bay six times. The impact wrenches know this building better than he does.",
+      "nextNodeId": "act6_frontend_tani_responds"
+    },
+    {
+      "id": "act6_frontend_tani_responds",
+      "speakerId": "tani",
+      "side": "RIGHT",
+      "text": "After the meeting. Quietly, to Todd: \"That man has never touched a lug nut in this building. He pulls out the spreadsheet when the region screams and puts it back when they stop. Don't let the panic be your problem. It isn't. It's his.\"",
+      "nextNodeId": "act6_frontend_capnh_speaks"
+    },
+    {
+      "id": "act6_frontend_capnh_speaks",
+      "speakerId": "capn_h",
+      "side": "RIGHT",
+      "text": "\"Six appearances in six months. If he shows up a seventh time it'll be because somebody above him is in genuine trouble. You want to know how good our bays are? He doesn't need to come down here. That's the review.\"",
+      "nextNodeId": "act6_frontend_hub"
+    },
+    {
+      "id": "act6_frontend_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The phantom's threat hangs in the bay air. The customer gauntlet and the blind boss fight are both waiting. Say which one you face first.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_act6_frontend_customers",
+          "flag_act6_phantom_faced"
+        ],
+        "redirectToNodeId": "act6_frontend_decision"
+      },
+      "choices": [
+        {
+          "id": "choice_act6_customers",
+          "text": "Face the customer gauntlet that has been grinding you down.",
+          "voiceKeywords": [
+            "customers",
+            "gauntlet",
+            "face them",
+            "service desk",
+            "front end",
+            "battle",
+            "fight"
+          ],
+          "nextNodeId": "act6_frontend_battle_intro",
+          "completionFlag": "flag_act6_frontend_customers"
+        },
+        {
+          "id": "choice_act6_phantom",
+          "text": "Confront the phantom manager's blind threat.",
+          "voiceKeywords": [
+            "phantom",
+            "manager",
+            "threat",
+            "confront",
+            "ghost",
+            "boss",
+            "battle"
+          ],
+          "nextNodeId": "act6_phantom_battle_intro",
+          "completionFlag": "flag_act6_phantom_faced"
+        },
+        {
+          "id": "choice_act6_decision_now",
+          "text": "Skip to the decision — the front end has made up your mind.",
+          "voiceKeywords": [
+            "decision",
+            "skip",
+            "done",
+            "enough",
+            "made up",
+            "next",
+            "move on"
+          ],
+          "nextNodeId": "act6_frontend_decision"
+        }
+      ]
+    },
+    {
+      "id": "act6_frontend_battle_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The service desk is a wall of entitlement and noise. Say 'Enemies' and hold the line for the hundredth time.",
+      "triggerBattleEncounterId": "act6_phantom_threat",
+      "nextNodeId": "act6_frontend_battle_post"
+    },
+    {
+      "id": "act6_frontend_battle_post",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "The shift ends. The building doesn't thank me. It never has. What it owes me is a different calculation, and I have been doing it wrong for eight years. Time to run the right math.",
+      "nextNodeId": "act6_frontend_hub"
+    },
+    {
+      "id": "act6_phantom_battle_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The phantom and his printout, the customer pile-on, and the fluorescent hum of a building managed by spreadsheet. Say 'Enemies' and put it down.",
+      "triggerBattleEncounterId": "act6_phantom_threat",
+      "nextNodeId": "act6_phantom_battle_post"
+    },
+    {
+      "id": "act6_phantom_battle_post",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The phantom retreats to the office. His spreadsheet returns to green or red — it will tell him when to appear again. The bay does not miss him.",
+      "nextNodeId": "act6_frontend_hub"
+    },
+    {
+      "id": "act6_frontend_decision",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I have run the full inventory. The customer grind is not survivable indefinitely. Abdoolie's ghost is going to keep visiting until I put enough distance between myself and the parts of this job that look like St. Augustine. There is one remaining exit.",
+      "nextNodeId": "act6_frontend_decision_part2"
+    },
+    {
+      "id": "act6_frontend_decision_part2",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Down. The rest of the way down. Shop technician. The bays I have managed from the outside, taken all the way to the inside. Wrenches and diagnostics and the smell of motor oil and the quiet that comes with a bay door between you and the rest of the building.",
+      "nextNodeId": "act6_frontend_decision_part3"
+    },
+    {
+      "id": "act6_frontend_decision_part3",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The decision costs another title. It costs the team lead designation and the final shred of the management ladder. It costs nothing that has not already been paid many times over. And it leads, almost immediately, to Tani and Cap'n H.",
+      "nextNodeId": "act6_frontend_to_pit",
+      "setFlagOnEnter": "flag_act6_stepdown_two"
+    },
+    {
+      "id": "act6_frontend_to_pit",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The second step-down form is shorter than the first. The office doesn't look up when you sign it.",
+      "changeSceneId": "scene_act6_shop_pit",
+      "nextNodeId": "act6_pit_intro"
+    },
+    {
+      "id": "act6_pit_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Bay One. The impact wrench cuts loose and the whole floor vibrates at a specific, honest frequency. It is the vibration of actual physical work — metal on metal, torque on steel, the physical truth of how a tire stays on a wheel. The building's politics do not vibrate at this frequency.",
+      "nextNodeId": "act6_pit_intro_part2"
+    },
+    {
+      "id": "act6_pit_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Down here the machine forgot to install its usual surveillance equipment. The spreadsheet barely reaches the bays. Abdoolie has never been in Bay Three and probably cannot name all six bays from memory. The fluorescent hum is different here — it has to compete with the wrenches.",
+      "nextNodeId": "act6_tani_first_words"
+    },
+    {
+      "id": "act6_tani_first_words",
+      "speakerId": "tani",
+      "side": "RIGHT",
+      "text": "You're the one from the overnight thing, right? The Shop Manager who stepped down twice rather than let them grind him up? Good. We've needed somebody in here who already knows the bays aren't the problem. The bays have never been the problem.",
+      "nextNodeId": "act6_capnh_first_words"
+    },
+    {
+      "id": "act6_capnh_first_words",
+      "speakerId": "capn_h",
+      "side": "RIGHT",
+      "text": "We run this pit by two rules: do it right, and watch each other's backs. The rest of that building's rules are optional down here. I've been doing it this way for nine years and the bays are still standing.",
+      "nextNodeId": "act6_pit_todd_feels"
+    },
+    {
+      "id": "act6_pit_todd_feels",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Something unfamiliar happens in my chest. It takes a while to identify it. It is relief so deep and specific that it has weight. Not the relief of escaping something — the relief of arriving somewhere. I have not felt this in years. Possibly not since the first week in Utah before the machine showed itself.",
+      "nextNodeId": "act6_pit_hub"
+    },
+    {
+      "id": "act6_pit_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The pit has its own language. Learn it.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_act6_pit_tani_known",
+          "flag_act6_pit_capnh_known",
+          "flag_act6_pit_work_learned"
+        ],
+        "redirectToNodeId": "act6_pit_phantom_intrudes"
+      },
+      "choices": [
+        {
+          "id": "choice_act6_pit_tani",
+          "text": "Work alongside Tani and learn her standard.",
+          "voiceKeywords": [
+            "tani",
+            "work with",
+            "alongside",
+            "her standard",
+            "team lead",
+            "learn from tani"
+          ],
+          "nextNodeId": "branch_act6_pit_tani",
+          "completionFlag": "flag_act6_pit_tani_known"
+        },
+        {
+          "id": "choice_act6_pit_capnh",
+          "text": "Work alongside Cap'n H and see what nine years of doing it right looks like.",
+          "voiceKeywords": [
+            "cap'n h",
+            "capn h",
+            "hector",
+            "nine years",
+            "alongside",
+            "work with him"
+          ],
+          "nextNodeId": "branch_act6_pit_capnh",
+          "completionFlag": "flag_act6_pit_capnh_known"
+        },
+        {
+          "id": "choice_act6_pit_work",
+          "text": "Get your hands in — learn the tech work from the inside.",
+          "voiceKeywords": [
+            "wrench",
+            "work",
+            "tech",
+            "hands",
+            "inside",
+            "bays",
+            "learn the job"
+          ],
+          "nextNodeId": "branch_act6_pit_work",
+          "completionFlag": "flag_act6_pit_work_learned"
+        },
+        {
+          "id": "choice_act6_pit_observe",
+          "text": "Observe how Tani and Cap'n H protect the crew from above.",
+          "voiceKeywords": [
+            "observe",
+            "watch",
+            "protect",
+            "crew",
+            "shield",
+            "leadership",
+            "how they do it"
+          ],
+          "nextNodeId": "act6_pit_phantom_intrudes"
+        }
+      ]
+    },
+    {
+      "id": "branch_act6_pit_tani",
+      "speakerId": "tani",
+      "side": "RIGHT",
+      "text": "Here's the thing about this job: the customer doesn't know the difference between a good oil change and a bad one until their engine seizes six months later on the interstate. My crew knows the difference. That's the standard. Not the timer. Not the spreadsheet. The work.",
+      "nextNodeId": "act6_pit_hub"
+    },
+    {
+      "id": "branch_act6_pit_capnh",
+      "speakerId": "capn_h",
+      "side": "RIGHT",
+      "text": "Nine years. Three store managers. Eleven different shop managers. The bays outlast all of them. You know why? Because the car doesn't care who signed the weekly performance review. The car cares whether you torqued the lugs correctly. We torque the lugs correctly.",
+      "nextNodeId": "act6_pit_hub"
+    },
+    {
+      "id": "branch_act6_pit_work",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "The physical logic of it is clean. A drain plug goes in at a specific torque or it fails. A tire gets seated or it doesn't. There is no middle ground where the machine can move the goalposts. Either the wheel is on the car correctly or it is not. After eight years of shifted goalposts, this is the most honest workplace I have ever been in.",
+      "nextNodeId": "act6_pit_hub"
+    },
+    {
+      "id": "act6_pit_phantom_intrudes",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The phantom shop manager materializes briefly — his seventh appearance. He looks at the bays, looks at his printout, makes the face of a man who expected different numbers, and walks away. Tani does not stop working. Cap'n H does not look up.",
+      "nextNodeId": "act6_pit_phantom_post"
+    },
+    {
+      "id": "act6_pit_phantom_post",
+      "speakerId": "tani",
+      "side": "RIGHT",
+      "text": "Seven. We should have a tally board. Every time he appears and can't name the lug torque spec for a half-ton pickup, we add a tick mark.",
+      "nextNodeId": "act6_pit_settle",
+      "setFlagOnEnter": "flag_act6_pit_settled"
+    },
+    {
+      "id": "act6_pit_settle",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Six months pass in the bays. The phantom arrives and retreats. The spreadsheet fluctuates. Abdoolie's cadence continues to ambush the nervous system approximately once a week and recede once named. The bays keep running.",
+      "nextNodeId": "act6_pit_to_resolution",
+      "setFlagOnEnter": "flag_act6_pit_done"
+    },
+    {
+      "id": "act6_pit_to_resolution",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "And then, at the end of a shift, standing in the bay with the overhead door cracked open and the Florida light cutting a clean line across the concrete — the memoir asks to be totaled.",
+      "changeSceneId": "scene_act6_resolution",
+      "nextNodeId": "act6_resolution_intro"
+    },
+    {
+      "id": "act6_resolution_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Five states. Eight years. Four outbreaks of shingles — one on the forehead for each ring of the machine's anvil. A $24,000 pay cut. Three relocations, one of them self-funded to keep the collar off. Thirteen overnight managers burned through in Pueblo in a single year. Two formal grievances, both returned 'Unsubstantiated.'",
+      "nextNodeId": "act6_resolution_intro_part2"
+    },
+    {
+      "id": "act6_resolution_intro_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "One night at 3 AM that nobody else knows about, where the alternative sat in the chair across the room and waited patiently for an answer, and did not get one.",
+      "nextNodeId": "act6_resolution_todd_1"
+    },
+    {
+      "id": "act6_resolution_todd_1",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "The machine's ledger says I lost. The title is gone. The salary is gone. The multi-state career is reduced to a technician bay in a Florida megamart, smelling of motor oil and brake dust, working for a man who cannot name his own bays.",
+      "nextNodeId": "act6_resolution_todd_2"
+    },
+    {
+      "id": "act6_resolution_todd_2",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "My ledger says different. In every posting I ever held, the associates under me went home in better shape than they came in. The freight moved. The bays ran clean. The unsafe work did not get signed off on. The people the machine wanted to sacrifice were shielded as long as I had the title to shield them with.",
+      "nextNodeId": "act6_resolution_adriana"
+    },
+    {
+      "id": "act6_resolution_adriana",
+      "speakerId": "adriana",
+      "side": "LEFT",
+      "text": "I watched you carry it. All of it — across five states, three hotels that became apartments, four ERs for the shingles, and one night I am not going to name. And I need you to know: the machine didn't get you. I got you. And you are still here.",
+      "nextNodeId": "act6_resolution_hub"
+    },
+    {
+      "id": "act6_resolution_hub",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The final balance sheet has a few entries left. Enter them before the last battle.",
+      "hubCompletion": {
+        "requiredFlags": [
+          "flag_act6_resolution_cost",
+          "flag_act6_resolution_kept",
+          "flag_act6_resolution_machine"
+        ],
+        "redirectToNodeId": "act6_final_battle_intro"
+      },
+      "choices": [
+        {
+          "id": "choice_act6_resolution_cost",
+          "text": "Count what the machine cost — the full, unsparing total.",
+          "voiceKeywords": [
+            "cost",
+            "total",
+            "machine cost",
+            "count it",
+            "what it took",
+            "full price"
+          ],
+          "nextNodeId": "branch_act6_resolution_cost",
+          "completionFlag": "flag_act6_resolution_cost"
+        },
+        {
+          "id": "choice_act6_resolution_kept",
+          "text": "Count what survived — the things the machine could not enter.",
+          "voiceKeywords": [
+            "survived",
+            "kept",
+            "what remains",
+            "intact",
+            "held on",
+            "still here",
+            "didn't take"
+          ],
+          "nextNodeId": "branch_act6_resolution_kept",
+          "completionFlag": "flag_act6_resolution_kept"
+        },
+        {
+          "id": "choice_act6_resolution_machine",
+          "text": "Deliver the final verdict on the machine.",
+          "voiceKeywords": [
+            "verdict",
+            "machine",
+            "final word",
+            "judgment",
+            "what it is",
+            "the system",
+            "deliver"
+          ],
+          "nextNodeId": "branch_act6_resolution_machine",
+          "completionFlag": "flag_act6_resolution_machine"
+        },
+        {
+          "id": "choice_act6_final_battle",
+          "text": "Run the final balance sheet — face the last reckoning.",
+          "voiceKeywords": [
+            "final",
+            "balance",
+            "reckoning",
+            "battle",
+            "last",
+            "finish it",
+            "end"
+          ],
+          "nextNodeId": "act6_final_battle_intro"
+        }
+      ]
+    },
+    {
+      "id": "branch_act6_resolution_cost",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Four shingles. A career ceiling imposed by a petty email from Mattie-T. Gender discrimination left 'Unsubstantiated' twice. Thirteen consecutive human beings hired and destroyed in Pueblo's overnight machine, and then the same machine invited Todd in. A 3 AM that ran for two and a half weeks. One of the worst pay cuts a person can absorb. That is the machine's invoice. It is real and complete.",
+      "nextNodeId": "act6_resolution_hub"
+    },
+    {
+      "id": "branch_act6_resolution_kept",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Integrity: still here. Empathy for the people doing the actual work: still here, sharper if anything. Adriana: still here, still her laugh, still the reason the 3 AM never got its answer. The knowledge that the job can be done humanely, carried in a body that proved it in practice: still here. The machine cannot enter this column.",
+      "nextNodeId": "act6_resolution_hub"
+    },
+    {
+      "id": "branch_act6_resolution_machine",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The machine is not malevolent. It has no preference. It is a set of incentives built by people who decided that the cheapest friction-reducer was fear, and fear scaled better than dignity. Mattie-T, Jury, Ohmar, Abdoolie — they are all products of a system that selected for their particular shape of cruelty. The system is the verdict. The individuals are its grammar.",
+      "nextNodeId": "act6_resolution_hub"
+    },
+    {
+      "id": "act6_final_battle_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The final balance sheet — the machine's ledger versus the one it could not open. One more time: say 'Enemies' and put the full weight of it down.",
+      "triggerBattleEncounterId": "act6_final_balance",
+      "nextNodeId": "act6_final_post"
+    },
+    {
+      "id": "act6_final_post",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The machine's ledger closes at a deficit. The other ledger does not close — it keeps running, entry by entry, in every bay, every associate shielded, every honest hour logged. That ledger is not a career document. It is a life.",
+      "nextNodeId": "act6_final_todd_last"
+    },
+    {
+      "id": "act6_final_todd_last",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Standing in Bay Three at the end of a shift. The overhead door is cracked. The Florida light cuts a line across the concrete — clean, specific, indifferent in the best possible way. Impact wrench in the tool cart. Adriana meeting me in the parking lot in twenty minutes.",
+      "nextNodeId": "act6_final_todd_last_part2"
+    },
+    {
+      "id": "act6_final_todd_last_part2",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "From Utah to Lamar to South Carolina to Pueblo to St. Augustine to here. The machine broke my career. It tried to break my mind. It nearly took the rest of it, once, on a 3 AM it did not earn and will not get credit for surviving.",
+      "nextNodeId": "act6_final_closing"
+    },
+    {
+      "id": "act6_final_closing",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "But it failed. Integrity intact. Empathy intact. The working class still has his whole attention and none of his contempt — he earned the right to either, and he chose. The corporate meat grinder had eight years and five states and four shingles and a 3 AM and one relocation clawback. It needed all of that to almost win.",
+      "nextNodeId": "act6_final_closing_part2"
+    },
+    {
+      "id": "act6_final_closing_part2",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Almost. Is not.",
+      "nextNodeId": "act6_adriana_final"
+    },
+    {
+      "id": "act6_adriana_final",
+      "speakerId": "adriana",
+      "side": "LEFT",
+      "text": "I'm in the parking lot. Take your time.",
+      "nextNodeId": "act6_true_end"
+    },
+    {
+      "id": "act6_true_end",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "He takes his time. He wipes down the wrench and hangs it on the correct peg, because that is what you do in a bay that is run correctly. He closes the overhead door behind him. He walks out into the light to meet his wife. The machine is still running somewhere in the building. It will run all night. It will run without him. He is no longer its problem.",
       "setFlagOnEnter": "game_completed"
     }
   ]

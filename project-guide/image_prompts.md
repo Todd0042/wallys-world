@@ -357,6 +357,60 @@ No barcodes, no real logos, no founder likenesses, no real store names.
 
 ---
 
+## Act 6 — The Aftermath (Florida, the Pay Cut to the Balance Sheet)
+
+## 44. The crash back to hourly
+**File:** `app/src/main/assets/story/squeeze_act6_crash.jpg` (1280x720)
+
+> The main floor of a big-box store in flat, unforgiving daylight — stripped of the protective isolation of the overnight shift: long aisles of tall racking under the full merciless hum of daytime fluorescents, a front end busy with registers, shoppers moving in orderly rows. A lone hourly team lead in a teal-and-orange vest walks a center aisle with a pricing gun, looking up at the same lights he once managed. A far wall reads "ALWAYS LOW MORALE" in muted mustard wallpaper, and a hanging banner carries a **melting smiley**, face running like warm wax. The harsh, relentless, entirely indifferent brightness of a building that doesn't know what a person gave up to stay in it. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 45. Timmy's store — the brief sanctuary
+**File:** `app/src/main/assets/story/squeeze_act6_timmy.jpg` (1280x720)
+
+> The warm interior of a Florida big-box store in its rare quiet golden hours: associates actually talking to one another as they stock shelves, a store manager with an open, honest face shaking hands with a new hourly team lead and looking him in the eye, a receiver sharing coffee with a cart girl. Same machinery as any other store — racking, fluorescents, pallets — but the air is different: the specific, rare silence of a building that hasn't been broken yet. A **melting smiley** pin droops on a vest, face running. Soft, almost-kind fluorescent light, genuine human warmth between people. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 46. Abdoolie's store — the same building, different gravity
+**File:** `app/src/main/assets/story/squeeze_act6_abdoolie.jpg` (1280x720)
+
+> The main floor of a big-box store under a new, colder gravity: the same racking and fluorescents as any other day, but the associates move slightly faster and glance slightly sideways, heads down in the aisles. In the mezzanine office doorway stands a slender, immaculate manager in a dark shirt, perfectly still, hands clasped, watching the floor with a flat, patient, unreadable calm — the ghost of the old regime in a new body, danger carried entirely in voice and procedure. A **melting smiley** poster droops on a steel column, wax long run. Harsh identical fluorescent light, an atmosphere you can feel but not see. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 47. The front-end grind — the customer gauntlet
+**File:** `app/src/main/assets/story/squeeze_act6_front_end.jpg` (1280x720)
+
+> The cavernous front end of a big-box store at full tilt: row after row of register lanes backed up with shoppers, a crowded service desk with a blinking beacon, carts jammed in the aisles. A tired associate in a teal-and-orange vest stands at the service desk absorbing a complaint from an angry customer leaning over the counter while a line of waiting shoppers watches. The constant, relentless, petty erosion of ten hours of public-facing work made landscape. A **melting smiley** banner droops over the check lanes, wax running. Harsh fluorescent light, the machine and the public meeting at full volume. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 48. The shop tech pit — the underground haven
+**File:** `app/src/main/assets/story/squeeze_act6_shop_pit.jpg` (1280x720)
+
+> Six automotive bays in the service pit of a big-box store — the only part of the building the machine forgot to surveil: concrete floor stained with motor oil, impact wrenches thundering, a car on a lift with a tire already off, tool carts with drawers open, the smell of burnt rubber in the air. A veteran mechanic in a dark work shirt and a tired hourly associate in a teal-and-orange vest work side by side at a bay while a team lead watches over them with genuine, competent, protective care. A single **melting smiley** sticker droops on a tool cart, face run. Warm industrial light mixing with honest daylight from the bay doors, loud real work. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 49. The balance sheet — the unbroken soul
+**File:** `app/src/main/assets/story/squeeze_act6_resolution.jpg` (1280x720)
+
+> A single automotive bay at the end of a last shift: the overhead door cracked, Florida morning light cutting one clean line across the concrete, an impact wrench hung on its correct peg above a tool cart, the bay floor swept and still. A man in a dark work shirt stands at the bay edge, cap in hand, looking out through the open door into the light with the complete, verified stillness of a person who refused to be destroyed. A **melting smiley** sticker on the tool cart, face fully run. Warm sunrise light, the smell of motor oil, the weight of the whole memoir in one quiet frame. 35mm photorealistic, film grain. No real logos, no readable text.
+
+## 50. Abdoolie — store manager
+**File:** `app/src/main/assets/portraits/abdoolie.jpg` (640x800, portrait)
+
+> Editorial portrait of a slender, immaculate man in his 50s — the new store manager who replaced the brief sanctuary. A worn but meticulously pressed dark shirt with sleeves perfectly rolled, thin sharp features, a small precise mouth, and a flat, level, patient gaze that never rises and never varies. He is not physically large — the danger is entirely in the calm: the measured cadence, the unblinking stillness of a man about to ask you to walk him through a number. Store-office backdrop, fluorescent light, no emotion leaking anywhere. A **melting smiley** pin on his collar, face run to a smear. 35mm photorealistic. No name tags, no readable text.
+
+## 51. Timmy — store manager, the brief sanctuary
+**File:** `app/src/main/assets/portraits/timmy.jpg` (640x800, portrait)
+
+> Editorial portrait of a warm, steady man in his 50s — the store manager who still knows every associate by name. Round kind face, graying hair, glasses low on his nose, an open smile that reaches genuine eyes — eyes that don't move the way trick eyes move. Teal-and-orange vest over a comfortable button shirt, one hand extended in an honest handshake, the other resting on a well-worn clipboard. A **melting smiley** pin on the vest, face running. Soft back-office light with a blurred store floor behind him, decency in every line. 35mm photorealistic. No name tags, no readable text.
+
+## 52. Tani — shop team lead
+**File:** `app/src/main/assets/portraits/tani.jpg` (640x800, portrait)
+
+> Editorial portrait of a capable, fiercely protective woman in her 40s — an automotive shop team lead. Dark work shirt with rolled sleeves, hair pulled back, strong forearms, one hand resting on the grip of an impact wrench across her shoulder; warm eyes that invite you in and a jaw set with a quiet promise: nobody touches her crew. She stands at the open edge of a service bay with a lift and tool cart blurred behind her. A **melting smiley** sticker on her shirt pocket, face run. Warm industrial light, honest working-class dignity. 35mm photorealistic. No name tags, no readable text.
+
+## 53. Cap'n H — shop team lead
+**File:** `app/src/main/assets/portraits/capn_h.jpg` (640x800, portrait)
+
+> Editorial portrait of a weathered, generous veteran in his 60s — an automotive shop team lead who runs the bays on trust and skill. Gray-streaked beard, deep laugh lines, a grease-smudged dark work shirt with sleeves off strong forearms, a **melting smiley** sticker worn like a badge. He stands with arms crossed at a bay edge, honest kind eyes, the easy authority of a man who has done the work right for nine years and watches everyone's back. Impact wrenches and tool carts blurred behind him. Warm bay light. 35mm photorealistic. No name tags, no readable text.
+
+---
+
 ## Regeneration notes
 
 - If Gemini refuses a prompt for "any real retailer trademark", the image already uses the fictional
@@ -367,6 +421,6 @@ No barcodes, no real logos, no founder likenesses, no real store names.
 - Portraits are hot-swappable by file name alone (`todd.jpg`, `jodie.jpg`, `mattie_t.jpg`,
   `narrator.jpg`, `trudy.jpg`, `jury.jpg`, `adriana.jpg`, `skagg.jpg`, `azalia.jpg`,
   `jay_dau.jpg`, `amandy.jpg`, `steffie.jpg`, `richard.jpg`, `sriniviii.jpg`,
-  `ohmar.jpg`) — the
+  `ohmar.jpg`, `abdoolie.jpg`, `timmy.jpg`, `tani.jpg`, `capn_h.jpg`) — the
   engine never references specific art beyond these names, so you may upgrade any of them
   without a rebuild.

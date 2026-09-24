@@ -1,0 +1,14 @@
+{
+  "_doc": "Cap'n H — the other exceptional shop leader anchoring the technician pit in Act 6. Altered from Hector. Competent, fair, and protective — a genuine leader who runs the bays on trust and skill rather than fear. He and Tani together create the only authentic workplace sanctuary the entire six-act memoir produces. Dialogue-only.",
+  "id": "capn_h",
+  "role": "npc",
+  "name": "Cap'n H",
+  "title": "Shop Team Lead",
+  "portraitAsset": "portraits/capn_h.jpg",
+  "themeColor": "#FFA726",
+  "ttsPitch": 0.9,
+  "ttsRate": 0.98,
+  "samplePhrase": "This bay doesn't run on fear. It runs on the fact that we know what we're doing and we do it right.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["capn h", "cap'n h", "hector", "the captain", "shop lead", "h"]
+}

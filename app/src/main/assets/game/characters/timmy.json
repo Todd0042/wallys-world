@@ -1,0 +1,14 @@
+{
+  "_doc": "Timmy — the brief savior store manager who accepts Todd as an hourly team lead after the overnight step-down, restoring a shred of workplace dignity. Genuinely compassionate; the rarest archetype the machine produces. His promotion out of the store is not a betrayal — he earned it — but it leaves Todd exposed to whatever comes next. Dialogue-only.",
+  "id": "timmy",
+  "role": "npc",
+  "name": "Timmy",
+  "title": "Store Manager",
+  "portraitAsset": "portraits/timmy.jpg",
+  "themeColor": "#66BB6A",
+  "ttsPitch": 1.05,
+  "ttsRate": 1.0,
+  "samplePhrase": "You did the hard thing. Now let's make sure you get to do the next thing.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["timmy", "store manager", "the manager", "the good one"]
+}
