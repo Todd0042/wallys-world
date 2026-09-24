@@ -578,7 +578,7 @@
       "defense": 11,
       "speed": 52,
       "xpReward": 690,
-      "movesetId": "boss_template",
+      "movesetId": "construct_bruiser",
       "isBoss": true,
       "spriteId": "mattie_brute",
       "spriteTint": "#FFA726"

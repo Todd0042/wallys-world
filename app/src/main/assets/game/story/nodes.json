@@ -83,7 +83,8 @@
             "battle",
             "fight"
           ],
-          "nextNodeId": "trench_trigger_battle"
+          "nextNodeId": "trench_trigger_battle",
+          "completionFlag": "flag_trench_shift"
         },
         {
           "id": "choice_open_floor",
@@ -138,7 +139,8 @@
       "speakerId": "hero",
       "side": "LEFT",
       "text": "Pallet by pallet, the wall comes down. My back is loud about it, but the trailer is empty before the sun comes up.",
-      "nextNodeId": "trench_hub"
+      "nextNodeId": "trench_hub",
+      "setFlagOnEnter": "flag_trench_shift"
     },
     {
       "id": "trench_to_floor",
@@ -217,7 +219,8 @@
             "fight",
             "customers"
           ],
-          "nextNodeId": "floor_trigger_battle"
+          "nextNodeId": "floor_trigger_battle",
+          "completionFlag": "flag_floor_battle"
         },
         {
           "id": "choice_front_end",
@@ -264,7 +267,8 @@
       "speakerId": "hero",
       "side": "LEFT",
       "text": "Customers leave with their carts and their receipts. The gauge drips back down to green. I stand in the middle of the floor, breathing like it's the first time.",
-      "nextNodeId": "floor_hub"
+      "nextNodeId": "floor_hub",
+      "setFlagOnEnter": "flag_floor_battle"
     },
     {
       "id": "floor_to_front",
@@ -527,7 +531,8 @@
             "fight",
             "customers"
           ],
-          "nextNodeId": "lamar_trigger_battle"
+          "nextNodeId": "lamar_trigger_battle",
+          "completionFlag": "flag_lamar_rush"
         },
         {
           "id": "choice_lamar_metrics",
@@ -591,7 +596,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "By closing, every ticket is turned. The lube kid is standing taller. I'm covered in grease and grinning like I won something, which — for once — maybe I did.",
-      "nextNodeId": "lamar_hub"
+      "nextNodeId": "lamar_hub",
+      "setFlagOnEnter": "flag_lamar_rush"
     },
     {
       "id": "lamar_metrics",
@@ -680,7 +686,8 @@
             "defend",
             "floor"
           ],
-          "nextNodeId": "fall_trigger_battle"
+          "nextNodeId": "fall_trigger_battle",
+          "completionFlag": "flag_fall_battle"
         },
         {
           "id": "choice_fall_skagg",
@@ -740,7 +747,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The audit passes without a single name of mine on the paper. The eye blinks, repositioned. I chalk it up and keep my head down, but I've started to notice: the machine never needed Miss Trudy's heart to run — it just needed a place to hold it where it couldn't get in the way.",
-      "nextNodeId": "fall_hub"
+      "nextNodeId": "fall_hub",
+      "setFlagOnEnter": "flag_fall_battle"
     },
     {
       "id": "fall_skagg",
@@ -1297,7 +1305,8 @@
             "bays",
             "first job"
           ],
-          "nextNodeId": "carolina_trigger_battle"
+          "nextNodeId": "carolina_trigger_battle",
+          "completionFlag": "flag_carolina_war"
         },
         {
           "id": "choice_carolina_tour",
@@ -1373,7 +1382,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "By closing, the ticket is turned and the apprentice who watched me torque every lug nut by hand asked why. Because they're the last thing between a family and a ditch, that's why. The shop didn't lower its walls today, but it looked at me different — like the man who knew what the job was.",
-      "nextNodeId": "carolina_hub"
+      "nextNodeId": "carolina_hub",
+      "setFlagOnEnter": "flag_carolina_war"
     },
     {
       "id": "carolina_to_tour",
@@ -1479,7 +1489,8 @@
             "floor",
             "gauntlet"
           ],
-          "nextNodeId": "tour_trigger_battle"
+          "nextNodeId": "tour_trigger_battle",
+          "completionFlag": "flag_tour_battle"
         },
         {
           "id": "choice_tour_azalia",
@@ -1525,7 +1536,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The floor holds. Turn times stay human, and under the new clocks the bays do what they do — the work gets done, the tickets turn, nobody gets hurt. But I come out of it with the same feeling I had in Lamar: the machine doesn't care how hard we hold the line. It only cares what it can pile on top of the line next.",
-      "nextNodeId": "tour_hub"
+      "nextNodeId": "tour_hub",
+      "setFlagOnEnter": "flag_tour_battle"
     },
     {
       "id": "tour_to_azalia",
@@ -1630,7 +1642,8 @@
             "direct",
             "stand"
           ],
-          "nextNodeId": "azalia_trigger_battle"
+          "nextNodeId": "azalia_trigger_battle",
+          "completionFlag": "flag_azalia_battle"
         },
         {
           "id": "choice_azalia_breach",
@@ -1689,7 +1702,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The line holds — the corners stop, the tech steps back from the edge, and for now, in my bays, the work is real again. But I walk back to the office with the truth sitting heavy in me: I didn't win against the paralysis.",
-      "nextNodeId": "azalia_post_victory_part2"
+      "nextNodeId": "azalia_post_victory_part2",
+      "setFlagOnEnter": "flag_azalia_battle"
     },
     {
       "id": "azalia_post_victory_part2",
@@ -1803,7 +1817,8 @@
             "battle",
             "gauntlet"
           ],
-          "nextNodeId": "breach_trigger_battle"
+          "nextNodeId": "breach_trigger_battle",
+          "completionFlag": "flag_breach_battle"
         },
         {
           "id": "choice_breach_regional",
@@ -1817,7 +1832,8 @@
             "battle",
             "outside"
           ],
-          "nextNodeId": "breach_trigger_regional"
+          "nextNodeId": "breach_trigger_regional",
+          "completionFlag": "flag_breach_regional"
         },
         {
           "id": "choice_breach_verdict",
@@ -1871,7 +1887,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "They can't make my report say what it doesn't say. They can't make my signature appear where it isn't. I walk out of the area office with the file still in my hand and the whole weight of the store telling me I just ended my own time here. Maybe I did. But I didn't end it lying.",
-      "nextNodeId": "breach_hub"
+      "nextNodeId": "breach_hub",
+      "setFlagOnEnter": "flag_breach_battle"
     },
     {
       "id": "breach_trigger_regional",
@@ -1886,7 +1903,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The complaint moves. Not fast, not fairly, but it moves — the way the brick wall in Colorado never once moved. I read the response twice. Somewhere a stranger with a title I'll never meet has actually read my file. It's the first time in three years the machine has blinked when I pushed. It's not justice. It's a crack. A crack is a start.",
-      "nextNodeId": "breach_hub"
+      "nextNodeId": "breach_hub",
+      "setFlagOnEnter": "flag_breach_regional"
     },
     {
       "id": "breach_verdict",
@@ -1979,7 +1997,8 @@
             "load",
             "finish"
           ],
-          "nextNodeId": "scar_trigger_battle"
+          "nextNodeId": "scar_trigger_battle",
+          "completionFlag": "flag_scar_fire"
         },
         {
           "id": "choice_scar_azalia",
@@ -2141,7 +2160,8 @@
             "battle",
             "hold"
           ],
-          "nextNodeId": "pueblo_front_trigger"
+          "nextNodeId": "pueblo_front_trigger",
+          "completionFlag": "flag_pueblo_front"
         },
         {
           "id": "choice_pueblo_boss",
@@ -2155,7 +2175,8 @@
             "alone",
             "fight"
           ],
-          "nextNodeId": "pueblo_close_trigger"
+          "nextNodeId": "pueblo_close_trigger",
+          "completionFlag": "flag_pueblo_one_man_close"
         },
         {
           "id": "choice_pueblo_beats",
@@ -2208,7 +2229,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "A man at the front of the line demands to know his number. I tell him the truth: he's number six. There are five ahead of him I haven't saved yet, and I'm running to the service desk to save one of them.",
-      "nextNodeId": "pueblo_front_post_part2"
+      "nextNodeId": "pueblo_front_post_part2",
+      "setFlagOnEnter": "flag_pueblo_front"
     },
     {
       "id": "pueblo_front_post_part2",
@@ -2237,7 +2259,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "I finish the count by one in the morning, lock the safe, and stand in the dark at the front doors looking out at the empty lot. Not a single supervisor. Not a single backup.",
-      "nextNodeId": "pueblo_close_post_part2"
+      "nextNodeId": "pueblo_close_post_part2",
+      "setFlagOnEnter": "flag_pueblo_one_man_close"
     },
     {
       "id": "pueblo_close_post_part2",
@@ -2422,7 +2445,8 @@
             "fight",
             "battle"
           ],
-          "nextNodeId": "pueblo_blotter_trigger"
+          "nextNodeId": "pueblo_blotter_trigger",
+          "completionFlag": "flag_pueblo_blotter"
         },
         {
           "id": "choice_pueblo_parking",
@@ -2436,7 +2460,8 @@
             "fight",
             "battle"
           ],
-          "nextNodeId": "pueblo_parking_trigger"
+          "nextNodeId": "pueblo_parking_trigger",
+          "completionFlag": "flag_pueblo_parking"
         },
         {
           "id": "choice_pueblo_accept",
@@ -2526,7 +2551,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "We get the carts back, the goods, most of the lot. The regulars scatter into the dark like they always do, and I stand in the doorway with the evening's loss total in my head — not what they took, what the store let them take by staffing a building that size with one manager and no supervisors.",
-      "nextNodeId": "pueblo_offer_hub"
+      "nextNodeId": "pueblo_offer_hub",
+      "setFlagOnEnter": "flag_pueblo_blotter"
     },
     {
       "id": "pueblo_parking_trigger",
@@ -2541,7 +2567,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "I get between the cars before either hand comes out all the way — talk them down, walk them apart, wait until both engines are gone and the lot is only gravel and sodium light.",
-      "nextNodeId": "pueblo_parking_post_part2"
+      "nextNodeId": "pueblo_parking_post_part2",
+      "setFlagOnEnter": "flag_pueblo_parking"
     },
     {
       "id": "pueblo_parking_post_part2",
@@ -2625,7 +2652,8 @@
             "push",
             "run it"
           ],
-          "nextNodeId": "pueblo_overhaul_trigger"
+          "nextNodeId": "pueblo_overhaul_trigger",
+          "completionFlag": "flag_pueblo_freight"
         },
         {
           "id": "choice_pueblo_peak",
@@ -2678,7 +2706,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The trailer empties, the bins hold, the floor stays fed from open to close. I walk the building at midnight — not closing now, but chosen — and the store is running the way I always believed it could: on the strength of people it finally decided to equip. The board above the backroom says we're climbing. It doesn't say what it'll cost to stay up there.",
-      "nextNodeId": "pueblo_overhaul_hub"
+      "nextNodeId": "pueblo_overhaul_hub",
+      "setFlagOnEnter": "flag_pueblo_freight"
     },
     {
       "id": "pueblo_peak",
@@ -2806,7 +2835,8 @@
             "fight",
             "lead"
           ],
-          "nextNodeId": "pueblo_visit_trigger"
+          "nextNodeId": "pueblo_visit_trigger",
+          "completionFlag": "flag_pueblo_visit"
         },
         {
           "id": "choice_pueblo_promote",
@@ -2866,7 +2896,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "Richard stumbles twice, corrects himself both times, and I smooth both stitches in front of the director without missing a beat. The visit passes. The shine holds. Nobody knows how thin the difference was between a promotion and a car wreck — except Richard. He looks at me like he's seen the floor for the first time. I look back like I've seen this movie a dozen times.",
-      "nextNodeId": "pueblo_richard_hub"
+      "nextNodeId": "pueblo_richard_hub",
+      "setFlagOnEnter": "flag_pueblo_visit"
     },
     {
       "id": "pueblo_richard_promoted",
@@ -2986,7 +3017,8 @@
             "fight",
             "gauntlet"
           ],
-          "nextNodeId": "pueblo_paradox_trigger"
+          "nextNodeId": "pueblo_paradox_trigger",
+          "completionFlag": "flag_pueblo_paradox"
         },
         {
           "id": "choice_pueblo_amandy",
@@ -3000,7 +3032,8 @@
             "battle",
             "fight"
           ],
-          "nextNodeId": "pueblo_amandy_trigger"
+          "nextNodeId": "pueblo_amandy_trigger",
+          "completionFlag": "flag_pueblo_amandy"
         },
         {
           "id": "choice_pueblo_steffie",
@@ -3066,7 +3099,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The building settles, the numbers hold, and Jay-Dau's version of thanks is a hand on my shoulder that means we're square — until the next quarter. I know exactly what he is, and I keep him anyway, because the other version of him is the only friend this building has ever given me.",
-      "nextNodeId": "pueblo_paradox_hub"
+      "nextNodeId": "pueblo_paradox_hub",
+      "setFlagOnEnter": "flag_pueblo_paradox"
     },
     {
       "id": "pueblo_amandy_trigger",
@@ -3081,7 +3115,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "I take the impossible number, hold the floor, hand it back done — and she doesn't say thank you, because thank you isn't in the dialect. I've stopped expecting it. The floor knows I took it, and the floor's opinion is the only ledger I'm keeping anymore.",
-      "nextNodeId": "pueblo_paradox_hub"
+      "nextNodeId": "pueblo_paradox_hub",
+      "setFlagOnEnter": "flag_pueblo_amandy"
     },
     {
       "id": "pueblo_amandy_promo",
@@ -3188,7 +3223,8 @@
             "fight",
             "machine"
           ],
-          "nextNodeId": "pueblo_grinder_trigger"
+          "nextNodeId": "pueblo_grinder_trigger",
+          "completionFlag": "flag_pueblo_grinder"
         },
         {
           "id": "choice_pueblo_ask",
@@ -3241,7 +3277,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "I walk out of that empty building at sunrise shaking the way I've never shaken at close. Nothing attacked me. Nothing happened. That's the grinder — it doesn't need to do anything. It just needs to be the only thing in a hundred thousand feet of dark, asking you to carry it alone, forever. I understand Thirteen now. I understand all of them.",
-      "nextNodeId": "pueblo_graveyard_hub"
+      "nextNodeId": "pueblo_graveyard_hub",
+      "setFlagOnEnter": "flag_pueblo_grinder"
     },
     {
       "id": "pueblo_take_the_job",
@@ -3382,7 +3419,8 @@
             "machine",
             "stand"
           ],
-          "nextNodeId": "pueblo_contract_trigger"
+          "nextNodeId": "pueblo_contract_trigger",
+          "completionFlag": "flag_pueblo_contract"
         },
         {
           "id": "choice_pueblo_sign",
@@ -3442,7 +3480,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "I take the whole weight of it — every store, every scar, every manager I watched get eaten — and I hold the line like I've held every line: one breath at a time, until the",
-      "nextNodeId": "pueblo_contract_post_part2"
+      "nextNodeId": "pueblo_contract_post_part2",
+      "setFlagOnEnter": "flag_pueblo_contract"
     },
     {
       "id": "pueblo_contract_post_part2",
@@ -3580,7 +3619,8 @@
             "asphalt",
             "95"
           ],
-          "nextNodeId": "florida_interstate_trigger"
+          "nextNodeId": "florida_interstate_trigger",
+          "completionFlag": "flag_florida_gauntlet"
         },
         {
           "id": "choice_florida_south",
@@ -3603,21 +3643,24 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "Tonight the road will congeal at four different bridges; by sunrise it will be a glare and a prayer. You learn it the way you learn a hostile coworker — routes, exits, the shoulder that can save you. The gauntlet has a geography. You intend to outlast it.",
-      "nextNodeId": "florida_road_hub"
+      "nextNodeId": "florida_road_hub",
+      "setFlagOnEnter": "flag_florida_road_learned"
     },
     {
       "id": "branch_florida_collar",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "The clawback, page by page: corporate paid for the move, and corporate owns you until the miles repay it. Walk before the term, lose the job, and the debt follows you like a second relocation. A leash wearing a loan officer's smile.",
-      "nextNodeId": "florida_road_hub"
+      "nextNodeId": "florida_road_hub",
+      "setFlagOnEnter": "flag_florida_collar_read"
     },
     {
       "id": "branch_florida_anchor",
       "speakerId": "adriana",
       "side": "LEFT",
       "text": "Come home when you can, not when they say you can. I'll be awake. I'll be right here. You didn't survive everything else just to hand them your nights, Todd. Whatever this store is — I'm not afraid of it.",
-      "nextNodeId": "florida_road_hub"
+      "nextNodeId": "florida_road_hub",
+      "setFlagOnEnter": "flag_florida_anchor_held"
     },
     {
       "id": "florida_interstate_trigger",
@@ -3632,7 +3675,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The bridge lights finally thin out and the store glows on the horizon like something that knows my name. The road and I have come to terms: it will always be this hard. So will I.",
-      "nextNodeId": "florida_road_hub"
+      "nextNodeId": "florida_road_hub",
+      "setFlagOnEnter": "flag_florida_gauntlet"
     },
     {
       "id": "florida_first_drive",
@@ -3754,7 +3798,8 @@
             "metric",
             "river"
           ],
-          "nextNodeId": "florida_green_trigger"
+          "nextNodeId": "florida_green_trigger",
+          "completionFlag": "flag_florida_meters"
         },
         {
           "id": "choice_florida_vacation",
@@ -3777,21 +3822,24 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "Green for three months straight: unload under hours, bins above the line, the regional dashboard finally singing your name. It's real. It's earned. And you've lived long enough to know the machine only sings before it swallows.",
-      "nextNodeId": "florida_honeymoon_hub"
+      "nextNodeId": "florida_honeymoon_hub",
+      "setFlagOnEnter": "flag_florida_green_known"
     },
     {
       "id": "branch_florida_crew",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "The crew is the best you've ever had: people who remember the creed — clear expectations, no administrative ambushes, proper tools, and respect. They trust you by April. By June they'd follow you into the fire of the receiving dock.",
-      "nextNodeId": "florida_honeymoon_hub"
+      "nextNodeId": "florida_honeymoon_hub",
+      "setFlagOnEnter": "flag_florida_crew_met"
     },
     {
       "id": "branch_florida_sun_wonder",
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "It's never this easy. It was never this easy in any store, in any state, on any shift I've ever worked. Somebody up there is smiling at me, and my spine can't decide if that's praise or the countdown.",
-      "nextNodeId": "florida_honeymoon_hub"
+      "nextNodeId": "florida_honeymoon_hub",
+      "setFlagOnEnter": "flag_florida_sun_wondered"
     },
     {
       "id": "florida_green_trigger",
@@ -3806,7 +3854,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The board glows green and the floor is quiet and the whole building feels like it finally learned my name for real. It won't last. It never does. But for one shift, I stand under the light and let it be enough.",
-      "nextNodeId": "florida_honeymoon_hub"
+      "nextNodeId": "florida_honeymoon_hub",
+      "setFlagOnEnter": "flag_florida_meters"
     },
     {
       "id": "florida_vacation_decision",
@@ -3919,7 +3968,8 @@
             "battle",
             "fight"
           ],
-          "nextNodeId": "florida_ohmar_trigger"
+          "nextNodeId": "florida_ohmar_trigger",
+          "completionFlag": "flag_florida_ohmar"
         },
         {
           "id": "choice_florida_verdict",
@@ -3933,7 +3983,8 @@
             "morning",
             "fight"
           ],
-          "nextNodeId": "florida_verdict_trigger"
+          "nextNodeId": "florida_verdict_trigger",
+          "completionFlag": "flag_florida_verdict"
         },
         {
           "id": "choice_florida_accept",
@@ -3955,14 +4006,16 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "You chart it like freight: Monday the target climbs, Tuesday it moves sideways, Wednesday it retroactively retro-dates. No finished store has ever satisfied a goalpost mounted on wheels — because the point was never the goal. The point was the moving.",
-      "nextNodeId": "florida_flip_hub"
+      "nextNodeId": "florida_flip_hub",
+      "setFlagOnEnter": "flag_florida_goalposts_read"
     },
     {
       "id": "branch_florida_terror",
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "He's not a manager. He's the region's enforcement, the reason lower stores run clean and scared. I've faced the machine in four states now, and Ohmar is the first man who made the machine look like it had a heartbeat.",
-      "nextNodeId": "florida_flip_hub"
+      "nextNodeId": "florida_flip_hub",
+      "setFlagOnEnter": "flag_florida_terror_faced"
     },
     {
       "id": "florida_ohmar_trigger",
@@ -3977,7 +4030,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "I walk out of the formal office with my heart a clean eight-eighty and my job (for now) still my own. He didn't break me; he confirmed me. Whatever else this man is — I know exactly what he is now, and fear was the last thing he taught me.",
-      "nextNodeId": "florida_flip_hub"
+      "nextNodeId": "florida_flip_hub",
+      "setFlagOnEnter": "flag_florida_ohmar"
     },
     {
       "id": "florida_verdict_trigger",
@@ -3992,7 +4046,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "Seven verdicts. Seven mornings. The store stayed clean and perfect all week, and the phrase stayed exactly the same. That's when it finally clicks for good: the verdict was never about the store. It was always about making me small.",
-      "nextNodeId": "florida_flip_hub"
+      "nextNodeId": "florida_flip_hub",
+      "setFlagOnEnter": "flag_florida_verdict"
     },
     {
       "id": "florida_beatdowns_intro",
@@ -4108,7 +4163,8 @@
             "break",
             "hours"
           ],
-          "nextNodeId": "florida_hostage_trigger"
+          "nextNodeId": "florida_hostage_trigger",
+          "completionFlag": "flag_florida_hostage"
         },
         {
           "id": "choice_florida_drive",
@@ -4131,21 +4187,24 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "The arithmetic, done once so it can never be undone: an hour minimum each way, a twelve-hour shift, an hour back — fourteen to sixteen on the short days. Add the four hostage hours and the day runs eighteen to twenty. The commute stops being a mile marker and becomes the hangman's knot.",
-      "nextNodeId": "florida_hostage_hub"
+      "nextNodeId": "florida_hostage_hub",
+      "setFlagOnEnter": "flag_florida_noose_read"
     },
     {
       "id": "branch_florida_home_phone",
       "speakerId": "adriana",
       "side": "LEFT",
       "text": "Hey. Hey — you sound like you're underwater. Todd, I don't care what time it is. Get in the car and come home. I'll leave the porch light on. I'll be right here. The store can hold itself for four more hours.",
-      "nextNodeId": "florida_hostage_hub"
+      "nextNodeId": "florida_hostage_hub",
+      "setFlagOnEnter": "flag_florida_home_phone"
     },
     {
       "id": "branch_florida_crew_human",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "At 1 AM the crew finds you still folding and starts folding beside you — nobody said a word, nobody was asked. They just fall in like a wall. Italian night at the back baler, and for four hours the building forgets it owns the clock.",
-      "nextNodeId": "florida_hostage_hub"
+      "nextNodeId": "florida_hostage_hub",
+      "setFlagOnEnter": "flag_florida_crew_human"
     },
     {
       "id": "florida_hostage_trigger",
@@ -4160,7 +4219,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "I walk the last aisle at 4 AM and the building finally lets me go — not because it's kind, but because even a machine gets tired of holding a man it can't break. The clock argues. The exit door wins.",
-      "nextNodeId": "florida_hostage_hub"
+      "nextNodeId": "florida_hostage_hub",
+      "setFlagOnEnter": "flag_florida_hostage"
     },
     {
       "id": "florida_drive_choice",
@@ -4268,14 +4328,16 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "A cart girl with a son who reads three grades up; a night receiver who left a construction job for a schedule that lets him see his wife; a kid who saves every tip shift for a used hatchback. Not numbers. Not biological trash. People — and your job is to keep them whole in a machine that breaks people for sport.",
-      "nextNodeId": "florida_sanctuary_hub"
+      "nextNodeId": "florida_sanctuary_hub",
+      "setFlagOnEnter": "flag_florida_story_heard"
     },
     {
       "id": "branch_florida_shield",
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "A day-side auditor wants to write up my night cart guy for a fill that sat two hours. I take the write-up instead — scalpel to the bone, my name on the line. They never wanted the guy; they wanted the fear. I hand them mine so his stays in his chest.",
-      "nextNodeId": "florida_sanctuary_hub"
+      "nextNodeId": "florida_sanctuary_hub",
+      "setFlagOnEnter": "flag_florida_shield_raised"
     },
     {
       "id": "florida_body_intro",
@@ -4458,7 +4520,8 @@
             "fight",
             "collar"
           ],
-          "nextNodeId": "florida_redemption_trigger"
+          "nextNodeId": "florida_redemption_trigger",
+          "completionFlag": "flag_florida_redemption"
         },
         {
           "id": "choice_florida_get_out",
@@ -4480,14 +4543,16 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "I take the pay cut — twenty-four grand, the machine keeping its clawback wound — and hand back the title that was really a leash. Salary was never the point. The overnight manager death spiral was the point, and I am done being its next number.",
-      "nextNodeId": "florida_choice_hub"
+      "nextNodeId": "florida_choice_hub",
+      "setFlagOnEnter": "flag_florida_stepdown_chosen"
     },
     {
       "id": "branch_florida_collar_refuse",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "The relocation contract, refused at last: the collar stays in the drawer with the two-faced promises. Owing thousands is cheaper than owing your body. For the first time since April, the arithmetic comes out ahead of the machine.",
-      "nextNodeId": "florida_choice_hub"
+      "nextNodeId": "florida_choice_hub",
+      "setFlagOnEnter": "flag_florida_collar_refused"
     },
     {
       "id": "florida_redemption_trigger",
@@ -4502,7 +4567,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The schedule lies shredded in the backroom bin. The debt is still real — the money is still owed. But it's paper now, not a leash. I can pay paper. I can't pay with my life, and I was never going to.",
-      "nextNodeId": "florida_choice_hub"
+      "nextNodeId": "florida_choice_hub",
+      "setFlagOnEnter": "flag_florida_redemption"
     },
     {
       "id": "florida_parting_intro",

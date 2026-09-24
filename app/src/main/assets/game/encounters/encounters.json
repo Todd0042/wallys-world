@@ -791,7 +791,7 @@
           "atbGauge": 0.3
         },
         {
-          "templateId": "fluorescent_hum",
+          "templateId": "jury_watch",
           "id": "hum_k",
           "name": "The Fluorescent Hum",
           "hp": 80,
