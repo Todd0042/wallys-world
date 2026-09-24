@@ -1,0 +1,13 @@
+{
+  "_doc": "Steffie — a Pueblo Store Lead: average height, a little heavier set, Hispanic, with better social polish than Amandy and a deeply two-faced core. Sweet and warm to your face, carving you up in meetings the second the door closes; your plans come back wearing her name. Dialogue-only.",
+  "id": "steffie",
+  "role": "npc",
+  "name": "Steffie",
+  "title": "Store Lead, Pueblo",
+  "portraitAsset": "portraits/steffie.jpg",
+  "themeColor": "#AB47BC",
+  "ttsPitch": 1.0,
+  "samplePhrase": "I'm in your corner, Todd. Always have been.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["steffie", "store lead", "the other lead"]
+}

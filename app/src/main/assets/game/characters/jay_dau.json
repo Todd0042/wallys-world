@@ -1,0 +1,13 @@
+{
+  "_doc": "Jay-Dau — the Pueblo store manager and, off the clock, Todd's genuine friend. The two truths never meet in the same room: by daylight he is pure hell to work for, relentless and ready to hand anyone to the machine to save his own standing; after hours he is the warmest company the job ever gave Todd. He burns through thirteen overnight managers in one year and never blinks. Dialogue-only.",
+  "id": "jay_dau",
+  "role": "npc",
+  "name": "Jay-Dau",
+  "title": "Store Manager, Pueblo",
+  "portraitAsset": "portraits/jay_dau.jpg",
+  "themeColor": "#42A5F5",
+  "ttsPitch": 0.95,
+  "samplePhrase": "It's just business. It's always just business.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["jay-dau", "jay dau", "store manager", "the store manager", "jay"]
+}

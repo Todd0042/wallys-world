@@ -1,0 +1,13 @@
+{
+  "_doc": "Richard — the Regional Compliance Aspirant, gunning for Area Manager with zero baseline comprehension of the reports he'll be judged against. Sincere, polished, and completely useless until Todd teaches him one honest hour at a time; he takes the Area Manager slot wearing Todd's words and credits nobody. Dialogue-only.",
+  "id": "richard",
+  "role": "npc",
+  "name": "Richard",
+  "title": "Regional Compliance Aspirant",
+  "portraitAsset": "portraits/richard.jpg",
+  "themeColor": "#FFA726",
+  "ttsPitch": 1.1,
+  "samplePhrase": "Electric to finally see the floor the numbers live on.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["richard", "the aspirant", "compliance manager", "compliance guy", "the climber"]
+}

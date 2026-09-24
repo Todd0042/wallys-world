@@ -1,0 +1,13 @@
+{
+  "_doc": "Amandy — a Pueblo Store Lead and an absolute nightmare: small, thin, Hispanic, radiating hostility and impossible chaotic demands, the daily bane of every shift that crosses her. Promoted away to her own store, she is stripped of her protective hierarchy and immediately emails Todd begging for help — and never thanks him when she lands the next one. Dialogue-only.",
+  "id": "amandy",
+  "role": "npc",
+  "name": "Amandy",
+  "title": "Store Lead, Pueblo",
+  "portraitAsset": "portraits/amandy.jpg",
+  "themeColor": "#EF5350",
+  "ttsPitch": 1.05,
+  "samplePhrase": "The number is the number. I don't care if it's possible, I care if it's done.",
+  "preferredVoiceId": null,
+  "voiceAliases": ["amandy", "amanda", "store lead", "the store lead", "the lead"]
+}

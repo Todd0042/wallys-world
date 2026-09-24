@@ -256,6 +256,65 @@ No barcodes, no real logos, no founder likenesses, no real store names.
 
 ---
 
+## Act 4 — Pueblo, Colorado
+
+## 25. The one-man close
+**File:** `app/src/main/assets/story/squeeze_pueblo_close.jpg` (1280x720)
+
+> Wide interior of a big-box store front end at closing time: every open register backed up six deep, a blinking service-desk beacon far off, carts jammed at the doors. In the middle of the teal-and-orange crowd a single manager in a teal vest moves hard between two lanes, one hand already reaching for the walkie at his hip, looking back over his shoulder at a customer holding up six fingers. A hanging **melting smiley** banner droops over the check lanes, wax running. Harsh evening fluorescent light, late-shift desperation, the loneliness of a building run by one person. No real logos, no readable text.
+
+## 26. The backroom overhaul offer
+**File:** `app/src/main/assets/story/squeeze_pueblo_backroom.jpg` (1280x720)
+
+> A cavernous big-box backroom at nine in the morning: a folding table loaded with coffee carafes and legal pads, a wall-size whiteboard scribbled with freight-flow diagrams, and a row of uncomfortable managers in pressed shirts listening to a speakerphone on the table. One exhausted manager in a teal vest stands slightly apart, arms crossed, the only one looking at the whiteboard with real understanding. A **melting smiley** poster peels on the steel column beside the dock door. Warm industrial light, dust in the air, the weight of a company restructuring itself. No real logos, no readable text.
+
+## 27. The freight-to-floor overhaul
+**File:** `app/src/main/assets/story/squeeze_pueblo_overhaul.jpg` (1280x720)
+
+> Big-box backroom and sales-floor seam mid-rebuild: a pure unload line running like a rail from the dock — associates passing cases hand to hand in a single fluid motion — while across the aisle a bin-and-topstock crew works a tall legion of labeled shelves. In the foreground a manager in a teal vest walks the line, clipboard in one hand, the whole building in motion around him. A far wall reads "ALWAYS LOW MORALE" in muted mustard, and a **melting smiley** sticker droops on a pallet. Bright humming fluorescent light, organized energy, a machine that finally runs. No real logos, no readable text.
+
+## 28. The education of Richard
+**File:** `app/src/main/assets/story/squeeze_pueblo_training.jpg` (1280x720)
+
+> A small fluorescent office inside a big-box store: a young corporate climber in a freshly pressed shirt and sharp new badge holds a stocking report upside-down and slightly sideways, smiling with practiced confidence, while a tired veteran manager in a teal vest points at a bin diagram on a whiteboard with patient, knowing patience. A single **melting smiley** coffee mug sits between them, face running. Warm-though-institutional light, the comedy and tragedy of a man being taught his own job by the man underneath him. No real logos, no readable text.
+
+## 29. The store manager's office — the paradox
+**File:** `app/src/main/assets/story/squeeze_pueblo_office.jpg` (1280x720)
+
+> The smoke-gray interior of a big-box store manager's office: a broad desk stacked with freight reports, a wall of scheduled shifts, and three figures — a warm, broad-smiling store manager in shirtsleeves leaning against the desk; beside him a small, thin, Hispanic woman in a store-lead vest with a hostile, flat stare; and a slightly heavier-set Hispanic woman with a serene sweet smile that doesn't quite reach her eyes, one hand resting on a file folder. A **melting smiley** clock droops on the wall. Cold fluorescent light, polite false warmth, the colleague-physics of an office where smiles do subtraction. No real logos, no readable text.
+
+## 30. The overnight graveyard
+**File:** `app/src/main/assets/story/squeeze_pueblo_overnight.jpg` (1280x720)
+
+> A big-box sales floor at three in the morning: pallets of freight breathing in near-darkness, the only light a row of emergency fluorescents and the red glow of a dock sign, no people anywhere. In the middle distance a single silhouette in a teal vest stands in the wide aisle, the whole hundred-thousand-square-foot building pressing in around them. On a steel column a **melting smiley** poster has sagged into an almost skull-like run. Abandoned silence, the loneliness of a machine run by no one, the graveyard shift. No real logos, no readable text.
+
+## 31. The road to Florida
+**File:** `app/src/main/assets/story/squeeze_pueblo_road.jpg` (1280x720)
+
+> Near-dawn on a highway stretching east out of the high plains toward a flat, soulless horizon: a packed box truck with taillights glowing, the Pueblo sprawl and its big-box slab receding in the mirror, a folded relocation-contract folder with a small **melting smiley** sticker on the corner lying on the dash beside a thermos and a billfold. The driver's hand on the wheel shows a fresh bandage work at the edge of a scarred forehead above the brim of the cap. Cold blue dawn against the orange sodium of the lot behind, a collar already around the next store. No real logos, no readable text.
+
+## 32. Jay-Dau — store manager, Pueblo
+**File:** `app/src/main/assets/portraits/jay_dau.jpg` (640x800, portrait)
+
+> Editorial portrait of a charismatic man in his 40s — a big-box store manager. Broad smile, warm coffee-colored skin, a teal-and-orange vest over a crisp dark shirt, one hand resting on a stack of overnight reports. The face splits evenly down the middle: the left side warmly lit and genuinely friendly, the right side falling into shadow, flat and corporate-serious. A small **melting smiley** button on the collar, face running. Soft-focus back office behind him, muted mustard palette. 35mm photorealistic. No name tags, no real logos, no readable text.
+
+## 33. Amandy — store lead, Pueblo
+**File:** `app/src/main/assets/portraits/amandy.jpg` (640x800, portrait)
+
+> Editorial portrait of a small, thin Hispanic woman in her 30s — a big-box store lead. Tightly pulled-back hair, a teal store-lead vest over a black shirt, arms crossed, chin up, a hard flat stare with no warmth in it and every word of the day held behind closed lips. One hand holds a dead walkie. Harsh fluorescent office light, the posture of someone who runs a shift by volume and never says thank you. 35mm photorealistic, muted mustard palette. No name tags, no real logos, no readable text.
+
+## 34. Steffie — store lead, Pueblo
+**File:** `app/src/main/assets/portraits/steffie.jpg` (640x800, portrait)
+
+> Editorial portrait of a slightly heavier-set Hispanic woman in her 30s — a big-box store lead. Average height, soft round face, warm glossy smile that looks genuinely kind, one hand gently resting on her chest in an open-heart gesture — while the other hand, half-hidden behind a file folder, is slightly tensed. Eyes that are warm on the surface and flat just behind it. Teal store-lead vest over a blouse, small **melting smiley** pin, face running. Soft office light blurring into shadow at the edges. 35mm photorealistic. No name tags, no readable text.
+
+## 35. Richard — regional compliance aspirant
+**File:** `app/src/main/assets/portraits/richard.jpg` (640x800, portrait)
+
+> Editorial portrait of a young man in his late 20s — a regional compliance manager on his way up the corporate ladder. Broad-shouldered, freshly pressed light-blue shirt, a crisp new badge, hair styled stiffly, a big gleaming smile of practiced confidence. He holds a stocking report folded in a way that reveals he has no idea how to read it — but the smile assures you otherwise. A single **melting smiley** pin droops on his lapel, face running. Clean fluorescent light, boardroom eagerness, the empty confidence of a man about to be taught his own job. 35mm photorealistic. No name tags, no readable text.
+
+---
+
 ## Regeneration notes
 
 - If Gemini refuses a prompt for "any real retailer trademark", the image already uses the fictional
@@ -264,6 +323,7 @@ No barcodes, no real logos, no founder likenesses, no real store names.
   intact, happy smiley or the real "Everyday Low Price" wording is the one thing that's an
   automatic reject-and-regenerate.
 - Portraits are hot-swappable by file name alone (`todd.jpg`, `jodie.jpg`, `mattie_t.jpg`,
-  `narrator.jpg`, `trudy.jpg`, `jury.jpg`, `adriana.jpg`, `skagg.jpg`, `azalia.jpg`) — the
+  `narrator.jpg`, `trudy.jpg`, `jury.jpg`, `adriana.jpg`, `skagg.jpg`, `azalia.jpg`,
+  `jay_dau.jpg`, `amandy.jpg`, `steffie.jpg`, `richard.jpg`) — the
   engine never references specific art beyond these names, so you may upgrade any of them
   without a rebuild.
