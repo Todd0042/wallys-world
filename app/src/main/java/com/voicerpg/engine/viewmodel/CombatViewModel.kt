@@ -1704,7 +1704,11 @@ class CombatViewModel(
                 lower.startsWith("select ") || lower.startsWith("choose ")
         if (isExplicitSwitch) {
             val switchTarget = aliveParty.firstOrNull { member ->
-                val nameMatch = member.name.isNotBlank() && lower.contains(member.name.lowercase())
+                val idMatch = member.id.isNotBlank() && lower.contains(member.id.lowercase())
+                val nameMatch = member.name.isNotBlank() && (
+                    lower.contains(member.name.lowercase()) ||
+                    member.name.lowercase().split(" ").any { part -> part.length > 2 && lower.contains(part) }
+                )
                 val classMatch = member.loreClass.isNotBlank() && lower.contains(member.loreClass.lowercase())
                 // Content-agnostic alias lookup: characters declare their spoken aliases in JSON
                 // (e.g. the hero's file lists the aliases they can be addressed by). Never hardcode
@@ -1712,7 +1716,7 @@ class CombatViewModel(
                 val aliasMatch = GameContent.voiceAliasesFor(member.id).any { alias ->
                     alias.isNotBlank() && lower.contains(alias.lowercase())
                 }
-                nameMatch || classMatch || aliasMatch
+                idMatch || nameMatch || classMatch || aliasMatch
             }
             if (switchTarget != null) {
                 if (switchTarget.id == activeHero.id) {
@@ -1768,10 +1772,14 @@ class CombatViewModel(
         // Spoken aliases are content-declared per character (assets/game/characters/*.json);
         // the engine only ever matches display names, lore titles, and those JSON aliases.
         fun memberInvokedByUtterance(member: PartyMember): Boolean {
-            val nameMatch = member.name.isNotBlank() && lower.contains(member.name.lowercase())
+            val idMatch = member.id.isNotBlank() && lower.contains(member.id.lowercase())
+            val nameMatch = member.name.isNotBlank() && (
+                lower.contains(member.name.lowercase()) ||
+                member.name.lowercase().split(" ").any { part -> part.length > 2 && lower.contains(part) }
+            )
             val classMatch = member.loreClass.isNotBlank() && lower.contains(member.loreClass.lowercase())
             val aliasMatch = GameContent.voiceAliasesFor(member.id).any { it.isNotBlank() && lower.contains(it.lowercase()) }
-            return nameMatch || classMatch || aliasMatch
+            return idMatch || nameMatch || classMatch || aliasMatch
         }
 
         // Check if an inactive hero is explicitly invoked to take an action
