@@ -17,10 +17,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -442,8 +446,10 @@ fun StoryScreen(
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .fillMaxHeight()
                         .align(Alignment.BottomCenter)
                         .padding(start = 12.dp, end = 12.dp, bottom = 8.dp, top = 80.dp),
+                    verticalArrangement = Arrangement.Bottom,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     // Character Portraits Row (Resting cleanly right on top of the speech bubble)
@@ -507,19 +513,43 @@ fun StoryScreen(
                     // Choice Buttons (if node has branching choices)
                     if (currentNode.choices.isNotEmpty()) {
                         Spacer(modifier = Modifier.height(6.dp))
-                        Column(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalArrangement = Arrangement.spacedBy(6.dp)
+                        val choicesScrollState = rememberScrollState()
+                        LaunchedEffect(currentNode.id) {
+                            choicesScrollState.scrollTo(0)
+                        }
+
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .weight(1f, fill = false)
                         ) {
-                            currentNode.choices.forEachIndexed { index, choice ->
-                                val isCompleted = choice.completionFlag != null && storyState.narrativeFlags[choice.completionFlag] == true
-                                DialogueChoiceItem(
-                                    index = index + 1,
-                                    choice = choice,
-                                    isCompleted = isCompleted,
-                                    onSelect = { storyViewModel.selectChoice(choice) }
-                                )
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .verticalScroll(choicesScrollState),
+                                verticalArrangement = Arrangement.spacedBy(6.dp)
+                            ) {
+                                currentNode.choices.forEachIndexed { index, choice ->
+                                    val isCompleted = choice.completionFlag != null && storyState.narrativeFlags[choice.completionFlag] == true
+                                    DialogueChoiceItem(
+                                        index = index + 1,
+                                        choice = choice,
+                                        isCompleted = isCompleted,
+                                        onSelect = { storyViewModel.selectChoice(choice) }
+                                    )
+                                }
                             }
+                        }
+
+                        if (choicesScrollState.canScrollForward) {
+                            Text(
+                                text = "▼ SCROLL FOR MORE OPTIONS ▼",
+                                color = LogosGold.copy(alpha = 0.85f),
+                                fontSize = 9.sp,
+                                fontFamily = FontFamily.Monospace,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(top = 2.dp)
+                            )
                         }
                     }
 
@@ -595,9 +625,11 @@ fun StoryScreen(
                 // Center Stage: Dialogue Bubble & Choices positioned neatly between characters
                 Column(
                     modifier = Modifier
-                        .padding(start = 130.dp, end = if (rightSpeaker != null) 130.dp else 16.dp, bottom = 6.dp)
+                        .fillMaxHeight()
+                        .padding(start = 130.dp, end = if (rightSpeaker != null) 130.dp else 16.dp, top = 48.dp, bottom = 6.dp)
                         .widthIn(max = 600.dp)
                         .align(Alignment.BottomCenter),
+                    verticalArrangement = Arrangement.Bottom,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     // Retro Speech Bubble
@@ -615,72 +647,68 @@ fun StoryScreen(
                             .wrapContentHeight(Alignment.Top)
                     )
 
-                    // Choice Buttons in Landscape: Side-by-side or compact 2-row grid to preserve artwork space
+                    // Choice Buttons in Landscape: Side-by-side pairs in a vertically scrollable container
                     if (currentNode.choices.isNotEmpty()) {
                         Spacer(modifier = Modifier.height(4.dp))
-                        if (currentNode.choices.size == 2) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                currentNode.choices.forEachIndexed { index, choice ->
-                                    val isCompleted = choice.completionFlag != null && storyState.narrativeFlags[choice.completionFlag] == true
-                                    DialogueChoiceItem(
-                                        index = index + 1,
-                                        choice = choice,
-                                        isCompleted = isCompleted,
-                                        onSelect = { storyViewModel.selectChoice(choice) },
-                                        modifier = Modifier.weight(1f)
-                                    )
-                                }
-                            }
-                        } else if (currentNode.choices.size == 3) {
+                        val landscapeChoicesScrollState = rememberScrollState()
+                        LaunchedEffect(currentNode.id) {
+                            landscapeChoicesScrollState.scrollTo(0)
+                        }
+
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .weight(1f, fill = false)
+                        ) {
                             Column(
-                                modifier = Modifier.fillMaxWidth(),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .verticalScroll(landscapeChoicesScrollState),
                                 verticalArrangement = Arrangement.spacedBy(4.dp)
                             ) {
-                                Row(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                                ) {
-                                    for (i in 0..1) {
-                                        val choice = currentNode.choices[i]
+                                currentNode.choices.chunked(2).forEachIndexed { rowIndex, rowChoices ->
+                                    if (rowChoices.size == 2) {
+                                        Row(
+                                            modifier = Modifier.fillMaxWidth(),
+                                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                        ) {
+                                            rowChoices.forEachIndexed { colIndex, choice ->
+                                                val originalIndex = rowIndex * 2 + colIndex
+                                                val isCompleted = choice.completionFlag != null && storyState.narrativeFlags[choice.completionFlag] == true
+                                                DialogueChoiceItem(
+                                                    index = originalIndex + 1,
+                                                    choice = choice,
+                                                    isCompleted = isCompleted,
+                                                    onSelect = { storyViewModel.selectChoice(choice) },
+                                                    modifier = Modifier.weight(1f)
+                                                )
+                                            }
+                                        }
+                                    } else {
+                                        val choice = rowChoices.first()
+                                        val originalIndex = rowIndex * 2
                                         val isCompleted = choice.completionFlag != null && storyState.narrativeFlags[choice.completionFlag] == true
                                         DialogueChoiceItem(
-                                            index = i + 1,
+                                            index = originalIndex + 1,
                                             choice = choice,
                                             isCompleted = isCompleted,
                                             onSelect = { storyViewModel.selectChoice(choice) },
-                                            modifier = Modifier.weight(1f)
+                                            modifier = Modifier.fillMaxWidth()
                                         )
                                     }
                                 }
-                                val choice3 = currentNode.choices[2]
-                                val isCompleted = choice3.completionFlag != null && storyState.narrativeFlags[choice3.completionFlag] == true
-                                DialogueChoiceItem(
-                                    index = 3,
-                                    choice = choice3,
-                                    isCompleted = isCompleted,
-                                    onSelect = { storyViewModel.selectChoice(choice3) },
-                                    modifier = Modifier.fillMaxWidth()
-                                )
                             }
-                        } else {
-                            Column(
-                                modifier = Modifier.fillMaxWidth(),
-                                verticalArrangement = Arrangement.spacedBy(4.dp)
-                            ) {
-                                currentNode.choices.forEachIndexed { index, choice ->
-                                    val isCompleted = choice.completionFlag != null && storyState.narrativeFlags[choice.completionFlag] == true
-                                    DialogueChoiceItem(
-                                        index = index + 1,
-                                        choice = choice,
-                                        isCompleted = isCompleted,
-                                        onSelect = { storyViewModel.selectChoice(choice) },
-                                        modifier = Modifier.fillMaxWidth()
-                                    )
-                                }
-                            }
+                        }
+
+                        if (landscapeChoicesScrollState.canScrollForward) {
+                            Text(
+                                text = "▼ SCROLL FOR MORE OPTIONS ▼",
+                                color = LogosGold.copy(alpha = 0.85f),
+                                fontSize = 8.sp,
+                                fontFamily = FontFamily.Monospace,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(top = 1.dp)
+                            )
                         }
                     }
 
