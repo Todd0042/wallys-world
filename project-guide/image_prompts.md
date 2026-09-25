@@ -411,6 +411,388 @@ No barcodes, no real logos, no founder likenesses, no real store names.
 
 ---
 
+## Portrait Variants (9:16, 720×1280)
+
+These are the companion portrait-orientation backgrounds for every landscape scene above.
+Name each file `<original_stem>_p.jpg` and place it beside the landscape file in `app/src/main/assets/story/`.
+The engine's `StoryAssetLoader.loadBackground()` automatically prefers `_p.jpg` in portrait mode
+and falls back to the landscape file when no portrait variant exists — so these are purely additive.
+
+**Every portrait prompt below inherits the global style header and both global rules
+(melting smiley, no real logos/text). Paste the style header before each prompt when generating.**
+
+Composition rule that applies to every portrait variant:
+> Optimised for 9:16 vertical mobile — strong vertical composition, main subject centred in
+> upper two-thirds of frame, lower third kept deliberately dark and muted to allow the
+> dialogue UI panel to overlay cleanly. No letterboxing stripes. No floating whitespace at
+> the top. Fill the full 720×1280 frame with subject matter.
+
+---
+
+## P1. Title screen — portrait variant
+**File:** `app/src/main/assets/story/squeeze_title_p.jpg` (720×1280, portrait 9:16)
+
+> Tall vertical shot of the fictional Wally's World superstore facade shot from the parking lot at dusk,
+> the building stretching upward to fill most of the frame: the giant rounded "WALLY'S WORLD" sign
+> at the top quarter with a single **melting smiley** above the entrance doors, its face drooping with
+> wax running down the fascia. The glass entrance doors glow warm at the mid-frame, a lone
+> orange-vested employee pushing a cart train toward them. Rain-slicked asphalt fills the lower third,
+> the employee's reflection broken on the wet ground. Overhead low clouds close in from the top.
+> Nostalgic, slightly melancholy early-2000s retail grandeur. No real logos, no real brand marks.
+
+## P2. Front-end / registers — portrait variant
+**File:** `app/src/main/assets/story/squeeze_utah_front_end_p.jpg` (720×1280, portrait 9:16)
+
+> Low-angle vertical shot looking up a single register lane toward the fluorescent tube ceiling:
+> the worn teal-and-orange cashier's vest in the near foreground, shoppers queued tall in the frame,
+> a young freight associate struggling to hoist a heavy appliance onto the belt at mid-frame.
+> Hanging above it all, a big **melting smiley** sign on wires, wax face dripping toward the lens.
+> The lane stretches the full height of the image; speaker grilles and chipped tiles visible above.
+> Warm but tired fluorescent light, Utah-frontier morning. No text, no real logos.
+
+## P3. Trench / floor-stocker — portrait variant
+**File:** `app/src/main/assets/story/squeeze_utah_trench_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot straight down a narrow back-stock canyon: tall steel racking walls rising on both
+> sides to the top of the frame, pallets of boxes stacked high. A young freight associate in an
+> orange vest walks toward camera, head bowed with exhaustion, a heavy cardboard box under one arm.
+> A shaft of fluorescent light falls from high above; a lone **melting smiley** sticker droops on
+> a near pallet. Deep shadow fills the lower third and the far distance. The forklift silhouette
+> is a ghost shape at the very top. Moody, cinematic, claustrophobic vertical scale.
+> No text, no logos.
+
+## P4. Office / manager's desk — portrait variant
+**File:** `app/src/main/assets/story/squeeze_utah_office_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot from behind the manager's desk looking up at a cramped back-office: a cluttered
+> desk surface (clipboard, old CRT with green spreadsheet) fills the lower third; the weary store
+> manager in a teal shirt with orange tie leans back in the mid-frame; a wall of laminate shelving
+> piled with file boxes rises to the top quarter; a **melting smiley** poster hangs high on the
+> wall, face running. Frosted window above lets fluorescent sales-floor light seep in.
+> The young associate stands in the doorway framed by the top of the door. No readable text.
+
+## P5. Sales floor / center aisle — portrait variant
+**File:** `app/src/main/assets/story/squeeze_utah_floor_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot down the main center aisle of a fictional megastore looking toward the far wall:
+> towering shelves rise on both sides framing the corridor, a giant **melting smiley** banner hangs
+> overhead at the top quarter, wax dripping. A far wall at mid-frame reads "ALWAYS LOW MORALE"
+> in muted mustard as plain wallpaper. An orange-vested associate with a pallet jack works the
+> near aisle at mid-frame; shoppers with carts recede toward the bottom. A PA speaker hangs
+> from the ceiling in the upper third. Bright flat fluorescent light, busy but orderly.
+> No real logos, no barcodes.
+
+## P6. Lamar — service shop — portrait variant
+**File:** `app/src/main/assets/story/squeeze_colorado_lamar_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical exterior shot: the sagging canopy of a fictional megastore service shop rises to the
+> top third, its faded orange-and-teal signage and a **melting smiley** (wax face running in the
+> wind) filling the upper frame. A lone shop manager in a teal vest stands under the canopy at
+> mid-frame, breath steaming in the cold, a stack of oil jugs by his feet. Semi-trucks and dusty
+> pickups line the bottom third; flat high-plains highway stretches behind the building.
+> Low winter sun, long shadows, honest small-town commerce. No real logos, no readable text.
+
+## P7. Colorado store floor — portrait variant
+**File:** `app/src/main/assets/story/squeeze_colorado_store_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot looking up the main aisle of a big-box store gone tight and silent:
+> a mezzanine silhouette watching from above fills the top quarter; ceiling-mounted cameras
+> every few rows descend through the frame; an orange-vested associate glances nervously over
+> their shoulder at mid-frame; the bottom third is a perfectly neat aisle with not a single
+> worker chatting. A far wall reads "ALWAYS LOW MORALE" in muted mustard; a **melting smiley**
+> poster droops on an endcap at mid-frame. Flat fluorescent light, the atmosphere of being watched.
+> No real logos, no readable text.
+
+## P8. Area office / brick wall — portrait variant
+**File:** `app/src/main/assets/story/squeeze_colorado_office_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot of the fluorescent hallway and area office: frosted-glass meeting-room door fills
+> the top quarter; a plastic office desk with file folders and a **melting smiley** coffee cup
+> (face running) occupies the mid-frame; a tired couple sits across from an empty investigator's
+> chair in the lower half. One open folder shows a single half-read stamped word —
+> "UNSUBSTANTIATED" — barely legible. Cold institutional light, muted mustard accents.
+> No real logos, no readable text except the one half-read stamped word.
+
+## P9. Community hall / Christmas party — portrait variant
+**File:** `app/src/main/assets/story/squeeze_colorado_hall_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot of a rented community hall set for an awkward office holiday party under harsh
+> fluorescent glare: garland banner and a drooping **melting smiley** balloon frame the top third;
+> a sharp-faced store manager in a neat blazer stands mid-laugh at mid-frame, drink in hand;
+> a weary shop manager in a teal vest stands slightly apart at the lower-mid frame, two witnesses
+> glancing between them. Paper tablecloths and sad catering trays fill the bottom third.
+> Ugly lighting, social dread. No readable text, no real logos.
+
+## P10. Road out of Colorado — portrait variant
+**File:** `app/src/main/assets/story/squeeze_colorado_road_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical dusk shot: a packed box truck in a gravel driveway fills the lower half of the frame,
+> furniture lashed under load straps, the house behind it dark and emptied at mid-frame. A tall
+> figure loads the last box at the truck's open back, one hand pressed to his forehead beneath
+> his cap brim. A single **melting smiley** sticker droops on the last cardboard box. The flat
+> empty Colorado highway recedes into the horizon at the top third; cold blue dusk sky above.
+> The truck's taillights glow red in the lower frame. No readable text, no real logos.
+
+## P11. State-line commute — portrait variant
+**File:** `app/src/main/assets/story/squeeze_carolina_commute_p.jpg` (720×1280, portrait 9:16)
+
+> Pre-dawn vertical shot through the windshield and rearview mirror: a rented farmhouse with
+> a single warm porch light shrinks in the rearview at the top quarter; kudzu and scrub pines
+> crowd the sides; a green state-line highway sign (no readable text) looms at mid-frame.
+> On the dash a thermos and a folded orange vest occupy the lower third; low banks of fog and
+> a flat, distant megastore glow on the horizon at the top third. Gritty but warm editorial tone,
+> muted early-2000s palette. No real logos, no barcodes, no text except one half-read sign.
+
+## P12. Gated hierarchy / leadership tour — portrait variant
+**File:** `app/src/main/assets/story/squeeze_carolina_store_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical interior shot: a hanging banner with a **melting smiley** (wax face dripping) fills
+> the top quarter; beneath it a small pack of executives in pressed shirts and polished shoes
+> are being shown around by a smiling store manager at mid-frame; in the foreground below, a
+> line of junior managers in teal-and-orange vests stand at the edge of the sales floor, clearly
+> excluded, watching through the endcap stacks from the lower half of the frame. A far wall reads
+> "ALWAYS LOW MORALE" in muted mustard wallpaper. Fluorescent light, empty-cart silence, tension
+> in the bodies. No real logos, no readable badges.
+
+## P13. Neglected service shop — portrait variant
+**File:** `app/src/main/assets/story/squeeze_carolina_bays_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot inside a run-down service shop bay looking up at the ceiling: a decades-old lift
+> with a car on it dominates the upper frame; the sagging roof and a peeling **melting smiley**
+> poster near the office door occupy the top quarter. A tired shop manager in a teal vest
+> inspects a greasy torque wrench at mid-frame; green apprentices watch from the lower third,
+> hopeful and wary. Work-order boards jammed with yellow tickets line one wall. Warm-but-tired
+> fluorescent light, honest working-class grit. No real logos, no readable text.
+
+## P14. Safety breach / regional office — portrait variant
+**File:** `app/src/main/assets/story/squeeze_carolina_office_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot in the manager's back office: a **melting smiley** poster droops at the top of
+> the wall above the desk; a CRT monitor with a green spreadsheet glows at the upper-mid frame.
+> An exhausted shop manager in a teal vest stands at the desk at mid-frame holding a printed
+> complaint, one hand on the keyboard. A hard copy of the report is visible on the desk surface
+> in the lower third. Frosted glass doors lead down a corridor framing the very bottom.
+> Tense, quiet, slightly claustrophobic. No real logos, no readable text.
+
+## P15. Road out of the borderlands — portrait variant
+**File:** `app/src/main/assets/story/squeeze_carolina_road_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical dusk shot from the cab of a box truck looking forward down a scrub-pine highway: the
+> road stretches to a vanishing point at the top quarter, Georgia pines and a dark porch light
+> receding in the passenger-side mirror at the upper edge. The cab interior fills the lower half:
+> a scarred, tired man at the wheel, one hand on the dash, a bandage edge visible above his
+> eyebrow. A single **melting smiley** sticker droops on the last cardboard box visible through
+> the rear window. Long shadows, warm dying light. No real logos, no readable text.
+
+## P16. One-man close — portrait variant
+**File:** `app/src/main/assets/story/squeeze_pueblo_close_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot looking the length of the front end at closing time: a hanging **melting smiley**
+> banner droops from the ceiling at the top quarter, wax running. Six-deep register queues fill
+> the mid-frame, the blinking service-desk beacon far off at the back wall. A single manager in
+> a teal vest moves hard between two lanes at mid-frame, one hand already reaching for the walkie
+> at his hip. Carts jammed at the automatic doors fill the lower third; evening fluorescent
+> light is harsh. The loneliness of a building run by one person. No real logos, no readable text.
+
+## P17. Backroom overhaul offer — portrait variant
+**File:** `app/src/main/assets/story/squeeze_pueblo_backroom_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot of the cavernous big-box backroom: a **melting smiley** poster peels on the tall
+> steel column beside the dock door at the top quarter; a wall-size whiteboard covered in
+> freight-flow diagrams spans the upper-mid frame. A row of uncomfortable managers in pressed
+> shirts sits around a folding table at mid-frame, a speakerphone at the centre. One exhausted
+> manager in a teal vest stands slightly apart in the foreground lower-mid, arms crossed, the
+> only one looking at the whiteboard with real understanding. Warm industrial light. No real logos,
+> no readable text.
+
+## P18. Freight-to-floor overhaul — portrait variant
+**File:** `app/src/main/assets/story/squeeze_pueblo_overhaul_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot along the unload line from the dock to the floor: a pure freight relay running
+> like a rail from the dock at the top third — associates passing cases hand-to-hand in one fluid
+> motion descending through the frame. A bin-and-topstock crew works labeled shelves at mid-frame.
+> In the foreground lower-mid, a manager in a teal vest walks the line, clipboard in hand. A far
+> wall reads "ALWAYS LOW MORALE" in muted mustard; a **melting smiley** sticker droops on a pallet
+> at the bottom. Bright humming fluorescent light, organised energy. No real logos, no readable text.
+
+## P19. Education of Richard — portrait variant
+**File:** `app/src/main/assets/story/squeeze_pueblo_training_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot inside a small fluorescent office: a whiteboard with a bin diagram fills the upper
+> third; a tired veteran manager in a teal vest points at it from mid-frame. Across the desk below
+> him a young corporate climber in a freshly pressed shirt holds a stocking report upside-down and
+> smiles with practiced confidence. A **melting smiley** coffee mug sits between them on the desk
+> surface at the lower-mid frame, face running. Warm-though-institutional light, the comedy and
+> tragedy of a man being taught his own job by the man underneath him. No real logos, no readable text.
+
+## P20. Store manager's office paradox — portrait variant
+**File:** `app/src/main/assets/story/squeeze_pueblo_office_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot inside the smoke-gray store manager's office: a **melting smiley** clock droops
+> high on the wall at the top quarter. The broad desk stacked with freight reports fills the lower
+> half; a wall of scheduled shifts lines one side. Three figures occupy the mid-frame: a warm,
+> broad-smiling store manager in shirtsleeves leaning against the desk; beside him a small thin
+> store-lead with a hostile flat stare; and a slightly heavier-set woman with a serene smile that
+> doesn't reach her eyes, one hand on a file folder. Cold fluorescent light, polite false warmth.
+> No real logos, no readable text.
+
+## P21. Overnight graveyard — portrait variant
+**File:** `app/src/main/assets/story/squeeze_pueblo_overnight_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot down the center aisle of a big-box sales floor at three in the morning: high
+> emergency fluorescents and the red glow of a dock sign cast the only light from the ceiling
+> down. Pallets of freight breathe in the near darkness at the bottom third. A single silhouette
+> in a teal vest stands at mid-frame in the wide aisle, the whole hundred-thousand-square-foot
+> building pressing in. On a steel column at upper-mid frame a **melting smiley** poster has
+> sagged into an almost skull-like run. Abandoned silence, the graveyard shift. No real logos,
+> no readable text.
+
+## P22. Road to Florida — portrait variant
+**File:** `app/src/main/assets/story/squeeze_pueblo_road_p.jpg` (720×1280, portrait 9:16)
+
+> Near-dawn vertical shot from inside the cab looking east: the highway stretches toward a flat
+> soulless horizon at the top quarter; the Pueblo sprawl and its big-box slab recede in the mirror
+> at the upper edge. The dash fills the lower third: a folded relocation-contract folder with a
+> small **melting smiley** sticker on the corner, a thermos, and a billfold. The driver's hand on
+> the wheel shows a fresh bandage at the edge of a scarred forehead above the cap brim. Cold blue
+> dawn against the orange sodium of the lot behind. No real logos, no readable text.
+
+## P23. Asphalt gauntlet — portrait variant
+**File:** `app/src/main/assets/story/squeeze_florida_road_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical night shot standing on I-95: construction barriers with blinking arrow boards tower on
+> both sides of the frame, swamp-dark above; brake-light walls from halted cars stretch toward the
+> top. A single car heads south in the lower-mid lane. A roadside billboard at the upper third
+> carries a drawn **melting smiley**, face slowly running. The first suggestion of Florida sunrise
+> glows at the horizon at the very top. Sodium street lamps line both sides. The commute as
+> psychological torture made landscape. Gritty and endless, 35mm film grain. No real logos,
+> no readable text.
+
+## P24. Honeymoon floor — portrait variant
+**File:** `app/src/main/assets/story/squeeze_florida_store_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot looking up the overnight floor: freight moves like a river from the dock at the
+> top third — associates passing cases hand-to-hand in one fluid motion, bins breathing, the
+> store glowing green and alive with improbable optimism. At mid-frame a store manager in
+> shirtsleeves shakes hands with a manager in a teal vest with both of his, beaming genuine
+> approval. A **melting smiley** pin droops on a vest, face running. A far wall reads "ALWAYS
+> LOW MORALE" in muted mustard. Bright, almost-kind fluorescent light. 35mm film grain.
+> No real logos, no readable text.
+
+## P25. The flip — office — portrait variant
+**File:** `app/src/main/assets/story/squeeze_florida_office_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot inside the store manager's office after the honeymoon has flipped: charts with
+> goalposts literally drawn mounted on wheels cover the wall at the upper third. A cold predatory
+> stare from the manager behind the broad desk dominates the mid-frame. A tired teal-vest manager
+> stands in the lower foreground at the end of a night shift, deflated. A **melting smiley** coffee
+> mug sits on the desk between them, face running. Harsh morning light through the blinds strips
+> the room at the upper edge. 35mm film grain. No real logos, no readable text.
+
+## P26. Hostage backroom — portrait variant
+**File:** `app/src/main/assets/story/squeeze_florida_backroom_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot looking down the length of an ownerless backroom after close: a dim exit door
+> glows as a tiny rectangle at the top of the frame. A stopped clock high on the wall occupies
+> the upper-mid frame. A bank of fluorescent lights directly overhead lights the scene harshly.
+> A single teal-vest manager sits alone on the baler at mid-frame, recounting pegs at 2 AM.
+> Folded shirts in a dead color on a peg wall line both sides; an empty store stretches beyond.
+> A **melting smiley** sticker droops on a pallet at the lower third. Fluorescent hum made visible.
+> 35mm film grain. No real logos, no readable text.
+
+## P27. Sanctuary floor — portrait variant
+**File:** `app/src/main/assets/story/squeeze_florida_overnight_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot looking up the overnight floor at 3 AM, the good crew: a harsh doorway of
+> daylight looms at the top quarter like a threat held at bay. In the warm fluorescent middle:
+> a cart girl laughing with a receiver sharing coffee at mid-frame, a kid's photo taped to a
+> cart below. A teal-vest manager stands watch between the crew and the daylight doorway, quiet
+> and protective, at the upper-mid frame. Genuine warmth in the dark, pure opposite of the office.
+> A **melting smiley** pin on the manager's vest, face running. Quiet, human, luminous light.
+> 35mm film grain. No real logos, no readable text.
+
+## P28. The 3 AM — portrait variant
+**File:** `app/src/main/assets/story/squeeze_florida_3am_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot inside the cavernous backroom at 3 AM: a high window at the very top shows the
+> first crack of dawn light beginning to filter through. Deep shadow swallows the rafters through
+> the upper frame. A single struggling fluorescent panel provides the only middle light. One man
+> sits alone on the baler at mid-frame, hands in his lap, a stopped clock on the wall just above
+> him. The exit door is a far faint glowing rectangle at the very bottom of the frame. A **melting
+> smiley** sticker on the wall, face completely run. Solemn, dark, isolating — the weight of a
+> long night and the light that finally comes. Heavy shadow, film grain. No real logos, no readable text.
+
+## P29. Act 6 — Crash back to hourly — portrait variant
+**File:** `app/src/main/assets/story/squeeze_act6_crash_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot looking up a main aisle of a big-box store in flat unforgiving daytime: a hanging
+> **melting smiley** banner droops from the ceiling at the top quarter, wax running down. Tall
+> racking walls rise on both sides through the full frame. Full daytime fluorescents light every
+> inch mercilessly from above. A lone hourly team lead in a teal-and-orange vest walks the center
+> aisle at mid-frame, pricing gun in hand, looking up at the lights he once managed. A far wall
+> reads "ALWAYS LOW MORALE" in muted mustard at the top third. The bottom third is open aisle,
+> shoppers and carts. 35mm film grain. No real logos, no readable text.
+
+## P30. Act 6 — Timmy's brief sanctuary — portrait variant
+**File:** `app/src/main/assets/story/squeeze_act6_timmy_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot inside a Florida big-box store during its rare golden quiet hours: racking walls
+> rise on both sides of the frame, soft fluorescent light from above. At the top third associates
+> actually talk to one another as they stock shelves. At mid-frame a store manager with an open
+> honest face shakes hands with a new hourly team lead, looking him in the eye. Below them at the
+> lower-mid frame a receiver shares coffee with a cart girl. A **melting smiley** pin droops on
+> a vest, face running. The specific rare silence of a building that hasn't been broken yet.
+> 35mm film grain. No real logos, no readable text.
+
+## P31. Act 6 — Abdoolie's store — portrait variant
+**File:** `app/src/main/assets/story/squeeze_act6_abdoolie_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot looking up the main aisle of a big-box store under a new colder gravity: a
+> mezzanine office doorway frames the top quarter — in it stands a slender, immaculate manager
+> in a dark shirt, perfectly still, hands clasped, watching the floor below with flat patient
+> unreadable calm. Associates move through the mid-frame aisle slightly faster, heads down,
+> glancing sideways. A **melting smiley** poster droops on a steel column at mid-frame, wax long
+> run. The bottom third is open aisle, the store indistinguishable from any other except the
+> atmosphere you can feel but not see. Harsh identical fluorescent light. 35mm film grain.
+> No real logos, no readable text.
+
+## P32. Act 6 — Customer gauntlet (front-end) — portrait variant
+**File:** `app/src/main/assets/story/squeeze_act6_front_end_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot looking up from behind the service desk: a blinking service-desk beacon hangs at
+> the top quarter. Register lane after lane backs up behind the beacon in the upper frame. An angry
+> customer leans over the service counter at mid-frame, voice projected at a tired associate in a
+> teal-and-orange vest who absorbs the complaint with practiced stillness. A waiting line of shoppers
+> recedes into the lower third. A **melting smiley** banner droops over the check lanes at the upper
+> edge, wax running. Harsh fluorescent light, the machine and the public meeting at full volume.
+> 35mm film grain. No real logos, no readable text.
+
+## P33. Act 6 — Shop tech pit — portrait variant
+**File:** `app/src/main/assets/story/squeeze_act6_shop_pit_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot inside a service bay looking up at the car on the lift overhead: the vehicle fills
+> the top third, a tire already off; impact-wrench cables hang down; the lift arms frame the upper
+> mid. A veteran mechanic in a dark work shirt and a tired hourly associate in a teal-and-orange
+> vest work side by side at the mid-frame, competent and focused. A team lead with genuine
+> protective authority watches from the lower-mid foreground. A **melting smiley** sticker droops
+> on a near tool cart, face run. Warm industrial bay light mixing with daylight through the bay
+> doors at the bottom third. 35mm film grain. No real logos, no readable text.
+
+## P34. Act 6 — Balance sheet / resolution — portrait variant
+**File:** `app/src/main/assets/story/squeeze_act6_resolution_p.jpg` (720×1280, portrait 9:16)
+
+> Vertical shot inside a single automotive bay at the end of a last shift: the overhead bay door
+> is cracked at the bottom of the frame, Florida morning light cutting one clean line across the
+> concrete floor. The swept, still bay floor fills the lower third. An impact wrench hangs on its
+> correct peg above a tool cart at the lower-mid frame; a **melting smiley** sticker on the cart,
+> face fully run. A man in a dark work shirt stands at the bay edge at mid-frame, cap in hand,
+> looking out through the open door into the morning light at the top third — the complete,
+> verified stillness of a person who refused to be destroyed. Warm sunrise light fills the top
+> of the frame, the smell of motor oil implied in every shadow. 35mm film grain.
+> No real logos, no readable text.
+
+---
+
 ## Regeneration notes
 
 - If Gemini refuses a prompt for "any real retailer trademark", the image already uses the fictional
@@ -424,3 +806,8 @@ No barcodes, no real logos, no founder likenesses, no real store names.
   `ohmar.jpg`, `abdoolie.jpg`, `timmy.jpg`, `tani.jpg`, `capn_h.jpg`) — the
   engine never references specific art beyond these names, so you may upgrade any of them
   without a rebuild.
+- Portrait background variants follow the `<stem>_p.jpg` naming convention
+  (e.g. `squeeze_title_p.jpg`). The engine falls back to the landscape file automatically when
+  a `_p.jpg` is absent — so you can ship portrait variants scene-by-scene without a full set.
+  Landscape images also work fine in portrait mode (they will be top-aligned and FillWidth-scaled
+  with the gradient vignette masking the letterbox at the bottom).

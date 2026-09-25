@@ -91,8 +91,14 @@ fun StoryScreen(
     val configuration = LocalConfiguration.current
     val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
-    val backgroundBitmap = remember(storyState.currentScene.backgroundAsset) {
-        StoryAssetLoader.loadBitmap(context, storyState.currentScene.backgroundAsset)
+    // Load orientation-aware background: portrait variant (_p.jpg) when in portrait mode,
+    // falling back to the landscape image when no portrait variant asset is present.
+    val backgroundBitmap = remember(storyState.currentScene.backgroundAsset, isLandscape) {
+        StoryAssetLoader.loadBackground(
+            context,
+            storyState.currentScene.backgroundAsset,
+            isPortrait = !isLandscape
+        )
     }
     val heroSpeaker = GameContent.heroCharacter?.speaker
     val heroBitmap = remember(heroSpeaker?.portraitAsset) {
@@ -165,12 +171,31 @@ fun StoryScreen(
                     } else Modifier
                 )
         ) {
-            // 1. Room / Exploration Scene Background Image (Widescreen 16:9)
+            // 1. Scene Background — orientation-aware scaling strategy:
+            //    • Landscape + 16:9 source  → ContentScale.Crop  (fills frame, minimal crop)
+            //    • Portrait  + 9:16 _p.jpg  → ContentScale.FillBounds (fills frame perfectly)
+            //    • Portrait  + 16:9 fallback → ContentScale.FillWidth  (pins width, avoids
+            //      severe horizontal crop; lower gradient vignette masks the letterbox naturally)
             if (backgroundBitmap != null) {
+                val bgScale = when {
+                    isLandscape -> ContentScale.Crop
+                    // If the bitmap is wider than tall it came from the landscape fallback;
+                    // pin width so the full horizontal composition stays visible.
+                    backgroundBitmap.width > backgroundBitmap.height -> ContentScale.FillWidth
+                    // Native portrait asset: fill the frame perfectly.
+                    else -> ContentScale.FillBounds
+                }
                 Image(
                     bitmap = backgroundBitmap,
                     contentDescription = storyState.currentScene.name,
-                    contentScale = ContentScale.Crop,
+                    contentScale = bgScale,
+                    alignment = if (!isLandscape && backgroundBitmap.width > backgroundBitmap.height) {
+                        // Align landscape-fallback image to the top so the most meaningful
+                        // part of the scene (storefront, faces) stays in the upper 2/3.
+                        Alignment.TopCenter
+                    } else {
+                        Alignment.Center
+                    },
                     modifier = Modifier.fillMaxSize()
                 )
             } else {

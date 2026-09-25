@@ -1,6 +1,7 @@
 package com.voicerpg.engine.ui.sprites
 
 import androidx.compose.ui.graphics.Color
+import com.voicerpg.engine.content.GameContent
 
 enum class SpriteFrame {
     IDLE_UPRIGHT,
@@ -710,6 +711,19 @@ object PixelSpriteData {
         characterId: String,
         frame: SpriteFrame
     ): Pair<List<String>, Map<Char, Color>> {
+        // 1. Dynamic sprite resolution from loaded character content
+        val directCharacter = GameContent.characterById(characterId)
+        val character = directCharacter ?: GameContent.characters.values.firstOrNull { c ->
+            characterId.equals(c.id, ignoreCase = true) ||
+            characterId.lowercase().contains(c.id.lowercase()) ||
+            (c.id == "hero" && characterId.equals("todd", ignoreCase = true))
+        }
+        if (character?.sprite != null) {
+            val grid = character.sprite.getFrame(frame)
+            return grid to character.sprite.palette
+        }
+
+        // 2. Generic fallbacks for engine templates and encounters
         return when (characterId.lowercase()) {
             "hero", "aethel" -> {
                 val grid = when (frame) {
