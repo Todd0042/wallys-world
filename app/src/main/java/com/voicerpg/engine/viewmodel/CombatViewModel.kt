@@ -212,6 +212,7 @@ class CombatViewModel(
     }
 
     private var atbJob: Job? = null
+    private var conclusionTransitionJob: Job? = null
     private var lastActedHeroId: String? = null
     var lastActedFaction: CombatantFaction = CombatantFaction.NONE
         internal set
@@ -775,25 +776,35 @@ class CombatViewModel(
 
     /** Shared victory conclusion: award XP, narrate, arm the continue/listen loop. */
     private fun concludeVictory() {
+        conclusionTransitionJob?.cancel()
         _state.value = _state.value.copy(phase = CombatPhase.BATTLE_WON)
         awardVictoryXp()
-        if (_state.value.isPureStoryMode) {
-            activeScope.launch {
-                delay(3000)
-                if (_state.value.phase == CombatPhase.BATTLE_WON && _state.value.isPureStoryMode) {
-                    pauseAtb()
-                    onContinueStory?.invoke()
-                }
+
+        fun proceedToStory() {
+            if (_state.value.phase == CombatPhase.BATTLE_WON && _state.value.isPureStoryMode) {
+                pauseAtb()
+                onContinueStory?.invoke()
             }
         }
+
+        if (_state.value.isPureStoryMode) {
+            conclusionTransitionJob = activeScope.launch {
+                // Safety watchdog: wait for narration to finish speaking (up to 30s) if onDone isn't triggered
+                val start = System.currentTimeMillis()
+                while (combatNarrator.isSpeaking.value && (System.currentTimeMillis() - start) < 30000L) {
+                    delay(250L)
+                }
+                delay(1200L)
+                proceedToStory()
+            }
+        }
+
         combatNarrator.narrateConclusion(isVictory = true) {
             if (_state.value.isPureStoryMode) {
-                activeScope.launch {
-                    delay(1200)
-                    if (_state.value.phase == CombatPhase.BATTLE_WON && _state.value.isPureStoryMode) {
-                        pauseAtb()
-                        onContinueStory?.invoke()
-                    }
+                conclusionTransitionJob?.cancel()
+                conclusionTransitionJob = activeScope.launch {
+                    delay(1200L)
+                    proceedToStory()
                 }
             } else if (speechManager.isAutoListen.value) {
                 activeScope.launch {
@@ -805,24 +816,34 @@ class CombatViewModel(
     }
 
     private fun concludeDefeat() {
+        conclusionTransitionJob?.cancel()
         _state.value = _state.value.copy(phase = CombatPhase.BATTLE_LOST)
-        if (_state.value.isPureStoryMode) {
-            activeScope.launch {
-                delay(3000)
-                if (_state.value.phase == CombatPhase.BATTLE_LOST && _state.value.isPureStoryMode) {
-                    pauseAtb()
-                    onContinueStory?.invoke()
-                }
+
+        fun proceedToStory() {
+            if (_state.value.phase == CombatPhase.BATTLE_LOST && _state.value.isPureStoryMode) {
+                pauseAtb()
+                onContinueStory?.invoke()
             }
         }
+
+        if (_state.value.isPureStoryMode) {
+            conclusionTransitionJob = activeScope.launch {
+                // Safety watchdog: wait for narration to finish speaking (up to 30s) if onDone isn't triggered
+                val start = System.currentTimeMillis()
+                while (combatNarrator.isSpeaking.value && (System.currentTimeMillis() - start) < 30000L) {
+                    delay(250L)
+                }
+                delay(1200L)
+                proceedToStory()
+            }
+        }
+
         combatNarrator.narrateConclusion(isVictory = false) {
             if (_state.value.isPureStoryMode) {
-                activeScope.launch {
-                    delay(1200)
-                    if (_state.value.phase == CombatPhase.BATTLE_LOST && _state.value.isPureStoryMode) {
-                        pauseAtb()
-                        onContinueStory?.invoke()
-                    }
+                conclusionTransitionJob?.cancel()
+                conclusionTransitionJob = activeScope.launch {
+                    delay(1200L)
+                    proceedToStory()
                 }
             } else if (speechManager.isAutoListen.value) {
                 activeScope.launch {
@@ -2449,6 +2470,8 @@ class CombatViewModel(
     }
 
     fun pauseAtb() {
+        conclusionTransitionJob?.cancel()
+        conclusionTransitionJob = null
         atbJob?.cancel()
         atbJob = null
         combatNarrator.setCombatActive(false)
@@ -2585,6 +2608,8 @@ class CombatViewModel(
         enemies: List<Enemy>,
         environment: BattleEnvironment
     ) {
+        conclusionTransitionJob?.cancel()
+        conclusionTransitionJob = null
         atbJob?.cancel()
         speechManager.cancel()
         particleEmitter.clear()
@@ -2642,6 +2667,8 @@ class CombatViewModel(
     }
 
     fun cleanup() {
+        conclusionTransitionJob?.cancel()
+        conclusionTransitionJob = null
         atbJob?.cancel()
         speechManager.destroy()
         combatNarrator.destroy()
