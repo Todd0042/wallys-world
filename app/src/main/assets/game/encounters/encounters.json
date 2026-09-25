@@ -5,7 +5,7 @@
       "id": "trench_unload",
       "name": "The 4 AM Unload",
       "description": "Forty-eight feet of freight in a dead building. You versus the wall, with the ballast hum grinding in your ears.",
-      "environment": "CAVE",
+      "environment": "service_bay",
       "party": [
         "hero"
       ],
@@ -29,7 +29,7 @@
       "id": "floor_war",
       "name": "Front-End Storm",
       "description": "The hour-occupancy dashboard is red, and management's pet is running the paging wand. Hold the floor.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "hero"
       ],
@@ -61,7 +61,7 @@
       "id": "mattie_t_showdown",
       "name": "The Manager's Office",
       "description": "The email is already out — a short 'not ready' note sitting in the area manager's inbox, sent before you ever walked in — and the man who sent it smiles behind the desk. Everything you built this act is on the line.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "hero"
       ],
@@ -103,7 +103,7 @@
       "id": "lamar_oil_rush",
       "name": "The Friday Oil Rush",
       "description": "Six bays, a line of pickups around the block, and the clock running on every one. The service shop's first big push — the honeymoon happens here, on your feet.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -133,7 +133,7 @@
       "id": "purge_audit",
       "name": "The Purge Audit",
       "description": "Jury's watch is on every bay and the retirement memo is already moving up the chain. The friendly air of the building condenses into something sharp.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -165,7 +165,7 @@
       "id": "brick_wall_hearing",
       "name": "The Brick Wall",
       "description": "The grievance grinds for a week and comes back with the only stamp the machine owns: yes, they said it, and no, it didn't happen.",
-      "environment": "FOREST",
+      "environment": "parking_lot",
       "party": [
         "todd_shop"
       ],
@@ -206,7 +206,7 @@
       "id": "jury_showdown",
       "name": "The Christmas Party Slur",
       "description": "The rented community hall under fluorescent glare. Jury walks up with casual malice and says it twice, in front of witnesses. The second grievance is already signing itself.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -248,7 +248,7 @@
       "id": "shingles_fire",
       "name": "The Body Keeps the Score",
       "description": "The burning nerve fire that flares across your forehead for the first time — shingles, the body's own scorecard for the year. Fight through it to pack the truck.",
-      "environment": "CAVE",
+      "environment": "service_bay",
       "party": [
         "todd_shop"
       ],
@@ -284,7 +284,7 @@
       "id": "carolina_neglect",
       "name": "The Neglected Bays",
       "description": "Six bays under a roof that hasn't been repainted since the previous decade, years of deferred maintenance, and a clock already running on your first ticket. The neglect is a living thing in the room with you.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -316,7 +316,7 @@
       "id": "carolina_gated_tour",
       "name": "The Gated Tour",
       "description": "The quarterly leadership tour walled off behind glass — only the Store Manager walks with the visitors, and the edict lands on the bays before the cars leave the lot. Hold the floor against the sold-out number.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -358,7 +358,7 @@
       "id": "carolina_paralysis",
       "name": "The Paralysis of Kindness",
       "description": "The store manager's kindness unmakes every consequence you draw before the ink dries — the warmth that never weighs, the smile that quietly cancels your paperwork. The paralysis wants to teach you the same lesson it teaches everyone: don't bother caring.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -400,7 +400,7 @@
       "id": "carolina_fall_guy",
       "name": "The Fall Guy",
       "description": "The wheel was never loose, the witnesses saw nothing, and the only person who kept saying the shop was unsafe was the manager who refused to sign. The blame is pre-fitted before the tire is back on.",
-      "environment": "FOREST",
+      "environment": "parking_lot",
       "party": [
         "todd_shop"
       ],
@@ -442,7 +442,7 @@
       "id": "carolina_regional_desk",
       "name": "The Regional Desk",
       "description": "Three hundred miles away behind phones and calendars, built to absorb complaints until they fossilize — but the complaint is already running past it, on a CC line that bypasses every smiling gatekeeper in the building.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -492,7 +492,7 @@
       "id": "shingles_fire_two",
       "name": "The Body Keeps the Score (Again)",
       "description": "The second outbreak — the same burning line across the same forehead, drawn where everyone can see it. One per state, one store per price paid. Fight through it to finish the load.",
-      "environment": "CAVE",
+      "environment": "service_bay",
       "party": [
         "todd_shop"
       ],
@@ -530,7 +530,7 @@
       "id": "pueblo_front_storm",
       "name": "The Front-End Swarm",
       "description": "Nine o'clock and six deep at every register, the service desk blinking, and no supervisor anywhere to page. Tell them their number, then save the five ahead of them.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -560,7 +560,7 @@
       "id": "pueblo_one_man_close",
       "name": "The One-Man Close",
       "description": "Midnight: forty thousand square feet of dark, every till to count, every door to check — and the building, empty, pressing in like it's keeping count of you too.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -604,7 +604,7 @@
       "id": "pueblo_blotter_ring",
       "name": "The Blotter Regulars",
       "description": "Weekly visitors, a weather system: the team that sweeps housewares and electronics, and the grab-and-run that empties a shelf in eleven seconds.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -636,7 +636,7 @@
       "id": "pueblo_claim_blizzard",
       "name": "The Claim Blizzard",
       "description": "Everyone claims on everyone: associate against associate, manager against associate, and a closing manager who files his own to stay out of the way.",
-      "environment": "FOREST",
+      "environment": "parking_lot",
       "party": [
         "todd_shop"
       ],
@@ -668,7 +668,7 @@
       "id": "pueblo_parking_draw",
       "name": "The Parking Lot Draw",
       "description": "Eleven at night, a dispute walking to its cars, two hands going to two waistbands. The lot is dark, the line is thin, and it's yours to hold.",
-      "environment": "CAVE",
+      "environment": "service_bay",
       "party": [
         "todd_shop"
       ],
@@ -720,7 +720,7 @@
       "id": "pueblo_freight_to_floor",
       "name": "The Freight-to-Floor",
       "description": "The overhaul hits the floor all at once — the dock, the bins, the topstock, the whole rebuild under a clock that wants it faster. Proves whether the system works when leadership equips its people.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -772,7 +772,7 @@
       "id": "pueblo_compliance_visit",
       "name": "The Compliance Visit",
       "description": "Richard leading a walkthrough he half-understands, a regional director at his shoulder, and the whole overhaul under the microscope of people who didn't build it. Keep the show on the rails.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -822,7 +822,7 @@
       "id": "pueblo_paradox",
       "name": "The Paradox of Jay-Dau",
       "description": "Friend by daylight, hell on the clock: the quarterly pressure at his back, the regional call in his ear, and a willingness to hand you to the machine if the numbers need a body.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -874,7 +874,7 @@
       "id": "pueblo_amandy_storm",
       "name": "Amandy's Chaos",
       "description": "The impossible demand, the re-done plan, the names said within earshot of the crew. Hand the impossible number back done, and don't expect a thank you.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -906,7 +906,7 @@
       "id": "pueblo_graveyard",
       "name": "The Overnight Meat Grinder",
       "description": "Three in the morning: empty shelves, freight pallets breathing in the dark, and a whole building with no one to help. The grinder doesn't need to do anything. It just needs to be the only thing.",
-      "environment": "CAVE",
+      "environment": "service_bay",
       "party": [
         "todd_shop"
       ],
@@ -958,7 +958,7 @@
       "id": "pueblo_shingles_three",
       "name": "The Body Keeps the Score (Third Entry)",
       "description": "Outbreak Number Three: the same burning line across the same forehead, harder and hungrier. The body has been shouting for three years. Now it's screaming.",
-      "environment": "CAVE",
+      "environment": "service_bay",
       "party": [
         "todd_shop"
       ],
@@ -996,7 +996,7 @@
       "id": "pueblo_relocation_contract",
       "name": "The Relocation Contract",
       "description": "The clawback, the repayment, the years of the machine leaning on you all at once — the collar that's been waiting since Lamar, asking you to put it on willingly.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -1046,7 +1046,7 @@
       "id": "florida_interstate",
       "name": "The Asphalt Gauntlet",
       "description": "I-95 south in the dead of night: brake-light walls, construction barriers, and the open road that takes an hour on a good night and three on a bad one. The geography of the act, armed.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -1094,7 +1094,7 @@
       "id": "florida_green_metrics",
       "name": "The Green Meters",
       "description": "Three months of gold: the unload runs, the bins breathe, the board stays green. The machine finally working the way you always told them it could — a victory-light fight, the honeymoon in meter form.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -1124,7 +1124,7 @@
       "id": "florida_morning_verdict",
       "name": "The Morning Verdict",
       "description": "Every morning after the overnight shift: the ritual. No matter how much freight cleared, no matter how clean the building — the goalposts are permanently mounted on wheels.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -1172,7 +1172,7 @@
       "id": "florida_ohmar_interrogation",
       "name": "Ohmar's Formal Office",
       "description": "The formal chair, the closed door, the biggest man in the building asking questions in a voice that never rises. The terror of the region, made flesh — a man who runs on the aggressive management style the area favors.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -1220,7 +1220,7 @@
       "id": "florida_hostage_hours",
       "name": "The Ownerless Building",
       "description": "The store after everyone else has gone: three hours on a task nobody will ever check, then a fourth on the one beneath it. The building holds you not because it needs you, but because it can.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -1268,7 +1268,7 @@
       "id": "florida_shingles_four",
       "name": "The Fourth Signal",
       "description": "The body's scorecard, fourth entry: shingles erupting across the forehead in full agonizing force, the immune system at its absolute limit after the commute, the hostage hours, and the terror. Mandatory third-party medical leave.",
-      "environment": "CAVE",
+      "environment": "service_bay",
       "party": [
         "todd_shop"
       ],
@@ -1308,7 +1308,7 @@
       "id": "florida_redemption_schedule",
       "name": "The Redemption Schedule",
       "description": "The relocation collar in its purest form: the thousands of dollars owed if you walk or are fired, the amortized doom that keeps a person driving south into the dark. The arithmetic the machine bet you'd never learn to read.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -1356,7 +1356,7 @@
       "id": "florida_three_am",
       "name": "The 3 AM",
       "description": "The darkest hour of the memoir: the alternative, fully formed, visiting night after night — the place, the time, the plan, the silence — offered like a solution to the morning. You do not defeat it with a spell. You refuse it with a name: Adriana.",
-      "environment": "CAVE",
+      "environment": "service_bay",
       "party": [
         "todd_shop"
       ],
@@ -1402,7 +1402,7 @@
       "id": "florida_parting_shot",
       "name": "The Parting Shot",
       "description": "The step-down is accepted without resistance — colder than screaming. And as the final act of malice, the whisper carries down the hall to the team lead: 'He'll be out of the company in two months anyway.' The last boss of the crucible.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -1450,7 +1450,7 @@
       "id": "act6_pay_cut",
       "name": "The Pay Cut",
       "description": "Twenty-four thousand dollars a year, vanished in a single signed form. The depression isn't about the money — it's about watching the machine prove, once again, that there is no landing pad between the crushing altitude of salaried management and the floor.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -1495,7 +1495,7 @@
       "id": "act6_abdoolie_ghost",
       "name": "Abdoolie's Ghost",
       "description": "Abdoolie doesn't need to be Ohmar to be Ohmar. The cadence is the same — the flat declarative sentences, the pause before the verdict, the room that empties around him. The body doesn't wait for logic. It's already back in St. Augustine.",
-      "environment": "CASTLE",
+      "environment": "sales_floor",
       "party": [
         "todd_shop"
       ],
@@ -1543,7 +1543,7 @@
       "id": "act6_phantom_threat",
       "name": "The Phantom Manager's Threat",
       "description": "Five appearances on the floor in six months. On the sixth, he calls an all-hands meeting to blindly threaten everyone's jobs because the spreadsheet is angry and he has nowhere else to aim.",
-      "environment": "DUNGEON",
+      "environment": "trench",
       "party": [
         "todd_shop"
       ],
@@ -1590,7 +1590,7 @@
       "id": "act6_final_balance",
       "name": "The Final Balance Sheet",
       "description": "Four shingles outbreaks. A $24,000 pay cut. Five states in eight years. The machine's ledger versus the one thing it could never enter: integrity intact, empathy intact, a life still in your hands.",
-      "environment": "CAVE",
+      "environment": "service_bay",
       "party": [
         "todd_shop"
       ],

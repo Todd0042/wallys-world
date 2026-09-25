@@ -460,7 +460,7 @@ fun StoryScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.Bottom
                     ) {
-                        // Left Character (Aethel or Narrator)
+                        // Left Character (Hero or Narrator)
                         CharacterPortraitBust(
                             bitmap = leftBitmap,
                             speaker = leftSpeaker,

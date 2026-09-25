@@ -85,24 +85,32 @@ fun CharacterCreationScreen(
     val coroutineScope = rememberCoroutineScope()
 
     val context = LocalContext.current
-    val aethelBitmap = remember {
-        StoryAssetLoader.loadBitmap(context, "portraits/aethel.jpg")
+    val manifest = GameContent.manifest
+    val heroSpeaker = GameContent.heroCharacter?.speaker
+    val defaultHeroName = manifest.defaultHeroName.ifBlank { heroSpeaker?.name ?: "Hero" }
+    val defaultHeroTitle = manifest.defaultHeroTitle.ifBlank { heroSpeaker?.title ?: "Adventurer" }
+    val defaultHeroPortrait = manifest.defaultHeroPortrait ?: heroSpeaker?.portraitAsset ?: "portraits/todd.jpg"
+
+    val heroBitmap = remember {
+        StoryAssetLoader.loadBitmap(context, defaultHeroPortrait)
     }
 
-    val titles = listOf(
-        "The Awakened Invocator",
-        "The Flame-Woven",
-        "The Silent Breaker",
-        "The Star-Caller",
-        "The Oath-Bound"
-    )
+    val titles = remember {
+        manifest.characterTitles.ifEmpty {
+            listOf(defaultHeroTitle)
+        }
+    }
 
-    val quickNames = listOf("Aethel", "Rowan", "Kaelen", "Elira", "Vaelen")
+    val quickNames = remember {
+        manifest.quickNames.ifEmpty {
+            listOf(defaultHeroName)
+        }
+    }
 
     fun confirmAndAwaken() {
         speechManager?.cancel()
         val finalCustomization = PlayerCustomization(
-            name = if (name.isBlank()) "Aethel" else name.trim(),
+            name = if (name.isBlank()) defaultHeroName else name.trim(),
             heroClassId = selectedClass.id,
             title = selectedTitle,
             auraColor = selectedAura,
@@ -116,11 +124,9 @@ fun CharacterCreationScreen(
         if (lower.isBlank()) return
 
         // 1. Awaken / Embark command
-        val embarkKeywords = listOf(
-            "awaken", "embark", "begin", "start", "enter", "let us begin", "ready",
-            "venture", "let's go", "awaken in aethelgard", "begin journey", "start game",
-            "play", "lets go", "confirm", "forward", "onward"
-        )
+        val embarkKeywords = (manifest.creationVoiceKeywords.ifEmpty {
+            listOf("awaken", "embark", "begin", "start", "enter", "ready")
+        } + listOf("confirm", "forward", "onward", "play", "lets go", "let's go")).distinct()
         if (embarkKeywords.any { lower.contains(it) }) {
             confirmAndAwaken()
             return
@@ -252,9 +258,9 @@ fun CharacterCreationScreen(
                             .clip(RoundedCornerShape(10.dp))
                             .border(2.dp, auraColorVal, RoundedCornerShape(10.dp))
                     ) {
-                        if (aethelBitmap != null) {
+                        if (heroBitmap != null) {
                             Image(
-                                bitmap = aethelBitmap,
+                                bitmap = heroBitmap,
                                 contentDescription = name,
                                 contentScale = ContentScale.Crop,
                                 modifier = Modifier.fillMaxSize()
@@ -486,7 +492,7 @@ fun CharacterCreationScreen(
                     .height(48.dp)
             ) {
                 Text(
-                    text = "AWAKEN IN AETHELGARD ➔",
+                    text = manifest.creationEmbarkPrompt.ifBlank { "AWAKEN ➔" },
                     fontFamily = FontFamily.Monospace,
                     fontWeight = FontWeight.Black,
                     fontSize = 14.sp

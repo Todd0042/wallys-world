@@ -98,7 +98,8 @@ object PixelSpriteData {
         val character = directCharacter ?: GameContent.characters.values.firstOrNull { c ->
             characterId.equals(c.id, ignoreCase = true) ||
             characterId.lowercase().contains(c.id.lowercase()) ||
-            (c.id == "hero" && characterId.equals("todd", ignoreCase = true))
+            characterId.equals(c.speaker.name, ignoreCase = true) ||
+            c.voiceAliases.any { it.equals(characterId, ignoreCase = true) }
         }
         if (character?.sprite != null) {
             val grid = character.sprite.getFrame(frame)

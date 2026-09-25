@@ -64,6 +64,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.voicerpg.engine.audio.SpeechState
+import com.voicerpg.engine.content.GameContent
 import com.voicerpg.engine.content.GameManifest
 import com.voicerpg.engine.model.SaveSlotInfo
 import com.voicerpg.engine.model.SaveSummary
@@ -605,7 +606,7 @@ fun TitleScreen(
                         )
 
                         Text(
-                            text = "An active journey for ${saveSummary?.heroName ?: "your Hero"} in ${saveSummary?.chapterTitle ?: "Aethelgard"} is currently saved.\n\nBeginning a new campaign will replace this save file. Are you certain you wish to proceed?",
+                            text = "An active journey for ${saveSummary?.heroName ?: "your Hero"} in ${saveSummary?.chapterTitle ?: GameContent.manifest.worldName} is currently saved.\n\nBeginning a new campaign will replace this save file. Are you certain you wish to proceed?",
                             color = Color.LightGray,
                             fontSize = 12.sp,
                             fontFamily = FontFamily.Monospace,

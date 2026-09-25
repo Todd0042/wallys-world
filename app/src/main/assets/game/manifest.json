@@ -2,11 +2,40 @@
   "_doc": "Game manifest: top-level metadata the engine pulls at boot. 'The Squeeze' is a gritty retail-management memoir set inside a fictional megastore chain (Wally's World). All content is drop-in JSON; the engine itself remains genre-neutral.",
   "gameTitle": "The Squeeze",
   "gameSubtitle": "A Wally's World Memoir",
+  "worldName": "Wally's World",
   "initialSceneId": "scene_utah_trench",
   "initialNodeId": "squeeze_intro",
   "defaultEncounterId": "trench_unload",
   "startingAchievementId": "QUEST_BEGUN",
   "titleBackgroundAsset": "story/squeeze_title.jpg",
   "victoryLine": "Shift complete. You held the line.",
-  "defeatLine": "Your team was decisively crushed, but this is retail — corporate policy does not recognize death as an excused absence. Dust off the vest, clock back in, and press on."
+  "defeatLine": "Your team was decisively crushed, but this is retail — corporate policy does not recognize death as an excused absence. Dust off the vest, clock back in, and press on.",
+  "defaultHeroName": "Todd",
+  "defaultHeroTitle": "Freight Supervisor",
+  "quickNames": [
+    "Todd",
+    "Richard",
+    "Jodie",
+    "Adriana",
+    "Skagg"
+  ],
+  "characterTitles": [
+    "Freight Supervisor",
+    "Shop Captain",
+    "Floor Captain",
+    "Service Steward",
+    "Process Engineer"
+  ],
+  "creationEmbarkPrompt": "CLOCK IN TO WALLY'S WORLD ➔",
+  "creationVoiceKeywords": [
+    "clock in",
+    "embark",
+    "begin",
+    "start",
+    "let us begin",
+    "ready",
+    "venture",
+    "let's go"
+  ],
+  "defaultHeroPortrait": "portraits/todd.jpg"
 }

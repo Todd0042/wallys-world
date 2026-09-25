@@ -65,6 +65,7 @@ data class CombatState(
     val screenShakeOffsetX: Float = 0f,
     val screenShakeOffsetY: Float = 0f,
     val currentEnvironment: BattleEnvironment = BattleEnvironment.DUNGEON,
+    val currentEnvironmentId: String = "",
     val isEyesFreeMode: Boolean = false,
     val isOptionsOpen: Boolean = false,
     val isPureStoryMode: Boolean = false
@@ -2578,7 +2579,7 @@ class CombatViewModel(
             } else member
         })
 
-        startEncounter(partyToUse, encounter.enemies.map { decorateEnemy(it) }, encounter.environment)
+        startEncounter(partyToUse, encounter.enemies.map { decorateEnemy(it) }, encounter.environment, encounter.environmentId)
     }
 
     /** Persisted level/xp + damaged HP/MP carry into the next fight; fresh battle with clean statuses. */
@@ -2617,7 +2618,8 @@ class CombatViewModel(
     fun startEncounter(
         party: List<PartyMember>,
         enemies: List<Enemy>,
-        environment: BattleEnvironment
+        environment: BattleEnvironment,
+        environmentId: String = ""
     ) {
         conclusionTransitionJob?.cancel()
         conclusionTransitionJob = null
@@ -2639,6 +2641,7 @@ class CombatViewModel(
             party = party,
             enemies = enemies.map { decorateEnemy(it).let { e -> e.copy(atbGauge = e.atbGauge.coerceAtLeast(0.25f)) } }.take(6),
             currentEnvironment = environment,
+            currentEnvironmentId = environmentId,
             isPureStoryMode = _state.value.isPureStoryMode
         )
         startAtbLoop()
@@ -2651,6 +2654,7 @@ class CombatViewModel(
             return
         }
         val currentEnv = _state.value.currentEnvironment
+        val currentEnvId = _state.value.currentEnvironmentId
         turnsTakenInRound = 0
         lastActedHeroId = null
         lastActedFaction = CombatantFaction.NONE
@@ -2672,6 +2676,7 @@ class CombatViewModel(
             party = initialParty,
             enemies = fallbackEnemies,
             currentEnvironment = currentEnv,
+            currentEnvironmentId = currentEnvId,
             isPureStoryMode = _state.value.isPureStoryMode
         )
         startAtbLoop()

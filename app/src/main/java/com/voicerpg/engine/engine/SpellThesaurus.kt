@@ -1,5 +1,6 @@
 package com.voicerpg.engine.engine
 
+import com.voicerpg.engine.content.GameContent
 import com.voicerpg.engine.model.SpellSchool
 
 object SpellThesaurus {
@@ -66,14 +67,20 @@ object SpellThesaurus {
         "breathe", "push", "hold", "haul", "clear", "grind", "line"
     )
 
-    fun getKeywordsForSchool(school: SpellSchool): Set<String> = when (school) {
-        SpellSchool.PYROMANCY -> PYROMANCY_ROOTS
-        SpellSchool.CRYOMANCY -> CRYOMANCY_ROOTS
-        SpellSchool.ELECTROMANCY -> ELECTROMANCY_ROOTS
-        SpellSchool.NATURE -> NATURE_ROOTS
-        SpellSchool.HOLY -> HOLY_ROOTS
-        SpellSchool.SHADOW -> SHADOW_ROOTS
-        SpellSchool.PHYSICAL -> MARTIAL_ROOTS
+    fun getKeywordsForSchool(school: SpellSchool): Set<String> {
+        val loaded = GameContent.thesaurusRoots[school]
+        if (!loaded.isNullOrEmpty()) {
+            return loaded.toSet()
+        }
+        return when (school) {
+            SpellSchool.PYROMANCY -> PYROMANCY_ROOTS
+            SpellSchool.CRYOMANCY -> CRYOMANCY_ROOTS
+            SpellSchool.ELECTROMANCY -> ELECTROMANCY_ROOTS
+            SpellSchool.NATURE -> NATURE_ROOTS
+            SpellSchool.HOLY -> HOLY_ROOTS
+            SpellSchool.SHADOW -> SHADOW_ROOTS
+            SpellSchool.PHYSICAL -> MARTIAL_ROOTS
+        }
     }
 
     /**

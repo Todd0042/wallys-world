@@ -178,6 +178,7 @@ data class EncounterDefinition(
     val name: String,
     val description: String = "",
     val environment: BattleEnvironment,
+    val environmentId: String = "",
     val enemies: List<Enemy>,
     val initialParty: List<PartyMember>? = null,
     val bossPhases: List<BossPhaseRule> = emptyList(),

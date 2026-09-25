@@ -61,7 +61,7 @@ data class TutorialBattleUiState(
     val stepIndex: Int = 0,
     val currentStep: TutorialBattleStep = TutorialBattleContent.STEPS[0],
     val party: List<PartyMember> = emptyList(),
-    val activePartyMemberId: String = "aethel",
+    val activePartyMemberId: String = TutorialBattleContent.CHARACTERS.firstOrNull()?.id ?: "hero",
     val enemies: List<Enemy> = TutorialBattleContent.ENEMIES,
     val targetedEnemyId: String = "dummy_alpha",
 

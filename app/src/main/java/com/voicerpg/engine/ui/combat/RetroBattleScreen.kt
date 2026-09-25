@@ -41,6 +41,8 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlin.math.roundToInt
+import android.content.res.Configuration
+import androidx.compose.ui.platform.LocalConfiguration
 import com.voicerpg.engine.BuildConfig
 import com.voicerpg.engine.content.GameContent
 import com.voicerpg.engine.model.CombatPhase
@@ -72,6 +74,8 @@ fun RetroBattleScreen(
     val isAutoListen by viewModel.speechManager.isAutoListen.collectAsState()
     val rmsLevel by viewModel.speechManager.rmsLevel.collectAsState()
     val showDeveloperTools by viewModel.isDeveloperToolsEnabled.collectAsState()
+    val configuration = LocalConfiguration.current
+    val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -189,6 +193,8 @@ fun RetroBattleScreen(
                     // 4-Frame Living Environmental Background Canvas
                     BattleEnvironmentCanvas(
                         environment = state.currentEnvironment,
+                        environmentId = state.currentEnvironmentId,
+                        isPortrait = !isLandscape,
                         partyCount = state.party.size,
                         enemyCount = state.enemies.size,
                         modifier = Modifier.fillMaxSize()

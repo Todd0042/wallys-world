@@ -1,0 +1,60 @@
+{
+  "_doc": "Battle environments catalog for The Squeeze. Defines visual assets, lore metadata, ambient lighting colors, and alias fallbacks for drop-in game environments.",
+  "environments": [
+    {
+      "id": "trench",
+      "displayName": "Loading Trench",
+      "icon": "📦",
+      "loreLocation": "The 4 AM Dock",
+      "subtitle": "Concrete loading bays, hydraulic dock levelers, pallet jacks & stacked freight",
+      "ambientThemeColor": "#FF9800",
+      "backgroundAsset": "environments/trench.jpg",
+      "aliases": ["dungeon", "DUNGEON", "TRENCH"],
+      "overlayType": "DUNGEON"
+    },
+    {
+      "id": "sales_floor",
+      "displayName": "Sales Floor",
+      "icon": "🏬",
+      "loreLocation": "Main Action Alley",
+      "subtitle": "Endless aisles, fluorescent lighting, linoleum floors & retail shelving",
+      "ambientThemeColor": "#2196F3",
+      "backgroundAsset": "environments/sales_floor.jpg",
+      "aliases": ["castle", "CASTLE", "SALES_FLOOR"],
+      "overlayType": "CASTLE"
+    },
+    {
+      "id": "service_bay",
+      "displayName": "Service Bay",
+      "icon": "🔧",
+      "loreLocation": "The Highway Shop",
+      "subtitle": "Hydraulic car lifts, tire racks, motor oil drums & impact wrenches",
+      "ambientThemeColor": "#78909C",
+      "backgroundAsset": "environments/service_bay.jpg",
+      "aliases": ["cave", "CAVE", "SERVICE_BAY"],
+      "overlayType": "CAVE"
+    },
+    {
+      "id": "parking_lot",
+      "displayName": "Parking Lot",
+      "icon": "🚗",
+      "loreLocation": "Store Perimeter",
+      "subtitle": "Asphalt lanes, shopping cart corrals, semi-trucks & winter wind",
+      "ambientThemeColor": "#546E7A",
+      "backgroundAsset": "environments/parking_lot.jpg",
+      "aliases": ["forest", "FOREST", "PARKING_LOT"],
+      "overlayType": "FOREST"
+    },
+    {
+      "id": "break_room",
+      "displayName": "Break Room",
+      "icon": "☕",
+      "loreLocation": "Associate Lounge",
+      "subtitle": "Vending machines, plastic folding tables, time clock & corkboards",
+      "ambientThemeColor": "#8D6E63",
+      "backgroundAsset": "environments/break_room.jpg",
+      "aliases": ["swamp", "SWAMP", "BREAK_ROOM"],
+      "overlayType": "SWAMP"
+    }
+  ]
+}

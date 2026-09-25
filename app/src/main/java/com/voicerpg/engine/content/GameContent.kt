@@ -9,6 +9,8 @@ import com.voicerpg.engine.combat.EnemyMove
 import com.voicerpg.engine.combat.Moveset
 import com.voicerpg.engine.combat.PhaseRule
 import com.voicerpg.engine.combat.StatGrowth
+import com.voicerpg.engine.combat.StatusDef
+import com.voicerpg.engine.combat.StatusTier
 import com.voicerpg.engine.model.SpellGraphics
 import com.voicerpg.engine.model.BattleEnvironment
 import com.voicerpg.engine.model.DialogueChoice
@@ -36,13 +38,21 @@ import java.io.File
 data class ManifestDto(
     val gameTitle: String = "VoiceRPG Engine",
     val gameSubtitle: String = "",
+    val worldName: String = "the realm",
     val initialSceneId: String = "",
     val initialNodeId: String = "",
     val defaultEncounterId: String = "",
     val startingAchievementId: String = "QUEST_BEGUN",
     val victoryLine: String = "Victory! The battle is won.",
     val defeatLine: String = "Defeat. Your voice fades.",
-    val titleBackgroundAsset: String? = null
+    val titleBackgroundAsset: String? = null,
+    val defaultHeroName: String = "Hero",
+    val defaultHeroTitle: String = "Adventurer",
+    val quickNames: List<String>? = null,
+    val characterTitles: List<String>? = null,
+    val creationEmbarkPrompt: String = "AWAKEN ➔",
+    val creationVoiceKeywords: List<String>? = null,
+    val defaultHeroPortrait: String? = null
 )
 
 data class GrowthDto(
@@ -272,6 +282,7 @@ data class EncounterDto(
     val name: String = "",
     val description: String = "",
     val environment: String = "FOREST",
+    val environmentId: String? = null,
     val party: List<String>? = null,
     val enemies: List<EncounterEnemyDto>? = null,
     val bossPhases: List<BossPhaseDto>? = null,
@@ -330,6 +341,50 @@ data class NodeDto(
 
 data class NodeFileDto(val nodes: List<NodeDto>? = null)
 
+data class EnvironmentDefinitionDto(
+    val id: String = "",
+    val displayName: String = "",
+    val icon: String = "",
+    val loreLocation: String = "",
+    val subtitle: String = "",
+    val ambientThemeColor: String = "#FFFFFF",
+    val backgroundAsset: String = "",
+    val aliases: List<String>? = null,
+    val overlayType: String = "FOREST"
+)
+
+data class EnvironmentFileDto(
+    val environments: List<EnvironmentDefinitionDto>? = null
+)
+
+data class StatusTierDto(
+    val turns: Int = 1,
+    val potPct: Float = 0.1f,
+    val maxStacks: Int = 1
+)
+
+data class StatusDefDto(
+    val kind: String = "DOT",
+    val tiers: Map<String, StatusTierDto>? = null,
+    val resist: Map<String, String>? = null
+)
+
+data class StatusCatalogFileDto(
+    val statuses: Map<String, StatusDefDto>? = null
+)
+
+data class AffinityMatrixFileDto(
+    val floor: Float = 0.8f,
+    val ceiling: Float = 2.0f,
+    val sameElementImpairment: Float = 0.8f,
+    val matrix: Map<String, Map<String, Float>>? = null,
+    val narrations: Map<String, String>? = null
+)
+
+data class ThesaurusFileDto(
+    val schools: Map<String, List<String>>? = null
+)
+
 // =============================================================================
 // RESOLVED ENGINE MODELS
 // =============================================================================
@@ -337,13 +392,41 @@ data class NodeFileDto(val nodes: List<NodeDto>? = null)
 data class GameManifest(
     val gameTitle: String,
     val gameSubtitle: String,
+    val worldName: String = "the realm",
     val initialSceneId: String,
     val initialNodeId: String,
     val defaultEncounterId: String,
     val startingAchievementId: String,
     val victoryLine: String,
     val defeatLine: String,
-    val titleBackgroundAsset: String? = null
+    val titleBackgroundAsset: String? = null,
+    val defaultHeroName: String = "Hero",
+    val defaultHeroTitle: String = "Adventurer",
+    val quickNames: List<String> = emptyList(),
+    val characterTitles: List<String> = emptyList(),
+    val creationEmbarkPrompt: String = "AWAKEN ➔",
+    val creationVoiceKeywords: List<String> = emptyList(),
+    val defaultHeroPortrait: String? = null
+)
+
+data class EnvironmentDefinition(
+    val id: String,
+    val displayName: String,
+    val icon: String,
+    val loreLocation: String,
+    val subtitle: String,
+    val ambientThemeColor: Color,
+    val backgroundAsset: String,
+    val aliases: List<String> = emptyList(),
+    val overlayType: String = "FOREST"
+)
+
+data class AffinityMatrix(
+    val floor: Float,
+    val ceiling: Float,
+    val sameElementImpairment: Float,
+    val matrix: Map<String, Map<String, Float>>,
+    val narrations: Map<String, String>
 )
 
 /** A playable/voice hero class archetype loaded from assets/game/classes/<name>.json. */
@@ -510,7 +593,11 @@ class GameContentPack(
     val nodes: Map<String, DialogueNode>,
     val narrator: DialogueSpeaker,
     val enemySprites: Map<String, SpriteDefinition> = emptyMap(),
-    val enemyMovesets: Map<String, Moveset> = emptyMap()
+    val enemyMovesets: Map<String, Moveset> = emptyMap(),
+    val environments: Map<String, EnvironmentDefinition> = emptyMap(),
+    val statusCatalog: Map<String, StatusDef> = emptyMap(),
+    val affinityMatrix: AffinityMatrix? = null,
+    val thesaurusRoots: Map<SpellSchool, List<String>> = emptyMap()
 ) {
     val heroCharacter: GameCharacter? = characters.values.firstOrNull { it.role == CharacterRole.HERO }
 
@@ -540,6 +627,14 @@ class GameContentPack(
         classes.firstOrNull { it.id == id } ?: classes.firstOrNull() ?: FALLBACK_CLASS
 
     fun encounterById(id: String?): EncounterDefinition? = if (id == null) null else encounters[id]
+
+    fun environmentById(id: String?): EnvironmentDefinition? {
+        if (id == null) return null
+        environments[id]?.let { return it }
+        return environments.values.firstOrNull { env ->
+            env.id.equals(id, ignoreCase = true) || env.aliases.any { it.equals(id, ignoreCase = true) }
+        }
+    }
 
     fun spellById(id: String?): Spell? = if (id == null) null else spells[id]
 
@@ -726,6 +821,32 @@ class GameContentLoader(private val source: ContentSource) {
         val enemyMovesets = (read("enemies/enemy_spells.json", EnemySpellsFileDto::class.java)?.movesets ?: emptyMap())
             .mapValues { it.value.toMoveset() }
 
+        val environments = (read("environments/environments.json", EnvironmentFileDto::class.java)?.environments ?: emptyList())
+            .filter { it.id.isNotBlank() }
+            .map { it.toDefinition() }
+            .associateBy { it.id }
+
+        val statusCatalog = (read("combat/status_catalog.json", StatusCatalogFileDto::class.java)?.statuses ?: emptyMap())
+            .mapValues { (_, dto) -> dto.toStatusDef() }
+
+        val affinityMatrixDto = read("combat/affinity_matrix.json", AffinityMatrixFileDto::class.java)
+        val affinityMatrix = affinityMatrixDto?.let {
+            AffinityMatrix(
+                floor = it.floor,
+                ceiling = it.ceiling,
+                sameElementImpairment = it.sameElementImpairment,
+                matrix = it.matrix ?: emptyMap(),
+                narrations = it.narrations ?: emptyMap()
+            )
+        }
+
+        val thesaurusDto = read("spells/thesaurus.json", ThesaurusFileDto::class.java)
+        val thesaurusRoots = thesaurusDto?.schools?.mapNotNull { (schoolStr, words) ->
+            runCatching { SpellSchool.valueOf(schoolStr) }.getOrNull()?.let { school ->
+                school to words
+            }
+        }?.toMap() ?: emptyMap()
+
         val narrator = characters.values.firstOrNull { it.role == CharacterRole.NARRATOR }?.speaker
             ?: DialogueSpeaker.NARRATOR
 
@@ -733,13 +854,21 @@ class GameContentLoader(private val source: ContentSource) {
             manifest = GameManifest(
                 gameTitle = manifestDto.gameTitle,
                 gameSubtitle = manifestDto.gameSubtitle,
+                worldName = manifestDto.worldName,
                 initialSceneId = manifestDto.initialSceneId,
                 initialNodeId = manifestDto.initialNodeId,
                 defaultEncounterId = manifestDto.defaultEncounterId,
                 startingAchievementId = manifestDto.startingAchievementId,
                 victoryLine = manifestDto.victoryLine,
                 defeatLine = manifestDto.defeatLine,
-                titleBackgroundAsset = manifestDto.titleBackgroundAsset
+                titleBackgroundAsset = manifestDto.titleBackgroundAsset,
+                defaultHeroName = manifestDto.defaultHeroName,
+                defaultHeroTitle = manifestDto.defaultHeroTitle,
+                quickNames = manifestDto.quickNames ?: emptyList(),
+                characterTitles = manifestDto.characterTitles ?: emptyList(),
+                creationEmbarkPrompt = manifestDto.creationEmbarkPrompt,
+                creationVoiceKeywords = manifestDto.creationVoiceKeywords ?: emptyList(),
+                defaultHeroPortrait = manifestDto.defaultHeroPortrait
             ),
             characters = characters,
             classes = classes,
@@ -750,7 +879,11 @@ class GameContentLoader(private val source: ContentSource) {
             nodes = nodes,
             narrator = narrator,
             enemySprites = enemySprites,
-            enemyMovesets = enemyMovesets
+            enemyMovesets = enemyMovesets,
+            environments = environments,
+            statusCatalog = statusCatalog,
+            affinityMatrix = affinityMatrix,
+            thesaurusRoots = thesaurusRoots
         )
         return if (pack.scenes.isEmpty() || pack.nodes.isEmpty()) EmergencyFallback.build() else pack
     }
@@ -900,11 +1033,13 @@ class GameContentLoader(private val source: ContentSource) {
                 atbGauge = ref.atbGauge
             )
         }
+        val envId = environmentId?.ifBlank { null } ?: environment
         return EncounterDefinition(
             id = id,
             name = name.ifBlank { id },
             description = description,
-            environment = runCatching { BattleEnvironment.valueOf(environment) }.getOrDefault(BattleEnvironment.FOREST),
+            environment = runCatching { BattleEnvironment.valueOf(environment.uppercase()) }.getOrDefault(BattleEnvironment.FOREST),
+            environmentId = envId,
             enemies = enemies,
             initialParty = party.ifEmpty { null },
             bossPhases = (bossPhases ?: emptyList()).map {
@@ -972,6 +1107,24 @@ class GameContentLoader(private val source: ContentSource) {
         },
         healPartyOnEnter = healPartyOnEnter
     )
+
+    private fun EnvironmentDefinitionDto.toDefinition(): EnvironmentDefinition = EnvironmentDefinition(
+        id = id,
+        displayName = displayName.ifBlank { id },
+        icon = icon,
+        loreLocation = loreLocation,
+        subtitle = subtitle,
+        ambientThemeColor = parseHexColor(ambientThemeColor, Color.White),
+        backgroundAsset = backgroundAsset,
+        aliases = aliases ?: emptyList(),
+        overlayType = overlayType
+    )
+
+    private fun StatusDefDto.toStatusDef(): StatusDef = StatusDef(
+        kind = kind,
+        tiers = (tiers ?: emptyMap()).mapValues { (_, t) -> StatusTier(t.turns, t.potPct, t.maxStacks) },
+        resist = resist ?: emptyMap()
+    )
 }
 
 /**
@@ -987,13 +1140,21 @@ object EmergencyFallback {
             manifest = GameManifest(
                 gameTitle = "VoiceRPG Engine",
                 gameSubtitle = "No content files found",
+                worldName = "the realm",
                 initialSceneId = scene.id,
                 initialNodeId = node.id,
                 defaultEncounterId = "",
                 startingAchievementId = "QUEST_BEGUN",
                 victoryLine = "Victory! The battle is won.",
                 defeatLine = "Defeat. Your voice fades.",
-                titleBackgroundAsset = null
+                titleBackgroundAsset = null,
+                defaultHeroName = "Hero",
+                defaultHeroTitle = "Adventurer",
+                quickNames = emptyList(),
+                characterTitles = emptyList(),
+                creationEmbarkPrompt = "AWAKEN ➔",
+                creationVoiceKeywords = emptyList(),
+                defaultHeroPortrait = null
             ),
             characters = emptyMap(),
             classes = emptyList(),
@@ -1002,7 +1163,11 @@ object EmergencyFallback {
             encounters = emptyMap(),
             scenes = mapOf(scene.id to scene),
             nodes = mapOf(node.id to node),
-            narrator = narrator
+            narrator = narrator,
+            environments = emptyMap(),
+            statusCatalog = emptyMap(),
+            affinityMatrix = null,
+            thesaurusRoots = emptyMap()
         )
     }
 }
@@ -1093,11 +1258,16 @@ object GameContent {
     val initialNode: DialogueNode get() = pack.initialNode
     val defaultEncounter: EncounterDefinition? get() = pack.defaultEncounter
     val preferredVoiceIds: Map<String, String> get() = pack.preferredVoiceIds
+    val environments: Map<String, EnvironmentDefinition> get() = pack.environments
+    val statusCatalog: Map<String, StatusDef> get() = pack.statusCatalog
+    val affinityMatrix: AffinityMatrix? get() = pack.affinityMatrix
+    val thesaurusRoots: Map<SpellSchool, List<String>> get() = pack.thesaurusRoots
 
     fun speakerById(id: String?): DialogueSpeaker? = pack.speakerById(id)
     fun characterById(id: String?): GameCharacter? = pack.characterById(id)
     fun classById(id: String?): HeroClassDef = pack.classById(id)
     fun encounterById(id: String?): EncounterDefinition? = pack.encounterById(id)
+    fun environmentById(id: String?): EnvironmentDefinition? = pack.environmentById(id)
     fun spellById(id: String?): Spell? = pack.spellById(id)
     fun spellsForClass(classId: String?): List<Spell> = pack.spellsForClass(classId)
     fun voiceAliasesFor(memberId: String?): List<String> = pack.voiceAliasesFor(memberId)
