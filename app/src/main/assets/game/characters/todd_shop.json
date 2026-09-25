@@ -1,5 +1,5 @@
 {
-  "_doc": "Todd, reclassified — the same man, now a salaried Shop Manager over the oil and tire bays. Uses the engine's companion slot (joinWhenFlag) to represent the same person 'reclassing' into a new role with a new skill kit, since the campaign has no true companions.",
+  "_doc": "Todd, reclassified \u2014 the same man, now a salaried Shop Manager over the oil and tire bays. Uses the engine's companion slot (joinWhenFlag) to represent the same person 'reclassing' into a new role with a new skill kit, since the campaign has no true companions.",
   "id": "todd_shop",
   "role": "npc",
   "name": "Todd",
@@ -8,7 +8,7 @@
   "spriteId": "hero",
   "themeColor": "#F5B041",
   "ttsPitch": 0.92,
-  "samplePhrase": "Six bays and a line of pickups — let's move some oil.",
+  "samplePhrase": "Six bays and a line of pickups \u2014 let's move some oil.",
   "preferredVoiceId": null,
   "voiceAliases": [
     "todd",
@@ -43,7 +43,231 @@
       "speed": 1,
       "defense": 2,
       "potencyPct": 0.03
-    }
+    },
+    "spells": [
+      {
+        "id": "lube_line",
+        "name": "Lube Line",
+        "school": "PHYSICAL",
+        "basePower": 40,
+        "mpCost": 0,
+        "description": "The basic rhythm of the service line: drain, filter, fill, torque. Free, tireless, always available.",
+        "exampleChant": "lube line!",
+        "aliases": [
+          "lube line",
+          "lube",
+          "oil",
+          "the line",
+          "basic",
+          "attack"
+        ],
+        "graphics": {
+          "effectType": "SLASH",
+          "primaryColor": "#ECEFF1",
+          "secondaryColor": "#FF5252",
+          "particleCount": 18,
+          "screenShake": 3.0
+        }
+      },
+      {
+        "id": "tire_grind",
+        "name": "Tire Grind",
+        "school": "PHYSICAL",
+        "basePower": 55,
+        "mpCost": 12,
+        "description": "Break the bead, spin the mount, seat the tire \u2014 the machine gives nothing for free, so you take the torque.",
+        "exampleChant": "tire grind!",
+        "aliases": [
+          "tire grind",
+          "grind",
+          "tires",
+          "mount",
+          "the tire machine"
+        ],
+        "graphics": {
+          "effectType": "SLASH",
+          "primaryColor": "#ECEFF1",
+          "secondaryColor": "#FF5252",
+          "particleCount": 18,
+          "screenShake": 3.0
+        }
+      },
+      {
+        "id": "bay_charge",
+        "name": "Bay Charge",
+        "school": "PHYSICAL",
+        "basePower": 52,
+        "mpCost": 12,
+        "description": "Move where the work is, every bay at once, until the whole shop hums in tune.",
+        "exampleChant": "bay charge!",
+        "aliases": [
+          "bay charge",
+          "charge",
+          "the bay",
+          "bay drill",
+          "run the shop"
+        ],
+        "graphics": {
+          "effectType": "PROJECTILE",
+          "primaryColor": "#CFD8DC",
+          "secondaryColor": "#90A4AE",
+          "particleCount": 16,
+          "screenShake": 2.0
+        }
+      },
+      {
+        "id": "jack_hold",
+        "name": "Jack Hold",
+        "school": "PHYSICAL",
+        "basePower": 0,
+        "mpCost": 10,
+        "isGuard": true,
+        "description": "Plant the jack stand before you reach under the frame. Halve the next blow \u2014 nothing drops on your watch.",
+        "exampleChant": "jack hold!",
+        "aliases": [
+          "jack hold",
+          "hold",
+          "defend",
+          "guard",
+          "jack stand",
+          "lock it"
+        ],
+        "graphics": {
+          "effectType": "BURST",
+          "primaryColor": "#90A4AE",
+          "secondaryColor": "#37474F",
+          "particleCount": 18,
+          "screenShake": 0.0
+        }
+      },
+      {
+        "id": "volt_snap",
+        "name": "Volt Snap",
+        "school": "ELECTROMANCY",
+        "basePower": 58,
+        "mpCost": 14,
+        "description": "The impact gun's snap: four lugs off in a heartbeat and the stubborn part gives up first.",
+        "exampleChant": "volt snap!",
+        "aliases": [
+          "volt snap",
+          "snap",
+          "impact",
+          "lugs",
+          "the gun",
+          "voltage"
+        ],
+        "graphics": {
+          "effectType": "PROJECTILE",
+          "primaryColor": "#E040FB",
+          "secondaryColor": "#00E5FF",
+          "particleCount": 24,
+          "screenShake": 6.0
+        }
+      },
+      {
+        "id": "coolant_chill",
+        "name": "Coolant Chill",
+        "school": "CRYOMANCY",
+        "basePower": 50,
+        "mpCost": 10,
+        "description": "Drain the overheated radiator and watch the steam die \u2014 the engine cools to working temperature.",
+        "exampleChant": "coolant chill!",
+        "aliases": [
+          "coolant chill",
+          "chill",
+          "coolant",
+          "radiator",
+          "cool down",
+          "the steam"
+        ],
+        "graphics": {
+          "effectType": "PROJECTILE",
+          "primaryColor": "#00E5FF",
+          "secondaryColor": "#80DEEA",
+          "particleCount": 20,
+          "screenShake": 4.0
+        }
+      },
+      {
+        "id": "bay_heat",
+        "name": "Bay Heat",
+        "school": "PYROMANCY",
+        "basePower": 52,
+        "mpCost": 12,
+        "description": "The working heat of a shop at full tilt: every tech moving, every lift loaded, the whole building cooking.",
+        "exampleChant": "bay heat!",
+        "aliases": [
+          "bay heat",
+          "heat",
+          "hot",
+          "full tilt",
+          "the forge"
+        ],
+        "graphics": {
+          "effectType": "PROJECTILE",
+          "primaryColor": "#FF5722",
+          "secondaryColor": "#FFD54F",
+          "particleCount": 24,
+          "screenShake": 7.0
+        }
+      },
+      {
+        "id": "belt_mend",
+        "name": "Belt Mend",
+        "school": "HOLY",
+        "basePower": 50,
+        "mpCost": 16,
+        "isHeal": true,
+        "description": "Patch the tech who's been running all day \u2014 a swapped task, a cold drink from your bin, the line keeps moving.",
+        "exampleChant": "belt mend!",
+        "aliases": [
+          "belt mend",
+          "mend",
+          "heal",
+          "patch",
+          "restore",
+          "fix up"
+        ],
+        "graphics": {
+          "effectType": "PILLAR",
+          "primaryColor": "#FFD700",
+          "secondaryColor": "#69F0AE",
+          "particleCount": 24,
+          "screenShake": 0.0
+        }
+      },
+      {
+        "id": "breathe",
+        "name": "Breathe",
+        "school": "PHYSICAL",
+        "basePower": 0,
+        "mpCost": 0,
+        "manaRestorePct": 0.35,
+        "description": "The breath discipline: center yourself for three seconds in the break room and a third of your resolve returns.",
+        "exampleChant": "breathe",
+        "aliases": [
+          "breathe",
+          "breath",
+          "attune",
+          "center",
+          "centre",
+          "steady",
+          "focus",
+          "concentrate",
+          "gather",
+          "recover",
+          "restore mana",
+          "recover mana"
+        ],
+        "graphics": {
+          "effectType": "BURST",
+          "primaryColor": "#80DEEA",
+          "secondaryColor": "#00ACC1",
+          "particleCount": 18,
+          "screenShake": 0.0
+        }
+      }
+    ]
   },
   "spellGrants": [],
   "gender": "male",

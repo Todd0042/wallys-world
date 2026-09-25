@@ -1,47 +1,1005 @@
 {
   "_doc": "VOICE ABILITY LIBRARY for The Squeeze. Every ability is a workplace action or state of mind spoken with conviction: the clearer and more forceful the delivery, the higher the resonance. school must be one of PYROMANCY/CRYOMANCY/ELECTROMANCY/NATURE/HOLY/SHADOW/PHYSICAL. Names are calibrated so each contains exactly one thematic root word of its own school (resonance guardrail). aliases are fuzzy voice-match keywords. manaRestorePct > 0 marks the free breath/attune discipline.",
   "spells": [
-    { "id": "line_drill", "name": "Line Drill", "school": "PHYSICAL", "basePower": 40, "mpCost": 0, "description": "The basic rhythm of the line: case, scan, slot, move on. Free, tireless, always available.", "exampleChant": "line drill!", "aliases": ["line drill", "drill", "work the line", "the line", "basic", "attack"] },
-    { "id": "freight_push", "name": "Freight Push", "school": "PHYSICAL", "basePower": 55, "mpCost": 12, "description": "Shove the wall of boxes forward with your whole body instead of letting it win.", "exampleChant": "freight push!", "aliases": ["freight push", "push", "push the freight", "heave", "the wall"] },
-    { "id": "hold_ground", "name": "Hold Ground", "school": "PHYSICAL", "basePower": 0, "mpCost": 10, "isGuard": true, "description": "Plant your boots. Halve the incoming damage of the next assault — the mart stays up.", "exampleChant": "hold ground!", "aliases": ["hold ground", "hold", "defend", "guard", "protect", "stand your ground"] },
-    { "id": "breathe", "name": "Breathe", "school": "PHYSICAL", "basePower": 0, "mpCost": 0, "manaRestorePct": 0.35, "description": "The breath discipline: center yourself for three seconds in the break room and a third of your resolve returns.", "exampleChant": "breathe", "aliases": ["breathe", "breath", "attune", "center", "centre", "steady", "focus", "concentrate", "gather", "recover", "restore mana", "recover mana"] },
-    { "id": "clear_dock", "name": "Clear Dock", "school": "PHYSICAL", "basePower": 50, "mpCost": 10, "description": "Sweep a lane of pallets clean in one run — the receiving dock breathes for five minutes.", "exampleChant": "clear dock!", "aliases": ["clear dock", "clear", "clean the dock", "sweep", "the dock"] },
-    { "id": "grind_out", "name": "Grind Out", "school": "PHYSICAL", "basePower": 60, "mpCost": 14, "description": "The stubborn hour: no breaks, no conversation, just the grunt work until the pallet is gone.", "exampleChant": "grind out!", "aliases": ["grind out", "grind", "grind it out", "push through", "slog"] },
-    { "id": "backroom_haul", "name": "Backroom Haul", "school": "PHYSICAL", "basePower": 52, "mpCost": 12, "description": "One trip, everything: the armload of a dozen boxes carried all the way to the shelf.", "exampleChant": "backroom haul!", "aliases": ["backroom haul", "haul", "the haul", "armload", "carry"] },
-    { "id": "mend_crew", "name": "Mend Crew", "school": "HOLY", "basePower": 50, "mpCost": 18, "isHeal": true, "description": "Patch up the associate next to you — a promised swap of the worst task, a cold drink from your bin.", "exampleChant": "mend crew!", "aliases": ["mend crew", "mend", "heal", "fix up", "restore", "help up"] },
-    { "id": "steady_hands", "name": "Steady Hands", "school": "HOLY", "basePower": 40, "mpCost": 20, "isHeal": true, "hitsAll": true, "description": "Breathe calm over the whole crew; everyone's wobble smooths out for a beat.", "exampleChant": "steady hands!", "aliases": ["steady hands", "steady", "calm everyone", "settle", "ease the crew"] },
-    { "id": "calm_floor", "name": "Calm Floor", "school": "HOLY", "basePower": 0, "mpCost": 8, "isGuard": true, "description": "A flat, even voice that lowers the temperature of the aisle; incoming pressure half-lost before it starts.", "exampleChant": "calm floor!", "aliases": ["calm floor", "calm", "deescalate", "cool it", "ease off"] },
-    { "id": "soothe_crew", "name": "Soothe Crew", "school": "HOLY", "basePower": 55, "mpCost": 16, "isHeal": true, "description": "Talk someone down off the register ledge — a real conversation instead of a walkie squawk.", "exampleChant": "soothe crew!", "aliases": ["soothe crew", "soothe", "talk down", "comfort", "listen"] },
-    { "id": "listening_session", "name": "Listening Session", "school": "HOLY", "basePower": 40, "mpCost": 14, "isHeal": true, "description": "Ten minutes of actually hearing the complaint; the wound doesn't close, but it stops bleeding.", "exampleChant": "listening session!", "aliases": ["listening session", "listen", "hear them out", "debrief", "the ear"] },
-    { "id": "morning_surge", "name": "Morning Surge", "school": "ELECTROMANCY", "basePower": 55, "mpCost": 14, "hitsAll": true, "description": "The 9:58 open flood — one impossible surge of customers and you ride it like a current.", "exampleChant": "morning surge!", "aliases": ["morning surge", "surge", "the rush", "open", "flood", "all enemies"] },
-    { "id": "floor_charge", "name": "Floor Charge", "school": "ELECTROMANCY", "basePower": 60, "mpCost": 12, "description": "Hit every department you own like a battery reconnecting — the floor snaps alive.", "exampleChant": "floor charge!", "aliases": ["floor charge", "charge", "charge the floor", "energize", "the charge"] },
-    { "id": "spark_ideas", "name": "Spark Ideas", "school": "ELECTROMANCY", "basePower": 50, "mpCost": 10, "description": "One decent suggestion that short-circuits the old way of doing it.", "exampleChant": "spark ideas!", "aliases": ["spark ideas", "spark", "idea", "suggestion", "brainstorm"] },
-    { "id": "static_pressure", "name": "Static Pressure", "school": "ELECTROMANCY", "basePower": 48, "mpCost": 10, "status": "OVERLOAD", "description": "The ambient voltage of the floor: a shock that stuns the problem into stillness.", "exampleChant": "static pressure!", "aliases": ["static pressure", "static", "pressure", "stun", "the hum"] },
-    { "id": "quick_flash", "name": "Quick Flash", "school": "ELECTROMANCY", "basePower": 52, "mpCost": 12, "description": "That split-second of certainty when you see the whole 12-box pattern at once.", "exampleChant": "quick flash!", "aliases": ["quick flash", "flash", "quick", "the pattern"] },
-    { "id": "burnout", "name": "Burnout", "school": "PYROMANCY", "basePower": 62, "mpCost": 14, "status": "BURN", "description": "The 48-hour grind pushed to its breaking point — readiness corrodes from within.", "exampleChant": "burnout!", "aliases": ["burnout", "burn", "overwork", "the grind", "exhaust"] },
-    { "id": "heat_grill", "name": "Heat Grill", "school": "PYROMANCY", "basePower": 55, "mpCost": 12, "description": "The unrelenting heat of the back-line grill: pressure applied until the other side cracks.", "exampleChant": "heat grill!", "aliases": ["heat grill", "heat", "grill", "pressure", "hot"] },
-    { "id": "flare_up", "name": "Flare Up", "school": "PYROMANCY", "basePower": 50, "mpCost": 10, "description": "The rare, honest flash of anger you let someone actually see. Just one. Then it's gone.", "exampleChant": "flare up!", "aliases": ["flare up", "flare", "anger", "snap", "lash out"] },
-    { "id": "searing_shift", "name": "Searing Shift", "school": "PYROMANCY", "basePower": 58, "mpCost": 16, "description": "The closing heat of a double shift — you're already burned, so you don't feel it anymore.", "exampleChant": "searing shift!", "aliases": ["searing shift", "searing", "burning shift", "double shift", "hot shift"] },
-    { "id": "cold_start", "name": "Cold Start", "school": "CRYOMANCY", "basePower": 48, "mpCost": 10, "description": "The 3:57 AM ignition of the building — dead quiet, frozen aisles, and you keying the world awake.", "exampleChant": "cold start!", "aliases": ["cold start", "cold", "early", "dawn", "open up"] },
-    { "id": "frostbite", "name": "Frostbite", "school": "CRYOMANCY", "basePower": 58, "mpCost": 12, "status": "CHILL", "description": "The freezer lane visit that numbs your hands and slows the clock to a crawl.", "exampleChant": "frostbite!", "aliases": ["frostbite", "frost", "freezer", "cold lane"] },
-    { "id": "deep_freeze", "name": "Deep Freeze", "school": "CRYOMANCY", "basePower": 55, "mpCost": 14, "status": "FREEZE", "description": "The frozen-food wall: everything stops — you, the aisle, the week — for a long, white moment.", "exampleChant": "deep freeze!", "aliases": ["deep freeze", "freeze", "frozen", "solid"] },
-    { "id": "quiet_chill", "name": "Quiet Chill", "school": "CRYOMANCY", "basePower": 50, "mpCost": 12, "description": "The hush after close, when the ballasts hum and the store belongs to the overnight crew.", "exampleChant": "quiet chill!", "aliases": ["quiet chill", "chill", "quiet", "after close", "stillness"] },
-    { "id": "grow_crew", "name": "Grow Crew", "school": "NATURE", "basePower": 50, "mpCost": 18, "isHeal": true, "description": "Train the green hand into a full associate — watch them rise instead of quit.", "exampleChant": "grow crew!", "aliases": ["grow crew", "grow", "train", "develop", "build up"] },
-    { "id": "root_cause", "name": "Root Cause", "school": "NATURE", "basePower": 52, "mpCost": 12, "description": "Stop patching the symptom; trace it back to the source and tear that out instead.", "exampleChant": "root cause!", "aliases": ["root cause", "root", "diagnose", "source", "fix it right"] },
-    { "id": "second_seed", "name": "Second Seed", "school": "NATURE", "basePower": 40, "mpCost": 16, "isHeal": true, "description": "The second chance offered to someone the machine has already written off.", "exampleChant": "second seed!", "aliases": ["second seed", "seed", "second chance", "redo", "start over"] },
-    { "id": "canopy_shield", "name": "Canopy Shield", "school": "NATURE", "basePower": 0, "mpCost": 12, "isGuard": true, "description": "Spread yourself thin over the whole department like a canopy — the storm hits you first, all of it.", "exampleChant": "canopy shield!", "aliases": ["canopy shield", "canopy", "shield", "cover everyone", "umbrella"] },
-    { "id": "night_shift", "name": "Night Shift", "school": "SHADOW", "basePower": 58, "mpCost": 12, "description": "The signature overnight strike: unseen work in the dark that nobody thanks and everyone needs.", "exampleChant": "night shift!", "aliases": ["night shift", "night", "overnight", "nights", "third shift"] },
-    { "id": "shadow_doubt", "name": "Shadow Doubt", "school": "SHADOW", "basePower": 54, "mpCost": 14, "description": "Plant the suspicion that your enemy planted first — turn the machine's whisper back on it.", "exampleChant": "shadow doubt!", "aliases": ["shadow doubt", "shadow", "doubt", "whisper", "undermine"] },
-    { "id": "backroom_whisper", "name": "Backroom Whisper", "school": "SHADOW", "basePower": 50, "mpCost": 12, "description": "The conversation that happens at the baler, in the smoke break, just out of camera range.", "exampleChant": "backroom whisper!", "aliases": ["backroom whisper", "whisper", "gossip", "the baler talk", "smoke break"] },
-    { "id": "drain_energy", "name": "Drain Energy", "school": "SHADOW", "basePower": 55, "mpCost": 14, "lifesteal": true, "description": "Take the good shift from someone who stole yours first — hours, favor, standing, all of it.", "exampleChant": "drain energy!", "aliases": ["drain energy", "drain", "siphon", "leech", "steal the hour"] },
-    { "id": "lube_line", "name": "Lube Line", "school": "PHYSICAL", "basePower": 40, "mpCost": 0, "description": "The basic rhythm of the service line: drain, filter, fill, torque. Free, tireless, always available.", "exampleChant": "lube line!", "aliases": ["lube line", "lube", "oil", "the line", "basic", "attack"] },
-    { "id": "tire_grind", "name": "Tire Grind", "school": "PHYSICAL", "basePower": 55, "mpCost": 12, "description": "Break the bead, spin the mount, seat the tire — the machine gives nothing for free, so you take the torque.", "exampleChant": "tire grind!", "aliases": ["tire grind", "grind", "tires", "mount", "the tire machine"] },
-    { "id": "bay_charge", "name": "Bay Charge", "school": "PHYSICAL", "basePower": 52, "mpCost": 12, "description": "Move where the work is, every bay at once, until the whole shop hums in tune.", "exampleChant": "bay charge!", "aliases": ["bay charge", "charge", "the bay", "bay drill", "run the shop"] },
-    { "id": "jack_hold", "name": "Jack Hold", "school": "PHYSICAL", "basePower": 0, "mpCost": 10, "isGuard": true, "description": "Plant the jack stand before you reach under the frame. Halve the next blow — nothing drops on your watch.", "exampleChant": "jack hold!", "aliases": ["jack hold", "hold", "defend", "guard", "jack stand", "lock it"] },
-    { "id": "volt_snap", "name": "Volt Snap", "school": "ELECTROMANCY", "basePower": 58, "mpCost": 14, "description": "The impact gun's snap: four lugs off in a heartbeat and the stubborn part gives up first.", "exampleChant": "volt snap!", "aliases": ["volt snap", "snap", "impact", "lugs", "the gun", "voltage"] },
-    { "id": "coolant_chill", "name": "Coolant Chill", "school": "CRYOMANCY", "basePower": 50, "mpCost": 10, "description": "Drain the overheated radiator and watch the steam die — the engine cools to working temperature.", "exampleChant": "coolant chill!", "aliases": ["coolant chill", "chill", "coolant", "radiator", "cool down", "the steam"] },
-    { "id": "bay_heat", "name": "Bay Heat", "school": "PYROMANCY", "basePower": 52, "mpCost": 12, "description": "The working heat of a shop at full tilt: every tech moving, every lift loaded, the whole building cooking.", "exampleChant": "bay heat!", "aliases": ["bay heat", "heat", "hot", "full tilt", "the forge"] },
-    { "id": "belt_mend", "name": "Belt Mend", "school": "HOLY", "basePower": 50, "mpCost": 16, "isHeal": true, "description": "Patch the tech who's been running all day — a swapped task, a cold drink from your bin, the line keeps moving.", "exampleChant": "belt mend!", "aliases": ["belt mend", "mend", "heal", "patch", "restore", "fix up"] },
-    { "id": "grease_clear", "name": "Grease Clear", "school": "PHYSICAL", "basePower": 46, "mpCost": 14, "hitsAll": true, "description": "One sweep of the bay floor — every work order in the shop clears at once.", "exampleChant": "grease clear!", "aliases": ["grease clear", "clear", "sweep", "the bay floor", "all enemies", "work orders"] }
+    {
+      "id": "line_drill",
+      "name": "Line Drill",
+      "school": "PHYSICAL",
+      "basePower": 40,
+      "mpCost": 0,
+      "description": "The basic rhythm of the line: case, scan, slot, move on. Free, tireless, always available.",
+      "exampleChant": "line drill!",
+      "aliases": [
+        "line drill",
+        "drill",
+        "work the line",
+        "the line",
+        "basic",
+        "attack"
+      ],
+      "graphics": {
+        "effectType": "SLASH",
+        "primaryColor": "#ECEFF1",
+        "secondaryColor": "#FF5252",
+        "particleCount": 18,
+        "screenShake": 3.0
+      }
+    },
+    {
+      "id": "freight_push",
+      "name": "Freight Push",
+      "school": "PHYSICAL",
+      "basePower": 55,
+      "mpCost": 12,
+      "description": "Shove the wall of boxes forward with your whole body instead of letting it win.",
+      "exampleChant": "freight push!",
+      "aliases": [
+        "freight push",
+        "push",
+        "push the freight",
+        "heave",
+        "the wall"
+      ],
+      "graphics": {
+        "effectType": "WAVE",
+        "primaryColor": "#B0BEC5",
+        "secondaryColor": "#78909C",
+        "particleCount": 20,
+        "screenShake": 5.0
+      }
+    },
+    {
+      "id": "hold_ground",
+      "name": "Hold Ground",
+      "school": "PHYSICAL",
+      "basePower": 0,
+      "mpCost": 10,
+      "isGuard": true,
+      "description": "Plant your boots. Halve the incoming damage of the next assault \u2014 the mart stays up.",
+      "exampleChant": "hold ground!",
+      "aliases": [
+        "hold ground",
+        "hold",
+        "defend",
+        "guard",
+        "protect",
+        "stand your ground"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#90A4AE",
+        "secondaryColor": "#37474F",
+        "particleCount": 18,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "breathe",
+      "name": "Breathe",
+      "school": "PHYSICAL",
+      "basePower": 0,
+      "mpCost": 0,
+      "manaRestorePct": 0.35,
+      "description": "The breath discipline: center yourself for three seconds in the break room and a third of your resolve returns.",
+      "exampleChant": "breathe",
+      "aliases": [
+        "breathe",
+        "breath",
+        "attune",
+        "center",
+        "centre",
+        "steady",
+        "focus",
+        "concentrate",
+        "gather",
+        "recover",
+        "restore mana",
+        "recover mana"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#80DEEA",
+        "secondaryColor": "#00ACC1",
+        "particleCount": 18,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "clear_dock",
+      "name": "Clear Dock",
+      "school": "PHYSICAL",
+      "basePower": 50,
+      "mpCost": 10,
+      "description": "Sweep a lane of pallets clean in one run \u2014 the receiving dock breathes for five minutes.",
+      "exampleChant": "clear dock!",
+      "aliases": [
+        "clear dock",
+        "clear",
+        "clean the dock",
+        "sweep",
+        "the dock"
+      ],
+      "graphics": {
+        "effectType": "WAVE",
+        "primaryColor": "#B0BEC5",
+        "secondaryColor": "#78909C",
+        "particleCount": 20,
+        "screenShake": 5.0
+      }
+    },
+    {
+      "id": "grind_out",
+      "name": "Grind Out",
+      "school": "PHYSICAL",
+      "basePower": 60,
+      "mpCost": 14,
+      "description": "The stubborn hour: no breaks, no conversation, just the grunt work until the pallet is gone.",
+      "exampleChant": "grind out!",
+      "aliases": [
+        "grind out",
+        "grind",
+        "grind it out",
+        "push through",
+        "slog"
+      ],
+      "graphics": {
+        "effectType": "SLASH",
+        "primaryColor": "#ECEFF1",
+        "secondaryColor": "#FF5252",
+        "particleCount": 18,
+        "screenShake": 3.0
+      }
+    },
+    {
+      "id": "backroom_haul",
+      "name": "Backroom Haul",
+      "school": "PHYSICAL",
+      "basePower": 52,
+      "mpCost": 12,
+      "description": "One trip, everything: the armload of a dozen boxes carried all the way to the shelf.",
+      "exampleChant": "backroom haul!",
+      "aliases": [
+        "backroom haul",
+        "haul",
+        "the haul",
+        "armload",
+        "carry"
+      ],
+      "graphics": {
+        "effectType": "WAVE",
+        "primaryColor": "#B0BEC5",
+        "secondaryColor": "#78909C",
+        "particleCount": 20,
+        "screenShake": 5.0
+      }
+    },
+    {
+      "id": "mend_crew",
+      "name": "Mend Crew",
+      "school": "HOLY",
+      "basePower": 50,
+      "mpCost": 18,
+      "isHeal": true,
+      "description": "Patch up the associate next to you \u2014 a promised swap of the worst task, a cold drink from your bin.",
+      "exampleChant": "mend crew!",
+      "aliases": [
+        "mend crew",
+        "mend",
+        "heal",
+        "fix up",
+        "restore",
+        "help up"
+      ],
+      "graphics": {
+        "effectType": "PILLAR",
+        "primaryColor": "#FFD700",
+        "secondaryColor": "#69F0AE",
+        "particleCount": 24,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "steady_hands",
+      "name": "Steady Hands",
+      "school": "HOLY",
+      "basePower": 40,
+      "mpCost": 20,
+      "isHeal": true,
+      "hitsAll": true,
+      "description": "Breathe calm over the whole crew; everyone's wobble smooths out for a beat.",
+      "exampleChant": "steady hands!",
+      "aliases": [
+        "steady hands",
+        "steady",
+        "calm everyone",
+        "settle",
+        "ease the crew"
+      ],
+      "graphics": {
+        "effectType": "PILLAR",
+        "primaryColor": "#FFD700",
+        "secondaryColor": "#69F0AE",
+        "particleCount": 24,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "calm_floor",
+      "name": "Calm Floor",
+      "school": "HOLY",
+      "basePower": 0,
+      "mpCost": 8,
+      "isGuard": true,
+      "description": "A flat, even voice that lowers the temperature of the aisle; incoming pressure half-lost before it starts.",
+      "exampleChant": "calm floor!",
+      "aliases": [
+        "calm floor",
+        "calm",
+        "deescalate",
+        "cool it",
+        "ease off"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#90A4AE",
+        "secondaryColor": "#37474F",
+        "particleCount": 18,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "soothe_crew",
+      "name": "Soothe Crew",
+      "school": "HOLY",
+      "basePower": 55,
+      "mpCost": 16,
+      "isHeal": true,
+      "description": "Talk someone down off the register ledge \u2014 a real conversation instead of a walkie squawk.",
+      "exampleChant": "soothe crew!",
+      "aliases": [
+        "soothe crew",
+        "soothe",
+        "talk down",
+        "comfort",
+        "listen"
+      ],
+      "graphics": {
+        "effectType": "PILLAR",
+        "primaryColor": "#FFD700",
+        "secondaryColor": "#69F0AE",
+        "particleCount": 24,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "listening_session",
+      "name": "Listening Session",
+      "school": "HOLY",
+      "basePower": 40,
+      "mpCost": 14,
+      "isHeal": true,
+      "description": "Ten minutes of actually hearing the complaint; the wound doesn't close, but it stops bleeding.",
+      "exampleChant": "listening session!",
+      "aliases": [
+        "listening session",
+        "listen",
+        "hear them out",
+        "debrief",
+        "the ear"
+      ],
+      "graphics": {
+        "effectType": "PILLAR",
+        "primaryColor": "#FFD700",
+        "secondaryColor": "#69F0AE",
+        "particleCount": 24,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "morning_surge",
+      "name": "Morning Surge",
+      "school": "ELECTROMANCY",
+      "basePower": 55,
+      "mpCost": 14,
+      "hitsAll": true,
+      "description": "The 9:58 open flood \u2014 one impossible surge of customers and you ride it like a current.",
+      "exampleChant": "morning surge!",
+      "aliases": [
+        "morning surge",
+        "surge",
+        "the rush",
+        "open",
+        "flood",
+        "all enemies"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#E040FB",
+        "secondaryColor": "#00E5FF",
+        "particleCount": 24,
+        "screenShake": 6.0
+      }
+    },
+    {
+      "id": "floor_charge",
+      "name": "Floor Charge",
+      "school": "ELECTROMANCY",
+      "basePower": 60,
+      "mpCost": 12,
+      "description": "Hit every department you own like a battery reconnecting \u2014 the floor snaps alive.",
+      "exampleChant": "floor charge!",
+      "aliases": [
+        "floor charge",
+        "charge",
+        "charge the floor",
+        "energize",
+        "the charge"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#E040FB",
+        "secondaryColor": "#00E5FF",
+        "particleCount": 24,
+        "screenShake": 6.0
+      }
+    },
+    {
+      "id": "spark_ideas",
+      "name": "Spark Ideas",
+      "school": "ELECTROMANCY",
+      "basePower": 50,
+      "mpCost": 10,
+      "description": "One decent suggestion that short-circuits the old way of doing it.",
+      "exampleChant": "spark ideas!",
+      "aliases": [
+        "spark ideas",
+        "spark",
+        "idea",
+        "suggestion",
+        "brainstorm"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#E040FB",
+        "secondaryColor": "#00E5FF",
+        "particleCount": 24,
+        "screenShake": 6.0
+      }
+    },
+    {
+      "id": "static_pressure",
+      "name": "Static Pressure",
+      "school": "ELECTROMANCY",
+      "basePower": 48,
+      "mpCost": 10,
+      "status": "OVERLOAD",
+      "description": "The ambient voltage of the floor: a shock that stuns the problem into stillness.",
+      "exampleChant": "static pressure!",
+      "aliases": [
+        "static pressure",
+        "static",
+        "pressure",
+        "stun",
+        "the hum"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#E040FB",
+        "secondaryColor": "#00E5FF",
+        "particleCount": 24,
+        "screenShake": 6.0
+      }
+    },
+    {
+      "id": "quick_flash",
+      "name": "Quick Flash",
+      "school": "ELECTROMANCY",
+      "basePower": 52,
+      "mpCost": 12,
+      "description": "That split-second of certainty when you see the whole 12-box pattern at once.",
+      "exampleChant": "quick flash!",
+      "aliases": [
+        "quick flash",
+        "flash",
+        "quick",
+        "the pattern"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#E040FB",
+        "secondaryColor": "#00E5FF",
+        "particleCount": 24,
+        "screenShake": 6.0
+      }
+    },
+    {
+      "id": "burnout",
+      "name": "Burnout",
+      "school": "PYROMANCY",
+      "basePower": 62,
+      "mpCost": 14,
+      "status": "BURN",
+      "description": "The 48-hour grind pushed to its breaking point \u2014 readiness corrodes from within.",
+      "exampleChant": "burnout!",
+      "aliases": [
+        "burnout",
+        "burn",
+        "overwork",
+        "the grind",
+        "exhaust"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#FF5722",
+        "secondaryColor": "#FFD54F",
+        "particleCount": 24,
+        "screenShake": 7.0
+      }
+    },
+    {
+      "id": "heat_grill",
+      "name": "Heat Grill",
+      "school": "PYROMANCY",
+      "basePower": 55,
+      "mpCost": 12,
+      "description": "The unrelenting heat of the back-line grill: pressure applied until the other side cracks.",
+      "exampleChant": "heat grill!",
+      "aliases": [
+        "heat grill",
+        "heat",
+        "grill",
+        "pressure",
+        "hot"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#FF5722",
+        "secondaryColor": "#FFD54F",
+        "particleCount": 24,
+        "screenShake": 7.0
+      }
+    },
+    {
+      "id": "flare_up",
+      "name": "Flare Up",
+      "school": "PYROMANCY",
+      "basePower": 50,
+      "mpCost": 10,
+      "description": "The rare, honest flash of anger you let someone actually see. Just one. Then it's gone.",
+      "exampleChant": "flare up!",
+      "aliases": [
+        "flare up",
+        "flare",
+        "anger",
+        "snap",
+        "lash out"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#FF5722",
+        "secondaryColor": "#FFD54F",
+        "particleCount": 24,
+        "screenShake": 7.0
+      }
+    },
+    {
+      "id": "searing_shift",
+      "name": "Searing Shift",
+      "school": "PYROMANCY",
+      "basePower": 58,
+      "mpCost": 16,
+      "description": "The closing heat of a double shift \u2014 you're already burned, so you don't feel it anymore.",
+      "exampleChant": "searing shift!",
+      "aliases": [
+        "searing shift",
+        "searing",
+        "burning shift",
+        "double shift",
+        "hot shift"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#FF5722",
+        "secondaryColor": "#FFD54F",
+        "particleCount": 24,
+        "screenShake": 7.0
+      }
+    },
+    {
+      "id": "cold_start",
+      "name": "Cold Start",
+      "school": "CRYOMANCY",
+      "basePower": 48,
+      "mpCost": 10,
+      "description": "The 3:57 AM ignition of the building \u2014 dead quiet, frozen aisles, and you keying the world awake.",
+      "exampleChant": "cold start!",
+      "aliases": [
+        "cold start",
+        "cold",
+        "early",
+        "dawn",
+        "open up"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#00E5FF",
+        "secondaryColor": "#80DEEA",
+        "particleCount": 20,
+        "screenShake": 4.0
+      }
+    },
+    {
+      "id": "frostbite",
+      "name": "Frostbite",
+      "school": "CRYOMANCY",
+      "basePower": 58,
+      "mpCost": 12,
+      "status": "CHILL",
+      "description": "The freezer lane visit that numbs your hands and slows the clock to a crawl.",
+      "exampleChant": "frostbite!",
+      "aliases": [
+        "frostbite",
+        "frost",
+        "freezer",
+        "cold lane"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#00E5FF",
+        "secondaryColor": "#80DEEA",
+        "particleCount": 20,
+        "screenShake": 4.0
+      }
+    },
+    {
+      "id": "deep_freeze",
+      "name": "Deep Freeze",
+      "school": "CRYOMANCY",
+      "basePower": 55,
+      "mpCost": 14,
+      "status": "FREEZE",
+      "description": "The frozen-food wall: everything stops \u2014 you, the aisle, the week \u2014 for a long, white moment.",
+      "exampleChant": "deep freeze!",
+      "aliases": [
+        "deep freeze",
+        "freeze",
+        "frozen",
+        "solid"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#00E5FF",
+        "secondaryColor": "#80DEEA",
+        "particleCount": 20,
+        "screenShake": 4.0
+      }
+    },
+    {
+      "id": "quiet_chill",
+      "name": "Quiet Chill",
+      "school": "CRYOMANCY",
+      "basePower": 50,
+      "mpCost": 12,
+      "description": "The hush after close, when the ballasts hum and the store belongs to the overnight crew.",
+      "exampleChant": "quiet chill!",
+      "aliases": [
+        "quiet chill",
+        "chill",
+        "quiet",
+        "after close",
+        "stillness"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#00E5FF",
+        "secondaryColor": "#80DEEA",
+        "particleCount": 20,
+        "screenShake": 4.0
+      }
+    },
+    {
+      "id": "grow_crew",
+      "name": "Grow Crew",
+      "school": "NATURE",
+      "basePower": 50,
+      "mpCost": 18,
+      "isHeal": true,
+      "description": "Train the green hand into a full associate \u2014 watch them rise instead of quit.",
+      "exampleChant": "grow crew!",
+      "aliases": [
+        "grow crew",
+        "grow",
+        "train",
+        "develop",
+        "build up"
+      ],
+      "graphics": {
+        "effectType": "PILLAR",
+        "primaryColor": "#FFD700",
+        "secondaryColor": "#69F0AE",
+        "particleCount": 24,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "root_cause",
+      "name": "Root Cause",
+      "school": "NATURE",
+      "basePower": 52,
+      "mpCost": 12,
+      "description": "Stop patching the symptom; trace it back to the source and tear that out instead.",
+      "exampleChant": "root cause!",
+      "aliases": [
+        "root cause",
+        "root",
+        "diagnose",
+        "source",
+        "fix it right"
+      ],
+      "graphics": {
+        "effectType": "WAVE",
+        "primaryColor": "#66BB6A",
+        "secondaryColor": "#2E7D32",
+        "particleCount": 20,
+        "screenShake": 4.0
+      }
+    },
+    {
+      "id": "second_seed",
+      "name": "Second Seed",
+      "school": "NATURE",
+      "basePower": 40,
+      "mpCost": 16,
+      "isHeal": true,
+      "description": "The second chance offered to someone the machine has already written off.",
+      "exampleChant": "second seed!",
+      "aliases": [
+        "second seed",
+        "seed",
+        "second chance",
+        "redo",
+        "start over"
+      ],
+      "graphics": {
+        "effectType": "PILLAR",
+        "primaryColor": "#FFD700",
+        "secondaryColor": "#69F0AE",
+        "particleCount": 24,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "canopy_shield",
+      "name": "Canopy Shield",
+      "school": "NATURE",
+      "basePower": 0,
+      "mpCost": 12,
+      "isGuard": true,
+      "description": "Spread yourself thin over the whole department like a canopy \u2014 the storm hits you first, all of it.",
+      "exampleChant": "canopy shield!",
+      "aliases": [
+        "canopy shield",
+        "canopy",
+        "shield",
+        "cover everyone",
+        "umbrella"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#90A4AE",
+        "secondaryColor": "#37474F",
+        "particleCount": 18,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "night_shift",
+      "name": "Night Shift",
+      "school": "SHADOW",
+      "basePower": 58,
+      "mpCost": 12,
+      "description": "The signature overnight strike: unseen work in the dark that nobody thanks and everyone needs.",
+      "exampleChant": "night shift!",
+      "aliases": [
+        "night shift",
+        "night",
+        "overnight",
+        "nights",
+        "third shift"
+      ],
+      "graphics": {
+        "effectType": "SLASH",
+        "primaryColor": "#7C4DFF",
+        "secondaryColor": "#311B92",
+        "particleCount": 22,
+        "screenShake": 6.0
+      }
+    },
+    {
+      "id": "shadow_doubt",
+      "name": "Shadow Doubt",
+      "school": "SHADOW",
+      "basePower": 54,
+      "mpCost": 14,
+      "description": "Plant the suspicion that your enemy planted first \u2014 turn the machine's whisper back on it.",
+      "exampleChant": "shadow doubt!",
+      "aliases": [
+        "shadow doubt",
+        "shadow",
+        "doubt",
+        "whisper",
+        "undermine"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#7C4DFF",
+        "secondaryColor": "#311B92",
+        "particleCount": 22,
+        "screenShake": 6.0
+      }
+    },
+    {
+      "id": "backroom_whisper",
+      "name": "Backroom Whisper",
+      "school": "SHADOW",
+      "basePower": 50,
+      "mpCost": 12,
+      "description": "The conversation that happens at the baler, in the smoke break, just out of camera range.",
+      "exampleChant": "backroom whisper!",
+      "aliases": [
+        "backroom whisper",
+        "whisper",
+        "gossip",
+        "the baler talk",
+        "smoke break"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#7C4DFF",
+        "secondaryColor": "#311B92",
+        "particleCount": 22,
+        "screenShake": 6.0
+      }
+    },
+    {
+      "id": "drain_energy",
+      "name": "Drain Energy",
+      "school": "SHADOW",
+      "basePower": 55,
+      "mpCost": 14,
+      "lifesteal": true,
+      "description": "Take the good shift from someone who stole yours first \u2014 hours, favor, standing, all of it.",
+      "exampleChant": "drain energy!",
+      "aliases": [
+        "drain energy",
+        "drain",
+        "siphon",
+        "leech",
+        "steal the hour"
+      ],
+      "graphics": {
+        "effectType": "SLASH",
+        "primaryColor": "#7C4DFF",
+        "secondaryColor": "#311B92",
+        "particleCount": 22,
+        "screenShake": 6.0
+      }
+    },
+    {
+      "id": "lube_line",
+      "name": "Lube Line",
+      "school": "PHYSICAL",
+      "basePower": 40,
+      "mpCost": 0,
+      "description": "The basic rhythm of the service line: drain, filter, fill, torque. Free, tireless, always available.",
+      "exampleChant": "lube line!",
+      "aliases": [
+        "lube line",
+        "lube",
+        "oil",
+        "the line",
+        "basic",
+        "attack"
+      ],
+      "graphics": {
+        "effectType": "SLASH",
+        "primaryColor": "#ECEFF1",
+        "secondaryColor": "#FF5252",
+        "particleCount": 18,
+        "screenShake": 3.0
+      }
+    },
+    {
+      "id": "tire_grind",
+      "name": "Tire Grind",
+      "school": "PHYSICAL",
+      "basePower": 55,
+      "mpCost": 12,
+      "description": "Break the bead, spin the mount, seat the tire \u2014 the machine gives nothing for free, so you take the torque.",
+      "exampleChant": "tire grind!",
+      "aliases": [
+        "tire grind",
+        "grind",
+        "tires",
+        "mount",
+        "the tire machine"
+      ],
+      "graphics": {
+        "effectType": "SLASH",
+        "primaryColor": "#ECEFF1",
+        "secondaryColor": "#FF5252",
+        "particleCount": 18,
+        "screenShake": 3.0
+      }
+    },
+    {
+      "id": "bay_charge",
+      "name": "Bay Charge",
+      "school": "PHYSICAL",
+      "basePower": 52,
+      "mpCost": 12,
+      "description": "Move where the work is, every bay at once, until the whole shop hums in tune.",
+      "exampleChant": "bay charge!",
+      "aliases": [
+        "bay charge",
+        "charge",
+        "the bay",
+        "bay drill",
+        "run the shop"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#CFD8DC",
+        "secondaryColor": "#90A4AE",
+        "particleCount": 16,
+        "screenShake": 2.0
+      }
+    },
+    {
+      "id": "jack_hold",
+      "name": "Jack Hold",
+      "school": "PHYSICAL",
+      "basePower": 0,
+      "mpCost": 10,
+      "isGuard": true,
+      "description": "Plant the jack stand before you reach under the frame. Halve the next blow \u2014 nothing drops on your watch.",
+      "exampleChant": "jack hold!",
+      "aliases": [
+        "jack hold",
+        "hold",
+        "defend",
+        "guard",
+        "jack stand",
+        "lock it"
+      ],
+      "graphics": {
+        "effectType": "BURST",
+        "primaryColor": "#90A4AE",
+        "secondaryColor": "#37474F",
+        "particleCount": 18,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "volt_snap",
+      "name": "Volt Snap",
+      "school": "ELECTROMANCY",
+      "basePower": 58,
+      "mpCost": 14,
+      "description": "The impact gun's snap: four lugs off in a heartbeat and the stubborn part gives up first.",
+      "exampleChant": "volt snap!",
+      "aliases": [
+        "volt snap",
+        "snap",
+        "impact",
+        "lugs",
+        "the gun",
+        "voltage"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#E040FB",
+        "secondaryColor": "#00E5FF",
+        "particleCount": 24,
+        "screenShake": 6.0
+      }
+    },
+    {
+      "id": "coolant_chill",
+      "name": "Coolant Chill",
+      "school": "CRYOMANCY",
+      "basePower": 50,
+      "mpCost": 10,
+      "description": "Drain the overheated radiator and watch the steam die \u2014 the engine cools to working temperature.",
+      "exampleChant": "coolant chill!",
+      "aliases": [
+        "coolant chill",
+        "chill",
+        "coolant",
+        "radiator",
+        "cool down",
+        "the steam"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#00E5FF",
+        "secondaryColor": "#80DEEA",
+        "particleCount": 20,
+        "screenShake": 4.0
+      }
+    },
+    {
+      "id": "bay_heat",
+      "name": "Bay Heat",
+      "school": "PYROMANCY",
+      "basePower": 52,
+      "mpCost": 12,
+      "description": "The working heat of a shop at full tilt: every tech moving, every lift loaded, the whole building cooking.",
+      "exampleChant": "bay heat!",
+      "aliases": [
+        "bay heat",
+        "heat",
+        "hot",
+        "full tilt",
+        "the forge"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#FF5722",
+        "secondaryColor": "#FFD54F",
+        "particleCount": 24,
+        "screenShake": 7.0
+      }
+    },
+    {
+      "id": "belt_mend",
+      "name": "Belt Mend",
+      "school": "HOLY",
+      "basePower": 50,
+      "mpCost": 16,
+      "isHeal": true,
+      "description": "Patch the tech who's been running all day \u2014 a swapped task, a cold drink from your bin, the line keeps moving.",
+      "exampleChant": "belt mend!",
+      "aliases": [
+        "belt mend",
+        "mend",
+        "heal",
+        "patch",
+        "restore",
+        "fix up"
+      ],
+      "graphics": {
+        "effectType": "PILLAR",
+        "primaryColor": "#FFD700",
+        "secondaryColor": "#69F0AE",
+        "particleCount": 24,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "grease_clear",
+      "name": "Grease Clear",
+      "school": "PHYSICAL",
+      "basePower": 46,
+      "mpCost": 14,
+      "hitsAll": true,
+      "description": "One sweep of the bay floor \u2014 every work order in the shop clears at once.",
+      "exampleChant": "grease clear!",
+      "aliases": [
+        "grease clear",
+        "clear",
+        "sweep",
+        "the bay floor",
+        "all enemies",
+        "work orders"
+      ],
+      "graphics": {
+        "effectType": "WAVE",
+        "primaryColor": "#B0BEC5",
+        "secondaryColor": "#78909C",
+        "particleCount": 20,
+        "screenShake": 5.0
+      }
+    }
   ]
 }

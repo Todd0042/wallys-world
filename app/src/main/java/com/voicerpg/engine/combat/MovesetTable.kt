@@ -1,6 +1,8 @@
 package com.voicerpg.engine.combat
 
-// GENERATED from docs/combat-design/data/movesets.json - regenerate, do not hand-edit.
+import com.voicerpg.engine.content.GameContent
+import com.voicerpg.engine.model.SpellGraphics
+
 data class EnemyMove(
     val name: String,
     val school: String,
@@ -11,7 +13,8 @@ data class EnemyMove(
     val cooldownTurns: Int = 0,
     val weight: Int = 1,
     val summon: String? = null,
-    val summonCount: Int = 0
+    val summonCount: Int = 0,
+    val graphics: SpellGraphics? = null
 )
 data class PhaseRule(val hpBelow: Float, val addMoves: List<EnemyMove>, val note: String = "")
 data class Moveset(val moves: List<EnemyMove>, val phases: List<PhaseRule> = emptyList())
@@ -47,5 +50,5 @@ object MovesetTable {
         "mirror_doppel" to Moveset(listOf(EnemyMove("Mimic Strike", "PHYSICAL", "BASIC", 1.0f, "SINGLE_RANDOM", applyStatus = null, cooldownTurns = 0, weight = 5, summon = null, summonCount = 0), EnemyMove("Echo Incantation", "ELECTROMANCY", "AOE", 0.7f, "PARTY_AOE", applyStatus = "WEAKEN", cooldownTurns = 4, weight = 3, summon = null, summonCount = 0)), listOf()),
         "boss_template" to Moveset(listOf(EnemyMove("Crushing Blow", "PHYSICAL", "BASIC", 1.2f, "SINGLE_RANDOM", applyStatus = null, cooldownTurns = 0, weight = 4, summon = null, summonCount = 0), EnemyMove("Heavy Slam", "PHYSICAL", "HEAVY", 1.7f, "SINGLE_LOWEST_HP", applyStatus = null, cooldownTurns = 3, weight = 3, summon = null, summonCount = 0), EnemyMove("Shockwave", "PHYSICAL", "AOE", 0.8f, "PARTY_AOE", applyStatus = "WEAKEN", cooldownTurns = 4, weight = 3, summon = null, summonCount = 0), EnemyMove("Cataclysm", "PHYSICAL", "AOE", 2.4f, "PARTY_AOE", applyStatus = "OVERLOAD", cooldownTurns = 5, weight = 2, summon = null, summonCount = 0)), listOf(PhaseRule(0.66f, listOf(), "Enrages: summons reinforcements"), PhaseRule(0.33f, listOf(), "Overload: cataclysmic party-wide pressure"))),
     )
-    fun movesetFor(id: String): Moveset? = TABLE[id]
+    fun movesetFor(id: String): Moveset? = GameContent.movesetById(id) ?: TABLE[id]
 }

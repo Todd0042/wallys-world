@@ -589,9 +589,10 @@ class CombatViewModel(
             val moveSchool = runCatching { SpellSchool.valueOf(move.school) }.getOrDefault(SpellSchool.PHYSICAL)
             val (enemyCasterX, enemyCasterY) = enemyFloatSlot(enemy.id)
 
+            val enemyGraphics = move.graphics
             if (targetList.size > 1) {
                 // Multi-projectile AoE from enemy caster to each targeted hero
-                val perHeroParticles = (15 / targetList.size).coerceAtLeast(8)
+                val perHeroParticles = enemyGraphics?.particleCount ?: (15 / targetList.size).coerceAtLeast(8)
                 for (targetHero in targetList) {
                     val (heroX, heroY) = partyFloatSlot(targetHero.id)
                     spellVfxEngine.launch(
@@ -601,6 +602,7 @@ class CombatViewModel(
                         targetY = heroY,
                         school = moveSchool,
                         isHeal = false,
+                        graphics = enemyGraphics,
                         onImpact = {
                             particleEmitter.emit(
                                 school = moveSchool,
@@ -615,6 +617,7 @@ class CombatViewModel(
             } else {
                 val targetHero = targetList.firstOrNull()
                 val (heroX, heroY) = if (targetHero != null) partyFloatSlot(targetHero.id) else (250f to 350f)
+                val particleCount = enemyGraphics?.particleCount ?: 15
                 spellVfxEngine.launch(
                     startX = enemyCasterX,
                     startY = enemyCasterY,
@@ -622,12 +625,13 @@ class CombatViewModel(
                     targetY = heroY,
                     school = moveSchool,
                     isHeal = false,
+                    graphics = enemyGraphics,
                     onImpact = {
                         particleEmitter.emit(
                             school = moveSchool,
                             originX = heroX,
                             originY = heroY,
-                            count = 15,
+                            count = particleCount,
                             isLogos = false
                         )
                     }
@@ -636,8 +640,9 @@ class CombatViewModel(
 
             delay(if (isBossUltimate) 550 else 350)
             sfxManager.playHitImpact()
-            if (isBossUltimate) {
-                triggerScreenShake(18f)
+            val moveShake = enemyGraphics?.screenShake ?: 0f
+            if (isBossUltimate || moveShake > 0f) {
+                triggerScreenShake(if (isBossUltimate) 18f.coerceAtLeast(moveShake) else moveShake)
             }
 
             val moveStatusId = StatusId.fromNameOrNull(move.applyStatus)
@@ -1952,6 +1957,7 @@ class CombatViewModel(
             val isAttune = parsed.spell.manaRestorePct > 0f
             val isHeal = parsed.spell.isHeal
             val (casterX, casterY) = partyFloatSlot(activeHero.id)
+            val spellGraphics = parsed.spell.graphics
 
             if (isAttune) {
                 // Attune restorative radiance directly over the active hero
@@ -1965,7 +1971,7 @@ class CombatViewModel(
             } else if (isHeal) {
                 val healTargets = resolveHealTargets(activeHero, parsed.spell, parsed.target, parsed.targetHeroId)
                 val effectiveTargets = if (healTargets.isNotEmpty()) healTargets else listOf(activeHero)
-                val perHeroParticles = (resonance.particleCount / effectiveTargets.size).coerceAtLeast(8)
+                val perHeroParticles = spellGraphics?.particleCount ?: (resonance.particleCount / effectiveTargets.size).coerceAtLeast(8)
                 for (targetHero in effectiveTargets) {
                     val (targetX, targetY) = partyFloatSlot(targetHero.id)
                     spellVfxEngine.launch(
@@ -1977,6 +1983,7 @@ class CombatViewModel(
                         isHeal = true,
                         bonusPercent = resonance.bonusPercent,
                         tier = resonance.tier,
+                        graphics = spellGraphics,
                         onImpact = {
                             particleEmitter.emit(
                                 school = parsed.spell.school,
@@ -2001,12 +2008,13 @@ class CombatViewModel(
                         isHeal = false,
                         bonusPercent = resonance.bonusPercent,
                         tier = resonance.tier,
+                        graphics = spellGraphics,
                         onImpact = {
                             particleEmitter.emit(
                                 school = parsed.spell.school,
                                 originX = 800f,
                                 originY = 350f,
-                                count = resonance.particleCount,
+                                count = spellGraphics?.particleCount ?: resonance.particleCount,
                                 isLogos = isSuperLogos
                             )
                         }
@@ -2023,19 +2031,20 @@ class CombatViewModel(
                         isHeal = false,
                         bonusPercent = resonance.bonusPercent,
                         tier = resonance.tier,
+                        graphics = spellGraphics,
                         onImpact = {
                             particleEmitter.emit(
                                 school = parsed.spell.school,
                                 originX = targetX,
                                 originY = targetY,
-                                count = resonance.particleCount,
+                                count = spellGraphics?.particleCount ?: resonance.particleCount,
                                 isLogos = isSuperLogos
                             )
                         }
                     )
                 } else {
                     // Multi-projectile AoE: one projectile aimed at each enemy in formation!
-                    val perTargetParticles = (resonance.particleCount / damageTargets.size).coerceAtLeast(8)
+                    val perTargetParticles = spellGraphics?.particleCount ?: (resonance.particleCount / damageTargets.size).coerceAtLeast(8)
                     for (targetEnemy in damageTargets) {
                         val (targetX, targetY) = enemyFloatSlot(targetEnemy.id)
                         spellVfxEngine.launch(
@@ -2047,6 +2056,7 @@ class CombatViewModel(
                             isHeal = false,
                             bonusPercent = resonance.bonusPercent,
                             tier = resonance.tier,
+                            graphics = spellGraphics,
                             onImpact = {
                                 particleEmitter.emit(
                                     school = parsed.spell.school,
@@ -2063,6 +2073,7 @@ class CombatViewModel(
 
             // Allow projectile(s) to travel to target
             delay(420)
+            spellGraphics?.screenShake?.let { if (it > 0f) triggerScreenShake(it) }
 
             // 4. Spend mana, then resolve through the combat doctrine:
             //    affinity scales the BASE; the resonance multiplier stays untouched by any matchup.

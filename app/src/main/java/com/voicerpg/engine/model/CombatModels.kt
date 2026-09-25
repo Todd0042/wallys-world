@@ -13,6 +13,14 @@ enum class SpellSchool(val displayName: String, val themeColor: Color) {
     PHYSICAL("Martial", Color(0xFFCFD8DC))
 }
 
+data class SpellGraphics(
+    val effectType: String = "PROJECTILE", // PROJECTILE, SLASH, PILLAR, BURST, WAVE
+    val primaryColor: String? = null,
+    val secondaryColor: String? = null,
+    val particleCount: Int = 16,
+    val screenShake: Float = 0f
+)
+
 data class Spell(
     val id: String,
     val name: String,
@@ -27,7 +35,8 @@ data class Spell(
     val lifesteal: Boolean = false,
     val isGuard: Boolean = false,
     val manaRestorePct: Float = 0f,
-    val aliases: List<String> = emptyList()
+    val aliases: List<String> = emptyList(),
+    val graphics: SpellGraphics? = null
 )
 
 enum class CharacterStance {

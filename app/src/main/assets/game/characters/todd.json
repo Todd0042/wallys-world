@@ -1,5 +1,5 @@
 {
-  "_doc": "Todd — the hero, an hourly freight associate at the fictional megastore chain Wally's World. Names, titles, policies, and brand terms are deliberately fictional for legal distance (see AGENTS.md 'Content Neutrality'); the fiction is a recognizable-but-unproveable portrait of big-box retail labor.",
+  "_doc": "Todd \u2014 the hero, an hourly freight associate at the fictional megastore chain Wally's World. Names, titles, policies, and brand terms are deliberately fictional for legal distance (see AGENTS.md 'Content Neutrality'); the fiction is a recognizable-but-unproveable portrait of big-box retail labor.",
   "id": "hero",
   "role": "hero",
   "name": "Todd",
@@ -38,7 +38,135 @@
       "speed": 1,
       "defense": 1,
       "potencyPct": 0.03
-    }
+    },
+    "spells": [
+      {
+        "id": "line_drill",
+        "name": "Line Drill",
+        "school": "PHYSICAL",
+        "basePower": 40,
+        "mpCost": 0,
+        "description": "The basic rhythm of the line: case, scan, slot, move on. Free, tireless, always available.",
+        "exampleChant": "line drill!",
+        "aliases": [
+          "line drill",
+          "drill",
+          "work the line",
+          "the line",
+          "basic",
+          "attack"
+        ],
+        "graphics": {
+          "effectType": "SLASH",
+          "primaryColor": "#ECEFF1",
+          "secondaryColor": "#FF5252",
+          "particleCount": 18,
+          "screenShake": 3.0
+        }
+      },
+      {
+        "id": "freight_push",
+        "name": "Freight Push",
+        "school": "PHYSICAL",
+        "basePower": 55,
+        "mpCost": 12,
+        "description": "Shove the wall of boxes forward with your whole body instead of letting it win.",
+        "exampleChant": "freight push!",
+        "aliases": [
+          "freight push",
+          "push",
+          "push the freight",
+          "heave",
+          "the wall"
+        ],
+        "graphics": {
+          "effectType": "WAVE",
+          "primaryColor": "#B0BEC5",
+          "secondaryColor": "#78909C",
+          "particleCount": 20,
+          "screenShake": 5.0
+        }
+      },
+      {
+        "id": "hold_ground",
+        "name": "Hold Ground",
+        "school": "PHYSICAL",
+        "basePower": 0,
+        "mpCost": 10,
+        "isGuard": true,
+        "description": "Plant your boots. Halve the incoming damage of the next assault \u2014 the mart stays up.",
+        "exampleChant": "hold ground!",
+        "aliases": [
+          "hold ground",
+          "hold",
+          "defend",
+          "guard",
+          "protect",
+          "stand your ground"
+        ],
+        "graphics": {
+          "effectType": "BURST",
+          "primaryColor": "#90A4AE",
+          "secondaryColor": "#37474F",
+          "particleCount": 18,
+          "screenShake": 0.0
+        }
+      },
+      {
+        "id": "grind_out",
+        "name": "Grind Out",
+        "school": "PHYSICAL",
+        "basePower": 60,
+        "mpCost": 14,
+        "description": "The stubborn hour: no breaks, no conversation, just the grunt work until the pallet is gone.",
+        "exampleChant": "grind out!",
+        "aliases": [
+          "grind out",
+          "grind",
+          "grind it out",
+          "push through",
+          "slog"
+        ],
+        "graphics": {
+          "effectType": "SLASH",
+          "primaryColor": "#ECEFF1",
+          "secondaryColor": "#FF5252",
+          "particleCount": 18,
+          "screenShake": 3.0
+        }
+      },
+      {
+        "id": "breathe",
+        "name": "Breathe",
+        "school": "PHYSICAL",
+        "basePower": 0,
+        "mpCost": 0,
+        "manaRestorePct": 0.35,
+        "description": "The breath discipline: center yourself for three seconds in the break room and a third of your resolve returns.",
+        "exampleChant": "breathe",
+        "aliases": [
+          "breathe",
+          "breath",
+          "attune",
+          "center",
+          "centre",
+          "steady",
+          "focus",
+          "concentrate",
+          "gather",
+          "recover",
+          "restore mana",
+          "recover mana"
+        ],
+        "graphics": {
+          "effectType": "BURST",
+          "primaryColor": "#80DEEA",
+          "secondaryColor": "#00ACC1",
+          "particleCount": 18,
+          "screenShake": 0.0
+        }
+      }
+    ]
   },
   "joinWhenFlag": null,
   "spellGrants": [],

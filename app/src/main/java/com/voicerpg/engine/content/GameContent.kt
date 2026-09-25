@@ -5,7 +5,11 @@ import android.content.res.AssetManager
 import androidx.compose.ui.graphics.Color
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
+import com.voicerpg.engine.combat.EnemyMove
+import com.voicerpg.engine.combat.Moveset
+import com.voicerpg.engine.combat.PhaseRule
 import com.voicerpg.engine.combat.StatGrowth
+import com.voicerpg.engine.model.SpellGraphics
 import com.voicerpg.engine.model.BattleEnvironment
 import com.voicerpg.engine.model.DialogueChoice
 import com.voicerpg.engine.model.DialogueNode
@@ -59,6 +63,7 @@ data class CharacterCombatDto(
     val avatarTint: String = "#4FC3F7",
     val startAtb: Float = 0f,
     val spellIds: List<String>? = null,
+    val spells: List<SpellDto>? = null,
     val growth: GrowthDto? = null
 )
 
@@ -102,6 +107,7 @@ data class CharacterDto(
     val voiceAliases: List<String>? = null,
     val loreClass: String = "Adventurer",
     val combat: CharacterCombatDto? = null,
+    val spells: List<SpellDto>? = null,
     val joinWhenFlag: String? = null,
     val spellGrants: List<SpellGrantDto>? = null
 )
@@ -121,6 +127,22 @@ data class ClassDto(
     val growth: GrowthDto? = null
 )
 
+data class SpellGraphicsDto(
+    val effectType: String? = null,
+    val primaryColor: String? = null,
+    val secondaryColor: String? = null,
+    val particleCount: Int? = null,
+    val screenShake: Float? = null
+) {
+    fun toSpellGraphics(): SpellGraphics = SpellGraphics(
+        effectType = effectType ?: "PROJECTILE",
+        primaryColor = primaryColor,
+        secondaryColor = secondaryColor,
+        particleCount = particleCount ?: 16,
+        screenShake = screenShake ?: 0f
+    )
+}
+
 data class SpellDto(
     val id: String = "",
     val name: String = "",
@@ -135,10 +157,65 @@ data class SpellDto(
     val lifesteal: Boolean = false,
     val isGuard: Boolean = false,
     val manaRestorePct: Float = 0f,
-    val aliases: List<String>? = null
+    val aliases: List<String>? = null,
+    val graphics: SpellGraphicsDto? = null
 )
 
 data class SpellFileDto(val spells: List<SpellDto>? = null)
+
+data class EnemyMoveDto(
+    val name: String = "",
+    val school: String = "PHYSICAL",
+    val kind: String = "BASIC",
+    val powerMult: Float = 1.0f,
+    val targetRule: String = "SINGLE_RANDOM",
+    val applyStatus: String? = null,
+    val cooldownTurns: Int = 0,
+    val weight: Int = 1,
+    val summon: String? = null,
+    val summonCount: Int = 0,
+    val graphics: SpellGraphicsDto? = null
+) {
+    fun toEnemyMove(): EnemyMove = EnemyMove(
+        name = name.ifBlank { "Attack" },
+        school = school,
+        kind = kind,
+        powerMult = powerMult,
+        targetRule = targetRule,
+        applyStatus = applyStatus,
+        cooldownTurns = cooldownTurns,
+        weight = weight,
+        summon = summon,
+        summonCount = summonCount,
+        graphics = graphics?.toSpellGraphics()
+    )
+}
+
+data class PhaseRuleDto(
+    val hpBelow: Float = 0.5f,
+    val addMoves: List<EnemyMoveDto>? = null,
+    val note: String = ""
+) {
+    fun toPhaseRule(): PhaseRule = PhaseRule(
+        hpBelow = hpBelow,
+        addMoves = addMoves?.map { it.toEnemyMove() } ?: emptyList(),
+        note = note
+    )
+}
+
+data class MovesetDto(
+    val moves: List<EnemyMoveDto>? = null,
+    val phases: List<PhaseRuleDto>? = null
+) {
+    fun toMoveset(): Moveset = Moveset(
+        moves = moves?.map { it.toEnemyMove() } ?: emptyList(),
+        phases = phases?.map { it.toPhaseRule() } ?: emptyList()
+    )
+}
+
+data class EnemySpellsFileDto(
+    val movesets: Map<String, MovesetDto>? = null
+)
 
 data class EnemyDto(
     val id: String = "",
@@ -432,7 +509,8 @@ class GameContentPack(
     val scenes: Map<String, StoryScene>,
     val nodes: Map<String, DialogueNode>,
     val narrator: DialogueSpeaker,
-    val enemySprites: Map<String, SpriteDefinition> = emptyMap()
+    val enemySprites: Map<String, SpriteDefinition> = emptyMap(),
+    val enemyMovesets: Map<String, Moveset> = emptyMap()
 ) {
     val heroCharacter: GameCharacter? = characters.values.firstOrNull { it.role == CharacterRole.HERO }
 
@@ -471,6 +549,8 @@ class GameContentPack(
     fun enemyTemplateById(id: String?): EnemyTemplate? = if (id == null) null else enemyTemplates[id]
 
     fun enemySpriteById(id: String?): SpriteDefinition? = if (id == null) null else enemySprites[id]
+
+    fun movesetById(id: String?): Moveset? = if (id == null) null else enemyMovesets[id]
 
     fun voiceAliasesFor(memberId: String?): List<String> = characterById(memberId)?.voiceAliases ?: emptyList()
 
@@ -593,18 +673,26 @@ class GameContentLoader(private val source: ContentSource) {
 
     fun load(): GameContentPack {
         val manifestDto = read("manifest.json", ManifestDto::class.java) ?: ManifestDto()
-        val spells = (read("spells/spells.json", SpellFileDto::class.java)?.spells ?: emptyList())
+        val catalogSpells = (read("spells/spells.json", SpellFileDto::class.java)?.spells ?: emptyList())
             .map { it.toSpell() }
             .associateBy { it.id }
+
+        val characterDtos = source.listFiles("characters")
+            .mapNotNull { read("characters/$it", CharacterDto::class.java) }
+            .filter { it.id.isNotBlank() }
+
+        val characterSpells = characterDtos.flatMap { c ->
+            (c.combat?.spells ?: c.spells ?: emptyList()).map { it.toSpell() }
+        }.associateBy { it.id }
+
+        val spells = catalogSpells + characterSpells
 
         val classes = source.listFiles("classes")
             .mapNotNull { read("classes/$it", ClassDto::class.java) }
             .filter { it.id.isNotBlank() }
             .map { it.toDef(spells) }
 
-        val characters = source.listFiles("characters")
-            .mapNotNull { read("characters/$it", CharacterDto::class.java) }
-            .filter { it.id.isNotBlank() }
+        val characters = characterDtos
             .map { it.toCharacter(spells) }
             .associateBy { it.id }
 
@@ -635,6 +723,9 @@ class GameContentLoader(private val source: ContentSource) {
             }
             .toMap()
 
+        val enemyMovesets = (read("enemies/enemy_spells.json", EnemySpellsFileDto::class.java)?.movesets ?: emptyMap())
+            .mapValues { it.value.toMoveset() }
+
         val narrator = characters.values.firstOrNull { it.role == CharacterRole.NARRATOR }?.speaker
             ?: DialogueSpeaker.NARRATOR
 
@@ -658,7 +749,8 @@ class GameContentLoader(private val source: ContentSource) {
             scenes = scenes,
             nodes = nodes,
             narrator = narrator,
-            enemySprites = enemySprites
+            enemySprites = enemySprites,
+            enemyMovesets = enemyMovesets
         )
         return if (pack.scenes.isEmpty() || pack.nodes.isEmpty()) EmergencyFallback.build() else pack
     }
@@ -683,7 +775,8 @@ class GameContentLoader(private val source: ContentSource) {
         lifesteal = lifesteal,
         isGuard = isGuard,
         manaRestorePct = manaRestorePct,
-        aliases = aliases ?: emptyList()
+        aliases = aliases ?: emptyList(),
+        graphics = graphics?.toSpellGraphics()
     )
 
     private fun ClassDto.toDef(spells: Map<String, Spell>): HeroClassDef = HeroClassDef(
@@ -712,6 +805,9 @@ class GameContentLoader(private val source: ContentSource) {
             samplePhrase = samplePhrase
         )
         val combat = combat?.let { c ->
+            val embeddedSpells = (c.spells ?: this.spells ?: emptyList()).map { it.toSpell() }
+            val referencedSpells = (c.spellIds ?: emptyList()).mapNotNull { spells[it] }
+            val allSpells = (embeddedSpells + referencedSpells).distinctBy { it.id }
             CharacterCombat(
                 maxHp = c.maxHp,
                 maxMp = c.maxMp,
@@ -719,7 +815,7 @@ class GameContentLoader(private val source: ContentSource) {
                 defense = c.defense,
                 avatarTint = parseHexColor(c.avatarTint, Color(0xFF4FC3F7)),
                 startAtb = c.startAtb,
-                spells = (c.spellIds ?: emptyList()).mapNotNull { spells[it] },
+                spells = allSpells,
                 growth = (c.growth ?: GrowthDto()).toStatGrowth()
             )
         }
@@ -989,6 +1085,7 @@ object GameContent {
     val encounters: Map<String, EncounterDefinition> get() = pack.encounters
     val enemyTemplates: Map<String, EnemyTemplate> get() = pack.enemyTemplates
     val enemySprites: Map<String, SpriteDefinition> get() = pack.enemySprites
+    val enemyMovesets: Map<String, Moveset> get() = pack.enemyMovesets
     val narrator: DialogueSpeaker get() = pack.narrator
     val heroCharacter: GameCharacter? get() = pack.heroCharacter
     val allSpeakers: List<DialogueSpeaker> get() = pack.allSpeakers
@@ -1006,6 +1103,7 @@ object GameContent {
     fun voiceAliasesFor(memberId: String?): List<String> = pack.voiceAliasesFor(memberId)
     fun enemyTemplateById(id: String?): EnemyTemplate? = pack.enemyTemplateById(id)
     fun enemySpriteById(id: String?): SpriteDefinition? = pack.enemySpriteById(id)
+    fun movesetById(id: String?): Moveset? = pack.movesetById(id)
     fun heroSpellsFor(memberId: String = "hero"): List<Spell> = pack.heroSpellsFor(memberId)
     fun companionSpellsFor(memberId: String): List<Spell> = pack.companionSpellsFor(memberId)
     fun companionStarterSpellsFor(memberId: String): List<Spell> = pack.companionStarterSpellsFor(memberId)
