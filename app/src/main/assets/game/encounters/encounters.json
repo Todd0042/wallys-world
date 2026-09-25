@@ -60,8 +60,8 @@
     {
       "id": "mattie_t_showdown",
       "name": "The Manager's Office",
-      "description": "The email is already out — a short 'not ready' note sitting in the area manager's inbox, sent before you ever walked in — and the man who sent it smiles behind the desk. Everything you built this act is on the line.",
-      "environment": "sales_floor",
+      "description": "The email is already out \u2014 a short 'not ready' note sitting in the area manager's inbox, sent before you ever walked in \u2014 and the man who sent it smiles behind the desk. Everything you built this act is on the line.",
+      "environment": "break_room",
       "party": [
         "hero"
       ],
@@ -85,7 +85,7 @@
           "enemyId": "mattie_boss",
           "hpBelow": 0.66,
           "bannerText": "THE EMAIL'S ALREADY OUT",
-          "narrationText": "The copy Mattie-T already sent — the one addressed to Cap'n Skagg — slithers across the desk like it was always there. It was.",
+          "narrationText": "The copy Mattie-T already sent \u2014 the one addressed to Cap'n Skagg \u2014 slithers across the desk like it was always there. It was.",
           "summonEnemyId": "poisoned_email",
           "summonCount": 1
         },
@@ -102,7 +102,7 @@
     {
       "id": "lamar_oil_rush",
       "name": "The Friday Oil Rush",
-      "description": "Six bays, a line of pickups around the block, and the clock running on every one. The service shop's first big push — the honeymoon happens here, on your feet.",
+      "description": "Six bays, a line of pickups around the block, and the clock running on every one. The service shop's first big push \u2014 the honeymoon happens here, on your feet.",
       "environment": "trench",
       "party": [
         "todd_shop"
@@ -238,7 +238,7 @@
           "enemyId": "jury_boss",
           "hpBelow": 0.33,
           "bannerText": "UNSUBSTANTIATED. AGAIN.",
-          "narrationText": "Same stamp, same closed file, same lesson: truth, ethics, and human dignity do not exist inside this system. Only liability exists — so the apparatus will aggressively lie to protect itself.",
+          "narrationText": "Same stamp, same closed file, same lesson: truth, ethics, and human dignity do not exist inside this system. Only liability exists \u2014 so the apparatus will aggressively lie to protect itself.",
           "reducePartyToHpPct": 0.4,
           "executeBelowHpPct": 0.2
         }
@@ -247,7 +247,7 @@
     {
       "id": "shingles_fire",
       "name": "The Body Keeps the Score",
-      "description": "The burning nerve fire that flares across your forehead for the first time — shingles, the body's own scorecard for the year. Fight through it to pack the truck.",
+      "description": "The burning nerve fire that flares across your forehead for the first time \u2014 shingles, the body's own scorecard for the year. Fight through it to pack the truck.",
       "environment": "service_bay",
       "party": [
         "todd_shop"
@@ -315,7 +315,7 @@
     {
       "id": "carolina_gated_tour",
       "name": "The Gated Tour",
-      "description": "The quarterly leadership tour walled off behind glass — only the Store Manager walks with the visitors, and the edict lands on the bays before the cars leave the lot. Hold the floor against the sold-out number.",
+      "description": "The quarterly leadership tour walled off behind glass \u2014 only the Store Manager walks with the visitors, and the edict lands on the bays before the cars leave the lot. Hold the floor against the sold-out number.",
       "environment": "sales_floor",
       "party": [
         "todd_shop"
@@ -357,7 +357,7 @@
     {
       "id": "carolina_paralysis",
       "name": "The Paralysis of Kindness",
-      "description": "The store manager's kindness unmakes every consequence you draw before the ink dries — the warmth that never weighs, the smile that quietly cancels your paperwork. The paralysis wants to teach you the same lesson it teaches everyone: don't bother caring.",
+      "description": "The store manager's kindness unmakes every consequence you draw before the ink dries \u2014 the warmth that never weighs, the smile that quietly cancels your paperwork. The paralysis wants to teach you the same lesson it teaches everyone: don't bother caring.",
       "environment": "trench",
       "party": [
         "todd_shop"
@@ -390,7 +390,7 @@
           "enemyId": "paralysis_boss",
           "hpBelow": 0.33,
           "bannerText": "NO ONE IS EVER HELD",
-          "narrationText": "The conscientious managers pick up everyone's slack while walking on eggshells — and the smile keeps smiling.",
+          "narrationText": "The conscientious managers pick up everyone's slack while walking on eggshells \u2014 and the smile keeps smiling.",
           "reducePartyToHpPct": 0.4,
           "executeBelowHpPct": 0.2
         }
@@ -432,7 +432,7 @@
           "enemyId": "fallguy_boss",
           "hpBelow": 0.33,
           "bannerText": "SOMEONE HAS TO SIGN",
-          "narrationText": "The store needs a signature it can bury — and yours is the one it wants. The whole building leans on the pen.",
+          "narrationText": "The store needs a signature it can bury \u2014 and yours is the one it wants. The whole building leans on the pen.",
           "reducePartyToHpPct": 0.4,
           "executeBelowHpPct": 0.2
         }
@@ -441,7 +441,7 @@
     {
       "id": "carolina_regional_desk",
       "name": "The Regional Desk",
-      "description": "Three hundred miles away behind phones and calendars, built to absorb complaints until they fossilize — but the complaint is already running past it, on a CC line that bypasses every smiling gatekeeper in the building.",
+      "description": "Three hundred miles away behind phones and calendars, built to absorb complaints until they fossilize \u2014 but the complaint is already running past it, on a CC line that bypasses every smiling gatekeeper in the building.",
       "environment": "sales_floor",
       "party": [
         "todd_shop"
@@ -481,7 +481,7 @@
         {
           "enemyId": "desk_boss",
           "hpBelow": 0.33,
-          "bannerText": "THE MACHINE MOVES — BARELY",
+          "bannerText": "THE MACHINE MOVES \u2014 BARELY",
           "narrationText": "For one small week the machine blinks when you push. Not justice. A crack. A crack is a start.",
           "reducePartyToHpPct": 0.5,
           "executeBelowHpPct": 0.15
@@ -491,8 +491,8 @@
     {
       "id": "shingles_fire_two",
       "name": "The Body Keeps the Score (Again)",
-      "description": "The second outbreak — the same burning line across the same forehead, drawn where everyone can see it. One per state, one store per price paid. Fight through it to finish the load.",
-      "environment": "service_bay",
+      "description": "The second outbreak \u2014 the same burning line across the same forehead, drawn where everyone can see it. One per state, one store per price paid. Fight through it to finish the load.",
+      "environment": "break_room",
       "party": [
         "todd_shop"
       ],
@@ -520,7 +520,7 @@
           "enemyId": "fire2_boss",
           "hpBelow": 0.5,
           "bannerText": "THE SECOND OUTBREAK",
-          "narrationText": "The same line of fire across the forehead — the second entry on the body's ledger, written where everyone can see it.",
+          "narrationText": "The same line of fire across the forehead \u2014 the second entry on the body's ledger, written where everyone can see it.",
           "summonEnemyId": "fluorescent_hum",
           "summonCount": 1
         }
@@ -559,7 +559,7 @@
     {
       "id": "pueblo_one_man_close",
       "name": "The One-Man Close",
-      "description": "Midnight: forty thousand square feet of dark, every till to count, every door to check — and the building, empty, pressing in like it's keeping count of you too.",
+      "description": "Midnight: forty thousand square feet of dark, every till to count, every door to check \u2014 and the building, empty, pressing in like it's keeping count of you too.",
       "environment": "sales_floor",
       "party": [
         "todd_shop"
@@ -586,7 +586,7 @@
           "enemyId": "close_boss",
           "hpBelow": 0.66,
           "bannerText": "THE BUILDING COUNTS YOU",
-          "narrationText": "Every light you kill, every till you count — the dark grows one room deeper, one corner further, and no one is coming to help.",
+          "narrationText": "Every light you kill, every till you count \u2014 the dark grows one room deeper, one corner further, and no one is coming to help.",
           "summonEnemyId": "queue_wall",
           "summonCount": 1
         },
@@ -702,7 +702,7 @@
           "enemyId": "parking_boss",
           "hpBelow": 0.66,
           "bannerText": "THE HAND GOES TO THE WAIST",
-          "narrationText": "Words fail first, then hands. The escalation is a live wire and the lot is dark — talk them down, walk them apart.",
+          "narrationText": "Words fail first, then hands. The escalation is a live wire and the lot is dark \u2014 talk them down, walk them apart.",
           "summonEnemyId": "grab_and_run",
           "summonCount": 1
         },
@@ -719,7 +719,7 @@
     {
       "id": "pueblo_freight_to_floor",
       "name": "The Freight-to-Floor",
-      "description": "The overhaul hits the floor all at once — the dock, the bins, the topstock, the whole rebuild under a clock that wants it faster. Proves whether the system works when leadership equips its people.",
+      "description": "The overhaul hits the floor all at once \u2014 the dock, the bins, the topstock, the whole rebuild under a clock that wants it faster. Proves whether the system works when leadership equips its people.",
       "environment": "trench",
       "party": [
         "todd_shop"
@@ -762,7 +762,7 @@
           "enemyId": "overhaul_boss",
           "hpBelow": 0.33,
           "bannerText": "PROOF THE SYSTEM WORKS",
-          "narrationText": "The crew moves as one body — bin, dock, shelf, topstock — and the impossible number goes down. This is what leadership with protection looks like.",
+          "narrationText": "The crew moves as one body \u2014 bin, dock, shelf, topstock \u2014 and the impossible number goes down. This is what leadership with protection looks like.",
           "reducePartyToHpPct": 0.4,
           "executeBelowHpPct": 0.2
         }
@@ -864,7 +864,7 @@
           "enemyId": "paradox_boss",
           "hpBelow": 0.33,
           "bannerText": "THE BUS COMES FOR SOMEBODY",
-          "narrationText": "The numbers need a body and the office needs a name. The paradox decides who it's going to be — unless the line holds.",
+          "narrationText": "The numbers need a body and the office needs a name. The paradox decides who it's going to be \u2014 unless the line holds.",
           "reducePartyToHpPct": 0.4,
           "executeBelowHpPct": 0.2
         }
@@ -940,7 +940,7 @@
           "enemyId": "grinder_boss",
           "hpBelow": 0.66,
           "bannerText": "THIRTEEN IN ONE YEAR",
-          "narrationText": "One resigned, two walked out at 3 AM, three was let go, and the rest blurred into numbers — thirteen names you stopped learning because liking them cost too much.",
+          "narrationText": "One resigned, two walked out at 3 AM, three was let go, and the rest blurred into numbers \u2014 thirteen names you stopped learning because liking them cost too much.",
           "summonEnemyId": "register_blitz",
           "summonCount": 1
         },
@@ -958,7 +958,7 @@
       "id": "pueblo_shingles_three",
       "name": "The Body Keeps the Score (Third Entry)",
       "description": "Outbreak Number Three: the same burning line across the same forehead, harder and hungrier. The body has been shouting for three years. Now it's screaming.",
-      "environment": "service_bay",
+      "environment": "break_room",
       "party": [
         "todd_shop"
       ],
@@ -995,7 +995,7 @@
     {
       "id": "pueblo_relocation_contract",
       "name": "The Relocation Contract",
-      "description": "The clawback, the repayment, the years of the machine leaning on you all at once — the collar that's been waiting since Lamar, asking you to put it on willingly.",
+      "description": "The clawback, the repayment, the years of the machine leaning on you all at once \u2014 the collar that's been waiting since Lamar, asking you to put it on willingly.",
       "environment": "sales_floor",
       "party": [
         "todd_shop"
@@ -1028,7 +1028,7 @@
           "enemyId": "contract_boss",
           "hpBelow": 0.66,
           "bannerText": "THE COLLAR CLOSES",
-          "narrationText": "A lawyer's friendly tone on every page: Corporate pays for the move. Corporate also owns you — if you walk or they fire you, you owe it back, thousands of dollars.",
+          "narrationText": "A lawyer's friendly tone on every page: Corporate pays for the move. Corporate also owns you \u2014 if you walk or they fire you, you owe it back, thousands of dollars.",
           "summonEnemyId": "cc_protocol",
           "summonCount": 1
         },
@@ -1036,7 +1036,7 @@
           "enemyId": "contract_boss",
           "hpBelow": 0.33,
           "bannerText": "TWO THOUSAND MILES FROM EVERYONE",
-          "narrationText": "Florida, in the sunshine, at the end of a two-hour drive in the dark — with a lease that talks like a leash. He knows what it is. He walks in anyway.",
+          "narrationText": "Florida, in the sunshine, at the end of a two-hour drive in the dark \u2014 with a lease that talks like a leash. He knows what it is. He walks in anyway.",
           "reducePartyToHpPct": 0.45,
           "executeBelowHpPct": 0.15
         }
@@ -1084,7 +1084,7 @@
           "enemyId": "gauntlet_boss",
           "hpBelow": 0.33,
           "bannerText": "SUNRISE BLINDNESS",
-          "narrationText": "Driving north into the Florida sunrise after fourteen hours on the floor — the glare that blanks the road and the shoulders, the last mile home that takes forever.",
+          "narrationText": "Driving north into the Florida sunrise after fourteen hours on the floor \u2014 the glare that blanks the road and the shoulders, the last mile home that takes forever.",
           "reducePartyToHpPct": 0.55,
           "executeBelowHpPct": 0.2
         }
@@ -1093,7 +1093,7 @@
     {
       "id": "florida_green_metrics",
       "name": "The Green Meters",
-      "description": "Three months of gold: the unload runs, the bins breathe, the board stays green. The machine finally working the way you always told them it could — a victory-light fight, the honeymoon in meter form.",
+      "description": "Three months of gold: the unload runs, the bins breathe, the board stays green. The machine finally working the way you always told them it could \u2014 a victory-light fight, the honeymoon in meter form.",
       "environment": "sales_floor",
       "party": [
         "todd_shop"
@@ -1123,7 +1123,7 @@
     {
       "id": "florida_morning_verdict",
       "name": "The Morning Verdict",
-      "description": "Every morning after the overnight shift: the ritual. No matter how much freight cleared, no matter how clean the building — the goalposts are permanently mounted on wheels.",
+      "description": "Every morning after the overnight shift: the ritual. No matter how much freight cleared, no matter how clean the building \u2014 the goalposts are permanently mounted on wheels.",
       "environment": "sales_floor",
       "party": [
         "todd_shop"
@@ -1171,8 +1171,8 @@
     {
       "id": "florida_ohmar_interrogation",
       "name": "Ohmar's Formal Office",
-      "description": "The formal chair, the closed door, the biggest man in the building asking questions in a voice that never rises. The terror of the region, made flesh — a man who runs on the aggressive management style the area favors.",
-      "environment": "sales_floor",
+      "description": "The formal chair, the closed door, the biggest man in the building asking questions in a voice that never rises. The terror of the region, made flesh \u2014 a man who runs on the aggressive management style the area favors.",
+      "environment": "break_room",
       "party": [
         "todd_shop"
       ],
@@ -1258,7 +1258,7 @@
           "enemyId": "hostage_building",
           "hpBelow": 0.33,
           "bannerText": "THE OWNERLESS BUILDING",
-          "narrationText": "No boss, no checklist, no end. Just the fluorescent hum and the exit door — and the thought, once, that the drive home is only the halfway point of the machine.",
+          "narrationText": "No boss, no checklist, no end. Just the fluorescent hum and the exit door \u2014 and the thought, once, that the drive home is only the halfway point of the machine.",
           "reducePartyToHpPct": 0.5,
           "executeBelowHpPct": 0.2
         }
@@ -1292,7 +1292,7 @@
           "enemyId": "fire_four",
           "hpBelow": 0.66,
           "bannerText": "THE FOURTH SIGNAL",
-          "narrationText": "One, two, three — and now four. The body has run out of ways to say it other than this: across the brow, unignorable, on the face the interviewers will see."
+          "narrationText": "One, two, three \u2014 and now four. The body has run out of ways to say it other than this: across the brow, unignorable, on the face the interviewers will see."
         },
         {
           "enemyId": "fire_four",
@@ -1338,7 +1338,7 @@
           "enemyId": "redemption_boss",
           "hpBelow": 0.66,
           "bannerText": "THE COLLAR TIGHTENS",
-          "narrationText": "Walk away, get fired — either way, thousands back. The contract is a leash with a repayment schedule stamped on the collar.",
+          "narrationText": "Walk away, get fired \u2014 either way, thousands back. The contract is a leash with a repayment schedule stamped on the collar.",
           "summonEnemyId": "cc_protocol",
           "summonCount": 1
         },
@@ -1346,7 +1346,7 @@
           "enemyId": "redemption_boss",
           "hpBelow": 0.33,
           "bannerText": "TWO THOUSAND MILES AWAY",
-          "narrationText": "Salt Lake is a plane ride plus a life away. The debt is a wall in every direction — except the one you build yourself.",
+          "narrationText": "Salt Lake is a plane ride plus a life away. The debt is a wall in every direction \u2014 except the one you build yourself.",
           "reducePartyToHpPct": 0.45,
           "executeBelowHpPct": 0.15
         }
@@ -1355,7 +1355,7 @@
     {
       "id": "florida_three_am",
       "name": "The 3 AM",
-      "description": "The darkest hour of the memoir: the alternative, fully formed, visiting night after night — the place, the time, the plan, the silence — offered like a solution to the morning. You do not defeat it with a spell. You refuse it with a name: Adriana.",
+      "description": "The darkest hour of the memoir: the alternative, fully formed, visiting night after night \u2014 the place, the time, the plan, the silence \u2014 offered like a solution to the morning. You do not defeat it with a spell. You refuse it with a name: Adriana.",
       "environment": "service_bay",
       "party": [
         "todd_shop"
@@ -1386,13 +1386,13 @@
           "enemyId": "alternative_boss",
           "hpBelow": 0.66,
           "bannerText": "THE 3 AM VISITOR",
-          "narrationText": "Two and a half weeks, every night, considered seriously and completely planned — an alternative to the morning. It appears with the hum, fully formed, patient."
+          "narrationText": "Two and a half weeks, every night, considered seriously and completely planned \u2014 an alternative to the morning. It appears with the hum, fully formed, patient."
         },
         {
           "enemyId": "alternative_boss",
           "hpBelow": 0.33,
           "bannerText": "SHE NEEDS ME",
-          "narrationText": "The fog lifts on the face of the woman who needs him — and the alternative loses its patience, its arithmetic, its whole grip. The reason he refused it every single night, and the reason he refuses it now, for good.",
+          "narrationText": "The fog lifts on the face of the woman who needs him \u2014 and the alternative loses its patience, its arithmetic, its whole grip. The reason he refused it every single night, and the reason he refuses it now, for good.",
           "reducePartyToHpPct": 0.4,
           "executeBelowHpPct": 0.12
         }
@@ -1401,7 +1401,7 @@
     {
       "id": "florida_parting_shot",
       "name": "The Parting Shot",
-      "description": "The step-down is accepted without resistance — colder than screaming. And as the final act of malice, the whisper carries down the hall to the team lead: 'He'll be out of the company in two months anyway.' The last boss of the crucible.",
+      "description": "The step-down is accepted without resistance \u2014 colder than screaming. And as the final act of malice, the whisper carries down the hall to the team lead: 'He'll be out of the company in two months anyway.' The last boss of the crucible.",
       "environment": "trench",
       "party": [
         "todd_shop"
@@ -1432,7 +1432,7 @@
           "enemyId": "parting_boss",
           "hpBelow": 0.66,
           "bannerText": "THE WHISPER",
-          "narrationText": "Management lets him go soft and quiet, the way a trap lets a spring go. The whisper is the only honest sentence they'll say all year — and it's about the exit, not the career.",
+          "narrationText": "Management lets him go soft and quiet, the way a trap lets a spring go. The whisper is the only honest sentence they'll say all year \u2014 and it's about the exit, not the career.",
           "summonEnemyId": "cc_protocol",
           "summonCount": 1
         },
@@ -1440,7 +1440,7 @@
           "enemyId": "parting_boss",
           "hpBelow": 0.33,
           "bannerText": "TWO MONTHS ANYWAY",
-          "narrationText": "They're wrong — and it doesn't matter if they're right. The machine doesn't get to write the epilogue. He's already walking out the north door.",
+          "narrationText": "They're wrong \u2014 and it doesn't matter if they're right. The machine doesn't get to write the epilogue. He's already walking out the north door.",
           "reducePartyToHpPct": 0.45,
           "executeBelowHpPct": 0.15
         }
@@ -1449,7 +1449,7 @@
     {
       "id": "act6_pay_cut",
       "name": "The Pay Cut",
-      "description": "Twenty-four thousand dollars a year, vanished in a single signed form. The depression isn't about the money — it's about watching the machine prove, once again, that there is no landing pad between the crushing altitude of salaried management and the floor.",
+      "description": "Twenty-four thousand dollars a year, vanished in a single signed form. The depression isn't about the money \u2014 it's about watching the machine prove, once again, that there is no landing pad between the crushing altitude of salaried management and the floor.",
       "environment": "trench",
       "party": [
         "todd_shop"
@@ -1480,13 +1480,13 @@
           "enemyId": "pay_cut_boss",
           "hpBelow": 0.66,
           "bannerText": "THE LANDING",
-          "narrationText": "The form is signed. The salaried title is gone. Twenty-four thousand dollars a year, just like that — and the machine never even looked up from its own paperwork."
+          "narrationText": "The form is signed. The salaried title is gone. Twenty-four thousand dollars a year, just like that \u2014 and the machine never even looked up from its own paperwork."
         },
         {
           "enemyId": "pay_cut_boss",
           "hpBelow": 0.33,
           "bannerText": "THE WEIGHT OF BEING RIGHT",
-          "narrationText": "Back at the bottom of the hourly ladder, watching management treat workers as disposable — and knowing, quietly, that you were right all along. The vindication is real. So is the grief.",
+          "narrationText": "Back at the bottom of the hourly ladder, watching management treat workers as disposable \u2014 and knowing, quietly, that you were right all along. The vindication is real. So is the grief.",
           "reducePartyToHpPct": 0.5
         }
       ]
@@ -1494,7 +1494,7 @@
     {
       "id": "act6_abdoolie_ghost",
       "name": "Abdoolie's Ghost",
-      "description": "Abdoolie doesn't need to be Ohmar to be Ohmar. The cadence is the same — the flat declarative sentences, the pause before the verdict, the room that empties around him. The body doesn't wait for logic. It's already back in St. Augustine.",
+      "description": "Abdoolie doesn't need to be Ohmar to be Ohmar. The cadence is the same \u2014 the flat declarative sentences, the pause before the verdict, the room that empties around him. The body doesn't wait for logic. It's already back in St. Augustine.",
       "environment": "sales_floor",
       "party": [
         "todd_shop"
@@ -1525,7 +1525,7 @@
           "enemyId": "abdoolie_boss",
           "hpBelow": 0.66,
           "bannerText": "THE VOICE RETURNS",
-          "narrationText": "He hasn't raised his voice once. He doesn't need to. That cadence — flat, certain, waiting — is a frequency the nervous system already knows by name.",
+          "narrationText": "He hasn't raised his voice once. He doesn't need to. That cadence \u2014 flat, certain, waiting \u2014 is a frequency the nervous system already knows by name.",
           "summonEnemyId": "cc_protocol",
           "summonCount": 1
         },
@@ -1533,7 +1533,7 @@
           "enemyId": "abdoolie_boss",
           "hpBelow": 0.33,
           "bannerText": "NOT ST. AUGUSTINE",
-          "narrationText": "This is not St. Augustine. Abdoolie is not Ohmar. The store is not the crucible. Naming the difference is the only weapon left — and it works.",
+          "narrationText": "This is not St. Augustine. Abdoolie is not Ohmar. The store is not the crucible. Naming the difference is the only weapon left \u2014 and it works.",
           "reducePartyToHpPct": 0.42,
           "executeBelowHpPct": 0.12
         }
@@ -1543,7 +1543,7 @@
       "id": "act6_phantom_threat",
       "name": "The Phantom Manager's Threat",
       "description": "Five appearances on the floor in six months. On the sixth, he calls an all-hands meeting to blindly threaten everyone's jobs because the spreadsheet is angry and he has nowhere else to aim.",
-      "environment": "trench",
+      "environment": "break_room",
       "party": [
         "todd_shop"
       ],
@@ -1573,7 +1573,7 @@
           "enemyId": "phantom_boss",
           "hpBelow": 0.66,
           "bannerText": "THE RARE APPEARANCE",
-          "narrationText": "He materializes from the office like a myth proving itself briefly real — blinking under the bay lights, holding a printout, already building to the threat.",
+          "narrationText": "He materializes from the office like a myth proving itself briefly real \u2014 blinking under the bay lights, holding a printout, already building to the threat.",
           "summonEnemyId": "customer_grind",
           "summonCount": 1
         },
