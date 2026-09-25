@@ -129,7 +129,18 @@ class MainActivity : ComponentActivity() {
         }
         storyViewModel.onCloseOptions = { combatViewModel.closeOptions() }
         combatViewModel.onContinueStory = {
-            storyViewModel.updatePartyStatsFromCombat(combatViewModel.state.value.party)
+            // GAME SPECIFIC (Wally's World / The Squeeze): Never upstream to core engine repo.
+            // In retail, defeat is not a game over — the shift must go on. The player presses on even in death.
+            // If party members fell during combat, revive them with partial HP so future battles remain playable.
+            val restoredParty = combatViewModel.state.value.party.map { member ->
+                if (member.currentHp <= 0) {
+                    member.copy(
+                        currentHp = maxOf(1, member.maxHp / 2),
+                        stance = com.voicerpg.engine.model.CharacterStance.READY
+                    )
+                } else member
+            }
+            storyViewModel.updatePartyStatsFromCombat(restoredParty)
             storyViewModel.onCombatVictory()
         }
 
@@ -321,8 +332,7 @@ class MainActivity : ComponentActivity() {
                                 viewModel = combatViewModel,
                                 onReturnToStory = { storyViewModel.switchToStory() },
                                 onContinueStory = {
-                                    storyViewModel.updatePartyStatsFromCombat(combatViewModel.state.value.party)
-                                    storyViewModel.onCombatVictory()
+                                    combatViewModel.onContinueStory?.invoke()
                                 }
                             )
                         }

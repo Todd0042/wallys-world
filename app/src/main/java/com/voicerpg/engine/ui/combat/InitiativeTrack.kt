@@ -67,7 +67,7 @@ fun InitiativeTrack(
                         CombatPhase.SPELL_VFX_PLAYING -> "🔥 UNLEASHING ACTION"
                         CombatPhase.ENEMY_ACTIONS -> "⚠️ ENEMY TURN (STRIKING)"
                         CombatPhase.BATTLE_WON -> "🏆 VICTORY ACHIEVED"
-                        CombatPhase.BATTLE_LOST -> "💀 THE BLIGHT PREVAILS"
+                        CombatPhase.BATTLE_LOST -> "💀 SHIFT TERMINATED (DEFEAT)"
                     },
                     color = when (phase) {
                         CombatPhase.ATB_WAITING -> Color(0xFFFFD54F)
