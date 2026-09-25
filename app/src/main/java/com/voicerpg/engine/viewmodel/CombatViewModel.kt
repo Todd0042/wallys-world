@@ -374,8 +374,7 @@ class CombatViewModel(
         var fell = false
 
         if (dot > 0) {
-            val minHp = if (_state.value.isPureStoryMode) 1 else 0
-            val newHp = (member.currentHp - dot).coerceAtLeast(minHp)
+            val newHp = (member.currentHp - dot).coerceAtLeast(0)
             fell = newHp <= 0
             val (sx, sy) = partyFloatSlot(heroId)
             val fct = FloatingCombatText(text = "-$dot", color = Color(0xFF9CCC65), startX = sx, startY = sy)
@@ -436,15 +435,7 @@ class CombatViewModel(
 
             val aliveHeroes = _state.value.party.filter { it.isAlive }
             if (aliveHeroes.isEmpty()) {
-                _state.value = _state.value.copy(phase = CombatPhase.BATTLE_LOST)
-                combatNarrator.narrateConclusion(isVictory = false) {
-                    if (speechManager.isAutoListen.value) {
-                        activeScope.launch {
-                            delay(150)
-                            startVoiceListening()
-                        }
-                    }
-                }
+                concludeDefeat()
                 return@launch
             }
 
@@ -668,8 +659,7 @@ class CombatViewModel(
                         defenderStatusMitigation = blessMitigation.coerceIn(0.5f, 1.25f)
                     )
                     totalDamage += damage
-                    val minHp = if (_state.value.isPureStoryMode) 1 else 0
-                    val newHp = (hero.currentHp - damage).coerceAtLeast(minHp)
+                    val newHp = (hero.currentHp - damage).coerceAtLeast(0)
                     val isFallen = newHp <= 0
                     anyFallen = anyFallen || isFallen
                     struckHeroName = hero.name
@@ -741,15 +731,7 @@ class CombatViewModel(
 
             // Check defeat
             if (_state.value.party.none { it.isAlive }) {
-                _state.value = _state.value.copy(phase = CombatPhase.BATTLE_LOST)
-                combatNarrator.narrateConclusion(isVictory = false) {
-                    if (speechManager.isAutoListen.value) {
-                        activeScope.launch {
-                            delay(150)
-                            startVoiceListening()
-                        }
-                    }
-                }
+                concludeDefeat()
                 return@launch
             }
 
@@ -809,6 +791,35 @@ class CombatViewModel(
                 activeScope.launch {
                     delay(1200)
                     if (_state.value.phase == CombatPhase.BATTLE_WON && _state.value.isPureStoryMode) {
+                        pauseAtb()
+                        onContinueStory?.invoke()
+                    }
+                }
+            } else if (speechManager.isAutoListen.value) {
+                activeScope.launch {
+                    delay(150)
+                    startVoiceListening()
+                }
+            }
+        }
+    }
+
+    private fun concludeDefeat() {
+        _state.value = _state.value.copy(phase = CombatPhase.BATTLE_LOST)
+        if (_state.value.isPureStoryMode) {
+            activeScope.launch {
+                delay(3000)
+                if (_state.value.phase == CombatPhase.BATTLE_LOST && _state.value.isPureStoryMode) {
+                    pauseAtb()
+                    onContinueStory?.invoke()
+                }
+            }
+        }
+        combatNarrator.narrateConclusion(isVictory = false) {
+            if (_state.value.isPureStoryMode) {
+                activeScope.launch {
+                    delay(1200)
+                    if (_state.value.phase == CombatPhase.BATTLE_LOST && _state.value.isPureStoryMode) {
                         pauseAtb()
                         onContinueStory?.invoke()
                     }

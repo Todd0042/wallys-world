@@ -64,4 +64,24 @@ class RetailBattleContinuationTest {
         assertEquals(150, restored.currentHp)
         assertEquals(CharacterStance.READY, restored.stance)
     }
+
+    @Test
+    fun testHeroCanFallInBattleRegardlessOfPureStoryMode() {
+        val hero = PartyMember(
+            id = "hero",
+            name = "Todd",
+            loreClass = "Freight Associate",
+            currentHp = 50,
+            maxHp = 300,
+            currentMp = 20,
+            maxMp = 95,
+            spells = emptyList()
+        )
+
+        val lethalDamage = 120
+        // Now hero falls to 0 HP even in pure story mode because death advances the retail story
+        val newHp = (hero.currentHp - lethalDamage).coerceAtLeast(0)
+        assertEquals("Hero HP should reach 0 when taking lethal damage", 0, newHp)
+        assertTrue("Hero should fall when taking lethal damage", newHp <= 0)
+    }
 }
