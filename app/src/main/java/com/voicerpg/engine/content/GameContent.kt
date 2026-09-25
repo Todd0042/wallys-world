@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.AssetManager
 import androidx.compose.ui.graphics.Color
 import com.google.gson.Gson
+import com.google.gson.annotations.SerializedName
 import com.voicerpg.engine.combat.StatGrowth
 import com.voicerpg.engine.model.BattleEnvironment
 import com.voicerpg.engine.model.DialogueChoice
@@ -67,8 +68,11 @@ data class SpellGrantDto(
 )
 
 data class SpriteFramesDto(
+    @SerializedName(value = "idle_upright", alternate = ["idleUpright"])
     val idle_upright: List<String>? = null,
+    @SerializedName(value = "idle_crouch", alternate = ["idleCrouch"])
     val idle_crouch: List<String>? = null,
+    @SerializedName(value = "action_cast", alternate = ["actionCast"])
     val action_cast: List<String>? = null,
     val damaged: List<String>? = null
 )
@@ -76,6 +80,10 @@ data class SpriteFramesDto(
 data class SpriteDefinitionDto(
     val palette: Map<String, String>? = null,
     val frames: SpriteFramesDto? = null
+)
+
+data class EnemySpritesFileDto(
+    val sprites: Map<String, SpriteDefinitionDto>? = null
 )
 
 data class CharacterDto(
@@ -423,7 +431,8 @@ class GameContentPack(
     val encounters: Map<String, EncounterDefinition>,
     val scenes: Map<String, StoryScene>,
     val nodes: Map<String, DialogueNode>,
-    val narrator: DialogueSpeaker
+    val narrator: DialogueSpeaker,
+    val enemySprites: Map<String, SpriteDefinition> = emptyMap()
 ) {
     val heroCharacter: GameCharacter? = characters.values.firstOrNull { it.role == CharacterRole.HERO }
 
@@ -460,6 +469,8 @@ class GameContentPack(
         classById(classId).starterSpellIds.mapNotNull { spells[it] }
 
     fun enemyTemplateById(id: String?): EnemyTemplate? = if (id == null) null else enemyTemplates[id]
+
+    fun enemySpriteById(id: String?): SpriteDefinition? = if (id == null) null else enemySprites[id]
 
     fun voiceAliasesFor(memberId: String?): List<String> = characterById(memberId)?.voiceAliases ?: emptyList()
 
@@ -618,6 +629,12 @@ class GameContentLoader(private val source: ContentSource) {
             .map { it.toNode(speakersBydId) }
             .associateBy { it.id }
 
+        val enemySprites = (read("enemies/enemy_sprites.json", EnemySpritesFileDto::class.java)?.sprites ?: emptyMap())
+            .mapNotNull { (id, dto) ->
+                dto.toSpriteDefinition()?.let { id to it }
+            }
+            .toMap()
+
         val narrator = characters.values.firstOrNull { it.role == CharacterRole.NARRATOR }?.speaker
             ?: DialogueSpeaker.NARRATOR
 
@@ -640,7 +657,8 @@ class GameContentLoader(private val source: ContentSource) {
             encounters = encounters,
             scenes = scenes,
             nodes = nodes,
-            narrator = narrator
+            narrator = narrator,
+            enemySprites = enemySprites
         )
         return if (pack.scenes.isEmpty() || pack.nodes.isEmpty()) EmergencyFallback.build() else pack
     }
@@ -705,27 +723,7 @@ class GameContentLoader(private val source: ContentSource) {
                 growth = (c.growth ?: GrowthDto()).toStatGrowth()
             )
         }
-        val resolvedSprite = sprite?.let { s ->
-            val pal = s.palette?.mapNotNull { (key, hex) ->
-                val char = key.firstOrNull() ?: return@mapNotNull null
-                char to parseHexColor(hex, Color.Transparent)
-            }?.toMap() ?: emptyMap()
-
-            val f = s.frames
-            val idleUp = f?.idle_upright ?: emptyList()
-            if (idleUp.isNotEmpty() && pal.isNotEmpty()) {
-                val idleCr = if (!f?.idle_crouch.isNullOrEmpty()) f!!.idle_crouch!! else idleUp
-                val actCast = if (!f?.action_cast.isNullOrEmpty()) f!!.action_cast!! else idleUp
-                val dmg = if (!f?.damaged.isNullOrEmpty()) f!!.damaged!! else idleCr
-                SpriteDefinition(
-                    palette = pal,
-                    idleUpright = idleUp,
-                    idleCrouch = idleCr,
-                    actionCast = actCast,
-                    damaged = dmg
-                )
-            } else null
-        }
+        val resolvedSprite = sprite?.toSpriteDefinition()
         return GameCharacter(
             id = id,
             role = when (role.lowercase()) {
@@ -746,6 +744,29 @@ class GameContentLoader(private val source: ContentSource) {
             gender = gender,
             sprite = resolvedSprite
         )
+    }
+
+    private fun SpriteDefinitionDto.toSpriteDefinition(): SpriteDefinition? {
+        val pal = palette?.mapNotNull { (key, hex) ->
+            val char = key.firstOrNull() ?: return@mapNotNull null
+            char to parseHexColor(hex, Color.Transparent)
+        }?.toMap() ?: emptyMap()
+
+        val f = frames
+        val idleUp = f?.idle_upright ?: emptyList()
+        if (idleUp.isNotEmpty() && pal.isNotEmpty()) {
+            val idleCr = if (!f?.idle_crouch.isNullOrEmpty()) f!!.idle_crouch!! else idleUp
+            val actCast = if (!f?.action_cast.isNullOrEmpty()) f!!.action_cast!! else idleUp
+            val dmg = if (!f?.damaged.isNullOrEmpty()) f!!.damaged!! else idleCr
+            return SpriteDefinition(
+                palette = pal,
+                idleUpright = idleUp,
+                idleCrouch = idleCr,
+                actionCast = actCast,
+                damaged = dmg
+            )
+        }
+        return null
     }
 
     private fun EnemyDto.toTemplate(): EnemyTemplate = EnemyTemplate(
@@ -967,6 +988,7 @@ object GameContent {
     val spells: Map<String, Spell> get() = pack.spells
     val encounters: Map<String, EncounterDefinition> get() = pack.encounters
     val enemyTemplates: Map<String, EnemyTemplate> get() = pack.enemyTemplates
+    val enemySprites: Map<String, SpriteDefinition> get() = pack.enemySprites
     val narrator: DialogueSpeaker get() = pack.narrator
     val heroCharacter: GameCharacter? get() = pack.heroCharacter
     val allSpeakers: List<DialogueSpeaker> get() = pack.allSpeakers
@@ -983,6 +1005,7 @@ object GameContent {
     fun spellsForClass(classId: String?): List<Spell> = pack.spellsForClass(classId)
     fun voiceAliasesFor(memberId: String?): List<String> = pack.voiceAliasesFor(memberId)
     fun enemyTemplateById(id: String?): EnemyTemplate? = pack.enemyTemplateById(id)
+    fun enemySpriteById(id: String?): SpriteDefinition? = pack.enemySpriteById(id)
     fun heroSpellsFor(memberId: String = "hero"): List<Spell> = pack.heroSpellsFor(memberId)
     fun companionSpellsFor(memberId: String): List<Spell> = pack.companionSpellsFor(memberId)
     fun companionStarterSpellsFor(memberId: String): List<Spell> = pack.companionStarterSpellsFor(memberId)
