@@ -100,7 +100,8 @@
           ],
           "nextNodeId": "trench_to_floor"
         }
-      ]
+      ],
+      "revisitText": "The break pit coffee pot wheezes quietly. What issue in the trench will you tackle next?"
     },
     {
       "id": "branch_learn_floor",
@@ -236,7 +237,8 @@
           ],
           "nextNodeId": "floor_to_front"
         }
-      ]
+      ],
+      "revisitText": "The fluorescent lights hum over the grocery floor. What part of the sales floor needs your attention now?"
     },
     {
       "id": "branch_lead_crew",
@@ -357,7 +359,8 @@
           ],
           "nextNodeId": "front_to_office"
         }
-      ]
+      ],
+      "revisitText": "The transfer paperwork rustles on the desk. What loose end will you investigate before making your move?"
     },
     {
       "id": "branch_ask_jodie",
@@ -550,7 +553,8 @@
           ],
           "nextNodeId": "lamar_metrics"
         }
-      ]
+      ],
+      "revisitText": "The impact wrenches rattle in the background. What bay priority will you handle next?"
     },
     {
       "id": "branch_lamar_bays",
@@ -723,7 +727,8 @@
           ],
           "nextNodeId": "fall_to_wall"
         }
-      ]
+      ],
+      "revisitText": "The walkie-talkie crackles with nervous static. What part of the new regime's pressure will you confront next?"
     },
     {
       "id": "branch_fall_watch",
@@ -867,7 +872,8 @@
           ],
           "nextNodeId": "wall_hearing"
         }
-      ]
+      ],
+      "revisitText": "The grievance draft sits under the table lamp. What step in the documentation process will you take next?"
     },
     {
       "id": "branch_wall_evidence",
@@ -1008,7 +1014,8 @@
           ],
           "nextNodeId": "hall_verdict"
         }
-      ]
+      ],
+      "revisitText": "The hum of the main concourse echoes under the high ceilings. How will you respond to the manager's pressure next?"
     },
     {
       "id": "branch_hall_swallow",
@@ -1144,7 +1151,8 @@
           ],
           "nextNodeId": "road_exit"
         }
-      ]
+      ],
+      "revisitText": "Cardboard boxes lean against the tailgate. What detail of the Colorado departure will you see to next?"
     },
     {
       "id": "road_trigger_battle",
@@ -1301,7 +1309,8 @@
           ],
           "nextNodeId": "carolina_to_tour"
         }
-      ]
+      ],
+      "revisitText": "The neglected air compressor sputters in the corner. What task in the Carolina shop will you take on next?"
     },
     {
       "id": "branch_carolina_bays",
@@ -1477,7 +1486,8 @@
           ],
           "nextNodeId": "tour_to_azalia"
         }
-      ]
+      ],
+      "revisitText": "The lingering chill of the corporate walkthrough still hangs in the aisles. What aspect of the new edict will you examine next?"
     },
     {
       "id": "branch_tour_watch",
@@ -1622,7 +1632,8 @@
           ],
           "nextNodeId": "azalia_to_breach"
         }
-      ]
+      ],
+      "revisitText": "The office door stays shut while excuses echo down the hall. How will you handle the management paralysis next?"
     },
     {
       "id": "azalia_warmth",
@@ -1800,7 +1811,8 @@
           ],
           "nextNodeId": "breach_verdict"
         }
-      ]
+      ],
+      "revisitText": "The ink on the incident reports is drying under heavy scrutiny. Which trail of accountability will you pursue next?"
     },
     {
       "id": "branch_breach_file",
@@ -1966,7 +1978,8 @@
           ],
           "nextNodeId": "carolina_exit"
         }
-      ]
+      ],
+      "revisitText": "The rental trailer waits in the humid Georgia dusk. What farewell or final task remains before you head west?"
     },
     {
       "id": "scar_trigger_battle",
@@ -2121,7 +2134,8 @@
           ],
           "nextNodeId": "pueblo_beats_intro"
         }
-      ]
+      ],
+      "revisitText": "The evening rush buzzes around the service desk. Which part of Pueblo's night shift will you dive into next?"
     },
     {
       "id": "branch_pueblo_close",
@@ -2406,7 +2420,8 @@
           ],
           "nextNodeId": "pueblo_accept_offer"
         }
-      ]
+      ],
+      "revisitText": "The promotion memo rests on the breakroom table. What challenge on the Pueblo store floor will you resolve next?"
     },
     {
       "id": "branch_pueblo_armor",
@@ -2598,7 +2613,8 @@
           ],
           "nextNodeId": "pueblo_peak"
         }
-      ]
+      ],
+      "revisitText": "Dry-erase markers and shift tallies cover the whiteboard. Which part of the massive overhaul will you push forward next?"
     },
     {
       "id": "branch_pueblo_unload",
@@ -2767,7 +2783,8 @@
           ],
           "nextNodeId": "pueblo_richard_promoted"
         }
-      ]
+      ],
+      "revisitText": "Richard's clipboard taps impatiently against his knee. How will you direct your well-meaning but hopeless peer next?"
     },
     {
       "id": "branch_pueblo_taught",
@@ -2963,7 +2980,8 @@
           ],
           "nextNodeId": "pueblo_amandy_promo"
         }
-      ]
+      ],
+      "revisitText": "The management office door clicks shut behind you. Which side of Pueblo's leadership dynamic will you navigate next?"
     },
     {
       "id": "branch_pueblo_friend",
@@ -3141,7 +3159,8 @@
           ],
           "nextNodeId": "pueblo_take_the_job"
         }
-      ]
+      ],
+      "revisitText": "The fluorescent tubes flicker in the dead of the overnight shift. What aspect of the graveyard operation will you monitor next?"
     },
     {
       "id": "branch_pueblo_exits",
@@ -3330,7 +3349,8 @@
           ],
           "nextNodeId": "pueblo_contract_final_part1"
         }
-      ]
+      ],
+      "revisitText": "The transfer contract to Florida sits under the kitchen lamp. What unresolved thought will you settle before signing?"
     },
     {
       "id": "branch_pueblo_terms",
@@ -3517,7 +3537,8 @@
           ],
           "nextNodeId": "florida_first_drive"
         }
-      ]
+      ],
+      "revisitText": "The highway traffic rushes past outside St. Augustine. What reality of the new relocation will you examine next?"
     },
     {
       "id": "branch_florida_road",
@@ -3696,7 +3717,8 @@
           ],
           "nextNodeId": "florida_vacation_decision"
         }
-      ]
+      ],
+      "revisitText": "The store metric dashboard glows steady green for now. What part of the calm before the storm will you explore next?"
     },
     {
       "id": "branch_florida_green",
@@ -3880,7 +3902,8 @@
           ],
           "nextNodeId": "florida_beatdowns_intro"
         }
-      ]
+      ],
+      "revisitText": "The morning tension thickens outside Ohmar's closed office door. Which of the shifting expectations will you confront next?"
     },
     {
       "id": "branch_florida_goalposts",
@@ -4061,7 +4084,8 @@
           ],
           "nextNodeId": "florida_drive_choice"
         }
-      ]
+      ],
+      "revisitText": "The midnight chill sets into the cavernous Florida store. What tether to the outside world will you hold onto next?"
     },
     {
       "id": "branch_florida_noose",
@@ -4202,7 +4226,8 @@
           ],
           "nextNodeId": "florida_body_intro"
         }
-      ]
+      ],
+      "revisitText": "The overnight quiet settles over the dark retail aisles. Whose burden among the late-night crew will you share next?"
     },
     {
       "id": "branch_florida_story",
@@ -4417,7 +4442,8 @@
           ],
           "nextNodeId": "florida_parting_intro"
         }
-      ]
+      ],
+      "revisitText": "The weight of the salaried badge feels heavier than ever. What step toward taking back your life will you make next?"
     },
     {
       "id": "branch_florida_stepdown",
@@ -4616,7 +4642,8 @@
           ],
           "nextNodeId": "act6_crash_battle_intro"
         }
-      ]
+      ],
+      "revisitText": "The new pay stub rests on the table, quiet and unsparing. How will you process the reality of the step down next?"
     },
     {
       "id": "branch_act6_crash_financial",
@@ -4768,7 +4795,8 @@
           ],
           "nextNodeId": "act6_timmy_promotion_intro"
         }
-      ]
+      ],
+      "revisitText": "A relaxed, steady rhythm fills the floor under Timmy's leadership. What part of this unfamiliar calm will you focus on next?"
     },
     {
       "id": "branch_act6_timmy_trust",
@@ -4912,7 +4940,8 @@
           ],
           "nextNodeId": "act6_abdoolie_battle_intro"
         }
-      ]
+      ],
+      "revisitText": "Old management reflexes twitch as you watch the new supervisor. How will you confront the echoes of past trauma next?"
     },
     {
       "id": "branch_act6_abdoolie_named",
@@ -5065,7 +5094,8 @@
           ],
           "nextNodeId": "act6_frontend_decision"
         }
-      ]
+      ],
+      "revisitText": "Cash registers beep steadily while the customer queue churns. What pressure on the front end will you tackle next?"
     },
     {
       "id": "act6_frontend_battle_intro",
@@ -5233,7 +5263,8 @@
           ],
           "nextNodeId": "act6_pit_phantom_intrudes"
         }
-      ]
+      ],
+      "revisitText": "Hydraulic lifts hiss and pneumatic ratchets echo from the shop pit. Whose technique or guidance will you learn from next?"
     },
     {
       "id": "branch_act6_pit_tani",
@@ -5394,7 +5425,8 @@
           ],
           "nextNodeId": "act6_final_battle_intro"
         }
-      ]
+      ],
+      "revisitText": "The final chapter draws near as the register lights dim. Which truth of the retail journey will you reckon with next?"
     },
     {
       "id": "branch_act6_resolution_cost",

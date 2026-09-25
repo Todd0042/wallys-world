@@ -42,6 +42,7 @@ data class StoryState(
     val player: PlayerCustomization = PlayerCustomization(),
     val decisionsMade: List<String> = emptyList(),
     val narrativeFlags: Map<String, Boolean> = emptyMap(),
+    val visitedNodeIds: Set<String> = emptySet(),
     val defeatedEncounters: List<String> = emptyList(),
     val achievements: List<String> = emptyList(),
     val partyStats: List<SavedCharacterStats> = emptyList(),
@@ -375,7 +376,20 @@ class StoryViewModel(
         val existingSave = saveManager.load(targetSlot) ?: return
         val restoredScene = StoryScript.ALL_SCENES[existingSave.currentSceneId] ?: StoryScript.INITIAL_SCENE
         val rawRestoredNode = StoryScript.ALL_NODES[existingSave.currentNodeId] ?: StoryScript.INITIAL_NODE
-        val restoredNode = resolveEffectiveHubNode(rawRestoredNode, existingSave.narrativeFlags)
+        val baseRestoredNode = resolveEffectiveHubNode(rawRestoredNode, existingSave.narrativeFlags)
+        val restoredVisited = existingSave.visitedNodeIds.toSet() + baseRestoredNode.id
+        val isRestoredRevisit = baseRestoredNode.id in existingSave.visitedNodeIds
+        val restoredActiveText = if (isRestoredRevisit) {
+            baseRestoredNode.revisitText?.ifBlank { null }
+                ?: if (baseRestoredNode.choices.size > 1) "What will you do next?" else baseRestoredNode.text
+        } else {
+            baseRestoredNode.text
+        }
+        val restoredNode = if (restoredActiveText != baseRestoredNode.text) {
+            baseRestoredNode.copy(text = restoredActiveText)
+        } else {
+            baseRestoredNode
+        }
 
         val restoredHistory = if (existingSave.recentDialogueLog.isNotEmpty()) {
             existingSave.recentDialogueLog
@@ -403,6 +417,7 @@ class StoryViewModel(
             player = existingSave.player,
             decisionsMade = existingSave.decisionsMade,
             narrativeFlags = existingSave.narrativeFlags,
+            visitedNodeIds = restoredVisited,
             defeatedEncounters = existingSave.defeatedEncounters,
             achievements = existingSave.achievements,
             partyStats = existingSave.partyStats,
@@ -568,6 +583,7 @@ class StoryViewModel(
             player = customization,
             decisionsMade = emptyList(),
             narrativeFlags = emptyMap(),
+            visitedNodeIds = setOf(initialNode.id),
             defeatedEncounters = emptyList(),
             achievements = initialSave.achievements,
             partyStats = initialSave.partyStats,
@@ -763,22 +779,38 @@ class StoryViewModel(
         val sceneIdToUse = effectiveNode.changeSceneId ?: _state.value.currentScene.id
         val targetScene = StoryScript.ALL_SCENES[sceneIdToUse] ?: _state.value.currentScene
 
+        val isRevisit = effectiveNode.id in _state.value.visitedNodeIds
+        val activeText = if (isRevisit) {
+            effectiveNode.revisitText?.ifBlank { null }
+                ?: if (effectiveNode.choices.size > 1) "What will you do next?" else effectiveNode.text
+        } else {
+            effectiveNode.text
+        }
+        val displayNode = if (activeText != effectiveNode.text) {
+            effectiveNode.copy(text = activeText)
+        } else {
+            effectiveNode
+        }
+
+        val updatedVisited = _state.value.visitedNodeIds + newNode.id + effectiveNode.id
+
         val entry = DialogueLogEntry(
-            speakerId = effectiveNode.speaker.id,
-            speakerName = effectiveNode.speaker.name,
-            speakerTitle = effectiveNode.speaker.title,
-            text = effectiveNode.text,
+            speakerId = displayNode.speaker.id,
+            speakerName = displayNode.speaker.name,
+            speakerTitle = displayNode.speaker.title,
+            text = displayNode.text,
             sceneName = targetScene.name,
-            isNarrator = effectiveNode.speaker.isNarrator
+            isNarrator = displayNode.speaker.isNarrator
         )
         val updatedHistory = (_state.value.dialogueHistory + entry).takeLast(100)
 
         _state.value = _state.value.copy(
             currentScene = targetScene,
-            currentNode = effectiveNode,
+            currentNode = displayNode,
             narrativeFlags = updatedFlags,
             partyStats = updatedPartyStats,
-            dialogueHistory = updatedHistory
+            dialogueHistory = updatedHistory,
+            visitedNodeIds = updatedVisited
         )
 
         musicManager?.playTrack(targetScene.musicAsset)
@@ -894,6 +926,7 @@ class StoryViewModel(
             currentNodeId = s.currentNode.id,
             decisionsMade = s.decisionsMade,
             narrativeFlags = s.narrativeFlags,
+            visitedNodeIds = s.visitedNodeIds.toList(),
             partyStats = s.partyStats,
             defeatedEncounters = s.defeatedEncounters,
             achievements = s.achievements,

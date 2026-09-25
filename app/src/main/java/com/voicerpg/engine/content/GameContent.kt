@@ -20,6 +20,7 @@ import com.voicerpg.engine.model.SpeakerSide
 import com.voicerpg.engine.model.Spell
 import com.voicerpg.engine.model.SpellSchool
 import com.voicerpg.engine.model.StoryScene
+import com.voicerpg.engine.ui.sprites.SpriteFrame
 import java.io.File
 
 // =============================================================================
@@ -65,13 +66,27 @@ data class SpellGrantDto(
     val spellIds: List<String>? = null
 )
 
+data class SpriteFramesDto(
+    val idle_upright: List<String>? = null,
+    val idle_crouch: List<String>? = null,
+    val action_cast: List<String>? = null,
+    val damaged: List<String>? = null
+)
+
+data class SpriteDefinitionDto(
+    val palette: Map<String, String>? = null,
+    val frames: SpriteFramesDto? = null
+)
+
 data class CharacterDto(
     val id: String = "",
     val role: String = "npc",
     val name: String = "",
     val title: String = "",
+    val gender: String? = null,
     val portraitAsset: String? = null,
     val spriteId: String = "template_hero",
+    val sprite: SpriteDefinitionDto? = null,
     val themeColor: String = "#FFFFFF",
     val ttsPitch: Float = 1.0f,
     val samplePhrase: String? = null,
@@ -218,6 +233,7 @@ data class NodeDto(
     val speakerId: String = "narrator",
     val side: String = "CENTER_NARRATOR",
     val text: String = "",
+    val revisitText: String? = null,
     val choices: List<ChoiceDto>? = null,
     val nextNodeId: String? = null,
     val triggerBattleEncounterId: String? = null,
@@ -276,6 +292,21 @@ data class CharacterCombat(
     val growth: StatGrowth
 )
 
+data class SpriteDefinition(
+    val palette: Map<Char, Color>,
+    val idleUpright: List<String>,
+    val idleCrouch: List<String>,
+    val actionCast: List<String>,
+    val damaged: List<String>
+) {
+    fun getFrame(frame: SpriteFrame): List<String> = when (frame) {
+        SpriteFrame.IDLE_UPRIGHT -> idleUpright
+        SpriteFrame.IDLE_CROUCH -> idleCrouch
+        SpriteFrame.ACTION_CAST -> actionCast
+        SpriteFrame.DAMAGED -> damaged
+    }
+}
+
 /** A fully resolved character: dialogue speaker + combat identity, all from one data file. */
 data class GameCharacter(
     val id: String,
@@ -287,7 +318,9 @@ data class GameCharacter(
     val preferredVoiceId: String?,
     val combat: CharacterCombat?,
     val joinWhenFlag: String?,
-    val spellGrants: List<SpellGrant>
+    val spellGrants: List<SpellGrant>,
+    val gender: String? = null,
+    val sprite: SpriteDefinition? = null
 ) {
     fun toPartyMember(atbOverride: Float? = null): PartyMember? {
         val c = combat ?: return null
@@ -672,6 +705,27 @@ class GameContentLoader(private val source: ContentSource) {
                 growth = (c.growth ?: GrowthDto()).toStatGrowth()
             )
         }
+        val resolvedSprite = sprite?.let { s ->
+            val pal = s.palette?.mapNotNull { (key, hex) ->
+                val char = key.firstOrNull() ?: return@mapNotNull null
+                char to parseHexColor(hex, Color.Transparent)
+            }?.toMap() ?: emptyMap()
+
+            val f = s.frames
+            val idleUp = f?.idle_upright ?: emptyList()
+            if (idleUp.isNotEmpty() && pal.isNotEmpty()) {
+                val idleCr = if (!f?.idle_crouch.isNullOrEmpty()) f!!.idle_crouch!! else idleUp
+                val actCast = if (!f?.action_cast.isNullOrEmpty()) f!!.action_cast!! else idleUp
+                val dmg = if (!f?.damaged.isNullOrEmpty()) f!!.damaged!! else idleCr
+                SpriteDefinition(
+                    palette = pal,
+                    idleUpright = idleUp,
+                    idleCrouch = idleCr,
+                    actionCast = actCast,
+                    damaged = dmg
+                )
+            } else null
+        }
         return GameCharacter(
             id = id,
             role = when (role.lowercase()) {
@@ -688,7 +742,9 @@ class GameContentLoader(private val source: ContentSource) {
             joinWhenFlag = joinWhenFlag,
             spellGrants = (spellGrants ?: emptyList()).map {
                 SpellGrant(it.flag, it.spellIds ?: emptyList())
-            }
+            },
+            gender = gender,
+            sprite = resolvedSprite
         )
     }
 
@@ -780,6 +836,7 @@ class GameContentLoader(private val source: ContentSource) {
         speaker = speakers[speakerId] ?: DialogueSpeaker.NARRATOR,
         side = runCatching { SpeakerSide.valueOf(side) }.getOrDefault(SpeakerSide.CENTER_NARRATOR),
         text = text,
+        revisitText = revisitText,
         choices = (choices ?: emptyList()).map {
             DialogueChoice(
                 id = it.id,

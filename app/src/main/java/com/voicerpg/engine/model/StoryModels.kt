@@ -68,6 +68,7 @@ data class DialogueNode(
     val speaker: DialogueSpeaker,
     val side: SpeakerSide,
     val text: String,
+    val revisitText: String? = null,
     val choices: List<DialogueChoice> = emptyList(),
     val nextNodeId: String? = null,
     val triggerBattleEncounterId: String? = null,
