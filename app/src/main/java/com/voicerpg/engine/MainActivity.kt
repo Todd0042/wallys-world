@@ -334,6 +334,7 @@ class MainActivity : ComponentActivity() {
                                 viewModel = combatViewModel,
                                 onReturnToStory = { storyViewModel.switchToStory() },
                                 onContinueStory = {
+                                    combatNarrator.stop()
                                     combatViewModel.onContinueStory?.invoke()
                                 }
                             )
