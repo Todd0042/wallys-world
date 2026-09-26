@@ -1,5 +1,5 @@
 {
-  "_doc": "Todd \u2014 the hero, an hourly freight associate at the fictional megastore chain Wally's World. Names, titles, policies, and brand terms are deliberately fictional for legal distance (see AGENTS.md 'Content Neutrality'); the fiction is a recognizable-but-unproveable portrait of big-box retail labor.",
+  "_doc": "Todd — the hero, an hourly freight associate at the fictional megastore chain Wally's World. Names, titles, policies, and brand terms are deliberately fictional for legal distance (see AGENTS.md 'Content Neutrality'); the fiction is a recognizable-but-unproveable portrait of big-box retail labor.",
   "id": "hero",
   "role": "hero",
   "name": "Todd",
@@ -94,7 +94,7 @@
         "basePower": 0,
         "mpCost": 10,
         "isGuard": true,
-        "description": "Plant your boots. Halve the incoming damage of the next assault \u2014 the mart stays up.",
+        "description": "Plant your boots. Halve the incoming damage of the next assault — the mart stays up.",
         "exampleChant": "hold ground!",
         "aliases": [
           "hold ground",
@@ -309,5 +309,11 @@
         "...KKKKK..KKKKK....."
       ]
     }
-  }
+  },
+  "allowedVoiceRegions": [
+    "US",
+    "CA",
+    "GB",
+    "AU"
+  ]
 }

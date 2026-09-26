@@ -1,5 +1,5 @@
 {
-  "_doc": "Todd, reclassified \u2014 the same man, now a salaried Shop Manager over the oil and tire bays. Uses the engine's companion slot (joinWhenFlag) to represent the same person 'reclassing' into a new role with a new skill kit, since the campaign has no true companions.",
+  "_doc": "Todd, reclassified — the same man, now a salaried Shop Manager over the oil and tire bays. Uses the engine's companion slot (joinWhenFlag) to represent the same person 'reclassing' into a new role with a new skill kit, since the campaign has no true companions.",
   "id": "todd_shop",
   "role": "npc",
   "name": "Todd",
@@ -8,7 +8,7 @@
   "spriteId": "hero",
   "themeColor": "#F5B041",
   "ttsPitch": 0.92,
-  "samplePhrase": "Six bays and a line of pickups \u2014 let's move some oil.",
+  "samplePhrase": "Six bays and a line of pickups — let's move some oil.",
   "preferredVoiceId": null,
   "voiceAliases": [
     "todd",
@@ -75,7 +75,7 @@
         "school": "PHYSICAL",
         "basePower": 55,
         "mpCost": 12,
-        "description": "Break the bead, spin the mount, seat the tire \u2014 the machine gives nothing for free, so you take the torque.",
+        "description": "Break the bead, spin the mount, seat the tire — the machine gives nothing for free, so you take the torque.",
         "exampleChant": "tire grind!",
         "aliases": [
           "tire grind",
@@ -122,7 +122,7 @@
         "basePower": 0,
         "mpCost": 10,
         "isGuard": true,
-        "description": "Plant the jack stand before you reach under the frame. Halve the next blow \u2014 nothing drops on your watch.",
+        "description": "Plant the jack stand before you reach under the frame. Halve the next blow — nothing drops on your watch.",
         "exampleChant": "jack hold!",
         "aliases": [
           "jack hold",
@@ -170,7 +170,7 @@
         "school": "CRYOMANCY",
         "basePower": 50,
         "mpCost": 10,
-        "description": "Drain the overheated radiator and watch the steam die \u2014 the engine cools to working temperature.",
+        "description": "Drain the overheated radiator and watch the steam die — the engine cools to working temperature.",
         "exampleChant": "coolant chill!",
         "aliases": [
           "coolant chill",
@@ -218,7 +218,7 @@
         "basePower": 50,
         "mpCost": 16,
         "isHeal": true,
-        "description": "Patch the tech who's been running all day \u2014 a swapped task, a cold drink from your bin, the line keeps moving.",
+        "description": "Patch the tech who's been running all day — a swapped task, a cold drink from your bin, the line keeps moving.",
         "exampleChant": "belt mend!",
         "aliases": [
           "belt mend",
@@ -410,5 +410,11 @@
         "...KKKKK..KKKKK....."
       ]
     }
-  }
+  },
+  "allowedVoiceRegions": [
+    "US",
+    "CA",
+    "GB",
+    "AU"
+  ]
 }

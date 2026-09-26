@@ -148,5 +148,11 @@
         "...KKKKKK..KKKKKK..."
       ]
     }
-  }
+  },
+  "allowedVoiceRegions": [
+    "US",
+    "CA",
+    "GB",
+    "AU"
+  ]
 }

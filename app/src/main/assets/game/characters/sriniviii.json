@@ -152,5 +152,9 @@
         "...KKKKK..KKKKK....."
       ]
     }
-  }
+  },
+  "allowedVoiceRegions": [
+    "IN",
+    "US"
+  ]
 }
