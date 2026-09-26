@@ -81,4 +81,53 @@ class SpellContentTest {
             }
         }
     }
+
+    @Test
+    fun testAllSpellChantPresetsAcrossAllResonanceTiers() {
+        val assetsDir = listOf(
+            File("app/src/main/assets/game"),
+            File("src/main/assets/game"),
+            File("assets/game")
+        ).firstOrNull { it.isDirectory }
+        assertNotNull("Assets directory should be found", assetsDir)
+
+        GameContent.reset()
+        GameContent.initializeFromDirectory(assetsDir!!)
+        val allSpells = GameContent.spells.values.distinctBy { it.id }
+
+        val resonanceEngine = com.voicerpg.engine.engine.ResonanceEngine()
+        val tiers = listOf(
+            com.voicerpg.engine.model.ResonanceTier.BASIC,
+            com.voicerpg.engine.model.ResonanceTier.ADEPT,
+            com.voicerpg.engine.model.ResonanceTier.MASTER,
+            com.voicerpg.engine.model.ResonanceTier.MYTHIC,
+            com.voicerpg.engine.model.ResonanceTier.TRANSCENDENTAL
+        )
+
+        for (spell in allSpells) {
+            for (expectedTier in tiers) {
+                val preset = com.voicerpg.engine.engine.SpellChantPresets.getPreset(spell, expectedTier)
+                val result = resonanceEngine.evaluate(
+                    utterance = preset.chantText,
+                    school = spell.school,
+                    acousticProfile = preset.acousticProfile,
+                    ignoreNoveltyDecay = true
+                )
+
+                val tierMessage = "Spell '${spell.id}' with preset tier $expectedTier failed: got ${result.tier} with ${result.bonusPercent}%"
+                org.junit.Assert.assertEquals(tierMessage, expectedTier, result.tier)
+
+                if (expectedTier == com.voicerpg.engine.model.ResonanceTier.TRANSCENDENTAL) {
+                    assertTrue(
+                        "Transcendental tier for ${spell.id} should hit maximum 200% bonus (got ${result.bonusPercent}%)",
+                        result.bonusPercent == 200
+                    )
+                    assertTrue(
+                        "Damage multiplier should hit 3.0x (got ${result.damageMultiplier}x)",
+                        result.damageMultiplier == 3.0f
+                    )
+                }
+            }
+        }
+    }
 }

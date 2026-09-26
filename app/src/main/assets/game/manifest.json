@@ -40,5 +40,15 @@
   "defaultHeroPortrait": "portraits/todd.jpg",
   "tutorialCompletionText": "All associates assembled. Shift dynamics understood. You are prepared to enter Wally's World.",
   "voicePermissionTitle": "HANDS-FREE VOICE SHIFT",
-  "voicePermissionSubtitle": "Wally's World Voice Controls"
+  "voicePermissionSubtitle": "Wally's World Voice Controls",
+  "resonance": {
+    "mode": "SURVIVAL",
+    "tierChants": {
+      "BASIC": "{name}",
+      "ADEPT": "{name}!",
+      "MASTER": "Focus now: {name}!",
+      "MYTHIC": "Stay on it: {name} now!",
+      "TRANSCENDENTAL": "Dig deep, clear the lane, and survive: {name} now!"
+    }
+  }
 }
