@@ -70,6 +70,7 @@
         "school": "PHYSICAL",
         "basePower": 55,
         "mpCost": 12,
+        "hitsAll": true,
         "description": "Shove the wall of boxes forward with your whole body instead of letting it win.",
         "exampleChant": "freight push!",
         "aliases": [

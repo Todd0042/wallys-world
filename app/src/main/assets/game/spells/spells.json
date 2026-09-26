@@ -31,6 +31,7 @@
       "school": "PHYSICAL",
       "basePower": 55,
       "mpCost": 12,
+      "hitsAll": true,
       "description": "Shove the wall of boxes forward with your whole body instead of letting it win.",
       "exampleChant": "freight push!",
       "aliases": [
@@ -934,6 +935,7 @@
       "school": "PYROMANCY",
       "basePower": 52,
       "mpCost": 12,
+      "hitsAll": true,
       "description": "The working heat of a shop at full tilt: every tech moving, every lift loaded, the whole building cooking.",
       "exampleChant": "bay heat!",
       "aliases": [

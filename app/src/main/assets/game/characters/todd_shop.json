@@ -28,6 +28,7 @@
     "startAtb": 0.45,
     "spellIds": [
       "lube_line",
+      "grease_clear",
       "tire_grind",
       "bay_charge",
       "jack_hold",
@@ -194,6 +195,7 @@
         "school": "PYROMANCY",
         "basePower": 52,
         "mpCost": 12,
+        "hitsAll": true,
         "description": "The working heat of a shop at full tilt: every tech moving, every lift loaded, the whole building cooking.",
         "exampleChant": "bay heat!",
         "aliases": [
@@ -265,6 +267,31 @@
           "secondaryColor": "#00ACC1",
           "particleCount": 18,
           "screenShake": 0.0
+        }
+      },
+      {
+        "id": "grease_clear",
+        "name": "Grease Clear",
+        "school": "PHYSICAL",
+        "basePower": 46,
+        "mpCost": 14,
+        "hitsAll": true,
+        "description": "One sweep of the bay floor — every work order in the shop clears at once.",
+        "exampleChant": "grease clear!",
+        "aliases": [
+          "grease clear",
+          "clear",
+          "sweep",
+          "the bay floor",
+          "all enemies",
+          "work orders"
+        ],
+        "graphics": {
+          "effectType": "WAVE",
+          "primaryColor": "#B0BEC5",
+          "secondaryColor": "#78909C",
+          "particleCount": 20,
+          "screenShake": 5.0
         }
       }
     ]

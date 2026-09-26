@@ -84,4 +84,91 @@ class RetailBattleContinuationTest {
         assertEquals("Hero HP should reach 0 when taking lethal damage", 0, newHp)
         assertTrue("Hero should fall when taking lethal damage", newHp <= 0)
     }
+
+    @Test
+    fun testAutoHeroActionPrefersAoeAndNeverHeals() {
+        val dummyNarrator = com.voicerpg.engine.audio.CombatNarrator()
+        val dummySpeech = com.voicerpg.engine.audio.SpeechManager()
+        val testScope = kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.Default)
+        val viewModel = com.voicerpg.engine.viewmodel.CombatViewModel(
+            speechManager = dummySpeech,
+            combatNarrator = dummyNarrator,
+            scopeOverride = testScope
+        )
+        viewModel.setPureStoryMode(true)
+
+        val aoeSpell = com.voicerpg.engine.model.Spell(
+            id = "freight_push",
+            name = "Freight Push",
+            school = com.voicerpg.engine.model.SpellSchool.PHYSICAL,
+            basePower = 55,
+            mpCost = 12,
+            hitsAll = true,
+            description = "Shove freight",
+            exampleChant = "freight push!"
+        )
+        val singleSpell = com.voicerpg.engine.model.Spell(
+            id = "line_drill",
+            name = "Line Drill",
+            school = com.voicerpg.engine.model.SpellSchool.PHYSICAL,
+            basePower = 40,
+            mpCost = 0,
+            description = "Line drill",
+            exampleChant = "line drill!"
+        )
+        val healSpell = com.voicerpg.engine.model.Spell(
+            id = "belt_mend",
+            name = "Belt Mend",
+            school = com.voicerpg.engine.model.SpellSchool.HOLY,
+            basePower = 50,
+            mpCost = 16,
+            isHeal = true,
+            description = "Belt mend",
+            exampleChant = "belt mend!"
+        )
+
+        val hero = PartyMember(
+            id = "hero",
+            name = "Todd",
+            loreClass = "Shop Captain",
+            currentHp = 30, // critically low HP (10%)
+            maxHp = 300,
+            currentMp = 90,
+            maxMp = 100,
+            spells = listOf(singleSpell, aoeSpell, healSpell)
+        )
+
+        val enemies = listOf(
+            com.voicerpg.engine.model.Enemy(id = "e1", name = "Cart 1", subtitle = "Minion", currentHp = 100, maxHp = 100, baseAttack = 10),
+            com.voicerpg.engine.model.Enemy(id = "e2", name = "Cart 2", subtitle = "Minion", currentHp = 100, maxHp = 100, baseAttack = 10)
+        )
+
+        viewModel.startEncounter(
+            party = listOf(hero),
+            enemies = enemies,
+            environment = com.voicerpg.engine.model.BattleEnvironment.CASTLE
+        )
+        viewModel.setPlayerInputPhaseForTesting("hero")
+
+        // 1. With 2 enemies alive, even at 10% HP, hero must pick AoE damage spell and NOT heal
+        val chosenWithMultipleEnemies = viewModel.triggerAutoHeroAction(hero)
+        assertEquals("Should choose AoE spell when more than 1 enemy", "freight_push", chosenWithMultipleEnemies?.id)
+        org.junit.Assert.assertFalse("Should never heal in auto play fights", chosenWithMultipleEnemies?.isHeal == true)
+
+        // 2. With only 1 enemy alive, hero must pick offensive spell and NOT heal even at 10% HP
+        val singleEnemyList = listOf(
+            com.voicerpg.engine.model.Enemy(id = "e1", name = "Cart 1", subtitle = "Minion", currentHp = 100, maxHp = 100, baseAttack = 10),
+            com.voicerpg.engine.model.Enemy(id = "e2", name = "Cart 2", subtitle = "Minion", currentHp = 0, maxHp = 100, baseAttack = 10)
+        )
+        viewModel.startEncounter(
+            party = listOf(hero),
+            enemies = singleEnemyList,
+            environment = com.voicerpg.engine.model.BattleEnvironment.CASTLE
+        )
+        viewModel.setPlayerInputPhaseForTesting("hero")
+
+        val chosenWithSingleEnemy = viewModel.triggerAutoHeroAction(hero)
+        org.junit.Assert.assertFalse("Should never heal in auto play fights even with 1 enemy", chosenWithSingleEnemy?.isHeal == true)
+        assertEquals("Should choose offensive spell and not heal", "freight_push", chosenWithSingleEnemy?.id)
+    }
 }

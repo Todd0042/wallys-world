@@ -9,7 +9,7 @@
   "startingSpeed": 58,
   "startingBaseAttack": 32,
   "preferredSchool": "PHYSICAL",
-  "starterSpellIds": ["lube_line", "tire_grind", "bay_charge", "jack_hold", "volt_snap", "coolant_chill", "bay_heat", "belt_mend", "breathe"],
+  "starterSpellIds": ["lube_line", "grease_clear", "tire_grind", "bay_charge", "jack_hold", "volt_snap", "coolant_chill", "bay_heat", "belt_mend", "breathe"],
   "voiceKeywords": ["captain", "bay", "shop", "tires", "oil", "mechanic", "service"],
   "growth": { "maxHp": 17, "maxMp": 9, "speed": 1, "defense": 2, "potencyPct": 0.03 }
 }
