@@ -1307,7 +1307,7 @@
     {
       "id": "florida_redemption_schedule",
       "name": "The Redemption Schedule",
-      "description": "The relocation collar in its purest form: the thousands of dollars owed if you walk or are fired, the amortized doom that keeps a person driving south into the dark. The arithmetic the machine bet you'd never learn to read.",
+      "description": "The relocation contract in its rawest form: corporate's weapon to keep you driving south into the dark. Break the trap by reading between the lines \u2014 stepping down within the company instead of walking away.",
       "environment": "sales_floor",
       "party": [
         "todd_shop"
@@ -1329,7 +1329,7 @@
         {
           "templateId": "fluorescent_hum",
           "id": "hum_redemption",
-          "name": "The Hum of the Loan",
+          "name": "The Threat of Clawback",
           "atbGauge": 0.2
         }
       ],

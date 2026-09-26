@@ -3866,7 +3866,7 @@
       "id": "florida_leave_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Medical leave. The cavernous backroom at three in the morning, after the sun has given up and the fluorescent has not: shingles across the forehead in full agonizing force, and the relocation debt humming in the rafters like a fridge. Alone. No crew, no walkie, no folding wall of bodies \u2014 just the hum, the pain, and the arithmetic that has been compounding since April. The body has done its job. Now the mind gets its turn, and the mind has been taking notes all year.",
+      "text": "Medical leave. The cavernous backroom at three in the morning, after the sun has given up and the fluorescent has not: shingles across the forehead in full agonizing force, and the threat of the relocation clawback humming in the rafters like a fridge. Alone. No crew, no walkie, no folding wall of bodies \u2014 just the hum, the pain, and the arithmetic that has been compounding since April. The body has done its job. Now the mind gets its turn, and the mind has been taking notes all year.",
       "nextNodeId": "florida_leave_battle"
     },
     {
@@ -4004,14 +4004,17 @@
         },
         {
           "id": "choice_florida_redemption",
-          "text": "Walk the redemption schedule one last time.",
+          "text": "Tear up the relocation trap \u2014 outsmart the clawback.",
           "voiceKeywords": [
-            "redemption",
-            "debt",
+            "trap",
+            "clawback",
+            "outsmart",
+            "loophole",
+            "contract",
             "schedule",
             "battle",
             "fight",
-            "collar"
+            "redemption"
           ],
           "nextNodeId": "florida_redemption_trigger",
           "completionFlag": "flag_florida_redemption"
@@ -4036,7 +4039,7 @@
       "id": "branch_florida_stepdown",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I take the pay cut \u2014 twenty-four grand, the machine keeping its clawback wound \u2014 and hand back the title that was really a leash. Salary was never the point. The overnight manager death spiral was the point, and I am done being its next number.",
+      "text": "I take the pay cut \u2014 twenty-four grand, trading salaried exhaustion for hourly peace \u2014 and hand back the title that was really a leash. Salary was never the point. The overnight manager death spiral was the point, and I found the trapdoor: the relocation contract only claws back the moving expenses if you leave the company entirely. By stepping down to an hourly position instead of quitting, they couldn't touch a single dime. I am done being their victim, and they didn't get their clawback.",
       "nextNodeId": "florida_choice_hub",
       "setFlagOnEnter": "flag_florida_stepdown_chosen"
     },
@@ -4044,7 +4047,7 @@
       "id": "branch_florida_collar_refuse",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The relocation contract, refused at last: the collar stays in the drawer with the two-faced promises. Owing thousands is cheaper than owing your body. For the first time since April, the arithmetic comes out ahead of the machine.",
+      "text": "The relocation contract, outsmarted at last: corporate HR drafted the clawback assuming anyone who broke would quit and owe thousands. By stepping down to an hourly role within the company, I stayed employed \u2014 and the clawback clause was legally dead. No debt. No repayment. For the first time since April, the arithmetic turned back on the machine.",
       "nextNodeId": "florida_choice_hub",
       "setFlagOnEnter": "flag_florida_collar_refused"
     },
@@ -4052,7 +4055,7 @@
       "id": "florida_redemption_trigger",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The redemption schedule, the collar's pure ledger: every dollar owed for walking, every year of the repayment knot. Say 'Enemies' and settle the debt on your terms. The machine expects you to fear it. You expect it to be paper.",
+      "text": "The relocation contract was designed to hold you hostage \u2014 thousands in clawback fees if you walked away. But you read every clause, found the loophole, and used the machine's own rules to disarm it. Say 'Enemies' and put the relocation trap into the ground for good.",
       "triggerBattleEncounterId": "florida_redemption_schedule",
       "nextNodeId": "florida_redemption_post"
     },
@@ -4060,7 +4063,7 @@
       "id": "florida_redemption_post",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "The schedule lies shredded in the backroom bin. The debt is still real \u2014 the money is still owed. But it's paper now, not a leash. I can pay paper. I can't pay with my life, and I was never going to.",
+      "text": "The contract lies shredded in the backroom bin. Zero debt. Zero clawback. I didn't leave the company; I stepped down within it. They spent eight months trying to break me with the threat of what I'd owe, and in the end, they couldn't take a single dollar back. An ingenious move against a ruthless system.",
       "nextNodeId": "florida_choice_hub",
       "setFlagOnEnter": "flag_florida_redemption"
     },
@@ -4090,7 +4093,7 @@
       "id": "florida_last_drive",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The last drive north: the St. Augustine megamart receding in the mirror, the sodium ocean shrinking to a smudge, the passenger seat holding Adriana's hand and the rest of your savings. Eight months in the crucible, and the machine's final scorecard reads: you refused to submit. No Hollywood ending \u2014 the debt is real, the pay cut is real, Ohmar is real and will do all of it again to the next soul who signs. But integrity intact, sanity intact, body intact, the collar in the drawer and the sunrise in the windshield.",
+      "text": "The last drive north: the St. Augustine megamart receding in the mirror, the sodium ocean shrinking to a smudge, the passenger seat holding Adriana's hand and the savings you kept intact. Eight months in the crucible, and the machine's final scorecard reads: you refused to submit. The pay cut is real, Ohmar is real and will do all of it again to the next soul who signs \u2014 but the relocation money stayed in your pocket, your record is clean, integrity intact, body intact, and the sunrise in the windshield.",
       "nextNodeId": "florida_final"
     },
     {
@@ -5015,7 +5018,7 @@
       "id": "act6_final_closing",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "But it failed. Integrity intact. Empathy intact. The working class still has his whole attention and none of his contempt \u2014 he earned the right to either, and he chose. The corporate meat grinder had eight years and five states and four shingles and a 3 AM and one relocation clawback. It needed all of that to almost win. Almost. Is not.",
+      "text": "But it failed. Integrity intact. Empathy intact. The working class still has his whole attention and none of his contempt \u2014 he earned the right to either, and he chose. The corporate meat grinder had eight years and five states and four shingles and a 3 AM and a relocation trap it couldn't spring. It needed all of that to almost win. Almost. Is not.",
       "nextNodeId": "act6_adriana_final"
     },
     {

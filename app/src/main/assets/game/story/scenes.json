@@ -15,7 +15,7 @@
       "milestoneTitle": "Chapter 1: The 4 AM Unload",
       "milestoneLocation": "The Backroom Trench",
       "milestoneSummary": "You clocked in at a Wally's World overnight unload, learned the freight line, met the crew, and survived your first wall of boxes.",
-      "milestoneIcon": "📦",
+      "milestoneIcon": "\ud83d\udce6",
       "defaultObjective": "Learn the floor, meet the crew, brew the coffee, and run the 4 AM unload."
     },
     {
@@ -32,7 +32,7 @@
       "milestoneTitle": "Chapter 2: The Promotion",
       "milestoneLocation": "The Sales Floor",
       "milestoneSummary": "You were promoted to Freight Supervisor, led the overnight crews, fixed the process, and held the floor through a front-end storm.",
-      "milestoneIcon": "🗂️",
+      "milestoneIcon": "\ud83d\uddc2\ufe0f",
       "defaultObjective": "Lead the crew, fix the process, and stand your ground on the floor."
     },
     {
@@ -49,7 +49,7 @@
       "milestoneTitle": "Chapter 3: The Rot and the Offer",
       "milestoneLocation": "The Front End",
       "milestoneSummary": "You saw the machine up close at the front end, made a private vow, and Jodie offered you an assistant-manager slot in Colorado.",
-      "milestoneIcon": "🧾",
+      "milestoneIcon": "\ud83e\uddfe",
       "defaultObjective": "Hear the offer, see the rot, and decide whether to take the door out."
     },
     {
@@ -65,8 +65,8 @@
       "actTitle": "Act I: The Utah Grind",
       "milestoneTitle": "Chapter 4: The Office",
       "milestoneLocation": "The Manager's Office",
-      "milestoneSummary": "You learned Mattie-T's email was already sent — a quiet 'not ready' note that steered your slot to Lamar — disagreed with him respectfully, survived the office, and walked out to a truck pointed at Colorado, excited and still unaware how deep it ran.",
-      "milestoneIcon": "🚪",
+      "milestoneSummary": "You learned Mattie-T's email was already sent \u2014 a quiet 'not ready' note that steered your slot to Lamar \u2014 disagreed with him respectfully, survived the office, and walked out to a truck pointed at Colorado, excited and still unaware how deep it ran.",
+      "milestoneIcon": "\ud83d\udeaa",
       "defaultObjective": "Face what Mattie-T built, survive the office, and choose your way out."
     },
     {
@@ -82,8 +82,8 @@
       "actTitle": "Act II: The Lamar Squeeze",
       "milestoneTitle": "Chapter 5: The Highway Oasis",
       "milestoneLocation": "The service shop, Lamar",
-      "milestoneSummary": "You took the Shop Manager slot at the highway oasis, met Miss Trudy, and found a rhythm of competence in the bays — enough to run the shop at perfect ten-point-oh for a year.",
-      "milestoneIcon": "🛢️",
+      "milestoneSummary": "You took the Shop Manager slot at the highway oasis, met Miss Trudy, and found a rhythm of competence in the bays \u2014 enough to run the shop at perfect ten-point-oh for a year.",
+      "milestoneIcon": "\ud83d\udee2\ufe0f",
       "defaultObjective": "Own the bays, build the crew, and earn the best year the store has ever seen."
     },
     {
@@ -92,7 +92,7 @@
       "chapterTitle": "Chapter 6: The Fall of Miss Trudy",
       "backgroundAsset": "story/squeeze_colorado_store.jpg",
       "initialNodeId": "fall_intro",
-      "ambientDescription": "The store floor tightens as corporate quietly hands Miss Trudy her 'early retirement' and Jury takes the office — the loose, functional calm condensing into a rigid, paranoid hierarchy.",
+      "ambientDescription": "The store floor tightens as corporate quietly hands Miss Trudy her 'early retirement' and Jury takes the office \u2014 the loose, functional calm condensing into a rigid, paranoid hierarchy.",
       "musicAsset": "audio/music/bgm_act2_lamar.ogg",
       "chapterIndex": 6,
       "actNumber": 2,
@@ -100,7 +100,7 @@
       "milestoneTitle": "Chapter 6: The Fall of Miss Trudy",
       "milestoneLocation": "The Lamar Store Floor",
       "milestoneSummary": "Corporate tore out the store's heart, Jury tightened the grip, and you learned to shield your crew from a watchful eye that never blinks.",
-      "milestoneIcon": "🪑",
+      "milestoneIcon": "\ud83e\ude91",
       "defaultObjective": "Keep your people safe under a store manager who only cares that nothing bounces upward."
     },
     {
@@ -117,7 +117,7 @@
       "milestoneTitle": "Chapter 7: The Brick Wall",
       "milestoneLocation": "The Lamar Store Office",
       "milestoneSummary": "Adriana was denied the Shop Manager role because 'they wanted a man for the job.' You filed the first grievance. The machine stamped it Unsubstantiated and closed the file.",
-      "milestoneIcon": "🧱",
+      "milestoneIcon": "\ud83e\uddf1",
       "defaultObjective": "Run the grievance to the area level and watch the machine tell the truth to no one."
     },
     {
@@ -134,7 +134,7 @@
       "milestoneTitle": "Chapter 8: The Christmas Party Slur",
       "milestoneLocation": "The Community Hall",
       "milestoneSummary": "Jury degraded you in front of witnesses at the Christmas party, you filed the second grievance, and the machine returned exactly the same stamp: Unsubstantiated. The lesson stuck for good.",
-      "milestoneIcon": "🎄",
+      "milestoneIcon": "\ud83c\udf84",
       "defaultObjective": "Endure the final gaslight and learn the retail machine's one foundational truth."
     },
     {
@@ -143,15 +143,15 @@
       "chapterTitle": "Chapter 9: The Body Keeps the Score",
       "backgroundAsset": "story/squeeze_colorado_road.jpg",
       "initialNodeId": "road_intro",
-      "ambientDescription": "A burning nerve pain flaring across your forehead — Shingles Outbreak Number One — and a box truck pointed east, packed, leaving Lamar in the mirror.",
+      "ambientDescription": "A burning nerve pain flaring across your forehead \u2014 Shingles Outbreak Number One \u2014 and a box truck pointed east, packed, leaving Lamar in the mirror.",
       "musicAsset": "audio/music/bgm_act2_lamar.ogg",
       "chapterIndex": 9,
       "actNumber": 2,
       "actTitle": "Act II: The Lamar Squeeze",
       "milestoneTitle": "Chapter 9: The Body Keeps the Score",
       "milestoneLocation": "The Road Out of Lamar",
-      "milestoneSummary": "Your body kept the score, you and Adriana chose a fresh start you paid for out of pocket, and you left Lamar behind — scarred, woke, and pointed east.",
-      "milestoneIcon": "🚛",
+      "milestoneSummary": "Your body kept the score, you and Adriana chose a fresh start you paid for out of pocket, and you left Lamar behind \u2014 scarred, woke, and pointed east.",
+      "milestoneIcon": "\ud83d\ude9b",
       "defaultObjective": "Endure the first outbreak, choose your exit, and put the small-town rot in the rearview."
     },
     {
@@ -166,9 +166,9 @@
       "actNumber": 3,
       "actTitle": "Act III: The Borderlands Squeeze",
       "milestoneTitle": "Chapter 10: The State Line Commute",
-      "milestoneLocation": "The Georgia–South Carolina Border",
-      "milestoneSummary": "You crossed the state line into a neglected service shop, learned the true state of the bays, met a crew of seasoned techs and green apprentices — and smelled what years of nobody running the line had left behind.",
-      "milestoneIcon": "🚗",
+      "milestoneLocation": "The Georgia\u2013South Carolina Border",
+      "milestoneSummary": "You crossed the state line into a neglected service shop, learned the true state of the bays, met a crew of seasoned techs and green apprentices \u2014 and smelled what years of nobody running the line had left behind.",
+      "milestoneIcon": "\ud83d\ude97",
       "defaultObjective": "Learn the bays, meet the crew, and see whether the borderlands can be fixed."
     },
     {
@@ -185,7 +185,7 @@
       "milestoneTitle": "Chapter 11: The Gated Hierarchy",
       "milestoneLocation": "The South Carolina Store Floor",
       "milestoneSummary": "You watched a leadership tour decide the shop's future from behind a glass door, learned the edicts that get sold out from under the people who run the building, and held the bays through the first impossible number.",
-      "milestoneIcon": "🚪",
+      "milestoneIcon": "\ud83d\udeaa",
       "defaultObjective": "Survive the walkthrough, decode the edict, and hold the floor when the impossible number lands."
     },
     {
@@ -194,7 +194,7 @@
       "chapterTitle": "Chapter 12: The Paralysis of Kindness",
       "backgroundAsset": "story/squeeze_carolina_bays.jpg",
       "initialNodeId": "azalia_intro",
-      "ambientDescription": "Store Manager Azalia — your boss — is genuinely wonderful to every face in the building, and utterly unable to let one consequence stick. Every write-up her shop manager draws, she kindly unmakes. The kindness absorbs accountability like a sponge, and the problems stay exactly where they were.",
+      "ambientDescription": "Store Manager Azalia \u2014 your boss \u2014 is genuinely wonderful to every face in the building, and utterly unable to let one consequence stick. Every write-up her shop manager draws, she kindly unmakes. The kindness absorbs accountability like a sponge, and the problems stay exactly where they were.",
       "musicAsset": "audio/music/bgm_act3_borderlands.ogg",
       "chapterIndex": 12,
       "actNumber": 3,
@@ -202,7 +202,7 @@
       "milestoneTitle": "Chapter 12: The Paralysis of Kindness",
       "milestoneLocation": "The Service Shop Bays",
       "milestoneSummary": "You learned the store's terrible secret: a boss who loves every associate and unmakes every consequence her shop manager draws, leaving the conscientious to carry the building on their spines.",
-      "milestoneIcon": "🌷",
+      "milestoneIcon": "\ud83c\udf37",
       "defaultObjective": "Observe the paradox, keep holding the line anyway, and watch the costs of a boss who unmakes every consequence."
     },
     {
@@ -218,8 +218,8 @@
       "actTitle": "Act III: The Borderlands Squeeze",
       "milestoneTitle": "Chapter 13: The Safety Breach",
       "milestoneLocation": "The Service Shop Office",
-      "milestoneSummary": "A near-miss the store tried to bury, a refusal to sign off on dangerous work, and the secret protocol from Colorado — running the grievance straight to regional for the first small, functional win of your career.",
-      "milestoneIcon": "🔧",
+      "milestoneSummary": "A near-miss the store tried to bury, a refusal to sign off on dangerous work, and the secret protocol from Colorado \u2014 running the grievance straight to regional for the first small, functional win of your career.",
+      "milestoneIcon": "\ud83d\udd27",
       "defaultObjective": "Refuse to sign, document the near-miss, and make the one lever that still works actually move."
     },
     {
@@ -228,7 +228,7 @@
       "chapterTitle": "Chapter 14: The Body Keeps the Score",
       "backgroundAsset": "story/squeeze_carolina_road.jpg",
       "initialNodeId": "carolina_scar",
-      "ambientDescription": "The second shingles outbreak flares across your forehead — one per state, one store per price paid. The truck is packed for Pueblo, the porch light goes dark, and Azalia's kindness follows you to the door, weightless and unaccountable to the end.",
+      "ambientDescription": "The second shingles outbreak flares across your forehead \u2014 one per state, one store per price paid. The truck is packed for Pueblo, the porch light goes dark, and Azalia's kindness follows you to the door, weightless and unaccountable to the end.",
       "musicAsset": "audio/music/bgm_act3_borderlands.ogg",
       "chapterIndex": 14,
       "actNumber": 3,
@@ -236,7 +236,7 @@
       "milestoneTitle": "Chapter 14: The Body Keeps the Score",
       "milestoneLocation": "The Road Out of the Borderlands",
       "milestoneSummary": "Outbreak Number Two on the forehead, a cold farewell from the kindest manager you'll ever meet, and a truck pointed west toward Pueblo with a second scar as proof of the price.",
-      "milestoneIcon": "🚛",
+      "milestoneIcon": "\ud83d\ude9b",
       "defaultObjective": "Endure the second outbreak, take the goodbye that never landed, and point the truck west."
     },
     {
@@ -252,8 +252,8 @@
       "actTitle": "Act IV: The Madness",
       "milestoneTitle": "Chapter 15: The One-Man Close",
       "milestoneLocation": "The Night Floor, Pueblo",
-      "milestoneSummary": "You took a stocking slot that turned out to be the store's only closing manager — no hourly supervisors, no backup — and held the queues, the seizures, the shift-change gangs, and the lonely midnight close alone for a year.",
-      "milestoneIcon": "🌙",
+      "milestoneSummary": "You took a stocking slot that turned out to be the store's only closing manager \u2014 no hourly supervisors, no backup \u2014 and held the queues, the seizures, the shift-change gangs, and the lonely midnight close alone for a year.",
+      "milestoneIcon": "\ud83c\udf19",
       "defaultObjective": "Learn the close, meet the crew, and hold the building alone until sunrise."
     },
     {
@@ -262,15 +262,15 @@
       "chapterTitle": "Chapter 16: The Overhaul Offer",
       "backgroundAsset": "story/squeeze_pueblo_backroom.jpg",
       "initialNodeId": "pueblo_offer",
-      "ambientDescription": "Year two: the bomb threat that empties the building, the man who lit himself on fire in the lot, a claim blizzard with your own name on a file — and the backroom table where the machine asks the closer to remake the store.",
+      "ambientDescription": "Year two: the bomb threat that empties the building, the man who lit himself on fire in the lot, a claim blizzard with your own name on a file \u2014 and the backroom table where the machine asks the closer to remake the store.",
       "musicAsset": "audio/music/bgm_act4_madness.ogg",
       "chapterIndex": 16,
       "actNumber": 4,
       "actTitle": "Act IV: The Madness",
       "milestoneTitle": "Chapter 16: The Overhaul Offer",
       "milestoneLocation": "The Backroom, Pueblo",
-      "milestoneSummary": "The madness of year two: a bomb threat, a self-ignition in the parking lot, every associate claiming discrimination on everyone — you included — and the regional offer you accept: lead the freight-to-floor overhaul. All this and the store inside had no supervisors at all.",
-      "milestoneIcon": "📋",
+      "milestoneSummary": "The madness of year two: a bomb threat, a self-ignition in the parking lot, every associate claiming discrimination on everyone \u2014 you included \u2014 and the regional offer you accept: lead the freight-to-floor overhaul. All this and the store inside had no supervisors at all.",
+      "milestoneIcon": "\ud83d\udccb",
       "defaultObjective": "Armor the crew, survive the incidents, add your own name to the claims pile, and take the overhaul."
     },
     {
@@ -279,15 +279,15 @@
       "chapterTitle": "Chapter 17: Number One in the Nation",
       "backgroundAsset": "story/squeeze_pueblo_overhaul.jpg",
       "initialNodeId": "pueblo_overhaul_intro",
-      "ambientDescription": "The freight-to-floor overhaul: Stocking 2 rebuilt into a pure unload line, Stocking 1 into the bin-and-topstock army — and the board that climbs to Number One in the Nation under a backroom fluorescent.",
+      "ambientDescription": "The freight-to-floor overhaul: Stocking 2 rebuilt into a pure unload line, Stocking 1 into the bin-and-topstock army \u2014 and the board that climbs to Number One in the Nation under a backroom fluorescent.",
       "musicAsset": "audio/music/bgm_act4_madness.ogg",
       "chapterIndex": 17,
       "actNumber": 4,
       "actTitle": "Act IV: The Madness",
       "milestoneTitle": "Chapter 17: Number One in the Nation",
       "milestoneLocation": "The Freight Floor",
-      "milestoneSummary": "You rebuilt the unload and the bins into a single machine, empowered the hourly crews — and took the store to Number One in the Nation, proof that the system works when leadership equips its people.",
-      "milestoneIcon": "🏆",
+      "milestoneSummary": "You rebuilt the unload and the bins into a single machine, empowered the hourly crews \u2014 and took the store to Number One in the Nation, proof that the system works when leadership equips its people.",
+      "milestoneIcon": "\ud83c\udfc6",
       "defaultObjective": "Rebuild the unload, build the bin army, and take the store to the top of the country."
     },
     {
@@ -303,8 +303,8 @@
       "actTitle": "Act IV: The Madness",
       "milestoneTitle": "Chapter 18: The Education of Richard",
       "milestoneLocation": "The Training Office",
-      "milestoneSummary": "You trained the clueless compliance climber, survived the compliance visit he led, and watched him take the Area Manager slot wearing your words — the delicious hypocrisy of the ladder, in full.",
-      "milestoneIcon": "🎓",
+      "milestoneSummary": "You trained the clueless compliance climber, survived the compliance visit he led, and watched him take the Area Manager slot wearing your words \u2014 the delicious hypocrisy of the ladder, in full.",
+      "milestoneIcon": "\ud83c\udf93",
       "defaultObjective": "Teach Richard enough to survive, keep the shine on the store, and watch the climber climb."
     },
     {
@@ -313,15 +313,15 @@
       "chapterTitle": "Chapter 19: The Paradox of Jay-Dau",
       "backgroundAsset": "story/squeeze_pueblo_office.jpg",
       "initialNodeId": "pueblo_paradox_intro",
-      "ambientDescription": "The store manager who is your friend off the clock and pure hell on it — Jay-Dau — flanked by Store Leads Amandy's chaos and Steffie's two faces, in the office where trust goes to die.",
+      "ambientDescription": "The store manager who is your friend off the clock and pure hell on it \u2014 Jay-Dau \u2014 flanked by Store Leads Amandy's chaos and Steffie's two faces, in the office where trust goes to die.",
       "musicAsset": "audio/music/bgm_act4_madness.ogg",
       "chapterIndex": 19,
       "actNumber": 4,
       "actTitle": "Act IV: The Madness",
       "milestoneTitle": "Chapter 19: The Paradox of Jay-Dau",
       "milestoneLocation": "The Store Manager's Office",
-      "milestoneSummary": "The paradox of Pueblo's leadership: a friend who throws you to save his standing, a hostile store lead and a two-faced one — until the tyrant Amandy is promoted away and starts emailing you to save her.",
-      "milestoneIcon": "🎭",
+      "milestoneSummary": "The paradox of Pueblo's leadership: a friend who throws you to save his standing, a hostile store lead and a two-faced one \u2014 until the tyrant Amandy is promoted away and starts emailing you to save her.",
+      "milestoneIcon": "\ud83c\udfad",
       "defaultObjective": "Keep the friend, decode the two faces, survive the clock, and teach the tyrant who tormented you."
     },
     {
@@ -330,15 +330,15 @@
       "chapterTitle": "Chapter 20: The Graveyard",
       "backgroundAsset": "story/squeeze_pueblo_overnight.jpg",
       "initialNodeId": "pueblo_graveyard_intro",
-      "ambientDescription": "Past midnight the store belongs to another species: thirteen overnight managers churned through the office in a single year — numbered like freight, broken and discarded — and the position is still open.",
+      "ambientDescription": "Past midnight the store belongs to another species: thirteen overnight managers churned through the office in a single year \u2014 numbered like freight, broken and discarded \u2014 and the position is still open.",
       "musicAsset": "audio/music/bgm_act4_madness.ogg",
       "chapterIndex": 20,
       "actNumber": 4,
       "actTitle": "Act IV: The Madness",
       "milestoneTitle": "Chapter 20: The Graveyard",
       "milestoneLocation": "The Overnight Shift",
-      "milestoneSummary": "You watched Jay-Dau burn through thirteen overnight managers in one year and numbered them like freight — and then, knowing exactly what the overnight machine does, you took the job yourself.",
-      "milestoneIcon": "🪦",
+      "milestoneSummary": "You watched Jay-Dau burn through thirteen overnight managers in one year and numbered them like freight \u2014 and then, knowing exactly what the overnight machine does, you took the job yourself.",
+      "milestoneIcon": "\ud83e\udea6",
       "defaultObjective": "Learn the thirteen exits, protect the night crew, and feel the grinder before you step into it."
     },
     {
@@ -347,15 +347,15 @@
       "chapterTitle": "Chapter 21: The Fatal Step",
       "backgroundAsset": "story/squeeze_pueblo_road.jpg",
       "initialNodeId": "pueblo_overnight_intro",
-      "ambientDescription": "Two months of the overnight grind, the third shingles outbreak screaming across the forehead, and the Jacksonville offer — with a relocation contract folded into the pocket like a bar tab the machine intends to collect.",
+      "ambientDescription": "Two months of the overnight grind, the third shingles outbreak screaming across the forehead, and the Jacksonville offer \u2014 with a relocation contract folded into the pocket like a bar tab the machine intends to collect.",
       "musicAsset": "audio/music/bgm_act4_madness.ogg",
       "chapterIndex": 21,
       "actNumber": 4,
       "actTitle": "Act IV: The Madness",
       "milestoneTitle": "Chapter 21: The Fatal Step",
       "milestoneLocation": "The Road to Florida",
-      "milestoneSummary": "The overnight grind broke the body, Outbreak Number Three hit with a vengeance, and the machine made its move: St. Augustine, Florida, under a relocation contract — the collar, accepted on paper, at the end of the longest act.",
-      "milestoneIcon": "✍️",
+      "milestoneSummary": "The overnight grind broke the body, Outbreak Number Three hit with a vengeance, and the machine made its move: St. Augustine, Florida, under a relocation contract \u2014 the collar, accepted on paper, at the end of the longest act.",
+      "milestoneIcon": "\u270d\ufe0f",
       "defaultObjective": "Survive the grind, endure the third outbreak, weigh the trap with Adriana, and take the fatal step."
     },
     {
@@ -364,15 +364,15 @@
       "chapterTitle": "Chapter 22: The Asphalt Gauntlet",
       "backgroundAsset": "story/squeeze_florida_road.jpg",
       "initialNodeId": "florida_arrival",
-      "ambientDescription": "Interstate 95 between Jacksonville and St. Augustine at night: brake lights and construction walls, a commute that is a psychological torture test in its own right — one hour on a good night, three on a bad one, the collar of the relocation contract locked around the drive.",
+      "ambientDescription": "Interstate 95 between Jacksonville and St. Augustine at night: brake lights and construction walls, a commute that is a psychological torture test in its own right \u2014 one hour on a good night, three on a bad one, the collar of the relocation contract locked around the drive.",
       "musicAsset": "audio/music/bgm_act5_crucible.ogg",
       "chapterIndex": 22,
       "actNumber": 5,
       "actTitle": "Act V: The Crucible",
       "milestoneTitle": "Chapter 22: The Asphalt Gauntlet",
       "milestoneLocation": "I-95, Jacksonville to St. Augustine",
-      "milestoneSummary": "You moved to Jacksonville and inherited a commute that runs one to three hours each way into the dark — held in place by a relocation contract that would sink you if you walked. The road south is the first enemy of the act.",
-      "milestoneIcon": "🛣️",
+      "milestoneSummary": "You moved to Jacksonville and inherited a commute that runs one to three hours each way into the dark \u2014 held in place by a relocation contract that would sink you if you walked. The road south is the first enemy of the act.",
+      "milestoneIcon": "\ud83d\udee3\ufe0f",
       "defaultObjective": "Learn the road, read the collar, ride the gauntlet, and see the store that talks like sunshine."
     },
     {
@@ -381,7 +381,7 @@
       "chapterTitle": "Chapter 23: The Honeymoon",
       "backgroundAsset": "story/squeeze_florida_store.jpg",
       "initialNodeId": "florida_store_intro",
-      "ambientDescription": "The St. Augustine Megamart overnight floor in its golden months: freight that moves like a river, metrics that stay green, and a store manager who can't praise you enough — while the biggest man in the building watches in polite, terrifying silence.",
+      "ambientDescription": "The St. Augustine Megamart overnight floor in its golden months: freight that moves like a river, metrics that stay green, and a store manager who can't praise you enough \u2014 while the biggest man in the building watches in polite, terrifying silence.",
       "musicAsset": "audio/music/bgm_act5_crucible.ogg",
       "chapterIndex": 23,
       "actNumber": 5,
@@ -389,8 +389,8 @@
       "milestoneTitle": "Chapter 23: The Honeymoon",
       "milestoneLocation": "The St. Augustine Megamart, Overnight",
       "milestoneSummary": "Sriniviii treats you like gold for three months; the overnight manager curse seems broken; metrics run green. The machine is only ever this nice right before it turns. Then you take your very first vacation.",
-      "milestoneIcon": "🌞",
-      "defaultObjective": "Meet the golden management, win the crew's trust, hold the meters — and take the vacation that ends the sunshine."
+      "milestoneIcon": "\ud83c\udf1e",
+      "defaultObjective": "Meet the golden management, win the crew's trust, hold the meters \u2014 and take the vacation that ends the sunshine."
     },
     {
       "id": "scene_florida_office",
@@ -398,15 +398,15 @@
       "chapterTitle": "Chapter 24: The Flip",
       "backgroundAsset": "story/squeeze_florida_office.jpg",
       "initialNodeId": "florida_flip_intro",
-      "ambientDescription": "The store manager's office after the first vacation: the friendliness gone, replaced by a cold predatory stare, and every morning the ritual — after a full night shift, the verdict: It is not good enough. Goalposts on wheels.",
+      "ambientDescription": "The store manager's office after the first vacation: the friendliness gone, replaced by a cold predatory stare, and every morning the ritual \u2014 after a full night shift, the verdict: It is not good enough. Goalposts on wheels.",
       "musicAsset": "audio/music/bgm_act5_crucible.ogg",
       "chapterIndex": 24,
       "actNumber": 5,
       "actTitle": "Act V: The Crucible",
       "milestoneTitle": "Chapter 24: The Flip",
       "milestoneLocation": "The Store Manager's Office",
-      "milestoneSummary": "One week off and the squeeze arrives: the warmth gone, every morning a ritual interrogation over a floor that was already perfect, and Ohmar — the region's enforcer — turning up the heat.",
-      "milestoneIcon": "🎯",
+      "milestoneSummary": "One week off and the squeeze arrives: the warmth gone, every morning a ritual interrogation over a floor that was already perfect, and Ohmar \u2014 the region's enforcer \u2014 turning up the heat.",
+      "milestoneIcon": "\ud83c\udfaf",
       "defaultObjective": "Map the moving goalposts, face the terror of the office, and survive the beatdowns."
     },
     {
@@ -423,7 +423,7 @@
       "milestoneTitle": "Chapter 25: The Hostage Hours",
       "milestoneLocation": "The Backroom, After Close",
       "milestoneSummary": "Upper management locks you in for three to four hours every night on meaningless tasks; the days stretch to eighteen or twenty hours; one night the exit door and the drive home stop looking like the same thing. The porch light brings you back.",
-      "milestoneIcon": "🕒",
+      "milestoneIcon": "\ud83d\udd52",
       "defaultObjective": "Endure the ownerless building, call home in the dark, and hold the crew that keeps you human."
     },
     {
@@ -439,9 +439,9 @@
       "actTitle": "Act V: The Crucible",
       "milestoneTitle": "Chapter 26: The Sanctuary",
       "milestoneLocation": "The Overnight Floor, 3 AM",
-      "milestoneSummary": "While management treats people like biological trash, the overnight crew is the opposite: honest, warm, and worth every ounce of shield you have left. You absorb the blows so they don't have to — until the body starts keeping score.",
-      "milestoneIcon": "🛡️",
-      "defaultObjective": "Hear their stories, raise the shield, and hold the creed — before the fourth outbreak lands."
+      "milestoneSummary": "While management treats people like biological trash, the overnight crew is the opposite: honest, warm, and worth every ounce of shield you have left. You absorb the blows so they don't have to \u2014 until the body starts keeping score.",
+      "milestoneIcon": "\ud83d\udee1\ufe0f",
+      "defaultObjective": "Hear their stories, raise the shield, and hold the creed \u2014 before the fourth outbreak lands."
     },
     {
       "id": "scene_florida_3am",
@@ -449,15 +449,15 @@
       "chapterTitle": "Chapter 27: The 3 AM",
       "backgroundAsset": "story/squeeze_florida_3am.jpg",
       "initialNodeId": "florida_leave_intro",
-      "ambientDescription": "The cavernous backroom on mandatory medical leave at three in the morning: shingles across the forehead, the relocation debt humming in the rafters, and the darkest arithmetic of the whole memoir — encountered every night for two and a half weeks, and refused every single night.",
+      "ambientDescription": "The cavernous backroom on mandatory medical leave at three in the morning: shingles across the forehead, the relocation debt humming in the rafters, and the darkest arithmetic of the whole memoir \u2014 encountered every night for two and a half weeks, and refused every single night.",
       "musicAsset": "audio/music/bgm_act5_crucible.ogg",
       "chapterIndex": 27,
       "actNumber": 5,
       "actTitle": "Act V: The Crucible",
       "milestoneTitle": "Chapter 27: The 3 AM",
       "milestoneLocation": "The Backroom, 3 AM",
-      "milestoneSummary": "The fourth shingles outbreak forces medical leave, and the commute-and-crucible finally pushes the mind to its edge. Night after night the alternative comes fully formed — and night after night Adriana's face refuses it. The epiphany: the corporation, the metrics, the contract are not worth dying for. The answer is to walk out. You step down, refuse the collar, and take the last drive north.",
-      "milestoneIcon": "🌅",
+      "milestoneSummary": "The fourth shingles outbreak forces medical leave, and the commute-and-crucible finally pushes the mind to its edge. Night after night the alternative comes fully formed \u2014 and night after night Adriana's face refuses it. The epiphany: the corporation, the metrics, the contract are not worth dying for. You outsmart the relocation clawback by stepping down to an hourly position within the company rather than quitting \u2014 keeping the relocation intact and leaving St. Augustine for good.",
+      "milestoneIcon": "\ud83c\udf05",
       "defaultObjective": "Survive the fourth outbreak, refuse the 3 AM, make the radical choice, and get the hell out of St. Augustine."
     },
     {
@@ -466,7 +466,7 @@
       "chapterTitle": "Chapter 28: The Pay Cut",
       "backgroundAsset": "story/squeeze_act6_crash.jpg",
       "initialNodeId": "act6_crash_intro",
-      "ambientDescription": "The fluorescent hum of the main store floor in daylight — stripped of the protective isolation of overnights. Harsh, relentless, and entirely indifferent.",
+      "ambientDescription": "The fluorescent hum of the main store floor in daylight \u2014 stripped of the protective isolation of overnights. Harsh, relentless, and entirely indifferent.",
       "musicAsset": "audio/music/bgm_act6_aftermath.ogg",
       "chapterIndex": 28,
       "actNumber": 6,
@@ -474,7 +474,7 @@
       "milestoneTitle": "Chapter 28: The Pay Cut",
       "milestoneLocation": "The Store Floor",
       "milestoneSummary": "You stepped down from salaried management and absorbed a brutal $24,000 pay cut. The relief and the depression arrived on the same day.",
-      "milestoneIcon": "📉",
+      "milestoneIcon": "\ud83d\udcc9",
       "defaultObjective": "Survive the crash back to hourly and find a reason to keep showing up."
     },
     {
@@ -490,8 +490,8 @@
       "actTitle": "Act VI: The Aftermath",
       "milestoneTitle": "Chapter 29: The Brief Sanctuary",
       "milestoneLocation": "Timmy's Store",
-      "milestoneSummary": "Under Timmy, the building felt manageable again — and then the machine promoted him out and sent Abdoolie in his place.",
-      "milestoneIcon": "🌿",
+      "milestoneSummary": "Under Timmy, the building felt manageable again \u2014 and then the machine promoted him out and sent Abdoolie in his place.",
+      "milestoneIcon": "\ud83c\udf3f",
       "defaultObjective": "Hold onto the peace while it lasts and brace for what replaces it."
     },
     {
@@ -500,7 +500,7 @@
       "chapterTitle": "Chapter 30: Abdoolie's Ghost",
       "backgroundAsset": "story/squeeze_act6_abdoolie.jpg",
       "initialNodeId": "act6_abdoolie_intro",
-      "ambientDescription": "The same building under a different gravity. The store hasn't changed — the air has. The associates move slightly faster and look slightly sideways.",
+      "ambientDescription": "The same building under a different gravity. The store hasn't changed \u2014 the air has. The associates move slightly faster and look slightly sideways.",
       "musicAsset": "audio/music/bgm_act6_aftermath.ogg",
       "chapterIndex": 30,
       "actNumber": 6,
@@ -508,7 +508,7 @@
       "milestoneTitle": "Chapter 30: Abdoolie's Ghost",
       "milestoneLocation": "The New Manager's Store",
       "milestoneSummary": "Abdoolie's cadence pulled every nerve back to St. Augustine. You named the difference and held the line.",
-      "milestoneIcon": "👁️",
+      "milestoneIcon": "\ud83d\udc41\ufe0f",
       "defaultObjective": "Survive the PTSD trigger and keep your feet on the right floor."
     },
     {
@@ -517,7 +517,7 @@
       "chapterTitle": "Chapter 31: The Customer Gauntlet",
       "backgroundAsset": "story/squeeze_act6_front_end.jpg",
       "initialNodeId": "act6_frontend_intro",
-      "ambientDescription": "The registers and the service desk — where the public meets the machine and the machine meets you. Entitled, abusive, endless.",
+      "ambientDescription": "The registers and the service desk \u2014 where the public meets the machine and the machine meets you. Entitled, abusive, endless.",
       "musicAsset": "audio/music/bgm_act6_aftermath.ogg",
       "chapterIndex": 31,
       "actNumber": 6,
@@ -525,7 +525,7 @@
       "milestoneTitle": "Chapter 31: The Customer Gauntlet",
       "milestoneLocation": "The Front End",
       "milestoneSummary": "The daily customer grind and the phantom manager's blind threat drove the final decision: down again, all the way to the bays.",
-      "milestoneIcon": "🛒",
+      "milestoneIcon": "\ud83d\uded2",
       "defaultObjective": "Weather the front end and make the call."
     },
     {
@@ -542,7 +542,7 @@
       "milestoneTitle": "Chapter 32: The Underground Haven",
       "milestoneLocation": "The Shop Tech Pit",
       "milestoneSummary": "Down in the bays with Tani and Cap'n H, you found the rarest thing the machine accidentally produces: genuine, competent, protective leadership.",
-      "milestoneIcon": "🔧",
+      "milestoneIcon": "\ud83d\udd27",
       "defaultObjective": "Settle into the pit and let Tani and Cap'n H show you what good looks like."
     },
     {
@@ -559,7 +559,7 @@
       "milestoneTitle": "Chapter 33: The Unbroken Soul",
       "milestoneLocation": "The Shop Bay",
       "milestoneSummary": "The machine broke the career. It tried to break the mind. It nearly took the life. But the soul walked out intact.",
-      "milestoneIcon": "🌅",
+      "milestoneIcon": "\ud83c\udf05",
       "defaultObjective": "Stand at the end and add up what actually survived."
     }
   ]
