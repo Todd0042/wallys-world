@@ -50,5 +50,9 @@
       "MYTHIC": "Stay on it: {name} now!",
       "TRANSCENDENTAL": "Dig deep, clear the lane, and survive: {name} now!"
     }
+  },
+  "ttsReplacements": {
+    "St. Augustine": "Saint Augustine",
+    "St.": "Saint"
   }
 }
