@@ -68,4 +68,28 @@ class HubChoiceGatingTest {
         val flags2 = mapOf("flag_a" to true, "flag_b" to true)
         assertFalse("Battle choice must be UNLOCKED once all dialogue options are complete", isChoiceLocked(choiceBattle, hub, flags2))
     }
+
+    @Test
+    fun testAct6CrashHubChoicesEliminateOnExplore() {
+        val assetsDir = listOf(
+            File("app/src/main/assets/game"),
+            File("src/main/assets/game"),
+            File("assets/game")
+        ).firstOrNull { it.isDirectory }
+        org.junit.Assert.assertNotNull("Assets directory should be found", assetsDir)
+        GameContent.reset()
+        GameContent.initializeFromDirectory(assetsDir!!)
+
+        val crashHub = GameContent.nodes["act6_crash_hub"]
+        org.junit.Assert.assertNotNull(crashHub)
+        
+        for (choice in crashHub!!.choices) {
+            val flag = choice.completionFlag
+            if (flag != null) {
+                val branch = GameContent.nodes[choice.nextNodeId]
+                org.junit.Assert.assertNotNull(branch)
+                org.junit.Assert.assertEquals("Target node must set completion flag for choice ${choice.id}", flag, branch!!.setFlagOnEnter)
+            }
+        }
+    }
 }

@@ -4216,21 +4216,24 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "Rent doesn't negotiate. The car doesn't care. The grocery total doesn't know I stepped down. I have to build a life that fits inside a smaller container than the one I woke up in last year, and the container has sharp edges.",
-      "nextNodeId": "act6_crash_hub"
+      "nextNodeId": "act6_crash_hub",
+      "setFlagOnEnter": "flag_act6_crash_financial"
     },
     {
       "id": "branch_act6_crash_depression",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "The depression is the specific kind that comes from doing the right thing for the right reasons and arriving at the bottom anyway. It isn't failure \u2014 it's the machine's tax on integrity. The toll is real even when the choice was correct.",
-      "nextNodeId": "act6_crash_hub"
+      "nextNodeId": "act6_crash_hub",
+      "setFlagOnEnter": "flag_act6_crash_depression"
     },
     {
       "id": "branch_act6_crash_vindication",
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "I walk past my replacement on the floor. The team already looks exhausted. Two weeks in and the new overnight manager has the same look I had in month seven in St. Augustine. I was right. That was never the question. The question is what you do with being right when being right didn't save you.",
-      "nextNodeId": "act6_crash_hub"
+      "nextNodeId": "act6_crash_hub",
+      "setFlagOnEnter": "flag_act6_crash_vindication"
     },
     {
       "id": "act6_crash_battle_intro",
@@ -4362,21 +4365,24 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "Trust is a muscle the machine spent years atrophying. Under Timmy it begins, slowly and with considerable suspicion, to move again. It is not comfortable. It is the correct kind of uncomfortable.",
-      "nextNodeId": "act6_timmy_hub"
+      "nextNodeId": "act6_timmy_hub",
+      "setFlagOnEnter": "flag_act6_timmy_trust"
     },
     {
       "id": "branch_act6_timmy_pace",
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The floor moves at a human pace. Nobody is sprinting to avoid a consequence. The freight still gets done \u2014 faster, if anything, because people aren't burning half their energy managing fear. I already knew this. I have been trying to tell people this for eight years. Timmy just lives it.",
-      "nextNodeId": "act6_timmy_hub"
+      "nextNodeId": "act6_timmy_hub",
+      "setFlagOnEnter": "flag_act6_timmy_pace"
     },
     {
       "id": "branch_act6_timmy_wall",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "The nervous system that spent eight years in survival mode does not easily believe there is no threat. Every time Timmy walks past without an interrogation, some part of the brain flags it as a pending interrogation that hasn't landed yet. Learning that the wall is unnecessary is the slowest form of healing.",
-      "nextNodeId": "act6_timmy_hub"
+      "nextNodeId": "act6_timmy_hub",
+      "setFlagOnEnter": "flag_act6_timmy_wall"
     },
     {
       "id": "act6_timmy_promotion_intro",
@@ -4500,14 +4506,16 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "This is what PTSD looks like when it's wearing a company polo. A specific cadence, a specific waiting posture \u2014 and the nervous system files it under the same emergency that almost didn't have a morning. Naming it doesn't end it. But naming it gives it a drawer instead of a doorway.",
-      "nextNodeId": "act6_abdoolie_hub"
+      "nextNodeId": "act6_abdoolie_hub",
+      "setFlagOnEnter": "flag_act6_abdoolie_named"
     },
     {
       "id": "branch_act6_abdoolie_separated",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "Abdoolie is a poor communicator with no people skills. He is not a predator. He has never been in the same room as Ohmar. The danger he poses is administrative, not existential \u2014 and the body has not yet received this update. That's the work: filing the update until the body believes it.",
-      "nextNodeId": "act6_abdoolie_hub"
+      "nextNodeId": "act6_abdoolie_hub",
+      "setFlagOnEnter": "flag_act6_abdoolie_separated"
     },
     {
       "id": "act6_abdoolie_battle_intro",
@@ -4655,7 +4663,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The shift ends. The building doesn't thank me. It never has. What it owes me is a different calculation, and I have been doing it wrong for eight years. Time to run the right math.",
-      "nextNodeId": "act6_frontend_hub"
+      "nextNodeId": "act6_frontend_hub",
+      "setFlagOnEnter": "flag_act6_frontend_customers"
     },
     {
       "id": "act6_phantom_battle_intro",
@@ -4670,7 +4679,8 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "The phantom retreats to the office. His spreadsheet returns to green or red \u2014 it will tell him when to appear again. The bay does not miss him.",
-      "nextNodeId": "act6_frontend_hub"
+      "nextNodeId": "act6_frontend_hub",
+      "setFlagOnEnter": "flag_act6_phantom_faced"
     },
     {
       "id": "act6_frontend_decision",
@@ -4802,21 +4812,24 @@
       "speakerId": "tani",
       "side": "RIGHT",
       "text": "Here's the thing about this job: the customer doesn't know the difference between a good oil change and a bad one until their engine seizes six months later on the interstate. My crew knows the difference. That's the standard. Not the timer. Not the spreadsheet. The work.",
-      "nextNodeId": "act6_pit_hub"
+      "nextNodeId": "act6_pit_hub",
+      "setFlagOnEnter": "flag_act6_pit_tani_known"
     },
     {
       "id": "branch_act6_pit_capnh",
       "speakerId": "capn_h",
       "side": "RIGHT",
       "text": "Nine years. Three store managers. Eleven different shop managers. The bays outlast all of them. You know why? Because the car doesn't care who signed the weekly performance review. The car cares whether you torqued the lugs correctly. We torque the lugs correctly.",
-      "nextNodeId": "act6_pit_hub"
+      "nextNodeId": "act6_pit_hub",
+      "setFlagOnEnter": "flag_act6_pit_capnh_known"
     },
     {
       "id": "branch_act6_pit_work",
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The physical logic of it is clean. A drain plug goes in at a specific torque or it fails. A tire gets seated or it doesn't. There is no middle ground where the machine can move the goalposts. Either the wheel is on the car correctly or it is not. After eight years of shifted goalposts, this is the most honest workplace I have ever been in.",
-      "nextNodeId": "act6_pit_hub"
+      "nextNodeId": "act6_pit_hub",
+      "setFlagOnEnter": "flag_act6_pit_work_learned"
     },
     {
       "id": "act6_pit_phantom_intrudes",
@@ -4957,21 +4970,24 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "Four shingles. A career ceiling imposed by a petty email from Mattie-T. Gender discrimination left 'Unsubstantiated' twice. Thirteen consecutive human beings hired and destroyed in Pueblo's overnight machine, and then the same machine invited Todd in. A 3 AM that ran for two and a half weeks. One of the worst pay cuts a person can absorb. That is the machine's invoice. It is real and complete.",
-      "nextNodeId": "act6_resolution_hub"
+      "nextNodeId": "act6_resolution_hub",
+      "setFlagOnEnter": "flag_act6_resolution_cost"
     },
     {
       "id": "branch_act6_resolution_kept",
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "Integrity: still here. Empathy for the people doing the actual work: still here, sharper if anything. Adriana: still here, still her laugh, still the reason the 3 AM never got its answer. The knowledge that the job can be done humanely, carried in a body that proved it in practice: still here. The machine cannot enter this column.",
-      "nextNodeId": "act6_resolution_hub"
+      "nextNodeId": "act6_resolution_hub",
+      "setFlagOnEnter": "flag_act6_resolution_kept"
     },
     {
       "id": "branch_act6_resolution_machine",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "The machine is not malevolent. It has no preference. It is a set of incentives built by people who decided that the cheapest friction-reducer was fear, and fear scaled better than dignity. Mattie-T, Jury, Ohmar, Abdoolie \u2014 they are all products of a system that selected for their particular shape of cruelty. The system is the verdict. The individuals are its grammar.",
-      "nextNodeId": "act6_resolution_hub"
+      "nextNodeId": "act6_resolution_hub",
+      "setFlagOnEnter": "flag_act6_resolution_machine"
     },
     {
       "id": "act6_final_battle_intro",
