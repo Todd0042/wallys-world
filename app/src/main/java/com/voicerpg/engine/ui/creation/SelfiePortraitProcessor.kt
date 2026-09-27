@@ -1,6 +1,7 @@
 package com.voicerpg.engine.ui.creation
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -9,20 +10,24 @@ import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
 import android.graphics.RadialGradient
-import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.Shader
+import android.net.Uri
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
 import com.google.mlkit.vision.face.FaceLandmark
 import com.google.mlkit.vision.segmentation.Segmentation
 import com.google.mlkit.vision.segmentation.selfie.SelfieSegmenterOptions
+import com.voicerpg.engine.model.ColorGradeConfig
+import com.voicerpg.engine.model.EyeEffectConfig
+import com.voicerpg.engine.model.ScanlineConfig
+import com.voicerpg.engine.model.SelfieFilterConfig
+import com.voicerpg.engine.model.VignetteConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
-import android.content.Intent
-import androidx.activity.result.contract.ActivityResultContracts
 import java.io.File
 import java.io.FileOutputStream
 import java.nio.ByteBuffer
@@ -48,20 +53,17 @@ class TakeSelfiePreviewContract : ActivityResultContracts.TakePicturePreview() {
     }
 }
 
+/**
+ * Generic image processor for custom hero portraits.
+ * Operates on [SelfieFilterConfig] to apply game-defined backgrounds, face landmark shading,
+ * color matrices, scanlines, and vignette effects.
+ */
 object SelfiePortraitProcessor {
 
     const val PORTRAIT_SIZE = 512
     const val CUSTOM_PORTRAIT_FILENAME = "custom_hero_portrait.jpg"
 
-    val AVAILABLE_BACKGROUNDS = listOf(
-        "Trench" to "environments/trench.jpg",
-        "Break Room" to "environments/break_room.jpg",
-        "Sales Floor" to "environments/sales_floor.jpg",
-        "Service Bay" to "environments/service_bay.jpg",
-        "Overnight Lot" to "environments/parking_lot.jpg"
-    )
-
-    fun loadFromUri(context: Context, uri: android.net.Uri): Bitmap? {
+    fun loadFromUri(context: Context, uri: Uri): Bitmap? {
         return try {
             val raw = context.contentResolver.openInputStream(uri)?.use {
                 BitmapFactory.decodeStream(it)
@@ -97,36 +99,40 @@ object SelfiePortraitProcessor {
     suspend fun processSelfie(
         context: Context,
         inputBitmap: Bitmap,
-        retailBgAsset: String = "environments/trench.jpg",
+        filterConfig: SelfieFilterConfig,
+        selectedBgAsset: String? = null,
         applySegmentation: Boolean = true,
-        applyRaccoonEyes: Boolean = true,
+        applyEyeEffect: Boolean = true,
         applyScanlines: Boolean = true,
-        applyFluorescentGrading: Boolean = true
+        applyColorGrade: Boolean = true
     ): Bitmap = withContext(Dispatchers.Default) {
         // 1. Center crop and scale to square 512x512
         val squareInput = cropAndScale(inputBitmap, PORTRAIT_SIZE)
 
-        // 2. AI Background Segmentation & Retail Background Replacement
-        val composited = if (applySegmentation) {
+        // 2. AI Background Segmentation & Background Replacement
+        val composited = if (applySegmentation && !selectedBgAsset.isNullOrBlank()) {
             val maskBuffer = runSegmentation(squareInput)
-            val retailBg = loadAssetBitmap(context, retailBgAsset, PORTRAIT_SIZE)
-            compositeWithBackground(squareInput, retailBg, maskBuffer)
+            val bgBitmap = loadAssetBitmap(context, selectedBgAsset, PORTRAIT_SIZE)
+            compositeWithBackground(squareInput, bgBitmap, maskBuffer)
         } else {
             squareInput
         }
 
-        // 3. Raccoon Eyes (Overnight shift exhaustion shading under eye orbits)
-        val withExhaustion = if (applyRaccoonEyes) {
-            applyExhaustionEyeBags(composited)
+        // 3. Eye Orbit Shading (Arcane fatigue / exhaustion shading)
+        val withEyeEffect = if (applyEyeEffect && filterConfig.eyeEffect != null) {
+            applyEyeShading(composited, filterConfig.eyeEffect)
         } else {
             composited
         }
 
-        // 4. CRT Scanlines & Harsh Fluorescent Color Grading
-        val finalResult = applyFilters(
-            withExhaustion,
+        // 4. Color Grading, Scanlines, and Vignette
+        val finalResult = applyPostProcessing(
+            withEyeEffect,
             applyScanlines = applyScanlines,
-            applyFluorescent = applyFluorescentGrading
+            scanlineConfig = filterConfig.scanlines,
+            applyColorGrade = applyColorGrade,
+            colorGradeConfig = filterConfig.colorGrade,
+            vignetteConfig = filterConfig.vignette
         )
 
         finalResult
@@ -213,7 +219,6 @@ object SelfiePortraitProcessor {
 
         for (i in 0 until totalPixels) {
             val confidence = if (maskBuffer.hasRemaining()) maskBuffer.float else 1f
-            // Smooth threshold curve
             val alpha = confidence.coerceIn(0f, 1f)
 
             val sCol = subjectPixels[i]
@@ -231,7 +236,7 @@ object SelfiePortraitProcessor {
         return result
     }
 
-    private suspend fun applyExhaustionEyeBags(source: Bitmap): Bitmap =
+    private suspend fun applyEyeShading(source: Bitmap, eyeConfig: EyeEffectConfig): Bitmap =
         suspendCancellableCoroutine { cont ->
             try {
                 val options = FaceDetectorOptions.Builder()
@@ -251,6 +256,11 @@ object SelfiePortraitProcessor {
                         val result = source.copy(Bitmap.Config.ARGB_8888, true)
                         val canvas = Canvas(result)
 
+                        val darkCenterColor = parseColor(eyeConfig.darkCenterColorHex, Color.argb(135, 45, 25, 42))
+                        val transparentColor = Color.argb(0, Color.red(darkCenterColor), Color.green(darkCenterColor), Color.blue(darkCenterColor))
+                        val radiusFactor = eyeConfig.radiusFactor.coerceIn(0.1f, 1.0f)
+                        val yOffsetFactor = eyeConfig.yOffsetFactor.coerceIn(0.1f, 1.5f)
+
                         for (face in faces) {
                             val leftEye = face.getLandmark(FaceLandmark.LEFT_EYE)?.position
                             val rightEye = face.getLandmark(FaceLandmark.RIGHT_EYE)?.position
@@ -260,15 +270,13 @@ object SelfiePortraitProcessor {
                                 val dy = rightEye.y - leftEye.y
                                 val eyeDist = hypot(dx.toDouble(), dy.toDouble()).toFloat()
 
-                                val radius = eyeDist * 0.28f
-                                val darkCenterColor = Color.argb(135, 45, 25, 42) // Bruised purple-slate
-                                val transparentColor = Color.argb(0, 45, 25, 42)
+                                val radius = eyeDist * radiusFactor
 
-                                // Left eye bag (placed right below the eye)
-                                drawEyeBag(canvas, leftEye.x, leftEye.y + radius * 0.55f, radius, darkCenterColor, transparentColor)
+                                // Left eye shading
+                                drawEyeShade(canvas, leftEye.x, leftEye.y + radius * yOffsetFactor, radius, darkCenterColor, transparentColor)
 
-                                // Right eye bag
-                                drawEyeBag(canvas, rightEye.x, rightEye.y + radius * 0.55f, radius, darkCenterColor, transparentColor)
+                                // Right eye shading
+                                drawEyeShade(canvas, rightEye.x, rightEye.y + radius * yOffsetFactor, radius, darkCenterColor, transparentColor)
                             }
                         }
                         cont.resume(result)
@@ -281,7 +289,7 @@ object SelfiePortraitProcessor {
             }
         }
 
-    private fun drawEyeBag(
+    private fun drawEyeShade(
         canvas: Canvas,
         cx: Float,
         cy: Float,
@@ -305,57 +313,71 @@ object SelfiePortraitProcessor {
         canvas.drawOval(oval, paint)
     }
 
-    private fun applyFilters(
+    private fun applyPostProcessing(
         source: Bitmap,
         applyScanlines: Boolean,
-        applyFluorescent: Boolean
+        scanlineConfig: ScanlineConfig?,
+        applyColorGrade: Boolean,
+        colorGradeConfig: ColorGradeConfig?,
+        vignetteConfig: VignetteConfig?
     ): Bitmap {
         val w = source.width
         val h = source.height
         val result = source.copy(Bitmap.Config.ARGB_8888, true)
         val canvas = Canvas(result)
 
-        // 1. Cold 3 AM Fluorescent Color Grade
-        if (applyFluorescent) {
+        // 1. Color Grading Matrix
+        if (applyColorGrade && colorGradeConfig != null && colorGradeConfig.colorMatrix.size >= 20) {
             val filterPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-                val matrix = ColorMatrix(
-                    floatArrayOf(
-                        0.92f, 0.00f, 0.00f, 0.0f, -5f,   // Red desaturated
-                        0.00f, 1.05f, 0.00f, 0.0f, +8f,   // Green slightly boosted (fluorescent ballast)
-                        0.00f, 0.00f, 1.08f, 0.0f, +12f,  // Blue/Cyan boosted (cold store lighting)
-                        0.00f, 0.00f, 0.00f, 1.0f, 0f     // Alpha
-                    )
-                )
+                val matrix = ColorMatrix(colorGradeConfig.colorMatrix.toFloatArray())
                 colorFilter = ColorMatrixColorFilter(matrix)
             }
             canvas.drawBitmap(source, 0f, 0f, filterPaint)
         }
 
-        // 2. CRT Scanlines
-        if (applyScanlines) {
+        // 2. Scanlines
+        if (applyScanlines && scanlineConfig != null) {
+            val alpha = scanlineConfig.lineAlpha.coerceIn(0, 255)
             val scanlinePaint = Paint().apply {
-                color = Color.argb(32, 0, 0, 0)
-                strokeWidth = 1.8f
+                color = Color.argb(alpha, 0, 0, 0)
+                strokeWidth = scanlineConfig.strokeWidth
             }
             var y = 0f
+            val spacing = if (scanlineConfig.lineSpacing > 0.5f) scanlineConfig.lineSpacing else 3.8f
             while (y < h) {
                 canvas.drawLine(0f, y, w.toFloat(), y, scanlinePaint)
-                y += 3.8f
+                y += spacing
             }
         }
 
-        // 3. Subtle Vignette
-        val vignettePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            val gradient = RadialGradient(
-                w / 2f, h / 2f, w * 0.7f,
-                Color.TRANSPARENT,
-                Color.argb(85, 10, 12, 18),
-                Shader.TileMode.CLAMP
-            )
-            shader = gradient
+        // 3. Vignette
+        if (vignetteConfig?.enabled == true) {
+            val vigColor = parseColor(vignetteConfig.colorHex, Color.argb(85, 10, 12, 18))
+            val radius = w * (if (vignetteConfig.radiusFactor > 0.1f) vignetteConfig.radiusFactor else 0.7f)
+            val vignettePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                shader = RadialGradient(
+                    w / 2f, h / 2f, radius,
+                    Color.TRANSPARENT,
+                    vigColor,
+                    Shader.TileMode.CLAMP
+                )
+            }
+            canvas.drawRect(0f, 0f, w.toFloat(), h.toFloat(), vignettePaint)
         }
-        canvas.drawRect(0f, 0f, w.toFloat(), h.toFloat(), vignettePaint)
 
         return result
+    }
+
+    private fun parseColor(hex: String?, fallback: Int): Int {
+        if (hex.isNullOrBlank()) return fallback
+        return runCatching {
+            val clean = hex.removePrefix("#").trim()
+            val value = clean.toLong(16)
+            when (clean.length) {
+                6 -> (0xFF000000L or value).toInt()
+                8 -> value.toInt()
+                else -> fallback
+            }
+        }.getOrDefault(fallback)
     }
 }

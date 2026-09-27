@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -45,6 +44,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import com.voicerpg.engine.model.SelfieFilterConfig
 import com.voicerpg.engine.ui.theme.LogosGold
 import com.voicerpg.engine.ui.theme.RetroBlack
 import com.voicerpg.engine.ui.theme.RetroBorder
@@ -53,31 +53,43 @@ import com.voicerpg.engine.ui.theme.RetroPanel
 @Composable
 fun SelfieFilterDialog(
     rawBitmap: Bitmap,
+    filterConfig: SelfieFilterConfig,
     onDismiss: () -> Unit,
     onSavePortrait: (Bitmap) -> Unit
 ) {
     val context = LocalContext.current
 
-    var applySegmentation by remember { mutableStateOf(true) }
-    var applyRaccoonEyes by remember { mutableStateOf(true) }
-    var applyScanlines by remember { mutableStateOf(true) }
-    var applyFluorescent by remember { mutableStateOf(true) }
-    var selectedBgAsset by remember { mutableStateOf("environments/trench.jpg") }
+    val hasBgs = filterConfig.availableBackgrounds.isNotEmpty()
+    var applySegmentation by remember { mutableStateOf(hasBgs) }
+    var selectedBgAsset by remember {
+        mutableStateOf(filterConfig.availableBackgrounds.firstOrNull()?.assetPath)
+    }
+
+    var applyEyeEffect by remember {
+        mutableStateOf(filterConfig.eyeEffect?.enabledByDefault ?: false)
+    }
+    var applyScanlines by remember {
+        mutableStateOf(filterConfig.scanlines?.enabledByDefault ?: false)
+    }
+    var applyColorGrade by remember {
+        mutableStateOf(filterConfig.colorGrade?.enabledByDefault ?: false)
+    }
 
     var processedBitmap by remember { mutableStateOf<Bitmap?>(null) }
     var isProcessing by remember { mutableStateOf(true) }
 
-    // Re-process image whenever a filter setting or background changes
-    LaunchedEffect(applySegmentation, applyRaccoonEyes, applyScanlines, applyFluorescent, selectedBgAsset) {
+    // Re-process image whenever any filter setting or chosen background changes
+    LaunchedEffect(applySegmentation, selectedBgAsset, applyEyeEffect, applyScanlines, applyColorGrade) {
         isProcessing = true
         val result = SelfiePortraitProcessor.processSelfie(
             context = context,
             inputBitmap = rawBitmap,
-            retailBgAsset = selectedBgAsset,
-            applySegmentation = applySegmentation,
-            applyRaccoonEyes = applyRaccoonEyes,
+            filterConfig = filterConfig,
+            selectedBgAsset = if (applySegmentation) selectedBgAsset else null,
+            applySegmentation = applySegmentation && !selectedBgAsset.isNullOrBlank(),
+            applyEyeEffect = applyEyeEffect,
             applyScanlines = applyScanlines,
-            applyFluorescentGrading = applyFluorescent
+            applyColorGrade = applyColorGrade
         )
         processedBitmap = result
         isProcessing = false
@@ -99,22 +111,24 @@ fun SelfieFilterDialog(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "📸 ASSOCIATE BADGE FILTER",
+                    text = filterConfig.filterDialogTitle ?: "📸 CUSTOM PORTRAIT FILTER",
                     color = LogosGold,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Black,
                     fontFamily = FontFamily.Monospace
                 )
-                Text(
-                    text = "Warehouse Graveyard Shift Simulator",
-                    color = Color.LightGray,
-                    fontSize = 11.sp,
-                    fontFamily = FontFamily.Monospace
-                )
+                filterConfig.filterDialogSubtitle?.let { subtitle ->
+                    Text(
+                        text = subtitle,
+                        color = Color.LightGray,
+                        fontSize = 11.sp,
+                        fontFamily = FontFamily.Monospace
+                    )
+                }
 
                 Spacer(modifier = Modifier.height(12.dp))
 
-                // Portrait Preview with Scanner frame
+                // Portrait Preview Frame
                 Box(
                     modifier = Modifier
                         .size(190.dp)
@@ -127,7 +141,7 @@ fun SelfieFilterDialog(
                     if (currentProcessed != null) {
                         Image(
                             bitmap = currentProcessed.asImageBitmap(),
-                            contentDescription = "Selfie Preview",
+                            contentDescription = "Portrait Preview",
                             contentScale = ContentScale.Crop,
                             modifier = Modifier.fillMaxSize()
                         )
@@ -159,74 +173,80 @@ fun SelfieFilterDialog(
 
                 Spacer(modifier = Modifier.height(14.dp))
 
-                // Filter Switch 1: Raccoon Eyes
-                FilterToggleRow(
-                    label = "🦝 Raccoon Eyes",
-                    description = "Sub-orbital dark exhaustion circles",
-                    checked = applyRaccoonEyes,
-                    onCheckedChange = { applyRaccoonEyes = it }
-                )
-
-                Spacer(modifier = Modifier.height(6.dp))
-
-                // Filter Switch 2: AI Retail Background Cutout
-                FilterToggleRow(
-                    label = "🏬 Warehouse Background",
-                    description = "AI person cutout over store aisle",
-                    checked = applySegmentation,
-                    onCheckedChange = { applySegmentation = it }
-                )
-
-                if (applySegmentation) {
+                // Filter Option: Eye Effect
+                filterConfig.eyeEffect?.let { eye ->
+                    FilterToggleRow(
+                        label = eye.label,
+                        description = eye.description,
+                        checked = applyEyeEffect,
+                        onCheckedChange = { applyEyeEffect = it }
+                    )
                     Spacer(modifier = Modifier.height(6.dp))
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .horizontalScroll(rememberScrollState()),
-                        horizontalArrangement = Arrangement.spacedBy(6.dp)
-                    ) {
-                        SelfiePortraitProcessor.AVAILABLE_BACKGROUNDS.forEach { (bgLabel, bgPath) ->
-                            val isSelected = selectedBgAsset == bgPath
-                            Box(
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(6.dp))
-                                    .background(if (isSelected) LogosGold.copy(alpha = 0.3f) else RetroBlack)
-                                    .border(1.dp, if (isSelected) LogosGold else RetroBorder, RoundedCornerShape(6.dp))
-                                    .clickable { selectedBgAsset = bgPath }
-                                    .padding(horizontal = 8.dp, vertical = 4.dp)
-                            ) {
-                                Text(
-                                    text = bgLabel,
-                                    color = if (isSelected) LogosGold else Color.LightGray,
-                                    fontSize = 10.sp,
-                                    fontFamily = FontFamily.Monospace
-                                )
+                }
+
+                // Filter Option: AI Background Cutout
+                if (hasBgs) {
+                    FilterToggleRow(
+                        label = filterConfig.backgroundToggleLabel ?: "AI Background Cutout",
+                        description = filterConfig.backgroundToggleDescription ?: "Replace background with chosen environment",
+                        checked = applySegmentation,
+                        onCheckedChange = { applySegmentation = it }
+                    )
+
+                    if (applySegmentation) {
+                        Spacer(modifier = Modifier.height(6.dp))
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .horizontalScroll(rememberScrollState()),
+                            horizontalArrangement = Arrangement.spacedBy(6.dp)
+                        ) {
+                            filterConfig.availableBackgrounds.forEach { bgOption ->
+                                val isSelected = selectedBgAsset == bgOption.assetPath
+                                Box(
+                                    modifier = Modifier
+                                        .clip(RoundedCornerShape(6.dp))
+                                        .background(if (isSelected) LogosGold.copy(alpha = 0.3f) else RetroBlack)
+                                        .border(1.dp, if (isSelected) LogosGold else RetroBorder, RoundedCornerShape(6.dp))
+                                        .clickable { selectedBgAsset = bgOption.assetPath }
+                                        .padding(horizontal = 8.dp, vertical = 4.dp)
+                                ) {
+                                    Text(
+                                        text = bgOption.label,
+                                        color = if (isSelected) LogosGold else Color.LightGray,
+                                        fontSize = 10.sp,
+                                        fontFamily = FontFamily.Monospace
+                                    )
+                                }
                             }
                         }
                     }
+                    Spacer(modifier = Modifier.height(6.dp))
                 }
 
-                Spacer(modifier = Modifier.height(6.dp))
+                // Filter Option: Scanlines
+                filterConfig.scanlines?.let { scanlines ->
+                    FilterToggleRow(
+                        label = scanlines.label,
+                        description = scanlines.description,
+                        checked = applyScanlines,
+                        onCheckedChange = { applyScanlines = it }
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+                }
 
-                // Filter Switch 3: CRT Scanlines
-                FilterToggleRow(
-                    label = "📺 CRT Scanlines",
-                    description = "Retro surveillance monitor lines",
-                    checked = applyScanlines,
-                    onCheckedChange = { applyScanlines = it }
-                )
+                // Filter Option: Color Grade
+                filterConfig.colorGrade?.let { colorGrade ->
+                    FilterToggleRow(
+                        label = colorGrade.label,
+                        description = colorGrade.description,
+                        checked = applyColorGrade,
+                        onCheckedChange = { applyColorGrade = it }
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+                }
 
-                Spacer(modifier = Modifier.height(6.dp))
-
-                // Filter Switch 4: Cold Fluorescents
-                FilterToggleRow(
-                    label = "💡 3 AM Fluorescents",
-                    description = "Cold cyan store ballast color grading",
-                    checked = applyFluorescent,
-                    onCheckedChange = { applyFluorescent = it }
-                )
-
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(10.dp))
 
                 // Action Buttons: Cancel / Save
                 Row(
@@ -267,7 +287,7 @@ fun SelfieFilterDialog(
                         )
                     ) {
                         Text(
-                            text = "USE BADGE ✔",
+                            text = filterConfig.filterConfirmButton ?: "USE PORTRAIT ✔",
                             fontFamily = FontFamily.Monospace,
                             fontWeight = FontWeight.Black,
                             fontSize = 11.sp

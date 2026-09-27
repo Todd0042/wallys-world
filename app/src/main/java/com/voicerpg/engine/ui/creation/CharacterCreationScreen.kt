@@ -79,6 +79,7 @@ fun CharacterCreationScreen(
     modifier: Modifier = Modifier
 ) {
     val manifest = GameContent.manifest
+    val selfieConfig = manifest.selfieConfig
     val heroSpeaker = GameContent.heroCharacter?.speaker
     val defaultHeroName = manifest.defaultHeroName.ifBlank { heroSpeaker?.name ?: "Todd" }
     val defaultHeroTitle = manifest.defaultHeroTitle.ifBlank { heroSpeaker?.title ?: "Freight Supervisor" }
@@ -194,18 +195,24 @@ fun CharacterCreationScreen(
         }
 
         // 4. Selfie / Camera commands
-        if (lower.contains("selfie") || lower.contains("camera") || lower.contains("picture") || lower.contains("photo")) {
-            showWarningDialog = true
-            combatNarrator?.speak("This game is the personal memoirs of an actual human. This person has decided to allow you to put yourself in their shoes, but beware: you are going to be putting yourself through absolute hell.", force = true)
-            return
-        }
-        if (lower.contains("reset portrait") || lower.contains("reset photo") || lower.contains("default portrait")) {
-            SelfiePortraitProcessor.deleteCustomPortrait(context)
-            StoryAssetLoader.clear()
-            customPortraitBitmap = defaultHeroBitmap
-            hasCustomPortrait = false
-            combatNarrator?.speak("Portrait reset to default.", force = true)
-            return
+        if (selfieConfig.isEnabled) {
+            if (lower.contains("selfie") || lower.contains("camera") || lower.contains("picture") || lower.contains("photo")) {
+                if (!selfieConfig.disclaimerText.isNullOrBlank()) {
+                    showWarningDialog = true
+                    combatNarrator?.speak(selfieConfig.disclaimerText, force = true)
+                } else {
+                    showSourceDialog = true
+                }
+                return
+            }
+            if (lower.contains("reset portrait") || lower.contains("reset photo") || lower.contains("default portrait")) {
+                SelfiePortraitProcessor.deleteCustomPortrait(context)
+                StoryAssetLoader.clear()
+                customPortraitBitmap = defaultHeroBitmap
+                hasCustomPortrait = false
+                combatNarrator?.speak("Portrait reset to default.", force = true)
+                return
+            }
         }
 
         // 4. Title selection
@@ -305,8 +312,8 @@ fun CharacterCreationScreen(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Memoir Warning / Hell Advisory Dialog
-            if (showWarningDialog) {
+            // Memoir Warning / Hell Advisory Dialog (if defined in selfieConfig)
+            if (showWarningDialog && !selfieConfig.disclaimerText.isNullOrBlank()) {
                 Dialog(onDismissRequest = { showWarningDialog = false }) {
                     Box(
                         modifier = Modifier
@@ -321,7 +328,7 @@ fun CharacterCreationScreen(
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
-                                text = "⚠️ MEMOIR ADVISORY",
+                                text = selfieConfig.disclaimerTitle ?: "⚠️ MEMOIR ADVISORY",
                                 color = Color(0xFFFFB74D),
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Black,
@@ -339,7 +346,7 @@ fun CharacterCreationScreen(
                                     .padding(14.dp)
                             ) {
                                 Text(
-                                    text = "This game is the personal memoirs of an actual human.\n\nThis person has decided to allow you to put yourself in their shoes, but beware...\n\nYou're going to be putting yourself through absolute hell.",
+                                    text = selfieConfig.disclaimerText ?: "",
                                     color = Color.White,
                                     fontSize = 12.sp,
                                     lineHeight = 19.sp,
@@ -365,7 +372,7 @@ fun CharacterCreationScreen(
                                 )
                             ) {
                                 Text(
-                                    text = "STEP INTO SHOES ➔",
+                                    text = selfieConfig.disclaimerConfirmButton ?: "STEP INTO SHOES ➔",
                                     fontFamily = FontFamily.Monospace,
                                     fontWeight = FontWeight.Black,
                                     fontSize = 12.sp
@@ -380,7 +387,7 @@ fun CharacterCreationScreen(
                                     .padding(6.dp)
                             ) {
                                 Text(
-                                    text = "CANCEL / KEEP DEFAULT",
+                                    text = selfieConfig.disclaimerCancelButton ?: "CANCEL / KEEP DEFAULT",
                                     color = Color.Gray,
                                     fontSize = 11.sp,
                                     fontFamily = FontFamily.Monospace
@@ -407,19 +414,21 @@ fun CharacterCreationScreen(
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
-                                text = "📸 ASSOCIATE PHOTO ID",
+                                text = selfieConfig.sourceDialogTitle ?: "📸 ASSOCIATE PHOTO ID",
                                 color = LogosGold,
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.Black,
                                 fontFamily = FontFamily.Monospace
                             )
-                            Spacer(modifier = Modifier.height(4.dp))
-                            Text(
-                                text = "Snap a real selfie or pick a photo to generate your customized retail badge portrait.",
-                                color = Color.LightGray,
-                                fontSize = 11.sp,
-                                fontFamily = FontFamily.Monospace
-                            )
+                            selfieConfig.sourceDialogSubtitle?.let { subtitle ->
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Text(
+                                    text = subtitle,
+                                    color = Color.LightGray,
+                                    fontSize = 11.sp,
+                                    fontFamily = FontFamily.Monospace
+                                )
+                            }
 
                             Spacer(modifier = Modifier.height(16.dp))
 
@@ -495,6 +504,7 @@ fun CharacterCreationScreen(
             if (showFilterDialog && activeRawBitmap != null) {
                 SelfieFilterDialog(
                     rawBitmap = activeRawBitmap,
+                    filterConfig = selfieConfig,
                     onDismiss = {
                         showFilterDialog = false
                         rawInputBitmap = null
