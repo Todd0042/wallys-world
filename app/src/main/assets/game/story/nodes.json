@@ -4629,14 +4629,14 @@
       "id": "act6_frontend_decision",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I have run the full inventory. The customer grind is not survivable indefinitely. Abdoolie's ghost is going to keep visiting until I put enough distance between myself and the parts of this job that look like St. Augustine. There is one remaining exit. Down. The rest of the way down. Shop technician. The bays I have managed from the outside, taken all the way to the inside. Wrenches and diagnostics and the smell of motor oil and the quiet that comes with a bay door between you and the rest of the building.",
+      "text": "I have run the full inventory. The customer grind is not survivable indefinitely, and Abdoolie's ghost is going to keep visiting until I put real distance between myself and this building. There is one clean exit left: step down again, and transfer out. Leave this store entirely. Take an entry-level technician slot in the auto bays across town. Wrenches and diagnostics and the smell of motor oil, with several miles of asphalt between me and Abdoolie's shadow.",
       "nextNodeId": "act6_frontend_decision_narrator"
     },
     {
       "id": "act6_frontend_decision_narrator",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The decision costs another title. It costs the hourly lead designation and the final shred of the management ladder. It costs nothing that has not already been paid many times over. And it leads, almost immediately, to Tani and Cap'n H.",
+      "text": "The store transfer and the second step-down cost whatever remained of the management ladder. It costs the hourly lead designation and another chunk of pride that has already been spent many times over. The transfer paperwork clears with barely a glance from regional HR. And at the new store, it leads directly to Tani and Cap'n H.",
       "nextNodeId": "act6_frontend_to_pit",
       "setFlagOnEnter": "flag_act6_stepdown_two"
     },
@@ -4644,7 +4644,7 @@
       "id": "act6_frontend_to_pit",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The second step-down form is shorter than the first. The office doesn't look up when you sign it.",
+      "text": "A new store number. A new parking lot. The second step-down form was shorter than the first, and nobody here knows your corporate pedigree.",
       "changeSceneId": "scene_act6_shop_pit",
       "nextNodeId": "act6_pit_intro"
     },
@@ -4652,14 +4652,14 @@
       "id": "act6_pit_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Bay One. The impact wrench cuts loose and the whole floor vibrates at a specific, honest frequency. It is the vibration of actual physical work \u2014 metal on metal, torque on steel, the physical truth of how a tire stays on a wheel. The building's politics do not vibrate at this frequency. Down here the machine forgot to install its usual surveillance equipment. The spreadsheet barely reaches the bays. Abdoolie has never been in Bay Three and probably cannot name all six bays from memory. The fluorescent hum is different here \u2014 it has to compete with the wrenches.",
+      "text": "Bay One of the new store. The impact wrench cuts loose and the whole floor vibrates at a specific, honest frequency. It is the vibration of actual physical work — metal on metal, torque on steel, the physical truth of how a tire stays on a wheel. The building's politics do not vibrate at this frequency. Down here, the machine forgot to install its usual surveillance equipment. The spreadsheet barely reaches the bays. Abdoolie and his oppressive store meetings are miles away in another building. The fluorescent hum is different here — it has to compete with the wrenches.",
       "nextNodeId": "act6_tani_first_words"
     },
     {
       "id": "act6_tani_first_words",
       "speakerId": "tani",
       "side": "RIGHT",
-      "text": "You're the one from the overnight thing, right? The Shop Manager who stepped down twice rather than let them grind him up? Good. We've needed somebody in here who already knows the bays aren't the problem. The bays have never been the problem.",
+      "text": "You're the transfer from across town, right? The manager who stepped down twice rather than let them grind him up? Good. We've needed somebody in here who already knows the bays aren't the problem. The bays have never been the problem.",
       "nextNodeId": "act6_capnh_first_words"
     },
     {
@@ -4921,7 +4921,7 @@
       "id": "act6_pit_settle",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Six months pass in the bays. Aussie's goalposts shift, panic cycles bloom and wither in seven days, and Abdoolie's cadence occasionally ripples across the floor. But the bays keep running, because metal and torque are real, and the crew watches each other's backs.",
+      "text": "Six months pass in the bays of the new store. Aussie's goalposts shift, panic cycles bloom and wither in seven days, and old memories of Abdoolie's cadence only occasionally surface in passing reminiscent thought. The bays keep running, because metal and torque are real, and the crew watches each other's backs.",
       "nextNodeId": "act6_pit_to_resolution",
       "setFlagOnEnter": "flag_act6_pit_done"
     },
