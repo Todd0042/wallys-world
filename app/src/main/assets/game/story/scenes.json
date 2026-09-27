@@ -296,16 +296,16 @@
       "chapterTitle": "Chapter 18: The Education of Richard",
       "backgroundAsset": "story/squeeze_pueblo_training.jpg",
       "initialNodeId": "pueblo_richard_intro",
-      "ambientDescription": "A Regional Compliance Aspirant who cannot read a stocking report: Richard, gunning for Area Manager, taught one honest hour at a time by the closing manager nobody staffed.",
+      "ambientDescription": "Richard, Todd's former Regional Compliance Manager from Lamar, wants a change of pace into operations. Knowing Todd's unmatched floor execution, he comes to Pueblo specifically to learn the real work from the manager he trusts most.",
       "musicAsset": "audio/music/bgm_act4_madness.ogg",
       "chapterIndex": 18,
       "actNumber": 4,
       "actTitle": "Act IV: The Madness",
       "milestoneTitle": "Chapter 18: The Education of Richard",
       "milestoneLocation": "The Training Office",
-      "milestoneSummary": "You trained the clueless compliance climber, survived the compliance visit he led, and watched him take the Area Manager slot wearing your words \u2014 the delicious hypocrisy of the ladder, in full.",
+      "milestoneSummary": "Richard sought you out to learn store operations for a change of pace. Because of your history in Lamar, he trusted you to teach him the real floor, and together you aced the compliance walkthrough.",
       "milestoneIcon": "\ud83c\udf93",
-      "defaultObjective": "Teach Richard enough to survive, keep the shine on the store, and watch the climber climb."
+      "defaultObjective": "Show Richard the real freight and floor operations, cementing the trust you built back in Lamar."
     },
     {
       "id": "scene_pueblo_office",

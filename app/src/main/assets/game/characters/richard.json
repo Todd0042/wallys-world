@@ -1,9 +1,9 @@
 {
-  "_doc": "Richard — the Regional Compliance Aspirant, gunning for Area Manager with zero baseline comprehension of the reports he'll be judged against. Sincere, polished, and completely useless until Todd teaches him one honest hour at a time; he takes the Area Manager slot wearing Todd's words and credits nobody. Dialogue-only.",
+  "_doc": "Richard — Todd's former Regional Compliance Manager in Lamar who had nothing but praise for Todd's shop. In Pueblo, wanting a change of pace into operations, he specifically sought out Todd to train him on the sales floor and backroom freight because of their existing mutual trust and respect. Sincere, cool, and eager to learn the floor from the best. Dialogue-only.",
   "id": "richard",
   "role": "npc",
   "name": "Richard",
-  "title": "Regional Compliance Aspirant",
+  "title": "Regional Compliance Manager",
   "portraitAsset": "portraits/richard.jpg",
   "themeColor": "#FFA726",
   "ttsPitch": 1.1,
@@ -11,10 +11,8 @@
   "preferredVoiceId": null,
   "voiceAliases": [
     "richard",
-    "the aspirant",
     "compliance manager",
-    "compliance guy",
-    "the climber"
+    "regional compliance"
   ],
   "gender": "male",
   "sprite": {

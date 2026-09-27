@@ -469,7 +469,8 @@
         "requiredFlags": [
           "flag_lamar_bays",
           "flag_lamar_crew",
-          "flag_skagg_praise"
+          "flag_skagg_praise",
+          "flag_lamar_richard"
         ],
         "redirectToNodeId": "lamar_metrics"
       },
@@ -520,6 +521,21 @@
           ],
           "nextNodeId": "lamar_skagg",
           "completionFlag": "flag_skagg_praise"
+        },
+        {
+          "id": "choice_lamar_richard",
+          "text": "Tour the bays with Richard, your Regional Compliance Manager.",
+          "voiceKeywords": [
+            "richard",
+            "compliance",
+            "audit",
+            "tour",
+            "inspection",
+            "walkthrough",
+            "regional"
+          ],
+          "nextNodeId": "lamar_richard",
+          "completionFlag": "flag_lamar_richard"
         },
         {
           "id": "choice_lamar_rush",
@@ -579,6 +595,21 @@
       "text": "Cap'n Skagg. The man who assigns these slots \u2014 which means I'm the one who read what Mattie-T sent about you before you ever got here. 'Not ready,' he said. You've been in this shop one week and the bays run like a string of lights. I tell you what, kid \u2014 I'm glad I looked for myself. I train my managers like I'm betting on them, and I just saw what I needed to see.",
       "nextNodeId": "lamar_hub",
       "setFlagOnEnter": "flag_skagg_praise"
+    },
+    {
+      "id": "lamar_richard",
+      "speakerId": "richard",
+      "side": "RIGHT",
+      "text": "Todd, I've toured forty shops across this region, and walking into yours is always a breath of fresh air. Zero safety violations, drums tagged, torque charts posted, and your techs are wearing their PPE without anyone breathing down their necks. You're running the best bays in Colorado. I wish every shop manager took the floor as seriously as you do.",
+      "nextNodeId": "lamar_richard_todd",
+      "setFlagOnEnter": "flag_lamar_richard"
+    },
+    {
+      "id": "lamar_richard_todd",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "Richard was regional compliance, but he wasn't looking for gotchas or excuses to write people up. He's a cool guy who genuinely respects the work when it's done right, and he knows I run an honest shop. Every time he tours, we talk straight about what works and what doesn't. We built real mutual trust every time he came through.",
+      "nextNodeId": "lamar_hub"
     },
     {
       "id": "lamar_trigger_battle",
@@ -2429,7 +2460,7 @@
       "id": "pueblo_to_richard",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The shine brings visitors. The machine doesn't reward peak operations by taking care of the people who made them \u2014 it sends executives to stand in the light and pretend it was theirs. The email says a Regional Compliance Manager is coming to spend time with your team. The word is he's being groomed for Area Manager. The word is he has never once read a stocking report in his life.",
+      "text": "The shine brings visitors, but this time it's a welcome one. An email arrives announcing that Richard, your former Regional Compliance Manager from Lamar, is transitioning into store operations for a change of pace. Knowing what Todd built with the unload and the bins, Richard specifically requested to shadow Todd in Pueblo to learn the floor from the best.",
       "healPartyOnEnter": "full",
       "changeSceneId": "scene_pueblo_training",
       "nextNodeId": "pueblo_richard_intro"
@@ -2438,28 +2469,28 @@
       "id": "pueblo_richard_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Richard. Pressed shirt, new badge, a smile that's been practiced in front of a mirror. Regional Compliance Manager, on his way up, and your store is the last stop before his promotion. He holds the stocking report like it's a menu in a language he doesn't speak \u2014 the bin labels, the turn times, the freight counts, all of it inert to him. Your job, per the region: teach him to read and execute your team's reports. His job, per him: don't let a single thing expose what he doesn't know.",
+      "text": "Richard arrives in Pueblo — a familiar face and a warm handshake. Back when he toured Lamar as Regional Compliance Manager, he and Todd built real mutual trust over clean bays and straight talk. Now he's looking for a change of pace, stepping out of compliance audits and into store operations. He holds the freight stocking reports: he knows the compliance standards backwards and forwards, but he wants to master the real, living heartbeat of the floor from the manager he trusts most.",
       "nextNodeId": "pueblo_richard_ask"
     },
     {
       "id": "pueblo_richard_ask",
       "speakerId": "richard",
       "side": "RIGHT",
-      "text": "Todd. Electric to finally see the floor the numbers live on. I want to absorb everything you do \u2014 the whole pipeline, soup to nuts. Whatever you think I need most. I'm a fast study, I pick things up quick. And afterwards \u2014 anything you need from me, anything at all, my door is going to be open. That's the kind of leader I want to be.",
+      "text": "Todd, it's great to see you again. When I told the region I wanted a change of pace into operations, there was only one person I asked to shadow. I remember how you ran that shop in Lamar — cleanest bays in the state, zero nonsense, and your crew trusted you. I know compliance on paper, but I want to understand how a real freight floor moves from someone who actually knows how to run it. Teach me the way you do it.",
       "nextNodeId": "pueblo_richard_todd"
     },
     {
       "id": "pueblo_richard_todd",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "They've sent me the man who'll be my boss someday, and he can't read a bin label. And this is the part that never stops being strange: he needs me \u2014 badly \u2014 and I know it, and he knows I know it, and neither of us is allowed to say it out loud. So I do what the machine has always done: I make him look good. If he looks good, the region looks good, and the region remembers the name standing next to him.",
+      "text": "Most corporate managers stepping into operations pretend they already have all the answers. Richard wasn't like that at all. He's cool, upfront about wanting to learn the operational side, and because of our history in Lamar, he trusted me completely to show him the unvarnished reality. If someone genuinely wants to learn the floor the right way, I'm more than glad to teach them.",
       "nextNodeId": "pueblo_richard_hub"
     },
     {
       "id": "pueblo_richard_hub",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Richard is sincere and completely useless \u2014 the most dangerous combination in corporate America. How do you spend his week?",
+      "text": "Richard is ready to dig in and learn the operational rhythm of the building. How do you spend his training week?",
       "hubCompletion": {
         "requiredFlags": [
           "flag_pueblo_taught",
@@ -2470,13 +2501,17 @@
       "choices": [
         {
           "id": "choice_pueblo_taught",
-          "text": "Teach Richard the floor one honest hour at a time.",
+          "text": "Walk Richard through bin logistics and freight turn times.",
           "voiceKeywords": [
+            "walk",
+            "bin",
+            "logistics",
+            "freight",
+            "turn times",
             "teach",
             "richard",
             "floor",
             "hour",
-            "honest",
             "explain"
           ],
           "nextNodeId": "branch_pueblo_taught",
@@ -2484,12 +2519,14 @@
         },
         {
           "id": "choice_pueblo_shadow",
-          "text": "Let Richard shadow the overnight unload until it scares him.",
+          "text": "Have Richard shadow the overnight unload to see the real work.",
           "voiceKeywords": [
             "shadow",
             "unload",
             "overnight",
-            "scare",
+            "line",
+            "truck",
+            "freight",
             "watch",
             "follow"
           ],
@@ -2498,40 +2535,44 @@
         },
         {
           "id": "choice_pueblo_visit",
-          "text": "Survive the compliance visit Richard is leading.",
+          "text": "Ace the regional walkthrough with Richard leading the floor.",
           "voiceKeywords": [
+            "walkthrough",
             "compliance",
             "visit",
             "audit",
             "richard",
             "battle",
             "fight",
-            "lead"
+            "lead",
+            "tour"
           ],
           "nextNodeId": "pueblo_visit_trigger",
           "completionFlag": "flag_pueblo_visit"
         },
         {
           "id": "choice_pueblo_promote",
-          "text": "Send him up the ladder and watch what happens next.",
+          "text": "Send Richard forward into store operations and review the results.",
           "voiceKeywords": [
             "promote",
-            "ladder",
+            "operations",
             "richard",
             "area",
+            "results",
             "next",
-            "proceed"
+            "proceed",
+            "forward"
           ],
           "nextNodeId": "pueblo_richard_promoted"
         }
       ],
-      "revisitText": "Richard's clipboard taps impatiently against his knee. How will you direct your well-meaning but hopeless peer next?"
+      "revisitText": "Richard looks over the freight board with genuine focus. What operational area will you cover next?"
     },
     {
       "id": "branch_pueblo_taught",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I take him aisle by aisle, bin by bin, slow enough that a child could follow and patient enough not to shame him \u2014 because it's not his fault the company handed him a job he was never taught. By Thursday he can read a turn time out loud without wincing. It's the most useful thing I'll ever do for a boss, and I know it'll be repaid at the going rate of a favor in this industry: nothing, at first.",
+      "text": "I walk him through the bin system, the pick logic, and the turn times aisle by aisle. Richard isn't afraid to ask why things are set up the way they are, and he actually listens to how the floor moves. By Thursday he's reading the reports with the context of what the crews are actually dealing with. Having someone in leadership who actually understands the work makes a hell of a difference.",
       "nextNodeId": "pueblo_richard_hub",
       "setFlagOnEnter": "flag_pueblo_taught"
     },
@@ -2539,7 +2580,7 @@
       "id": "branch_pueblo_shadow",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "You put him on the overnight unload, just once, so he can see what the reports actually describe. He lasts four hours. He comes back pale, asking how anyone does this every night \u2014 and you can tell he's already editing that sentence for the version he tells his boss. But something in his eyes stuck. It's the first real data he's ever seen about his own region, and he got it from the floor.",
+      "text": "He joins the overnight unload crew on the line, rolling up his sleeves to see what the freight numbers actually mean in sweat and muscle. It's heavy, fast-paced, and relentless. Four hours in, he's sweating through his polo, shaking his head with newfound respect for the crew. He tells Todd he's glad he saw it firsthand — that no spreadsheet could ever explain what it takes to throw a two-thousand-piece truck.",
       "nextNodeId": "pueblo_richard_hub",
       "setFlagOnEnter": "flag_pueblo_shadow"
     },
@@ -2547,7 +2588,7 @@
       "id": "pueblo_visit_trigger",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The compliance visit is a circus: Richard leading a walkthrough of the store he now half-knows, the regional director at his shoulder, and your team's whole overhaul under the microscope of people who didn't build it. The visit is the boss today \u2014 it wants to see whether the shine holds. Say 'Enemies' \u2014 and keep the show on the rails.",
+      "text": "The operational walkthrough arrives: Richard co-leading the tour with Todd, the regional directors watching every corner of the sales floor and backroom. With Richard's compliance eye and Todd's floor execution working in sync, the tour is sharp and coordinated. But corporate tours are always a pressure cooker. Say 'Enemies' — and show the region how a real store operates.",
       "triggerBattleEncounterId": "pueblo_compliance_visit",
       "nextNodeId": "pueblo_visit_post"
     },
@@ -2555,7 +2596,7 @@
       "id": "pueblo_visit_post",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "Richard stumbles twice, corrects himself both times, and I smooth both stitches in front of the director without missing a beat. The visit passes. The shine holds. Nobody knows how thin the difference was between a promotion and a car wreck \u2014 except Richard. He looks at me like he's seen the floor for the first time. I look back like I've seen this movie a dozen times.",
+      "text": "When the directors ask detailed operational questions about freight staging and bin density, Richard answers with confidence, and I back him up on the floor specifics. We work like a coordinated team. The directors are visibly impressed with the backroom order and the clean freight flow. After they leave, Richard claps me on the shoulder with a huge grin — the trust we built in Lamar paid off in spades.",
       "nextNodeId": "pueblo_richard_hub",
       "setFlagOnEnter": "flag_pueblo_visit"
     },
@@ -2563,7 +2604,7 @@
       "id": "pueblo_richard_promoted",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The promotion lands six weeks later, announced by email: Regional Compliance Manager Richard, now Area Manager, the region's newest voice \u2014 the man whose entire comprehension of the operations he now oversees was installed in one week in your store by a closing manager nobody staffed. There is a delicious hypocrisy in it, and you can taste it for about as long as you let yourself.",
+      "text": "The transition announcement arrives six weeks later: Richard's successful move from compliance into store operations is complete, stepping into an Area Manager role. For once, the leadership ladder gains someone who actually spent time on the floor, listened to the workers, and respects what it takes to run a building.",
       "healPartyOnEnter": "full",
       "nextNodeId": "pueblo_richard_after"
     },
@@ -2571,7 +2612,7 @@
       "id": "pueblo_richard_after",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "His first act as Area Manager is to roll out a process improvement that reads exactly like the words I used in his training \u2014 credited to nobody in particular, certainly not to the store that invented them. I know the going rate of a favor in this industry, and it is what I expected: nothing but the privilege of watching the climber climb. That's the system. I don't hate him for it. I can't afford to.",
+      "text": "Richard calls me directly as soon as the announcement goes out. He thanks me for the time, the honesty, and for showing him the real floor when a lot of managers would have just handed him a binder. Having someone in upper management who actually knows the floor and whom you have a solid relationship with is rare in this company. It feels like a genuine win.",
       "nextNodeId": "pueblo_to_paradox"
     },
     {

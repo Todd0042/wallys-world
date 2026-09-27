@@ -1002,6 +1002,248 @@
         "particleCount": 20,
         "screenShake": 5.0
       }
+    },
+    {
+      "id": "steady_presence",
+      "name": "Steady Presence",
+      "school": "HOLY",
+      "basePower": 0,
+      "mpCost": 15,
+      "status": "BLESS",
+      "description": "A quiet, clear-eyed anchor that cuts through corporate panic and restores party composure.",
+      "exampleChant": "steady presence!",
+      "aliases": [
+        "steady presence",
+        "steady",
+        "presence",
+        "calm down",
+        "composure"
+      ],
+      "graphics": {
+        "effectType": "AURA",
+        "primaryColor": "#F06292",
+        "secondaryColor": "#FFF9C4",
+        "particleCount": 22,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "truth_smite",
+      "name": "Truth Smite",
+      "school": "HOLY",
+      "basePower": 65,
+      "mpCost": 20,
+      "description": "Name the reality of the situation out loud, dispelling corporate rhetoric and weakening the enemy.",
+      "exampleChant": "truth smite!",
+      "aliases": [
+        "truth smite",
+        "truth",
+        "smite",
+        "name the truth",
+        "speak truth"
+      ],
+      "graphics": {
+        "effectType": "SLASH",
+        "primaryColor": "#F06292",
+        "secondaryColor": "#FFFFFF",
+        "particleCount": 24,
+        "screenShake": 4.0
+      }
+    },
+    {
+      "id": "unbroken_aegis",
+      "name": "Unbroken Aegis",
+      "school": "HOLY",
+      "basePower": 0,
+      "mpCost": 15,
+      "isGuard": true,
+      "description": "Stand shoulder to shoulder, raising an unyielding barrier to protect Todd from harm.",
+      "exampleChant": "unbroken aegis!",
+      "aliases": [
+        "unbroken aegis",
+        "aegis",
+        "unbroken",
+        "barrier",
+        "protect todd",
+        "guard"
+      ],
+      "graphics": {
+        "effectType": "SHIELD",
+        "primaryColor": "#F8BBD0",
+        "secondaryColor": "#F06292",
+        "particleCount": 20,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "lifeline_mend",
+      "name": "Lifeline Mend",
+      "school": "HOLY",
+      "basePower": 140,
+      "mpCost": 25,
+      "isHeal": true,
+      "description": "The vital lifeline that pulls Todd back from exhaustion and restores health.",
+      "exampleChant": "lifeline mend!",
+      "aliases": [
+        "lifeline mend",
+        "lifeline",
+        "mend",
+        "heal",
+        "cure",
+        "restore"
+      ],
+      "graphics": {
+        "effectType": "PILLAR",
+        "primaryColor": "#F06292",
+        "secondaryColor": "#69F0AE",
+        "particleCount": 26,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "the_backrub",
+      "name": "The Backrub",
+      "school": "HOLY",
+      "basePower": 60,
+      "mpCost": 0,
+      "isHeal": true,
+      "description": "Eases tension and sore muscles after long hours on concrete. Restores party HP and clears exhaustion.",
+      "exampleChant": "the backrub!",
+      "aliases": [
+        "the backrub",
+        "backrub",
+        "rub",
+        "massage",
+        "shoulder rub",
+        "back rub"
+      ],
+      "graphics": {
+        "effectType": "AURA",
+        "primaryColor": "#F48FB1",
+        "secondaryColor": "#FFF9C4",
+        "particleCount": 18,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "inspiring_words",
+      "name": "Inspiring Words",
+      "school": "HOLY",
+      "basePower": 0,
+      "mpCost": 0,
+      "manaRestorePct": 0.25,
+      "description": "A gentle whisper reminding Todd of life outside the warehouse. Dispels mental debuffs and restores mana.",
+      "exampleChant": "inspiring words!",
+      "aliases": [
+        "inspiring words",
+        "words",
+        "inspiring",
+        "inspire",
+        "remind me",
+        "whisper"
+      ],
+      "graphics": {
+        "effectType": "SPARK",
+        "primaryColor": "#F48FB1",
+        "secondaryColor": "#E1BEE7",
+        "particleCount": 16,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "packed_lunch",
+      "name": "Packed Lunch",
+      "school": "HOLY",
+      "basePower": 0,
+      "mpCost": 0,
+      "isGuard": true,
+      "description": "A sandwich and note packed with love. Creates a protective barrier around Todd.",
+      "exampleChant": "packed lunch!",
+      "aliases": [
+        "packed lunch",
+        "lunch",
+        "pack lunch",
+        "sandwich",
+        "lunchbox"
+      ],
+      "graphics": {
+        "effectType": "SHIELD",
+        "primaryColor": "#FFF59D",
+        "secondaryColor": "#F48FB1",
+        "particleCount": 16,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "just_groceries",
+      "name": "Just Groceries",
+      "school": "HOLY",
+      "basePower": 0,
+      "mpCost": 0,
+      "hitsAll": true,
+      "status": "WEAKEN",
+      "description": "Cuts through corporate panic. Dispels enemy rage and intimidation buffs.",
+      "exampleChant": "just groceries!",
+      "aliases": [
+        "just groceries",
+        "groceries",
+        "it's just groceries",
+        "perspective",
+        "calm down"
+      ],
+      "graphics": {
+        "effectType": "WAVE",
+        "primaryColor": "#F48FB1",
+        "secondaryColor": "#80DEEA",
+        "particleCount": 18,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "deep_breath",
+      "name": "Deep Breath",
+      "school": "HOLY",
+      "basePower": 0,
+      "mpCost": 0,
+      "isGuard": true,
+      "description": "A quiet moment of calm clarity that reduces incoming damage.",
+      "exampleChant": "deep breath!",
+      "aliases": [
+        "deep breath",
+        "breath",
+        "take a breath",
+        "breathe deep"
+      ],
+      "graphics": {
+        "effectType": "AURA",
+        "primaryColor": "#E1BEE7",
+        "secondaryColor": "#B2DFDB",
+        "particleCount": 15,
+        "screenShake": 0.0
+      }
+    },
+    {
+      "id": "quiet_remember",
+      "name": "Quiet Remember",
+      "school": "HOLY",
+      "basePower": 75,
+      "mpCost": 0,
+      "isHeal": true,
+      "description": "A sudden grounding surge of purpose. Restores HP and grants composure.",
+      "exampleChant": "quiet remember!",
+      "aliases": [
+        "quiet remember",
+        "remember",
+        "remember why",
+        "why we do this"
+      ],
+      "graphics": {
+        "effectType": "PILLAR",
+        "primaryColor": "#F48FB1",
+        "secondaryColor": "#FFFFFF",
+        "particleCount": 20,
+        "screenShake": 0.0
+      }
     }
   ]
 }

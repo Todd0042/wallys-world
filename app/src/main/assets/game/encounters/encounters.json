@@ -7,7 +7,8 @@
       "description": "Forty-eight feet of freight in a dead building. You versus the wall, with the ballast hum grinding in your ears.",
       "environment": "service_bay",
       "party": [
-        "hero"
+        "hero",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -31,7 +32,8 @@
       "description": "The hour-occupancy dashboard is red, and management's pet is running the paging wand. Hold the floor.",
       "environment": "trench",
       "party": [
-        "hero"
+        "hero",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -63,7 +65,8 @@
       "description": "The email is already out \u2014 a short 'not ready' note sitting in the area manager's inbox, sent before you ever walked in \u2014 and the man who sent it smiles behind the desk. Everything you built this act is on the line.",
       "environment": "break_room",
       "party": [
-        "hero"
+        "hero",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -105,7 +108,8 @@
       "description": "Six bays, a line of pickups around the block, and the clock running on every one. The service shop's first big push \u2014 the honeymoon happens here, on your feet.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -135,7 +139,8 @@
       "description": "Jury's watch is on every bay and the retirement memo is already moving up the chain. The friendly air of the building condenses into something sharp.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -167,7 +172,8 @@
       "description": "The grievance grinds for a week and comes back with the only stamp the machine owns: yes, they said it, and no, it didn't happen.",
       "environment": "parking_lot",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana"
       ],
       "enemies": [
         {
@@ -208,7 +214,8 @@
       "description": "The rented community hall under fluorescent glare. Jury walks up with casual malice and says it twice, in front of witnesses. The second grievance is already signing itself.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana"
       ],
       "enemies": [
         {
@@ -250,7 +257,8 @@
       "description": "The burning nerve fire that flares across your forehead for the first time \u2014 shingles, the body's own scorecard for the year. Fight through it to pack the truck.",
       "environment": "service_bay",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -286,7 +294,8 @@
       "description": "Six bays under a roof that hasn't been repainted since the previous decade, years of deferred maintenance, and a clock already running on your first ticket. The neglect is a living thing in the room with you.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -318,7 +327,8 @@
       "description": "The quarterly leadership tour walled off behind glass \u2014 only the Store Manager walks with the visitors, and the edict lands on the bays before the cars leave the lot. Hold the floor against the sold-out number.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -360,7 +370,8 @@
       "description": "The store manager's kindness unmakes every consequence you draw before the ink dries \u2014 the warmth that never weighs, the smile that quietly cancels your paperwork. The paralysis wants to teach you the same lesson it teaches everyone: don't bother caring.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -402,7 +413,8 @@
       "description": "The wheel was never loose, the witnesses saw nothing, and the only person who kept saying the shop was unsafe was the manager who refused to sign. The blame is pre-fitted before the tire is back on.",
       "environment": "parking_lot",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -444,7 +456,8 @@
       "description": "Three hundred miles away behind phones and calendars, built to absorb complaints until they fossilize \u2014 but the complaint is already running past it, on a CC line that bypasses every smiling gatekeeper in the building.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -494,7 +507,8 @@
       "description": "The second outbreak \u2014 the same burning line across the same forehead, drawn where everyone can see it. One per state, one store per price paid. Fight through it to finish the load.",
       "environment": "break_room",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -532,7 +546,8 @@
       "description": "Nine o'clock and six deep at every register, the service desk blinking, and no supervisor anywhere to page. Tell them their number, then save the five ahead of them.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -562,7 +577,8 @@
       "description": "Midnight: forty thousand square feet of dark, every till to count, every door to check \u2014 and the building, empty, pressing in like it's keeping count of you too.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -606,7 +622,8 @@
       "description": "Weekly visitors, a weather system: the team that sweeps housewares and electronics, and the grab-and-run that empties a shelf in eleven seconds.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -638,7 +655,8 @@
       "description": "Everyone claims on everyone: associate against associate, manager against associate, and a closing manager who files his own to stay out of the way.",
       "environment": "parking_lot",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -670,7 +688,8 @@
       "description": "Eleven at night, a dispute walking to its cars, two hands going to two waistbands. The lot is dark, the line is thin, and it's yours to hold.",
       "environment": "service_bay",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -722,7 +741,8 @@
       "description": "The overhaul hits the floor all at once \u2014 the dock, the bins, the topstock, the whole rebuild under a clock that wants it faster. Proves whether the system works when leadership equips its people.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -770,24 +790,25 @@
     },
     {
       "id": "pueblo_compliance_visit",
-      "name": "The Compliance Visit",
-      "description": "Richard leading a walkthrough he half-understands, a regional director at his shoulder, and the whole overhaul under the microscope of people who didn't build it. Keep the show on the rails.",
+      "name": "The Compliance Walkthrough",
+      "description": "The operational walkthrough is under the microscope of the regional directors. With Richard and Todd leading the floor together, stand tall against the audit pressure.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
           "templateId": "aspirant_zero",
           "id": "richard_boss",
-          "name": "The Compliance Aspirant",
+          "name": "The Regional Audit",
           "isTargeted": true,
           "atbGauge": 0.4
         },
         {
           "templateId": "zero_report",
           "id": "report_b",
-          "name": "The Zero Report",
+          "name": "The Unrealistic Standard",
           "atbGauge": 0.3
         },
         {
@@ -803,16 +824,16 @@
         {
           "enemyId": "richard_boss",
           "hpBelow": 0.66,
-          "bannerText": "THE VISIT TURNS",
-          "narrationText": "A wrong answer, a stumble, the director's eyebrow going up. The whole performance hangs on a stitch you can't let anyone see.",
+          "bannerText": "THE TOUR INTENSIFIES",
+          "narrationText": "A sharp technical question from the regional director. Richard and Todd step up in unison, breaking down the operational metrics with total precision.",
           "summonEnemyId": "zero_report",
           "summonCount": 1
         },
         {
           "enemyId": "richard_boss",
           "hpBelow": 0.33,
-          "bannerText": "EVERYTHING HINGES ON THE PERFORMANCE",
-          "narrationText": "If he looks good, the region looks good, and the region remembers the name standing next to him. Smooth the stitch.",
+          "bannerText": "STAND TALL ON THE FLOOR",
+          "narrationText": "The pressure mounts, but the freight floor holds firm. The execution speaks for itself.",
           "reducePartyToHpPct": 0.4,
           "executeBelowHpPct": 0.2
         }
@@ -824,7 +845,8 @@
       "description": "Friend by daylight, hell on the clock: the quarterly pressure at his back, the regional call in his ear, and a willingness to hand you to the machine if the numbers need a body.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -876,7 +898,8 @@
       "description": "The impossible demand, the re-done plan, the names said within earshot of the crew. Hand the impossible number back done, and don't expect a thank you.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -908,7 +931,8 @@
       "description": "Three in the morning: empty shelves, freight pallets breathing in the dark, and a whole building with no one to help. The grinder doesn't need to do anything. It just needs to be the only thing.",
       "environment": "service_bay",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -960,7 +984,8 @@
       "description": "Outbreak Number Three: the same burning line across the same forehead, harder and hungrier. The body has been shouting for three years. Now it's screaming.",
       "environment": "break_room",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -998,7 +1023,8 @@
       "description": "The clawback, the repayment, the years of the machine leaning on you all at once \u2014 the collar that's been waiting since Lamar, asking you to put it on willingly.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1048,7 +1074,8 @@
       "description": "I-95 south in the dead of night: brake-light walls, construction barriers, and the open road that takes an hour on a good night and three on a bad one. The geography of the act, armed.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1096,7 +1123,8 @@
       "description": "Three months of gold: the unload runs, the bins breathe, the board stays green. The machine finally working the way you always told them it could \u2014 a victory-light fight, the honeymoon in meter form.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1126,7 +1154,8 @@
       "description": "Every morning after the overnight shift: the ritual. No matter how much freight cleared, no matter how clean the building \u2014 the goalposts are permanently mounted on wheels.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1174,7 +1203,8 @@
       "description": "The formal chair, the closed door, the biggest man in the building asking questions in a voice that never rises. The terror of the region, made flesh \u2014 a man who runs on the aggressive management style the area favors.",
       "environment": "break_room",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1222,7 +1252,8 @@
       "description": "The store after everyone else has gone: three hours on a task nobody will ever check, then a fourth on the one beneath it. The building holds you not because it needs you, but because it can.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1270,7 +1301,8 @@
       "description": "The body's scorecard, fourth entry: shingles erupting across the forehead in full agonizing force, the immune system at its absolute limit after the commute, the hostage hours, and the terror. Mandatory third-party medical leave.",
       "environment": "service_bay",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1310,7 +1342,8 @@
       "description": "The relocation contract in its rawest form: corporate's weapon to keep you driving south into the dark. Break the trap by reading between the lines \u2014 stepping down within the company instead of walking away.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1358,7 +1391,8 @@
       "description": "The darkest hour of the memoir: the alternative, fully formed, visiting night after night \u2014 the place, the time, the plan, the silence \u2014 offered like a solution to the morning. You do not defeat it with a spell. You refuse it with a name: Adriana.",
       "environment": "service_bay",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana"
       ],
       "enemies": [
         {
@@ -1404,7 +1438,8 @@
       "description": "The step-down is accepted without resistance \u2014 colder than screaming. And as the final act of malice, the whisper carries down the hall to the team lead: 'He'll be out of the company in two months anyway.' The last boss of the crucible.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1452,7 +1487,8 @@
       "description": "Twenty-four thousand dollars a year, vanished in a single signed form. The depression isn't about the money \u2014 it's about watching the machine prove, once again, that there is no landing pad between the crushing altitude of salaried management and the floor.",
       "environment": "trench",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1497,7 +1533,8 @@
       "description": "Abdoolie doesn't need to be Ohmar to be Ohmar. The cadence is the same \u2014 the flat declarative sentences, the pause before the verdict, the room that empties around him. The body doesn't wait for logic. It's already back in St. Augustine.",
       "environment": "sales_floor",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1545,7 +1582,8 @@
       "description": "Ten hours behind the service desk: complaints, demands, abusive returns, and the fluorescent grind of the front lines.",
       "environment": "break_room",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1579,7 +1617,8 @@
       "description": "An all-hands personnel meeting in an 8x10 office backed by a feed-through battery rack. Aussie's spreadsheet is angry, and he only has one tool: the collective threat.",
       "environment": "break_room",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana_inspiration"
       ],
       "enemies": [
         {
@@ -1626,7 +1665,8 @@
       "description": "Four shingles outbreaks. A $24,000 pay cut. Five states in eight years. The machine's ledger versus the one thing it could never enter: integrity intact, empathy intact, a life still in your hands.",
       "environment": "service_bay",
       "party": [
-        "todd_shop"
+        "todd_shop",
+        "adriana"
       ],
       "enemies": [
         {

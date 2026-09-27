@@ -569,9 +569,9 @@
     },
     {
       "id": "aspirant_zero",
-      "name": "The Compliance Aspirant",
-      "subtitle": "Gunning for Area Manager",
-      "family": "FLESH",
+      "name": "The Regional Audit",
+      "subtitle": "Pressure from Above",
+      "family": "CONSTRUCT",
       "selfElement": "SHADOW",
       "hp": 900,
       "attack": 27,
@@ -585,8 +585,8 @@
     },
     {
       "id": "zero_report",
-      "name": "The Zero Report",
-      "subtitle": "Written by Nobody, Credited to Him",
+      "name": "The Unrealistic Standard",
+      "subtitle": "Corporate Expectations",
       "family": "VERDANT",
       "selfElement": "NATURE",
       "hp": 180,
