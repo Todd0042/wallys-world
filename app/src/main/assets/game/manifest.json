@@ -21,10 +21,11 @@
   ],
   "characterTitles": [
     "Freight Supervisor",
-    "Shop Captain",
+    "Shop Manager",
+    "Team Lead",
+    "Overnight Associate",
     "Floor Captain",
-    "Service Steward",
-    "Process Engineer"
+    "Service Steward"
   ],
   "creationEmbarkPrompt": "CLOCK IN TO WALLY'S WORLD ➔",
   "creationVoiceKeywords": [

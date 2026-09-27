@@ -553,7 +553,7 @@ class StoryViewModel(
         combatNarrator.stop()
         speechManager.cancel()
         _state.value = _state.value.copy(
-            gameScreen = GameScreen.AUDIO_SETUP,
+            gameScreen = GameScreen.CHARACTER_CREATION,
             previousScreen = GameScreen.TITLE,
             isNewGameFlow = true
         )

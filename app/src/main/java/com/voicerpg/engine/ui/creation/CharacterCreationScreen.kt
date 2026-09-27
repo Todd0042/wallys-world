@@ -8,8 +8,6 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -36,11 +34,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import com.voicerpg.engine.audio.CombatNarrator
-import com.voicerpg.engine.audio.SpeechManager
-import com.voicerpg.engine.audio.SpeechState
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -52,8 +45,10 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.voicerpg.engine.audio.CombatNarrator
+import com.voicerpg.engine.audio.SpeechManager
+import com.voicerpg.engine.audio.SpeechState
 import com.voicerpg.engine.content.GameContent
-import com.voicerpg.engine.content.HeroClassDef
 import com.voicerpg.engine.model.AuraColor
 import com.voicerpg.engine.model.PlayerCustomization
 import com.voicerpg.engine.model.SpellSchool
@@ -62,8 +57,9 @@ import com.voicerpg.engine.ui.theme.LogosGold
 import com.voicerpg.engine.ui.theme.LogosGlow
 import com.voicerpg.engine.ui.theme.RetroBlack
 import com.voicerpg.engine.ui.theme.RetroBorder
-import com.voicerpg.engine.ui.theme.RetroBorderGold
 import com.voicerpg.engine.ui.theme.RetroPanel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun CharacterCreationScreen(
@@ -74,23 +70,21 @@ fun CharacterCreationScreen(
     onConfirmCharacter: (PlayerCustomization) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var name by remember { mutableStateOf(initialCustomization.name) }
-    var selectedClass by remember { mutableStateOf(initialCustomization.heroClass) }
-    var selectedTitle by remember { mutableStateOf(initialCustomization.title) }
+    val manifest = GameContent.manifest
+    val heroSpeaker = GameContent.heroCharacter?.speaker
+    val defaultHeroName = manifest.defaultHeroName.ifBlank { heroSpeaker?.name ?: "Todd" }
+    val defaultHeroTitle = manifest.defaultHeroTitle.ifBlank { heroSpeaker?.title ?: "Freight Supervisor" }
+    val defaultHeroPortrait = manifest.defaultHeroPortrait ?: heroSpeaker?.portraitAsset ?: "portraits/todd.jpg"
+
+    var name by remember { mutableStateOf(initialCustomization.name.ifBlank { defaultHeroName }) }
+    var selectedTitle by remember { mutableStateOf(if (initialCustomization.title.isNotBlank() && initialCustomization.title != "The Awakened Hero") initialCustomization.title else defaultHeroTitle) }
     var selectedAura by remember { mutableStateOf(initialCustomization.auraColor) }
-    var selectedAffinity by remember { mutableStateOf(initialCustomization.voiceAffinityBonusSchool) }
 
     val isAutoListen = speechManager?.isAutoListen?.collectAsState()?.value ?: false
     val speechState = speechManager?.speechState?.collectAsState()?.value ?: SpeechState.Idle
     val coroutineScope = rememberCoroutineScope()
 
     val context = LocalContext.current
-    val manifest = GameContent.manifest
-    val heroSpeaker = GameContent.heroCharacter?.speaker
-    val defaultHeroName = manifest.defaultHeroName.ifBlank { heroSpeaker?.name ?: "Hero" }
-    val defaultHeroTitle = manifest.defaultHeroTitle.ifBlank { heroSpeaker?.title ?: "Adventurer" }
-    val defaultHeroPortrait = manifest.defaultHeroPortrait ?: heroSpeaker?.portraitAsset ?: "portraits/todd.jpg"
-
     val heroBitmap = remember {
         StoryAssetLoader.loadBitmap(context, defaultHeroPortrait)
     }
@@ -109,12 +103,13 @@ fun CharacterCreationScreen(
 
     fun confirmAndAwaken() {
         speechManager?.cancel()
+        val defaultClass = GameContent.classes.firstOrNull()
         val finalCustomization = PlayerCustomization(
             name = if (name.isBlank()) defaultHeroName else name.trim(),
-            heroClassId = selectedClass.id,
+            heroClassId = defaultClass?.id ?: "floor_captain",
             title = selectedTitle,
             auraColor = selectedAura,
-            voiceAffinityBonusSchool = selectedClass.preferredSchool
+            voiceAffinityBonusSchool = defaultClass?.preferredSchool ?: SpellSchool.PHYSICAL
         )
         onConfirmCharacter(finalCustomization)
     }
@@ -123,41 +118,42 @@ fun CharacterCreationScreen(
         val lower = utterance.lowercase().trim()
         if (lower.isBlank()) return
 
-        // 1. Awaken / Embark command
+        // 1. Clock In / Embark command
         val embarkKeywords = (manifest.creationVoiceKeywords.ifEmpty {
-            listOf("awaken", "embark", "begin", "start", "enter", "ready")
+            listOf("clock in", "embark", "begin", "start", "enter", "ready")
         } + listOf("confirm", "forward", "onward", "play", "lets go", "let's go")).distinct()
         if (embarkKeywords.any { lower.contains(it) }) {
             confirmAndAwaken()
             return
         }
 
-        // 1b. Back command
-        if (lower == "back" || lower.contains("go back") || lower.contains("audio setup") || lower == "return") {
+        // 2. Back command
+        if (lower == "back" || lower.contains("go back") || lower == "return" || lower == "title") {
             speechManager?.cancel()
             onBack?.invoke()
             return
         }
 
-        // 2. Class selection commands - data-driven via the loaded content classes
-        GameContent.classes.firstOrNull { hc ->
-            lower.contains(hc.title.lowercase()) ||
-                lower.contains(hc.id) ||
-                hc.voiceKeywords.any { kw -> kw.isNotBlank() && lower.contains(kw) }
-        }?.let { matched ->
-            selectedClass = matched
-            selectedAffinity = matched.preferredSchool
-            combatNarrator?.speak("${matched.title} selected. ${matched.subtitle}.", force = true)
-        }
-
         // 3. Title selection
         titles.firstOrNull { lower.contains(it.lowercase()) }?.let {
             selectedTitle = it
+            combatNarrator?.speak("Title set to $it.", force = true)
         }
 
         // 4. Quick name selection
         quickNames.firstOrNull { lower.contains(it.lowercase()) }?.let {
             name = it
+            combatNarrator?.speak("Name set to $it.", force = true)
+        }
+
+        // 5. Aura color selection
+        AuraColor.entries.firstOrNull { aura ->
+            lower.contains(aura.name.lowercase()) ||
+            lower.contains(aura.displayName.lowercase()) ||
+            lower.contains(aura.id.lowercase())
+        }?.let { matchedAura ->
+            selectedAura = matchedAura
+            combatNarrator?.speak("Color set to ${matchedAura.displayName}.", force = true)
         }
 
         // Re-listen if auto-listen is enabled
@@ -188,7 +184,7 @@ fun CharacterCreationScreen(
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Optional Back navigation
+            // Back navigation to Title
             if (onBack != null) {
                 Row(
                     modifier = Modifier
@@ -208,7 +204,7 @@ fun CharacterCreationScreen(
                             .padding(horizontal = 12.dp, vertical = 6.dp)
                     ) {
                         Text(
-                            text = "◀ BACK TO AUDIO SETUP",
+                            text = "◀ BACK TO TITLE",
                             color = LogosGold,
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Bold,
@@ -220,19 +216,18 @@ fun CharacterCreationScreen(
 
             // Header
             Text(
-                text = "⚔️ TEMPLATE CHARACTER CREATION ⚔️",
+                text = "📋 ASSOCIATE BADGE REGISTRATION",
                 color = LogosGold,
-                fontSize = 18.sp,
+                fontSize = 17.sp,
                 fontWeight = FontWeight.Black,
                 fontFamily = FontFamily.Monospace
             )
             Text(
-                text = "Template Character Setup & Initial Loadout",
+                text = "Configure your name, badge title, and aura tint before clocking in.",
                 color = Color.LightGray,
                 fontSize = 11.sp,
                 fontFamily = FontFamily.Monospace
             )
-
 
             Spacer(modifier = Modifier.height(14.dp))
 
@@ -273,7 +268,7 @@ fun CharacterCreationScreen(
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
-                                    text = name.firstOrNull()?.toString() ?: "A",
+                                    text = name.firstOrNull()?.toString() ?: "T",
                                     color = auraColorVal,
                                     fontSize = 28.sp,
                                     fontWeight = FontWeight.Bold
@@ -286,21 +281,22 @@ fun CharacterCreationScreen(
 
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            text = if (name.isBlank()) "Nameless" else name,
+                            text = if (name.isBlank()) defaultHeroName else name,
                             color = LogosGlow,
-                            fontSize = 16.sp,
+                            fontSize = 18.sp,
                             fontWeight = FontWeight.Black,
                             fontFamily = FontFamily.Monospace
                         )
                         Text(
                             text = selectedTitle,
                             color = auraColorVal,
-                            fontSize = 11.sp,
+                            fontSize = 12.sp,
                             fontFamily = FontFamily.Monospace,
                             fontWeight = FontWeight.SemiBold
                         )
+                        Spacer(modifier = Modifier.height(2.dp))
                         Text(
-                            text = "Class: ${selectedClass.title} • Affinity: ${selectedAffinity.name}",
+                            text = "${manifest.worldName} • Shift Lead",
                             color = Color.LightGray,
                             fontSize = 10.sp,
                             fontFamily = FontFamily.Monospace
@@ -311,9 +307,9 @@ fun CharacterCreationScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Section 1: Name Input
+            // Section 1: Associate Name
             Text(
-                text = "1. INVOCATOR'S TRUE NAME",
+                text = "1. ASSOCIATE NAME",
                 color = LogosGold,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
@@ -326,7 +322,7 @@ fun CharacterCreationScreen(
             OutlinedTextField(
                 value = name,
                 onValueChange = { name = it },
-                label = { Text("Character Name", fontFamily = FontFamily.Monospace) },
+                label = { Text("Enter Name", fontFamily = FontFamily.Monospace) },
                 singleLine = true,
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = LogosGold,
@@ -340,7 +336,7 @@ fun CharacterCreationScreen(
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(6.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             // Quick Name Suggestions
             Row(
@@ -350,29 +346,30 @@ fun CharacterCreationScreen(
                 horizontalArrangement = Arrangement.spacedBy(6.dp)
             ) {
                 quickNames.forEach { qn ->
+                    val isSelected = name == qn
                     Box(
                         modifier = Modifier
                             .clip(RoundedCornerShape(6.dp))
-                            .background(if (name == qn) LogosGold.copy(alpha = 0.2f) else RetroPanel)
-                            .border(1.dp, if (name == qn) LogosGold else RetroBorder, RoundedCornerShape(6.dp))
+                            .background(if (isSelected) LogosGold.copy(alpha = 0.25f) else RetroPanel)
+                            .border(1.dp, if (isSelected) LogosGold else RetroBorder, RoundedCornerShape(6.dp))
                             .clickable { name = qn }
-                            .padding(horizontal = 8.dp, vertical = 4.dp)
+                            .padding(horizontal = 10.dp, vertical = 5.dp)
                     ) {
                         Text(
                             text = qn,
-                            color = if (name == qn) LogosGold else Color.LightGray,
-                            fontSize = 10.sp,
+                            color = if (isSelected) LogosGold else Color.LightGray,
+                            fontSize = 11.sp,
                             fontFamily = FontFamily.Monospace
                         )
                     }
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(18.dp))
 
-            // Section 2: Class Selection
+            // Section 2: Store Title
             Text(
-                text = "2. CHOOSE YOUR DISCIPLINE (CLASS)",
+                text = "2. STORE TITLE / POSITION",
                 color = LogosGold,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
@@ -382,21 +379,38 @@ fun CharacterCreationScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                GameContent.classes.forEach { hc ->
-                    ClassOptionCard(
-                        heroClass = hc,
-                        isSelected = hc == selectedClass,
-                        onSelect = { selectedClass = hc }
-                    )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                titles.forEach { t ->
+                    val isSelected = t == selectedTitle
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(6.dp))
+                            .background(if (isSelected) LogosGold.copy(alpha = 0.25f) else RetroPanel)
+                            .border(1.dp, if (isSelected) LogosGold else RetroBorder, RoundedCornerShape(6.dp))
+                            .clickable { selectedTitle = t }
+                            .padding(horizontal = 12.dp, vertical = 7.dp)
+                    ) {
+                        Text(
+                            text = t,
+                            color = if (isSelected) LogosGold else Color.LightGray,
+                            fontSize = 11.sp,
+                            fontFamily = FontFamily.Monospace,
+                            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                        )
+                    }
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(18.dp))
 
-            // Section 3: Aesthetics (Aura Color & Title)
+            // Section 3: Aesthetics (Aura & Vest Tint)
             Text(
-                text = "3. AURA LUMINESCENCE (AESTHETICS)",
+                text = "3. VEST & AURA LUMINESCENCE",
                 color = LogosGold,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
@@ -419,7 +433,7 @@ fun CharacterCreationScreen(
                     ) {
                         Box(
                             modifier = Modifier
-                                .size(36.dp)
+                                .size(40.dp)
                                 .shadow(if (isSelected) 10.dp else 2.dp, CircleShape, spotColor = col)
                                 .clip(CircleShape)
                                 .background(col)
@@ -429,7 +443,7 @@ fun CharacterCreationScreen(
                         Text(
                             text = aura.displayName.split(" ").first(),
                             color = if (isSelected) col else Color.Gray,
-                            fontSize = 9.sp,
+                            fontSize = 10.sp,
                             fontFamily = FontFamily.Monospace,
                             fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
                         )
@@ -437,49 +451,9 @@ fun CharacterCreationScreen(
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(26.dp))
 
-            // Epithet Title Selector
-            Text(
-                text = "4. HONORIFIC TITLE",
-                color = LogosGold,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold,
-                fontFamily = FontFamily.Monospace,
-                modifier = Modifier.align(Alignment.Start)
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(6.dp)
-            ) {
-                titles.forEach { t ->
-                    val isSelected = t == selectedTitle
-                    Box(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(6.dp))
-                            .background(if (isSelected) LogosGold.copy(alpha = 0.2f) else RetroPanel)
-                            .border(1.dp, if (isSelected) LogosGold else RetroBorder, RoundedCornerShape(6.dp))
-                            .clickable { selectedTitle = t }
-                            .padding(horizontal = 10.dp, vertical = 6.dp)
-                    ) {
-                        Text(
-                            text = t,
-                            color = if (isSelected) LogosGold else Color.LightGray,
-                            fontSize = 10.sp,
-                            fontFamily = FontFamily.Monospace
-                        )
-                    }
-                }
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Confirm & Enter Adventure Button
+            // Confirm & Clock In Button
             Button(
                 onClick = { confirmAndAwaken() },
                 colors = ButtonDefaults.buttonColors(
@@ -489,10 +463,10 @@ fun CharacterCreationScreen(
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(48.dp)
+                    .height(50.dp)
             ) {
                 Text(
-                    text = manifest.creationEmbarkPrompt.ifBlank { "AWAKEN ➔" },
+                    text = manifest.creationEmbarkPrompt.ifBlank { "CLOCK IN TO WALLY'S WORLD ➔" },
                     fontFamily = FontFamily.Monospace,
                     fontWeight = FontWeight.Black,
                     fontSize = 14.sp
@@ -508,7 +482,7 @@ fun CharacterCreationScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "🎤 Speak class or say 'Awaken' to start",
+                    text = "🎤 Say 'Clock In' or speak your name/title",
                     color = Color.Gray,
                     fontSize = 10.sp,
                     fontFamily = FontFamily.Monospace
@@ -540,117 +514,5 @@ fun CharacterCreationScreen(
                 }
             }
         }
-    }
-}
-
-@Composable
-private fun ClassOptionCard(
-    heroClass: HeroClassDef,
-    isSelected: Boolean,
-    onSelect: () -> Unit
-) {
-    val spells = remember(heroClass) { GameContent.spellsForClass(heroClass.id) }
-
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(10.dp))
-            .background(if (isSelected) RetroPanel else Color(0xFF141420))
-            .border(
-                width = if (isSelected) 2.dp else 1.dp,
-                color = if (isSelected) LogosGold else RetroBorder,
-                shape = RoundedCornerShape(10.dp)
-            )
-            .clickable { onSelect() }
-            .padding(12.dp)
-    ) {
-        Column {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column {
-                    Text(
-                        text = heroClass.title.uppercase(),
-                        color = if (isSelected) LogosGold else Color.White,
-                        fontSize = 13.sp,
-                        fontWeight = FontWeight.Black,
-                        fontFamily = FontFamily.Monospace
-                    )
-                    Text(
-                        text = heroClass.subtitle,
-                        color = if (isSelected) LogosGlow else Color.Gray,
-                        fontSize = 10.sp,
-                        fontFamily = FontFamily.Monospace
-                    )
-                }
-
-                // Stats Pills
-                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                    StatPill("HP", heroClass.startingHp.toString(), Color(0xFF4CAF50))
-                    StatPill("MP", heroClass.startingMp.toString(), Color(0xFF00B0FF))
-                    StatPill("SPD", heroClass.startingSpeed.toString(), Color(0xFFFFB74D))
-                }
-            }
-
-            Spacer(modifier = Modifier.height(6.dp))
-
-            Text(
-                text = heroClass.description,
-                color = Color.LightGray,
-                fontSize = 10.sp,
-                fontFamily = FontFamily.Monospace,
-                lineHeight = 14.sp
-            )
-
-            Spacer(modifier = Modifier.height(6.dp))
-
-            // Starter Spells
-            @OptIn(ExperimentalLayoutApi::class)
-            FlowRow(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(6.dp),
-                verticalArrangement = Arrangement.spacedBy(4.dp)
-            ) {
-                spells.forEach { sp ->
-                    Box(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(4.dp))
-                            .background(Color(0xFF222234))
-                            .border(1.dp, Color(0xFF42425E), RoundedCornerShape(4.dp))
-                            .padding(horizontal = 6.dp, vertical = 2.dp)
-                    ) {
-                        Text(
-                            text = "⚡ ${sp.name}",
-                            color = Color(0xFF80D8FF),
-                            fontSize = 9.sp,
-                            fontFamily = FontFamily.Monospace,
-                            maxLines = 1,
-                            softWrap = false
-                        )
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun StatPill(label: String, value: String, color: Color) {
-    Box(
-        modifier = Modifier
-            .clip(RoundedCornerShape(4.dp))
-            .background(color.copy(alpha = 0.18f))
-            .border(1.dp, color.copy(alpha = 0.6f), RoundedCornerShape(4.dp))
-            .padding(horizontal = 4.dp, vertical = 2.dp)
-    ) {
-        Text(
-            text = "$label:$value",
-            color = color,
-            fontSize = 9.sp,
-            fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.Monospace
-        )
     }
 }
