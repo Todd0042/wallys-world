@@ -115,7 +115,7 @@ fun CharacterCreationScreen(
     var showFilterDialog by remember { mutableStateOf(false) }
 
     val cameraLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.TakePicturePreview()
+        contract = remember { TakeSelfiePreviewContract() }
     ) { bmp: Bitmap? ->
         if (bmp != null) {
             rawInputBitmap = bmp

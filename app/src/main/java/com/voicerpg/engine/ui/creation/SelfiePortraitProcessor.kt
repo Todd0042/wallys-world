@@ -21,12 +21,32 @@ import com.google.mlkit.vision.segmentation.selfie.SelfieSegmenterOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
+import android.content.Intent
+import androidx.activity.result.contract.ActivityResultContracts
 import java.io.File
 import java.io.FileOutputStream
 import java.nio.ByteBuffer
 import kotlin.coroutines.resume
 import kotlin.math.hypot
 import kotlin.math.min
+
+/**
+ * ActivityResultContract that requests the system camera to launch using the front-facing
+ * (selfie) lens by default across device vendors.
+ */
+class TakeSelfiePreviewContract : ActivityResultContracts.TakePicturePreview() {
+    override fun createIntent(context: Context, input: Void?): Intent {
+        return super.createIntent(context, input).apply {
+            putExtra("android.intent.extras.CAMERA_FACING", 1) // 1 = CameraInfo.CAMERA_FACING_FRONT
+            putExtra("android.intent.extras.LENS_FACING_FRONT", 1)
+            putExtra("android.intent.extra.USE_FRONT_CAMERA", true)
+            putExtra("android.intent.extra.CAMERA_FACING", 1)
+            putExtra("default_camera", "1")
+            putExtra("camerafacing", "front")
+            putExtra("previous_mode", "front")
+        }
+    }
+}
 
 object SelfiePortraitProcessor {
 
