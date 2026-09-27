@@ -110,6 +110,7 @@ fun CharacterCreationScreen(
     }
 
     var rawInputBitmap by remember { mutableStateOf<Bitmap?>(null) }
+    var showWarningDialog by remember { mutableStateOf(false) }
     var showSourceDialog by remember { mutableStateOf(false) }
     var showFilterDialog by remember { mutableStateOf(false) }
 
@@ -163,7 +164,20 @@ fun CharacterCreationScreen(
         val lower = utterance.lowercase().trim()
         if (lower.isBlank()) return
 
-        // 1. Clock In / Embark command
+        // 1. Warning dialog voice responses
+        if (showWarningDialog) {
+            if (lower.contains("proceed") || lower.contains("continue") || lower.contains("understand") || lower.contains("yes") || lower.contains("shoes") || lower.contains("enter")) {
+                showWarningDialog = false
+                showSourceDialog = true
+                return
+            }
+            if (lower.contains("cancel") || lower.contains("back") || lower.contains("no") || lower.contains("never")) {
+                showWarningDialog = false
+                return
+            }
+        }
+
+        // 2. Clock In / Embark command
         val embarkKeywords = (manifest.creationVoiceKeywords.ifEmpty {
             listOf("clock in", "embark", "begin", "start", "enter", "ready")
         } + listOf("confirm", "forward", "onward", "play", "lets go", "let's go")).distinct()
@@ -172,17 +186,17 @@ fun CharacterCreationScreen(
             return
         }
 
-        // 2. Back command
+        // 3. Back command
         if (lower == "back" || lower.contains("go back") || lower == "return" || lower == "title") {
             speechManager?.cancel()
             onBack?.invoke()
             return
         }
 
-        // 3. Selfie / Camera commands
+        // 4. Selfie / Camera commands
         if (lower.contains("selfie") || lower.contains("camera") || lower.contains("picture") || lower.contains("photo")) {
-            showSourceDialog = true
-            combatNarrator?.speak("Opening badge photo capture.", force = true)
+            showWarningDialog = true
+            combatNarrator?.speak("This game is the personal memoirs of an actual human. This person has decided to allow you to put yourself in their shoes, but beware: you are going to be putting yourself through absolute hell.", force = true)
             return
         }
         if (lower.contains("reset portrait") || lower.contains("reset photo") || lower.contains("default portrait")) {
@@ -290,6 +304,92 @@ fun CharacterCreationScreen(
             )
 
             Spacer(modifier = Modifier.height(14.dp))
+
+            // Memoir Warning / Hell Advisory Dialog
+            if (showWarningDialog) {
+                Dialog(onDismissRequest = { showWarningDialog = false }) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(RetroPanel)
+                            .border(2.dp, Color(0xFFFFB74D), RoundedCornerShape(14.dp))
+                            .padding(20.dp)
+                    ) {
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = "⚠️ MEMOIR ADVISORY",
+                                color = Color(0xFFFFB74D),
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Black,
+                                fontFamily = FontFamily.Monospace
+                            )
+
+                            Spacer(modifier = Modifier.height(14.dp))
+
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clip(RoundedCornerShape(8.dp))
+                                    .background(RetroBlack.copy(alpha = 0.85f))
+                                    .border(1.dp, Color(0xFFEF5350).copy(alpha = 0.6f), RoundedCornerShape(8.dp))
+                                    .padding(14.dp)
+                            ) {
+                                Text(
+                                    text = "This game is the personal memoirs of an actual human.\n\nThis person has decided to allow you to put yourself in their shoes, but beware...\n\nYou're going to be putting yourself through absolute hell.",
+                                    color = Color.White,
+                                    fontSize = 12.sp,
+                                    lineHeight = 19.sp,
+                                    fontFamily = FontFamily.Monospace,
+                                    fontWeight = FontWeight.Medium
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.height(18.dp))
+
+                            Button(
+                                onClick = {
+                                    showWarningDialog = false
+                                    showSourceDialog = true
+                                },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(46.dp),
+                                shape = RoundedCornerShape(8.dp),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = LogosGold,
+                                    contentColor = RetroBlack
+                                )
+                            ) {
+                                Text(
+                                    text = "STEP INTO SHOES ➔",
+                                    fontFamily = FontFamily.Monospace,
+                                    fontWeight = FontWeight.Black,
+                                    fontSize = 12.sp
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.height(10.dp))
+
+                            Box(
+                                modifier = Modifier
+                                    .clickable { showWarningDialog = false }
+                                    .padding(6.dp)
+                            ) {
+                                Text(
+                                    text = "CANCEL / KEEP DEFAULT",
+                                    color = Color.Gray,
+                                    fontSize = 11.sp,
+                                    fontFamily = FontFamily.Monospace
+                                )
+                            }
+                        }
+                    }
+                }
+            }
 
             // Source Selection Dialog (Camera vs Gallery)
             if (showSourceDialog) {
@@ -432,7 +532,7 @@ fun CharacterCreationScreen(
                                 .shadow(8.dp, RoundedCornerShape(10.dp), spotColor = auraColorVal)
                                 .clip(RoundedCornerShape(10.dp))
                                 .border(2.dp, auraColorVal, RoundedCornerShape(10.dp))
-                                .clickable { showSourceDialog = true }
+                                .clickable { showWarningDialog = true }
                         ) {
                             val activePortrait = customPortraitBitmap ?: defaultHeroBitmap
                             if (activePortrait != null) {
@@ -513,7 +613,7 @@ fun CharacterCreationScreen(
                                 .clip(RoundedCornerShape(6.dp))
                                 .background(RetroBlack)
                                 .border(1.dp, LogosGold, RoundedCornerShape(6.dp))
-                                .clickable { showSourceDialog = true }
+                                .clickable { showWarningDialog = true }
                                 .padding(vertical = 6.dp),
                             contentAlignment = Alignment.Center
                         ) {
