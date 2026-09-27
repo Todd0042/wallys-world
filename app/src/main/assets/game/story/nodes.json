@@ -4937,28 +4937,28 @@
       "id": "act6_resolution_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Five states. Eight years. Four outbreaks of shingles \u2014 one on the forehead for each ring of the machine's anvil. A $24,000 pay cut. Three relocations, one of them self-funded to keep the collar off. Thirteen overnight managers burned through in Pueblo in a single year. Two formal grievances, both returned 'Unsubstantiated.' One night at 3 AM that nobody else knows about, where the alternative sat in the chair across the room and waited patiently for an answer, and did not get one.",
+      "text": "The main air compressor groans through its final cycle and clicks off. A profound, unfamiliar silence settles over the service bays. Outside the open overhead door, the brutal Florida afternoon light is softening into amber across the asphalt. For eight years, there was always another crisis waiting on the radio, another salaried pager alert, another store manager looking for someone to blame. Right now, there is only the hum of cooling metal and the smell of clean motor oil.",
       "nextNodeId": "act6_resolution_todd_1"
     },
     {
       "id": "act6_resolution_todd_1",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "The machine's ledger says I lost. The title is gone. The salary is gone. The multi-state career is reduced to a technician bay in a Florida megamart, smelling of motor oil and brake dust, working for a man who cannot name his own bays.",
+      "text": "I wash my hands with the orange pumice soap at the shop sink. The grease lifts and washes down the drain. It strikes me, watching the water swirl, that physical dirt is the only kind of grime in this company that actually washes off. The politics, the conference calls, the calculated corporate cruelty — those stain deeper. But as I look down at my hands, they're steady. They haven't been this steady in years.",
       "nextNodeId": "act6_resolution_todd_2"
     },
     {
       "id": "act6_resolution_todd_2",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "My ledger says different. In every posting I ever held, the associates under me went home in better shape than they came in. The freight moved. The bays ran clean. The unsafe work did not get signed off on. The people the machine wanted to sacrifice were shielded as long as I had the title to shield them with.",
+      "text": "I spent eight years sprinting on a corporate treadmill designed to fling people off when they ran out of breath. It took stepping down twice — shedding the titles, the salary, and the company's expectations — to realize the escalator only had power as long as I agreed to stay on it. I didn't get destroyed. I walked away into the pit, picked up an impact wrench, and found peace.",
       "nextNodeId": "act6_resolution_adriana"
     },
     {
       "id": "act6_resolution_adriana",
       "speakerId": "adriana",
       "side": "LEFT",
-      "text": "I watched you carry it. All of it \u2014 across five states, three hotels that became apartments, four ERs for the shingles, and one night I am not going to name. And I need you to know: the machine didn't get you. I got you. And you are still here.",
+      "text": "Adriana leans against the passenger door of our car in the parking lot as the shift lets out. She takes one look at my face and a soft smile breaks through. 'You're breathing,' she says softly. 'Look at you. For the first time since we packed that moving truck in Utah, your shoulders aren't up around your ears. You're finally home.'",
       "nextNodeId": "act6_resolution_hub"
     },
     {
@@ -5072,35 +5072,42 @@
       "id": "act6_final_post",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The machine's ledger closes at a deficit. The other ledger does not close \u2014 it keeps running, entry by entry, in every bay, every associate shielded, every honest hour logged. That ledger is not a career document. It is a life.",
+      "text": "The machine's ledger closes at a deficit. The other ledger does not close — it keeps running, entry by entry, in every bay, every crew member shielded, every honest hour logged. That ledger is not a career document. It is a life.",
       "nextNodeId": "act6_final_todd_last"
     },
     {
       "id": "act6_final_todd_last",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "Standing in Bay Three at the end of a shift. The overhead door is cracked. The Florida light cuts a line across the concrete \u2014 clean, specific, indifferent in the best possible way. Impact wrench in the tool cart. Adriana meeting me in the parking lot in twenty minutes. From Utah to Lamar to South Carolina to Pueblo to St. Augustine to here. The machine broke my career. It tried to break my mind. It nearly took the rest of it, once, on a 3 AM it did not earn and will not get credit for surviving.",
+      "text": "Standing in Bay Three at the end of another shift. Time clock punched, boots untied just enough to breathe, and the smell of Florida heat rolling in under the cracked bay door. The machine threw everything it had across eight years and five states to break me against its concrete. It broke the salaried ladder instead. Now I'm turning wrenches, torquing lugs, and taking my life back one honest hour at a time.",
       "nextNodeId": "act6_final_closing"
     },
     {
       "id": "act6_final_closing",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "But it failed. Integrity intact. Empathy intact. The working class still has his whole attention and none of his contempt \u2014 he earned the right to either, and he chose. The corporate meat grinder had eight years and five states and four shingles and a 3 AM and a relocation trap it couldn't spring. It needed all of that to almost win. Almost. Is not.",
+      "text": "He survived the crucible. The machine didn't win, and it didn't drive him out. It just ran completely out of leverage. When a person no longer fears their threats and no longer craves their promotions, the corporate bureaucracy loses its teeth. He clocked out at 5:01. He'll clock back in at 7:00 tomorrow morning, put on his safety glasses, and do it right alongside Tani and Cap'n H.",
       "nextNodeId": "act6_adriana_final"
     },
     {
       "id": "act6_adriana_final",
       "speakerId": "adriana",
       "side": "LEFT",
-      "text": "I'm in the parking lot. Take your time.",
+      "text": "Adriana rolls down the window as he walks up to the car, the air conditioning already blasting. 'How was the pit today?'",
+      "nextNodeId": "act6_todd_final_words"
+    },
+    {
+      "id": "act6_todd_final_words",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "He slides into the passenger seat and lets out a long, dry laugh. 'Aussie tried to invent another invisible time penalty on his clipboard, Dave cross-threaded a drain plug, and Cap'n H told the regional email to take a hike. Who knows what kind of corporate bullshit will be waiting on the clipboard tomorrow. But that's tomorrow's shift. Let's go get dinner.'",
       "nextNodeId": "act6_true_end"
     },
     {
       "id": "act6_true_end",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "He takes his time. He wipes down the wrench and hangs it on the correct peg, because that is what you do in a bay that is run correctly. He closes the overhead door behind him. He walks out into the light to meet his wife. The machine is still running somewhere in the building. It will run all night. It will run without him. He is no longer its problem.",
+      "text": "He closes the car door. Behind them, the store keeps humming under its fluorescent lights, burning through its endless metrics. It will still be there tomorrow at 7 AM. But it will never own him again.",
       "setFlagOnEnter": "game_completed"
     }
   ]
