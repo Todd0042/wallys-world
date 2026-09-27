@@ -323,8 +323,8 @@
     },
     {
       "id": "carolina_gated_tour",
-      "name": "The Gated Tour",
-      "description": "The quarterly leadership tour walled off behind glass \u2014 only the Store Manager walks with the visitors, and the edict lands on the bays before the cars leave the lot. Hold the floor against the sold-out number.",
+      "name": "The Executive Walkthrough",
+      "description": "The executive pack descends on the building \u2014 six suits in polished shoes flanked by the Area Director. Stand before corporate scrutiny and hold the floor.",
       "environment": "sales_floor",
       "party": [
         "todd_shop",
@@ -334,7 +334,7 @@
         {
           "templateId": "gated_tour",
           "id": "tour_boss",
-          "name": "The Gated Tour",
+          "name": "The Area Director",
           "isTargeted": true,
           "atbGauge": 0.4
         },
@@ -366,8 +366,8 @@
     },
     {
       "id": "carolina_paralysis",
-      "name": "The Paralysis of Kindness",
-      "description": "The store manager's kindness unmakes every consequence you draw before the ink dries \u2014 the warmth that never weighs, the smile that quietly cancels your paperwork. The paralysis wants to teach you the same lesson it teaches everyone: don't bother caring.",
+      "name": "Store Manager Azalia",
+      "description": "Store Manager Azalia's weaponized kindness unmakes every consequence before the ink dries. Stand your ground against the smile that cancels accountability.",
       "environment": "trench",
       "party": [
         "todd_shop",
@@ -375,9 +375,9 @@
       ],
       "enemies": [
         {
-          "templateId": "paralysis_smile",
-          "id": "paralysis_boss",
-          "name": "The Paralysis of Kindness",
+          "templateId": "azalia_enemy",
+          "id": "azalia_boss",
+          "name": "Azalia",
           "isTargeted": true,
           "atbGauge": 0.4
         },
@@ -390,18 +390,18 @@
       ],
       "bossPhases": [
         {
-          "enemyId": "paralysis_boss",
+          "enemyId": "azalia_boss",
           "hpBelow": 0.66,
           "bannerText": "THE WRITE-UP IS UNMADE",
-          "narrationText": "Every write-up drawn, every consequence unmade by the warmest boss in the building. Your signature circles in the margins like a question.",
+          "narrationText": "Azalia smiles warmly as your write-up dissolves into pleasant apologies. Every consequence is unmade before the ink dries.",
           "summonEnemyId": "unstamped_smile",
           "summonCount": 1
         },
         {
-          "enemyId": "paralysis_boss",
+          "enemyId": "azalia_boss",
           "hpBelow": 0.33,
           "bannerText": "NO ONE IS EVER HELD",
-          "narrationText": "The conscientious managers pick up everyone's slack while walking on eggshells \u2014 and the smile keeps smiling.",
+          "narrationText": "The conscientious workers carry everyone else's weight while Azalia protects the slackers with a reassuring pat on the shoulder.",
           "reducePartyToHpPct": 0.4,
           "executeBelowHpPct": 0.2
         }
@@ -409,8 +409,8 @@
     },
     {
       "id": "carolina_fall_guy",
-      "name": "The Fall Guy",
-      "description": "The wheel was never loose, the witnesses saw nothing, and the only person who kept saying the shop was unsafe was the manager who refused to sign. The blame is pre-fitted before the tire is back on.",
+      "name": "The Scapegoat Investigation",
+      "description": "A wheel came off in the lot and management needs a scapegoat. The District Safety Investigator sits across from you with a rewritten report, asking you to reconsider your signature.",
       "environment": "parking_lot",
       "party": [
         "todd_shop",
@@ -420,7 +420,7 @@
         {
           "templateId": "fall_guy_index",
           "id": "fallguy_boss",
-          "name": "The Fall Guy",
+          "name": "District Safety Investigator",
           "isTargeted": true,
           "atbGauge": 0.4
         },
@@ -841,8 +841,8 @@
     },
     {
       "id": "pueblo_paradox",
-      "name": "The Paradox of Jay-Dau",
-      "description": "Friend by daylight, hell on the clock: the quarterly pressure at his back, the regional call in his ear, and a willingness to hand you to the machine if the numbers need a body.",
+      "name": "Store Manager Jay-Dau",
+      "description": "Friend by daylight, hell on the clock: Jay-Dau brings the quarterly corporate pressure to the floor, ready to sacrifice his best supervisor to save his own standing.",
       "environment": "sales_floor",
       "party": [
         "todd_shop",
@@ -850,9 +850,9 @@
       ],
       "enemies": [
         {
-          "templateId": "paradox_face",
-          "id": "paradox_boss",
-          "name": "The Paradox of Jay-Dau",
+          "templateId": "jay_dau_enemy",
+          "id": "jay_dau_boss",
+          "name": "Jay-Dau",
           "isTargeted": true,
           "atbGauge": 0.42
         },
@@ -875,7 +875,7 @@
       ],
       "bossPhases": [
         {
-          "enemyId": "paradox_boss",
+          "enemyId": "jay_dau_boss",
           "hpBelow": 0.66,
           "bannerText": "THE FRIEND ON THE CLOCK",
           "narrationText": "The same man who laughs at your kitchen table hands you to the machine to save his standing. Two faces, one spine, both yours to survive.",
@@ -883,10 +883,10 @@
           "summonCount": 1
         },
         {
-          "enemyId": "paradox_boss",
+          "enemyId": "jay_dau_boss",
           "hpBelow": 0.33,
           "bannerText": "THE BUS COMES FOR SOMEBODY",
-          "narrationText": "The numbers need a body and the office needs a name. The paradox decides who it's going to be \u2014 unless the line holds.",
+          "narrationText": "The quarterly numbers need a sacrifice and the office needs a name. Jay-Dau decides who goes under the bus \u2014 unless the line holds.",
           "reducePartyToHpPct": 0.4,
           "executeBelowHpPct": 0.2
         }
@@ -894,8 +894,8 @@
     },
     {
       "id": "pueblo_amandy_storm",
-      "name": "Amandy's Chaos",
-      "description": "The impossible demand, the re-done plan, the names said within earshot of the crew. Hand the impossible number back done, and don't expect a thank you.",
+      "name": "Store Lead Amandy",
+      "description": "The screaming assistant manager at full tilt: impossible demands, the re-done plan, and insults shouted within earshot of the crew. Hand the impossible number back done.",
       "environment": "trench",
       "party": [
         "todd_shop",
@@ -903,9 +903,9 @@
       ],
       "enemies": [
         {
-          "templateId": "hostile_floor",
-          "id": "hostile_c",
-          "name": "Amandy's Chaos",
+          "templateId": "amandy_enemy",
+          "id": "amandy_boss",
+          "name": "Amandy",
           "isTargeted": true,
           "atbGauge": 0.4
         },
@@ -922,6 +922,16 @@
           "hp": 70,
           "attack": 18,
           "atbGauge": 0.2
+        }
+      ],
+      "bossPhases": [
+        {
+          "enemyId": "amandy_boss",
+          "hpBelow": 0.5,
+          "bannerText": "CHAOS IN THE AISLES",
+          "narrationText": "Amandy screams a contradictory order over the radio, throwing the whole floor into panic. Stand your ground.",
+          "summonEnemyId": "claim_blizzard",
+          "summonCount": 1
         }
       ]
     },
@@ -1150,8 +1160,8 @@
     },
     {
       "id": "florida_morning_verdict",
-      "name": "The Morning Verdict",
-      "description": "Every morning after the overnight shift: the ritual. No matter how much freight cleared, no matter how clean the building \u2014 the goalposts are permanently mounted on wheels.",
+      "name": "Sriniviii's Morning Verdict",
+      "description": "Every morning after a grueling overnight shift: standing before Store Manager Sriniviii. The honeymoon is over, the warmth is gone, and the goalposts are mounted firmly on wheels.",
       "environment": "sales_floor",
       "party": [
         "todd_shop",
@@ -1159,16 +1169,16 @@
       ],
       "enemies": [
         {
-          "templateId": "goalpost_cart",
-          "id": "goalpost_boss",
-          "name": "The Moving Goalposts",
+          "templateId": "sriniviii_enemy",
+          "id": "sriniviii_boss",
+          "name": "Sriniviii",
           "isTargeted": true,
           "atbGauge": 0.44
         },
         {
-          "templateId": "metrics_dashboard",
-          "id": "red_board",
-          "name": "The Red Board",
+          "templateId": "goalpost_cart",
+          "id": "goalpost_a",
+          "name": "The Moving Goalposts",
           "atbGauge": 0.3
         },
         {
@@ -1180,18 +1190,18 @@
       ],
       "bossPhases": [
         {
-          "enemyId": "goalpost_boss",
+          "enemyId": "sriniviii_boss",
           "hpBelow": 0.66,
           "bannerText": "GOALPOSTS ON WHEELS",
-          "narrationText": "You clear the freight; the target climbs. You clean the floor; the target shifts. No finished store has ever satisfied a goalpost that can roll.",
+          "narrationText": "You clear the freight; Sriniviii raises the target. You clean the floor; the target shifts. No finished store has ever satisfied a rolling metric.",
           "summonEnemyId": "metrics_dashboard",
           "summonCount": 1
         },
         {
-          "enemyId": "goalpost_boss",
+          "enemyId": "sriniviii_boss",
           "hpBelow": 0.33,
           "bannerText": "IT IS NOT GOOD ENOUGH",
-          "narrationText": "The verdict, delivered to a man who just finished a perfect night: the ritual phrase that makes a store manager break one morning at a time.",
+          "narrationText": "The verdict, delivered to a man who just finished a perfect night: the ritual phrase designed to break your spirit one morning at a time.",
           "reducePartyToHpPct": 0.5,
           "executeBelowHpPct": 0.18
         }
@@ -1529,8 +1539,8 @@
     },
     {
       "id": "act6_abdoolie_ghost",
-      "name": "Abdoolie's Ghost",
-      "description": "Abdoolie doesn't need to be Ohmar to be Ohmar. The cadence is the same \u2014 the flat declarative sentences, the pause before the verdict, the room that empties around him. The body doesn't wait for logic. It's already back in St. Augustine.",
+      "name": "Store Manager Abdoolie",
+      "description": "Abdoolie doesn't need to be Ohmar to be intimidating. The cadence is the same \u2014 flat declarative sentences, the pause before the question, the cold stillness of the room. Stand your ground and speak the truth.",
       "environment": "sales_floor",
       "party": [
         "todd_shop",
@@ -1538,9 +1548,9 @@
       ],
       "enemies": [
         {
-          "templateId": "abdoolie_ghost",
+          "templateId": "abdoolie_enemy",
           "id": "abdoolie_boss",
-          "name": "Abdoolie's Ghost",
+          "name": "Abdoolie",
           "isTargeted": true,
           "atbGauge": 0.44
         },
@@ -1561,8 +1571,8 @@
         {
           "enemyId": "abdoolie_boss",
           "hpBelow": 0.66,
-          "bannerText": "THE VOICE RETURNS",
-          "narrationText": "He hasn't raised his voice once. He doesn't need to. That cadence \u2014 flat, certain, waiting \u2014 is a frequency the nervous system already knows by name.",
+          "bannerText": "THE FLAT CADENCE",
+          "narrationText": "Abdoolie hasn't raised his voice once. He doesn't need to. That cadence \u2014 flat, certain, waiting \u2014 is a frequency the nervous system already knows by name.",
           "summonEnemyId": "cc_protocol",
           "summonCount": 1
         },
@@ -1570,7 +1580,7 @@
           "enemyId": "abdoolie_boss",
           "hpBelow": 0.33,
           "bannerText": "NOT ST. AUGUSTINE",
-          "narrationText": "This is not St. Augustine. Abdoolie is not Ohmar. The store is not the crucible. Naming the difference is the only weapon left \u2014 and it works.",
+          "narrationText": "This is not St. Augustine. Abdoolie is not Ohmar. Naming the difference is the only weapon left \u2014 and it works.",
           "reducePartyToHpPct": 0.42,
           "executeBelowHpPct": 0.12
         }

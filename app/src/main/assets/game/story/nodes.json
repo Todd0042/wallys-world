@@ -1609,7 +1609,7 @@
       "id": "azalia_trigger_battle",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The paralysis is a living pressure in the room \u2014 the smile that unmakes every consequence, the warmth that never weighs, the whole building learning that nothing you put in writing will ever stick. It wants to teach you the same lesson. Say 'Enemies' and ready yourself \u2014 this one smiles while it grinds.",
+      "text": "Azalia stands before you in the office — the smile that unmakes every consequence, the warmth that never weighs, the store manager whose refusal to enforce standards paralyzes the entire shop. Say 'Enemies' and ready yourself — she smiles while she grinds.",
       "triggerBattleEncounterId": "carolina_paralysis",
       "nextNodeId": "azalia_post_victory"
     },
@@ -2764,7 +2764,7 @@
       "id": "pueblo_paradox_trigger",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The on-the-clock Jay-Dau arrives with the quarterly pressure at his back: impossible freight numbers, a regional call in his ear, and a willingness to hand you to the machine if the numbers need a body. The paradox is the boss today \u2014 friend and monster, one face over the other. Say 'Enemies' \u2014 this one knows your name.",
+      "text": "The on-the-clock Jay-Dau arrives with the quarterly pressure at his back: impossible freight numbers, a regional call in his ear, and a willingness to hand you to the machine if the numbers need a body. Stand before the Store Manager today — friend and monster in one skin. Say 'Enemies' — this one knows your name.",
       "triggerBattleEncounterId": "pueblo_paradox",
       "nextNodeId": "pueblo_paradox_post"
     },
@@ -2772,7 +2772,7 @@
       "id": "pueblo_paradox_post",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "The building settles, the numbers hold, and Jay-Dau's version of thanks is a hand on my shoulder that means we're square \u2014 until the next quarter. I know exactly what he is, and I keep him anyway, because the other version of him is the only friend this building has ever given me.",
+      "text": "The building settles, the numbers hold, and Jay-Dau's version of thanks is a hand on my shoulder that means we're square — until the next quarter. I know exactly what he is, and I keep him anyway, because the other version of him is the only friend this building has ever given me.",
       "nextNodeId": "pueblo_paradox_hub",
       "setFlagOnEnter": "flag_pueblo_paradox"
     },
@@ -2780,7 +2780,7 @@
       "id": "pueblo_amandy_trigger",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Amandy at full chaos is a weather system: the impossible demand, the re-done plan, the names she says about the crew within earshot of the crew. Tonight the chaos has the office and it wants your floor. Say 'Enemies' \u2014 then hand the impossible number back done.",
+      "text": "Amandy at full chaos is a weather system: the impossible demand, the re-done plan, the names she screams about the crew within earshot of the crew. Tonight she's running the office and wants your floor. Say 'Enemies' — then hand the impossible number back done.",
       "triggerBattleEncounterId": "pueblo_amandy_storm",
       "nextNodeId": "pueblo_amandy_post"
     },
@@ -3611,7 +3611,7 @@
       "id": "florida_verdict_trigger",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "A week of mornings, one verdict each, the goalposts rolling between them. Say 'Enemies' and endure the gauntlet of 'not good enough' \u2014 beat it back long enough to remember the floor was never the problem.",
+      "text": "A week of mornings, standing before Sriniviii's desk with the goalposts rolling between every sentence. Say 'Enemies' and face the gauntlet of 'not good enough' — beat it back long enough to remember the floor was never the problem.",
       "triggerBattleEncounterId": "florida_morning_verdict",
       "nextNodeId": "florida_verdict_post"
     },
@@ -4565,7 +4565,7 @@
       "id": "act6_abdoolie_battle_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The ghost is fully formed and patient. It doesn't need to win \u2014 it only needs to stay. Say 'Enemies' and refuse it the room it's trying to occupy.",
+      "text": "Abdoolie sits motionless behind his desk, waiting with that flat, unyielding cadence. The meeting doesn't need to break you — you only need to stand your ground and file the truth. Say 'Enemies' and answer him.",
       "triggerBattleEncounterId": "act6_abdoolie_ghost",
       "nextNodeId": "act6_abdoolie_post"
     },
