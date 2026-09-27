@@ -1,5 +1,5 @@
 {
-  "_doc": "Jodie — Todd's former Freight Supervisor, now working Area HR out of Colorado; the one who offers the Lamar slot and vouches for Todd firsthand. Dialogue-only support character in Act 1.",
+  "_doc": "Jodie \u2014 Todd's former Freight Supervisor, now working Area HR out of Colorado; the one who offers the Lamar slot and vouches for Todd firsthand. Dialogue-only support character in Act 1.",
   "id": "jodie",
   "role": "npc",
   "name": "Jodie",
@@ -7,7 +7,7 @@
   "portraitAsset": "portraits/jodie.jpg",
   "themeColor": "#64B5F6",
   "ttsPitch": 1.05,
-  "samplePhrase": "I'm not supposed to say this out loud, Todd.",
+  "samplePhrase": "I'm not supposed to say this out loud, {hero}.",
   "preferredVoiceId": null,
   "voiceAliases": [
     "jodie",

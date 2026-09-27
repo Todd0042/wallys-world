@@ -298,7 +298,7 @@
       "id": "front_jodie",
       "speakerId": "jodie",
       "side": "RIGHT",
-      "text": "Todd. Sit down for a second. There's a slot opening up \u2014 assistant manager track, shop manager slot, the management ladder. It's in Colorado. Lamar. It's not the real thing yet \u2014 it's the foot in the door that leads to the real thing. If you take it, you're not an hourly anymore. You're in the machine, on purpose, with a key.",
+      "text": "{hero}. Sit down for a second. There's a slot opening up \u2014 assistant manager track, shop manager slot, the management ladder. It's in Colorado. Lamar. It's not the real thing yet \u2014 it's the foot in the door that leads to the real thing. If you take it, you're not an hourly anymore. You're in the machine, on purpose, with a key.",
       "nextNodeId": "front_hub"
     },
     {
@@ -404,7 +404,7 @@
       "id": "office_trigger_battle",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The office contracts. The clock on the wall ticks once, and everything Todd has built this act comes at him at once: the email, the squeeze, the whole machine. Speak sharp \u2014 say it loud, say it clear.",
+      "text": "The office contracts. The clock on the wall ticks once, and everything {hero} has built this act comes at you at once: the email, the squeeze, the whole machine. Speak sharp \u2014 say it loud, say it clear.",
       "triggerBattleEncounterId": "mattie_t_showdown",
       "nextNodeId": "office_post_victory"
     },
@@ -419,21 +419,21 @@
       "id": "office_jodie_depart",
       "speakerId": "jodie",
       "side": "RIGHT",
-      "text": "Todd. I read that email, and I've known you long enough to know better. Listen \u2014 this slot is a foot in the door. One position, out in Lamar. You do the work, and they move you somewhere real after. That's how the ladder works. I vouched for you. Make me right.",
+      "text": "{hero}. I read that email, and I've known you long enough to know better. Listen \u2014 this slot is a foot in the door. One position, out in Lamar. You do the work, and they move you somewhere real after. That's how the ladder works. I vouched for you. Make me right.",
       "nextNodeId": "office_resolve"
     },
     {
       "id": "office_resolve",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "By midnight the box truck is packed. Jodie's folder is on the passenger seat, and the keys to the Colorado slot hang off the visor. Todd's behind the wheel, grinning at the old building, already planning the first day. He thinks he knows the worst of what happened there. He doesn't. The gas pump in the lavender light hums like the whole state is holding its breath.",
+      "text": "By midnight the box truck is packed. Jodie's folder is on the passenger seat, and the keys to the Colorado slot hang off the visor. You're behind the wheel, grinning at the old building, already planning the first day. You think you know the worst of what happened there. You don't. The gas pump in the lavender light hums like the whole state is holding its breath.",
       "nextNodeId": "squeeze_conclusion"
     },
     {
       "id": "squeeze_conclusion",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "End of Act One. Todd is pointed east on I-70, one state line away from a brand-new store, a brand-new boss, and the slow realization that the machine you left runs on the people you're about to become. He's excited, and he hasn't got a clue how deep that little email ran. Colorado. Lamar. The squeeze is just getting started.",
+      "text": "End of Act One. You are pointed east on I-70, one state line away from a brand-new store, a brand-new boss, and the slow realization that the machine you left runs on the people you're about to become. You're excited, and you haven't got a clue how deep that little email ran. Colorado. Lamar. The squeeze is just getting started.",
       "healPartyOnEnter": "full",
       "changeSceneId": "scene_colorado_lamar",
       "nextNodeId": "lamar_intro"
@@ -600,7 +600,7 @@
       "id": "lamar_richard",
       "speakerId": "richard",
       "side": "RIGHT",
-      "text": "Todd, I've toured forty shops across this region, and walking into yours is always a breath of fresh air. Zero safety violations, drums tagged, torque charts posted, and your techs are wearing their PPE without anyone breathing down their necks. You're running the best bays in Colorado. I wish every shop manager took the floor as seriously as you do.",
+      "text": "{hero}, I've toured forty shops across this region, and walking into yours is always a breath of fresh air. Zero safety violations, drums tagged, torque charts posted, and your techs are wearing their PPE without anyone breathing down their necks. You're running the best bays in Colorado. I wish every shop manager took the floor as seriously as you do.",
       "nextNodeId": "lamar_richard_todd",
       "setFlagOnEnter": "flag_lamar_richard"
     },
@@ -631,7 +631,7 @@
       "id": "lamar_metrics",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The year closes itself out on the dashboard: top of the company on shrink metrics, service revenue climbing every single month, and a customer satisfaction number that sits at a perfect ten-point-oh for the whole calendar year. It is the best year the service shop has ever seen \u2014 and Todd built it with his own crew, his own processes, his own hands.",
+      "text": "The year closes itself out on the dashboard: top of the company on shrink metrics, service revenue climbing every single month, and a customer satisfaction number that sits at a perfect ten-point-oh for the whole calendar year. It is the best year the service shop has ever seen \u2014 and you built it with your own crew, your own processes, your own hands.",
       "healPartyOnEnter": "full",
       "changeSceneId": "scene_colorado_store",
       "nextNodeId": "fall_intro"
@@ -814,7 +814,7 @@
       "id": "wall_adriana",
       "speakerId": "adriana",
       "side": "RIGHT",
-      "text": "I went to the interview \u2014 went in with the resume, the experience, the hours, everything they said they wanted. The interviewer was very polite about it. They wanted a man for the job. That's what they said. They didn't even try to hide it, Todd. They just... wanted a man.",
+      "text": "I went to the interview \u2014 went in with the resume, the experience, the hours, everything they said they wanted. The interviewer was very polite about it. They wanted a man for the job. That's what they said. They didn't even try to hide it, {hero}. They just... wanted a man.",
       "nextNodeId": "wall_todd"
     },
     {
@@ -911,7 +911,7 @@
       "id": "wall_jodie",
       "speakerId": "jodie",
       "side": "RIGHT",
-      "text": "Todd. I'm not supposed to tell you this. The process is a week long, the investigator talks to the people who said it, and they will deny it, and the form will come back and say exactly one word. I've seen a hundred of these. I'll flag it, because I know you both \u2014 but the machine isn't built for this one to come back your way.",
+      "text": "{hero}. I'm not supposed to tell you this. The process is a week long, the investigator talks to the people who said it, and they will deny it, and the form will come back and say exactly one word. I've seen a hundred of these. I'll flag it, because I know you both \u2014 but the machine isn't built for this one to come back your way.",
       "setFlagOnEnter": "flag_wall_jodie",
       "nextNodeId": "wall_hub"
     },
@@ -957,7 +957,7 @@
       "id": "hall_slur",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "She walks right up to you, in front of witnesses, and with casual malice in her voice she calls you the word \u2014 twice. Not a slip. Deliberate. The room goes a half-beat quiet. Somewhere a paper cup hits the floor. And Todd stands there with the whole party looking at him.",
+      "text": "She walks right up to you, in front of witnesses, and with casual malice in her voice she calls you the word \u2014 twice. Not a slip. Deliberate. The room goes a half-beat quiet. Somewhere a paper cup hits the floor. And you stand there with the whole party looking at you.",
       "nextNodeId": "hall_todd"
     },
     {
@@ -1053,7 +1053,7 @@
       "id": "hall_adriana",
       "speakerId": "adriana",
       "side": "RIGHT",
-      "text": "You tell me and I can see it \u2014 the way it sits in you, the way you're already doing the math on whether filing it is worth it. Todd. It is worth it. Even if they stamp it again. Even if they stamp it forever. You are worth it. And we are not staying anywhere that treats either of us like this.",
+      "text": "You tell me and I can see it \u2014 the way it sits in you, the way you're already doing the math on whether filing it is worth it. {hero}. It is worth it. Even if they stamp it again. Even if they stamp it forever. You are worth it. And we are not staying anywhere that treats either of us like this.",
       "setFlagOnEnter": "flag_hall_adriana",
       "nextNodeId": "hall_hub"
     },
@@ -1076,7 +1076,7 @@
       "id": "hall_verdict",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Unsubstantiated. Again. The investigator \u2014 the same one \u2014 spoke to the very person who said it, who denied it, and the file closed with the same stamp, the same click. And there, under the fluorescent light of the area office, Todd finally understands the foundational truth of the retail machine: truth, ethics, and human dignity do not exist inside this system. Only liability exists. And if an admission creates liability, the corporate apparatus will aggressively lie to protect itself.",
+      "text": "Unsubstantiated. Again. The investigator \u2014 the same one \u2014 spoke to the very person who said it, who denied it, and the file closed with the same stamp, the same click. And there, under the fluorescent light of the area office, you finally understand the foundational truth of the retail machine: truth, ethics, and human dignity do not exist inside this system. Only liability exists. And if an admission creates liability, the corporate apparatus will aggressively lie to protect itself.",
       "nextNodeId": "hall_to_road"
     },
     {
@@ -1192,7 +1192,7 @@
       "id": "road_exit",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The truck is packed, the apartment is empty, and Lamar is in the mirror. Todd and Adriana leave Colorado the same way they came into it \u2014 together, out of pocket, pointed east with the scar of the first outbreak burning across Todd's forehead like a receipt for everything the machine took and everything they refused to give it. Georgia first, then the state line, then a service shop in South Carolina that doesn't know them yet. End of Act Two \u2014 the borderlands ahead.",
+      "text": "The truck is packed, the apartment is empty, and Lamar is in the mirror. {hero} and Adriana leave Colorado the same way you came into it \u2014 together, out of pocket, pointed east with the scar of the first outbreak burning across your forehead like a receipt for everything the machine took and everything you refused to give it. Georgia first, then the state line, then a service shop in South Carolina that doesn't know you yet. End of Act Two \u2014 the borderlands ahead.",
       "healPartyOnEnter": "full",
       "changeSceneId": "scene_carolina_commute",
       "nextNodeId": "carolina_intro"
@@ -1328,7 +1328,7 @@
       "id": "carolina_home_bookend",
       "speakerId": "adriana",
       "side": "RIGHT",
-      "text": "The porch light is on across the state line, and I'm still awake because I wanted to hear how it went. Don't give me the brave version. Give me the real one \u2014 that shop has been left to rot, you can smell it on yourself, and you think you can fix it the way you fixed Lamar. Maybe you can. But Todd \u2014 watch your back there. A place that's been neglected this long has reasons it stayed that way, and they're not always yours to carry.",
+      "text": "The porch light is on across the state line, and I'm still awake because I wanted to hear how it went. Don't give me the brave version. Give me the real one \u2014 that shop has been left to rot, you can smell it on yourself, and you think you can fix it the way you fixed Lamar. Maybe you can. But {hero} \u2014 watch your back there. A place that's been neglected this long has reasons it stayed that way, and they're not always yours to carry.",
       "nextNodeId": "carolina_hub",
       "setFlagOnEnter": "flag_carolina_home"
     },
@@ -1509,7 +1509,7 @@
       "id": "azalia_meet",
       "speakerId": "azalia",
       "side": "RIGHT",
-      "text": "Todd. I heard what you did with the bays \u2014 the torque board, the labels, the way the apprentices are standing taller. That's wonderful, that's exactly what this shop needed. I mean that \u2014 and I mean it as your store manager. The shop is your shop; I trust you with it down to the last wrench. Listen, if you ever need anything \u2014 anything for your family, for your crew, for yourself \u2014 my door is open. I know I don't say it enough, but the people in this building are the reason I stay in this job.",
+      "text": "{hero}. I heard what you did with the bays \u2014 the torque board, the labels, the way the apprentices are standing taller. That's wonderful, that's exactly what this shop needed. I mean that \u2014 and I mean it as your store manager. The shop is your shop; I trust you with it down to the last wrench. Listen, if you ever need anything \u2014 anything for your family, for your crew, for yourself \u2014 my door is open. I know I don't say it enough, but the people in this building are the reason I stay in this job.",
       "nextNodeId": "azalia_rot"
     },
     {
@@ -1593,7 +1593,7 @@
       "id": "azalia_warmth",
       "speakerId": "azalia",
       "side": "RIGHT",
-      "text": "I'm glad you came back to me, Todd. I know how hard your people work, and how little thanks they get \u2014 I'd take a bullet for this crew, honestly I would. But that write-up, love \u2014 do you really need it? That boy has a grandmother he just buried and two kids at home. I read every line, and I know you wrote it fair; that's why I like you. But I can't live with the smell of somebody's spirit breaking over a ticket. So let me handle him. Gently. I'm his store manager, I'll set him straight in my way \u2014 you'll see. You have the best heart in this building, Todd. Let me be the soft part. Please.",
+      "text": "I'm glad you came back to me, {hero}. I know how hard your people work, and how little thanks they get \u2014 I'd take a bullet for this crew, honestly I would. But that write-up, love \u2014 do you really need it? That boy has a grandmother he just buried and two kids at home. I read every line, and I know you wrote it fair; that's why I like you. But I can't live with the smell of somebody's spirit breaking over a ticket. So let me handle him. Gently. I'm his store manager, I'll set him straight in my way \u2014 you'll see. You have the best heart in this building, {hero}. Let me be the soft part. Please.",
       "nextNodeId": "azalia_hub",
       "setFlagOnEnter": "flag_azalia_warmth"
     },
@@ -1609,7 +1609,7 @@
       "id": "azalia_trigger_battle",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Azalia stands before you in the office — the smile that unmakes every consequence, the warmth that never weighs, the store manager whose refusal to enforce standards paralyzes the entire shop. Say 'Enemies' and ready yourself — she smiles while she grinds.",
+      "text": "Azalia stands before you in the office \u2014 the smile that unmakes every consequence, the warmth that never weighs, the store manager whose refusal to enforce standards paralyzes the entire shop. Say 'Enemies' and ready yourself \u2014 she smiles while she grinds.",
       "triggerBattleEncounterId": "carolina_paralysis",
       "nextNodeId": "azalia_post_victory"
     },
@@ -1822,7 +1822,7 @@
       "id": "scar_home",
       "speakerId": "adriana",
       "side": "RIGHT",
-      "text": "I see it on your forehead the second you walk in, and I don't need the word. You've been carrying that shop on your spine since the tour, and now the body has weighed in. So here's what we do \u2014 we go back to Colorado. Pueblo. They've got a stocking overhaul starting, and word is they need managers who actually know how to run a crew. No more borderlands, Todd. No more kind smile over an open wound. We pack the porch, and we go somewhere a person can breathe.",
+      "text": "I see it on your forehead the second you walk in, and I don't need the word. You've been carrying that shop on your spine since the tour, and now the body has weighed in. So here's what we do \u2014 we go back to Colorado. Pueblo. They've got a stocking overhaul starting, and word is they need managers who actually know how to run a crew. No more borderlands, {hero}. No more kind smile over an open wound. We pack the porch, and we go somewhere a person can breathe.",
       "nextNodeId": "scar_hub"
     },
     {
@@ -1906,7 +1906,7 @@
       "id": "scar_azalia",
       "speakerId": "azalia",
       "side": "RIGHT",
-      "text": "Todd. I'm so sorry to see you go \u2014 you really were the best thing that happened to those bays, and I mean that with my whole heart. Colorado, huh? That's where you're from. I hope it's everything the borderlands weren't. We'll miss you. We'll miss your wife too \u2014 tell her I still have the card she sent, it's on my desk.",
+      "text": "{hero}. I'm so sorry to see you go \u2014 you really were the best thing that happened to those bays, and I mean that with my whole heart. Colorado, huh? That's where you're from. I hope it's everything the borderlands weren't. We'll miss you. We'll miss your wife too \u2014 tell her I still have the card she sent, it's on my desk.",
       "setFlagOnEnter": "flag_scar_azalia",
       "nextNodeId": "scar_azalia_after"
     },
@@ -1921,7 +1921,7 @@
       "id": "carolina_exit",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The truck is packed, the porch light is dark, and the Georgia pines are in the mirror. Todd and Adriana leave the borderlands with the second scar burning across Todd's forehead like a ledger entry \u2014 one outbreak per state, one store per price paid. Ahead: Pueblo, Colorado \u2014 the madness, the overhaul, the longest squeeze the machine will ever put on them. They drive west together, owing the machine nothing \u2014 for now. End of Act Three.",
+      "text": "The truck is packed, the porch light is dark, and the Georgia pines are in the mirror. {hero} and Adriana leave the borderlands with the second scar burning across your forehead like a ledger entry \u2014 one outbreak per state, one store per price paid. Ahead: Pueblo, Colorado \u2014 the madness, the overhaul, the longest squeeze the machine will ever put on you. You drive west together, owing the machine nothing \u2014 for now. End of Act Three.",
       "healPartyOnEnter": "full",
       "changeSceneId": "scene_pueblo_close",
       "nextNodeId": "pueblo_arrival"
@@ -2115,7 +2115,7 @@
       "id": "pueblo_year_end",
       "speakerId": "adriana",
       "side": "RIGHT",
-      "text": "A year, Todd. One night shift after another, and every time I ask, they still don't have anyone to help you close. You come home with that walkie dead in your pocket and your eyes doing the count of the tills. I see the scar starting to pale on your forehead, and I pray it stays pale \u2014 but I know what it looked like before, and I know the store you're running is the reason.",
+      "text": "A year, {hero}. One night shift after another, and every time I ask, they still don't have anyone to help you close. You come home with that walkie dead in your pocket and your eyes doing the count of the tills. I see the scar starting to pale on your forehead, and I pray it stays pale \u2014 but I know what it looked like before, and I know the store you're running is the reason.",
       "nextNodeId": "pueblo_to_year_two"
     },
     {
@@ -2460,7 +2460,7 @@
       "id": "pueblo_to_richard",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The shine brings visitors, but this time it's a welcome one. An email arrives announcing that Richard, your former Regional Compliance Manager from Lamar, is transitioning into store operations for a change of pace. Knowing what Todd built with the unload and the bins, Richard specifically requested to shadow Todd in Pueblo to learn the floor from the best.",
+      "text": "The shine brings visitors, but this time it's a welcome one. An email arrives announcing that Richard, your former Regional Compliance Manager from Lamar, is transitioning into store operations for a change of pace. Knowing what you built with the unload and the bins, Richard specifically requested to shadow you in Pueblo to learn the floor from the best.",
       "healPartyOnEnter": "full",
       "changeSceneId": "scene_pueblo_training",
       "nextNodeId": "pueblo_richard_intro"
@@ -2469,14 +2469,14 @@
       "id": "pueblo_richard_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Richard arrives in Pueblo — a familiar face and a warm handshake. Back when he toured Lamar as Regional Compliance Manager, he and Todd built real mutual trust over clean bays and straight talk. Now he's looking for a change of pace, stepping out of compliance audits and into store operations. He holds the freight stocking reports: he knows the compliance standards backwards and forwards, but he wants to master the real, living heartbeat of the floor from the manager he trusts most.",
+      "text": "Richard arrives in Pueblo \u2014 a familiar face and a warm handshake. Back when he toured Lamar as Regional Compliance Manager, you and he built real mutual trust over clean bays and straight talk. Now he's looking for a change of pace, stepping out of compliance audits and into store operations. He holds the freight stocking reports: he knows the compliance standards backwards and forwards, but he wants to master the real, living heartbeat of the floor from the manager he trusts most.",
       "nextNodeId": "pueblo_richard_ask"
     },
     {
       "id": "pueblo_richard_ask",
       "speakerId": "richard",
       "side": "RIGHT",
-      "text": "Todd, it's great to see you again. When I told the region I wanted a change of pace into operations, there was only one person I asked to shadow. I remember how you ran that shop in Lamar — cleanest bays in the state, zero nonsense, and your crew trusted you. I know compliance on paper, but I want to understand how a real freight floor moves from someone who actually knows how to run it. Teach me the way you do it.",
+      "text": "{hero}, it's great to see you again. When I told the region I wanted a change of pace into operations, there was only one person I asked to shadow. I remember how you ran that shop in Lamar \u2014 cleanest bays in the state, zero nonsense, and your crew trusted you. I know compliance on paper, but I want to understand how a real freight floor moves from someone who actually knows how to run it. Teach me the way you do it.",
       "nextNodeId": "pueblo_richard_todd"
     },
     {
@@ -2580,7 +2580,7 @@
       "id": "branch_pueblo_shadow",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "He joins the overnight unload crew on the line, rolling up his sleeves to see what the freight numbers actually mean in sweat and muscle. It's heavy, fast-paced, and relentless. Four hours in, he's sweating through his polo, shaking his head with newfound respect for the crew. He tells Todd he's glad he saw it firsthand — that no spreadsheet could ever explain what it takes to throw a two-thousand-piece truck.",
+      "text": "He joins the overnight unload crew on the line, rolling up his sleeves to see what the freight numbers actually mean in sweat and muscle. It's heavy, fast-paced, and relentless. Four hours in, he's sweating through his polo, shaking his head with newfound respect for the crew. He tells you he's glad he saw it firsthand \u2014 that no spreadsheet could ever explain what it takes to throw a two-thousand-piece truck.",
       "nextNodeId": "pueblo_richard_hub",
       "setFlagOnEnter": "flag_pueblo_shadow"
     },
@@ -2588,7 +2588,7 @@
       "id": "pueblo_visit_trigger",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The operational walkthrough arrives: Richard co-leading the tour with Todd, the regional directors watching every corner of the sales floor and backroom. With Richard's compliance eye and Todd's floor execution working in sync, the tour is sharp and coordinated. But corporate tours are always a pressure cooker. Say 'Enemies' — and show the region how a real store operates.",
+      "text": "The operational walkthrough arrives: Richard co-leading the tour with you, the regional directors watching every corner of the sales floor and backroom. With Richard's compliance eye and your floor execution working in sync, the tour is sharp and coordinated. But corporate tours are always a pressure cooker. Say 'Enemies' \u2014 and show the region how a real store operates.",
       "triggerBattleEncounterId": "pueblo_compliance_visit",
       "nextNodeId": "pueblo_visit_post"
     },
@@ -2596,7 +2596,7 @@
       "id": "pueblo_visit_post",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "When the directors ask detailed operational questions about freight staging and bin density, Richard answers with confidence, and I back him up on the floor specifics. We work like a coordinated team. The directors are visibly impressed with the backroom order and the clean freight flow. After they leave, Richard claps me on the shoulder with a huge grin — the trust we built in Lamar paid off in spades.",
+      "text": "When the directors ask detailed operational questions about freight staging and bin density, Richard answers with confidence, and I back him up on the floor specifics. We work like a coordinated team. The directors are visibly impressed with the backroom order and the clean freight flow. After they leave, Richard claps me on the shoulder with a huge grin \u2014 the trust we built in Lamar paid off in spades.",
       "nextNodeId": "pueblo_richard_hub",
       "setFlagOnEnter": "flag_pueblo_visit"
     },
@@ -2635,7 +2635,7 @@
       "id": "pueblo_paradox_jd",
       "speakerId": "jay_dau",
       "side": "RIGHT",
-      "text": "Off the clock you know I'm your guy, Todd. You know that \u2014 man to man, I've got you. On the clock, hey, the clock pays us, you know how it is. The numbers come down, and the numbers don't care whose feelings they land on. Don't take it personal. It's just business. It's always just business.",
+      "text": "Off the clock you know I'm your guy, {hero}. You know that \u2014 man to man, I've got you. On the clock, hey, the clock pays us, you know how it is. The numbers come down, and the numbers don't care whose feelings they land on. Don't take it personal. It's just business. It's always just business.",
       "nextNodeId": "pueblo_paradox_todd"
     },
     {
@@ -2656,7 +2656,7 @@
       "id": "pueblo_steffie_smile",
       "speakerId": "steffie",
       "side": "RIGHT",
-      "text": "Hey, Todd \u2014 I just want you to know I'm in your corner. Always have been. If anyone's been saying things about you, you come tell me, and we take care of it together. That's what this office is for \u2014 we take care of each other. You're doing such a good job with that overhaul. I keep telling everyone. I really do.",
+      "text": "Hey, {hero} \u2014 I just want you to know I'm in your corner. Always have been. If anyone's been saying things about you, you come tell me, and we take care of it together. That's what this office is for \u2014 we take care of each other. You're doing such a good job with that overhaul. I keep telling everyone. I really do.",
       "nextNodeId": "pueblo_paradox_hub"
     },
     {
@@ -2764,7 +2764,7 @@
       "id": "pueblo_paradox_trigger",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The on-the-clock Jay-Dau arrives with the quarterly pressure at his back: impossible freight numbers, a regional call in his ear, and a willingness to hand you to the machine if the numbers need a body. Stand before the Store Manager today — friend and monster in one skin. Say 'Enemies' — this one knows your name.",
+      "text": "The on-the-clock Jay-Dau arrives with the quarterly pressure at his back: impossible freight numbers, a regional call in his ear, and a willingness to hand you to the machine if the numbers need a body. Stand before the Store Manager today \u2014 friend and monster in one skin. Say 'Enemies' \u2014 this one knows your name.",
       "triggerBattleEncounterId": "pueblo_paradox",
       "nextNodeId": "pueblo_paradox_post"
     },
@@ -2772,7 +2772,7 @@
       "id": "pueblo_paradox_post",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "The building settles, the numbers hold, and Jay-Dau's version of thanks is a hand on my shoulder that means we're square — until the next quarter. I know exactly what he is, and I keep him anyway, because the other version of him is the only friend this building has ever given me.",
+      "text": "The building settles, the numbers hold, and Jay-Dau's version of thanks is a hand on my shoulder that means we're square \u2014 until the next quarter. I know exactly what he is, and I keep him anyway, because the other version of him is the only friend this building has ever given me.",
       "nextNodeId": "pueblo_paradox_hub",
       "setFlagOnEnter": "flag_pueblo_paradox"
     },
@@ -2780,7 +2780,7 @@
       "id": "pueblo_amandy_trigger",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Amandy at full chaos is a weather system: the impossible demand, the re-done plan, the names she screams about the crew within earshot of the crew. Tonight she's running the office and wants your floor. Say 'Enemies' — then hand the impossible number back done.",
+      "text": "Amandy at full chaos is a weather system: the impossible demand, the re-done plan, the names she screams about the crew within earshot of the crew. Tonight she's running the office and wants your floor. Say 'Enemies' \u2014 then hand the impossible number back done.",
       "triggerBattleEncounterId": "pueblo_amandy_storm",
       "nextNodeId": "pueblo_amandy_post"
     },
@@ -2796,7 +2796,7 @@
       "id": "pueblo_amandy_promo",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "And then the machine does the strangest thing it can do to Amandy: it promotes her. Store Lead to Store Manager, another store, another region's problem \u2014 the protective hierarchy stripped away, the sink-or-swim she never had to face. And within three weeks the emails start: 'Todd. I don't know who else to ask. They're eating me alive. You ran that floor. Tell me what to do.'",
+      "text": "And then the machine does the strangest thing it can do to Amandy: it promotes her. Store Lead to Store Manager, another store, another region's problem \u2014 the protective hierarchy stripped away, the sink-or-swim she never had to face. And within three weeks the emails start: '{hero}. I don't know who else to ask. They're eating me alive. You ran that floor. Tell me what to do.'",
       "healPartyOnEnter": "full",
       "nextNodeId": "pueblo_amandy_after"
     },
@@ -2990,7 +2990,7 @@
       "id": "pueblo_adriana_key",
       "speakerId": "adriana",
       "side": "RIGHT",
-      "text": "I read the contract before you bring it home \u2014 I know what it is, Todd, I've watched you learn it for three years: the collar. Walk away and we owe them; stay and they own us. But I also see the floor you run and the doctor's note you've been hiding, and I know we can't stay here another month. So here's what I think: we go \u2014 together, on our own money, like always \u2014 and we let their contract chase us all the way to Florida if it wants. We leave Pueblo owing them nothing, the way we owed nothing to Lamar, the way we owed nothing to the borderlands. I'd rather be broke in Florida with you than rich in a cage.",
+      "text": "I read the contract before you bring it home \u2014 I know what it is, {hero}, I've watched you learn it for three years: the collar. Walk away and we owe them; stay and they own us. But I also see the floor you run and the doctor's note you've been hiding, and I know we can't stay here another month. So here's what I think: we go \u2014 together, on our own money, like always \u2014 and we let their contract chase us all the way to Florida if it wants. We leave Pueblo owing them nothing, the way we owed nothing to Lamar, the way we owed nothing to the borderlands. I'd rather be broke in Florida with you than rich in a cage.",
       "nextNodeId": "pueblo_contract_hub"
     },
     {
@@ -3100,7 +3100,7 @@
       "id": "pueblo_contract_final",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The pen goes down. End of Act Four. Todd and Adriana leave Pueblo behind with the third scar burning across his forehead \u2014 three stores, three states, three entries on the body's ledger \u2014 and the relocation contract folded into a coat pocket like a bar tab the machine intends to collect. Ahead: St. Augustine, Florida, at the end of a two-hour drive in the dark, a store that talks like sunshine and a contract that talks like a leash. He knows what he's walking into. He walks in anyway \u2014 because that's what the machine does to good people who keep saying yes. The stage is set for the final, catastrophic crucible.",
+      "text": "The pen goes down. End of Act Four. {hero} and Adriana leave Pueblo behind with the third scar burning across your forehead \u2014 three stores, three states, three entries on the body's ledger \u2014 and the relocation contract folded into a coat pocket like a bar tab the machine intends to collect. Ahead: St. Augustine, Florida, at the end of a two-hour drive in the dark, a store that talks like sunshine and a contract that talks like a leash. You know what you're walking into. You walk in anyway \u2014 because that's what the machine does to good people who keep saying yes. The stage is set for the final, catastrophic crucible.",
       "nextNodeId": "florida_arrival",
       "changeSceneId": "scene_florida_road",
       "healPartyOnEnter": "full"
@@ -3116,7 +3116,7 @@
       "id": "florida_house",
       "speakerId": "adriana",
       "side": "RIGHT",
-      "text": "We made it. Two thousand miles of taillights and here we are. Look at that light \u2014 this place could be good to us, Todd. It could really, finally be good to us.",
+      "text": "We made it. Two thousand miles of taillights and here we are. Look at that light \u2014 this place could be good to us, {hero}. It could really, finally be good to us.",
       "nextNodeId": "florida_house_todd"
     },
     {
@@ -3244,7 +3244,7 @@
       "id": "branch_florida_anchor",
       "speakerId": "adriana",
       "side": "RIGHT",
-      "text": "Come home when you can, not when they say you can. I'll be awake. I'll be right here. You didn't survive everything else just to hand them your nights, Todd. Whatever this store is \u2014 I'm not afraid of it.",
+      "text": "Come home when you can, not when they say you can. I'll be awake. I'll be right here. You didn't survive everything else just to hand them your nights, {hero}. Whatever this store is \u2014 I'm not afraid of it.",
       "nextNodeId": "florida_road_hub",
       "setFlagOnEnter": "flag_florida_anchor_held"
     },
@@ -3611,7 +3611,7 @@
       "id": "florida_verdict_trigger",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "A week of mornings, standing before Sriniviii's desk with the goalposts rolling between every sentence. Say 'Enemies' and face the gauntlet of 'not good enough' — beat it back long enough to remember the floor was never the problem.",
+      "text": "A week of mornings, standing before Sriniviii's desk with the goalposts rolling between every sentence. Say 'Enemies' and face the gauntlet of 'not good enough' \u2014 beat it back long enough to remember the floor was never the problem.",
       "triggerBattleEncounterId": "florida_morning_verdict",
       "nextNodeId": "florida_verdict_post"
     },
@@ -3755,7 +3755,7 @@
       "id": "branch_florida_home_phone",
       "speakerId": "adriana",
       "side": "LEFT",
-      "text": "Hey. Hey \u2014 you sound like you're underwater. Todd, I don't care what time it is. Get in the car and come home. I'll leave the porch light on. I'll be right here. The store can hold itself for four more hours.",
+      "text": "Hey. Hey \u2014 you sound like you're underwater. {hero}, I don't care what time it is. Get in the car and come home. I'll leave the porch light on. I'll be right here. The store can hold itself for four more hours.",
       "nextNodeId": "florida_hostage_hub",
       "setFlagOnEnter": "flag_florida_home_phone"
     },
@@ -4112,7 +4112,7 @@
       "id": "florida_parting_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The step-down is accepted without resistance \u2014 colder than any fight: forms signed in silence, no questions, no counter-offer, no goodbye. Management has already moved on, updating the replacement list in their heads before you've left the building. And as the final act of malice, the whisper \u2014 meant for the team lead, designed to reach you anyway, delivered in the flat confident tone of a man who believes his own weather forecast: 'He'll be out of the company in two months anyway.'",
+      "text": "The step-down is accepted without resistance \u2014 colder than any fight: forms signed in silence, no questions, no counter-offer, no goodbye. Management has already moved on, updating the replacement list in their heads before you've left the building. And as the final act of malice, the whisper \u2014 meant for the team lead, designed to reach you anyway, delivered in the flat confident tone of a man who believes his own weather forecast: 'They'll be out of the company in two months anyway.'",
       "nextNodeId": "florida_parting_trigger"
     },
     {
@@ -4141,7 +4141,7 @@
       "id": "florida_final",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "He walked out of the St. Augustine crucible alive \u2014 the darkest chapter of the memoir overcome and escaped, the machine denied its last metric. The road north runs into Act Six, and whatever waits there, he arrives with his whole life in his hands, and his wife's hand in one of his.",
+      "text": "You walked out of the St. Augustine crucible alive \u2014 the darkest chapter of the memoir overcome and escaped, the machine denied its last metric. The road north runs into Act Six, and whatever waits there, you arrive with your whole life in your hands, and your wife's hand in yours.",
       "changeSceneId": "scene_act6_crash",
       "nextNodeId": "act6_crash_intro"
     },
@@ -4565,7 +4565,7 @@
       "id": "act6_abdoolie_battle_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Abdoolie sits motionless behind his desk, waiting with that flat, unyielding cadence. The meeting doesn't need to break you — you only need to stand your ground and file the truth. Say 'Enemies' and answer him.",
+      "text": "Abdoolie sits motionless behind his desk, waiting with that flat, unyielding cadence. The meeting doesn't need to break you \u2014 you only need to stand your ground and file the truth. Say 'Enemies' and answer him.",
       "triggerBattleEncounterId": "act6_abdoolie_ghost",
       "nextNodeId": "act6_abdoolie_post"
     },
@@ -4596,7 +4596,7 @@
       "id": "act6_frontend_todd_1",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I can absorb a hostile customer. I have absorbed hostile customers for eight years, across every role the machine offers. What I cannot absorb is absorbing a hostile customer and then walking into a staff meeting where Abdoolie looks at the service-desk satisfaction number and asks me — in that cadence — why it isn't higher.",
+      "text": "I can absorb a hostile customer. I have absorbed hostile customers for eight years, across every role the machine offers. What I cannot absorb is absorbing a hostile customer and then walking into a staff meeting where Abdoolie looks at the service-desk satisfaction number and asks me \u2014 in that cadence \u2014 why it isn't higher.",
       "nextNodeId": "act6_frontend_look_to_bays"
     },
     {
@@ -4635,7 +4635,7 @@
         },
         {
           "id": "choice_act6_stepdown_now",
-          "text": "Make the final call — step down all the way to the shop bays.",
+          "text": "Make the final call \u2014 step down all the way to the shop bays.",
           "voiceKeywords": [
             "step down",
             "bays",
@@ -4693,14 +4693,14 @@
       "id": "act6_pit_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Bay One of the new store. The impact wrench cuts loose and the whole floor vibrates at a specific, honest frequency. It is the vibration of actual physical work — metal on metal, torque on steel, the physical truth of how a tire stays on a wheel. The building's politics do not vibrate at this frequency. Down here, the machine forgot to install its usual surveillance equipment. The spreadsheet barely reaches the bays. Abdoolie and his oppressive store meetings are miles away in another building. The fluorescent hum is different here — it has to compete with the wrenches.",
+      "text": "Bay One of the new store. The impact wrench cuts loose and the whole floor vibrates at a specific, honest frequency. It is the vibration of actual physical work \u2014 metal on metal, torque on steel, the physical truth of how a tire stays on a wheel. The building's politics do not vibrate at this frequency. Down here, the machine forgot to install its usual surveillance equipment. The spreadsheet barely reaches the bays. Abdoolie and his oppressive store meetings are miles away in another building. The fluorescent hum is different here \u2014 it has to compete with the wrenches.",
       "nextNodeId": "act6_tani_first_words"
     },
     {
       "id": "act6_tani_first_words",
       "speakerId": "tani",
       "side": "RIGHT",
-      "text": "You're the transfer from across town, right? The manager who stepped down twice rather than let them grind him up? Good. We've needed somebody in here who already knows the bays aren't the problem. The bays have never been the problem.",
+      "text": "You're the transfer from across town, right? The manager who stepped down twice rather than let them grind you up? Good. We've needed somebody in here who already knows the bays aren't the problem. The bays have never been the problem.",
       "nextNodeId": "act6_capnh_first_words"
     },
     {
@@ -4761,7 +4761,7 @@
         },
         {
           "id": "choice_act6_pit_work",
-          "text": "Get your hands in — learn the tech work from the inside.",
+          "text": "Get your hands in \u2014 learn the tech work from the inside.",
           "voiceKeywords": [
             "wrench",
             "work",
@@ -4840,7 +4840,7 @@
       "id": "act6_pit_meeting1_todd_thought",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I know this posture. Forty-five-degree lean, palms flat on the desk, grave 'disappointed father' voice. He didn't invent this speech — he downloaded it from a district conference call three hours ago, warmed it up in the microwave, and is now serving it to people with oil under their fingernails.",
+      "text": "I know this posture. Forty-five-degree lean, palms flat on the desk, grave 'disappointed father' voice. He didn't invent this speech \u2014 he downloaded it from a district conference call three hours ago, warmed it up in the microwave, and is now serving it to people with oil under their fingernails.",
       "nextNodeId": "act6_pit_meeting1_aussie_2"
     },
     {
@@ -4912,7 +4912,7 @@
       "id": "act6_pit_meeting2_aussie_1",
       "speakerId": "aussie",
       "side": "RIGHT",
-      "text": "I've spent the morning reviewing the shop dashboard. Some of you clearly think you're geniuses. You heard what I said about individual times, so you started gaming the scan guns — scanning tickets complete while the car is still in the air to pad your personal numbers.",
+      "text": "I've spent the morning reviewing the shop dashboard. Some of you clearly think you're geniuses. You heard what I said about individual times, so you started gaming the scan guns \u2014 scanning tickets complete while the car is still in the air to pad your personal numbers.",
       "nextNodeId": "act6_pit_meeting2_aussie_2"
     },
     {
@@ -4970,7 +4970,7 @@
       "id": "act6_pit_to_resolution",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "And then, at the end of a shift, standing in the bay with the overhead door cracked open and the Florida light cutting a clean line across the concrete — the memoir asks to be totaled.",
+      "text": "And then, at the end of a shift, standing in the bay with the overhead door cracked open and the Florida light cutting a clean line across the concrete \u2014 the memoir asks to be totaled.",
       "changeSceneId": "scene_act6_resolution",
       "nextNodeId": "act6_resolution_intro"
     },
@@ -4985,14 +4985,14 @@
       "id": "act6_resolution_todd_1",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I wash my hands with the orange pumice soap at the shop sink. The grease lifts and washes down the drain. It strikes me, watching the water swirl, that physical dirt is the only kind of grime in this company that actually washes off. The politics, the conference calls, the calculated corporate cruelty — those stain deeper. But as I look down at my hands, they're steady. They haven't been this steady in years.",
+      "text": "I wash my hands with the orange pumice soap at the shop sink. The grease lifts and washes down the drain. It strikes me, watching the water swirl, that physical dirt is the only kind of grime in this company that actually washes off. The politics, the conference calls, the calculated corporate cruelty \u2014 those stain deeper. But as I look down at my hands, they're steady. They haven't been this steady in years.",
       "nextNodeId": "act6_resolution_todd_2"
     },
     {
       "id": "act6_resolution_todd_2",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I spent eight years sprinting on a corporate treadmill designed to fling people off when they ran out of breath. It took stepping down twice — shedding the titles, the salary, and the company's expectations — to realize the escalator only had power as long as I agreed to stay on it. I didn't get destroyed. I walked away into the pit, picked up an impact wrench, and found peace.",
+      "text": "I spent eight years sprinting on a corporate treadmill designed to fling people off when they ran out of breath. It took stepping down twice \u2014 shedding the titles, the salary, and the company's expectations \u2014 to realize the escalator only had power as long as I agreed to stay on it. I didn't get destroyed. I walked away into the pit, picked up an impact wrench, and found peace.",
       "nextNodeId": "act6_resolution_adriana"
     },
     {
@@ -5081,7 +5081,7 @@
       "id": "branch_act6_resolution_cost",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Four shingles. A career ceiling imposed by a petty email from Mattie-T. Gender discrimination left 'Unsubstantiated' twice. Thirteen consecutive human beings hired and destroyed in Pueblo's overnight machine, and then the same machine invited Todd in. A 3 AM that ran for two and a half weeks. One of the worst pay cuts a person can absorb. That is the machine's invoice. It is real and complete.",
+      "text": "Four shingles. A career ceiling imposed by a petty email from Mattie-T. Gender discrimination left 'Unsubstantiated' twice. Thirteen consecutive human beings hired and destroyed in Pueblo's overnight machine, and then the same machine invited you in. A 3 AM that ran for two and a half weeks. One of the worst pay cuts a person can absorb. That is the machine's invoice. It is real and complete.",
       "nextNodeId": "act6_resolution_hub",
       "setFlagOnEnter": "flag_act6_resolution_cost"
     },
@@ -5113,7 +5113,7 @@
       "id": "act6_final_post",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The machine's ledger closes at a deficit. The other ledger does not close — it keeps running, entry by entry, in every bay, every crew member shielded, every honest hour logged. That ledger is not a career document. It is a life.",
+      "text": "The machine's ledger closes at a deficit. The other ledger does not close \u2014 it keeps running, entry by entry, in every bay, every crew member shielded, every honest hour logged. That ledger is not a career document. It is a life.",
       "nextNodeId": "act6_final_todd_last"
     },
     {
@@ -5127,28 +5127,28 @@
       "id": "act6_final_closing",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "He survived the crucible. The machine didn't win, and it didn't drive him out. It just ran completely out of leverage. When a person no longer fears their threats and no longer craves their promotions, the corporate bureaucracy loses its teeth. He clocked out at 5:01. He'll clock back in at 7:00 tomorrow morning, put on his safety glasses, and do it right alongside Tani and Cap'n H.",
+      "text": "You survived the crucible. The machine didn't win, and it didn't drive you out. It just ran completely out of leverage. When a person no longer fears their threats and no longer craves their promotions, the corporate bureaucracy loses its teeth. You clocked out at 5:01. You'll clock back in at 7:00 tomorrow morning, put on your safety glasses, and do it right alongside Tani and Cap'n H.",
       "nextNodeId": "act6_adriana_final"
     },
     {
       "id": "act6_adriana_final",
       "speakerId": "adriana",
       "side": "LEFT",
-      "text": "Adriana rolls down the window as he walks up to the car, the air conditioning already blasting. 'How was the pit today?'",
+      "text": "She rolls down the window as you walk up to the car, the air conditioning already blasting. 'How was the pit today?'",
       "nextNodeId": "act6_todd_final_words"
     },
     {
       "id": "act6_todd_final_words",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "He slides into the passenger seat and lets out a long, dry laugh. 'Aussie tried to invent another invisible time penalty on his clipboard, Dave cross-threaded a drain plug, and Cap'n H told the regional email to take a hike. Who knows what kind of corporate bullshit will be waiting on the clipboard tomorrow. But that's tomorrow's shift. Let's go get dinner.'",
+      "text": "I slide into the passenger seat and let out a long, dry laugh. 'Aussie tried to invent another invisible time penalty on his clipboard, Dave cross-threaded a drain plug, and Cap'n H told the regional email to take a hike. Who knows what kind of corporate bullshit will be waiting on the clipboard tomorrow. But that's tomorrow's shift. Let's go get dinner.'",
       "nextNodeId": "act6_true_end"
     },
     {
       "id": "act6_true_end",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "He closes the car door. Behind them, the store keeps humming under its fluorescent lights, burning through its endless metrics. It will still be there tomorrow at 7 AM. But it will never own him again.",
+      "text": "You close the car door. Behind you, the store keeps humming under its fluorescent lights, burning through its endless metrics. It will still be there tomorrow at 7 AM. But it will never own you again.",
       "setFlagOnEnter": "game_completed"
     }
   ]

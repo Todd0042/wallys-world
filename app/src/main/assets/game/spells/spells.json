@@ -1057,7 +1057,7 @@
       "basePower": 0,
       "mpCost": 15,
       "isGuard": true,
-      "description": "Stand shoulder to shoulder, raising an unyielding barrier to protect Todd from harm.",
+      "description": "Stand shoulder to shoulder, raising an unyielding barrier to protect {hero} from harm.",
       "exampleChant": "unbroken aegis!",
       "aliases": [
         "unbroken aegis",
@@ -1082,7 +1082,7 @@
       "basePower": 140,
       "mpCost": 25,
       "isHeal": true,
-      "description": "The vital lifeline that pulls Todd back from exhaustion and restores health.",
+      "description": "The vital lifeline that pulls {hero} back from exhaustion and restores health.",
       "exampleChant": "lifeline mend!",
       "aliases": [
         "lifeline mend",
@@ -1132,7 +1132,7 @@
       "basePower": 0,
       "mpCost": 0,
       "manaRestorePct": 0.25,
-      "description": "A gentle whisper reminding Todd of life outside the warehouse. Dispels mental debuffs and restores mana.",
+      "description": "A gentle whisper reminding {hero} of life outside the warehouse. Dispels mental debuffs and restores mana.",
       "exampleChant": "inspiring words!",
       "aliases": [
         "inspiring words",
@@ -1157,7 +1157,7 @@
       "basePower": 0,
       "mpCost": 0,
       "isGuard": true,
-      "description": "A sandwich and note packed with love. Creates a protective barrier around Todd.",
+      "description": "A sandwich and note packed with love. Creates a protective barrier around {hero}.",
       "exampleChant": "packed lunch!",
       "aliases": [
         "packed lunch",

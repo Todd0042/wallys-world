@@ -7,7 +7,7 @@
   "portraitAsset": "portraits/adriana.jpg",
   "themeColor": "#F48FB1",
   "ttsPitch": 1.05,
-  "samplePhrase": "Take a breath, Todd. It's just groceries.",
+  "samplePhrase": "Take a breath, {hero}. It's just groceries.",
   "preferredVoiceId": null,
   "voiceAliases": [
     "adriana's inspiration",

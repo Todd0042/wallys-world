@@ -791,7 +791,7 @@
     {
       "id": "pueblo_compliance_visit",
       "name": "The Compliance Walkthrough",
-      "description": "The operational walkthrough is under the microscope of the regional directors. With Richard and Todd leading the floor together, stand tall against the audit pressure.",
+      "description": "The operational walkthrough is under the microscope of the regional directors. With Richard and {hero} leading the floor together, stand tall against the audit pressure.",
       "environment": "sales_floor",
       "party": [
         "todd_shop",

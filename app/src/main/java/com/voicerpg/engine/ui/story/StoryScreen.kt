@@ -128,7 +128,8 @@ fun StoryScreen(
             currentNode.speaker.name.equals(heroSpeaker.name, ignoreCase = true) ||
             (currentNode.speaker.portraitAsset != null && currentNode.speaker.portraitAsset == heroSpeaker.portraitAsset)
         )) ||
-        currentNode.speaker.name.equals("Todd", ignoreCase = true)
+        currentNode.speaker.name.equals("Todd", ignoreCase = true) ||
+        currentNode.speaker.name.equals(storyState.player.name, ignoreCase = true)
     )
 
     val leftSpeaker = when {
