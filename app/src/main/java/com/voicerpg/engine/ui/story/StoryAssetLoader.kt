@@ -90,8 +90,14 @@ object StoryAssetLoader {
     }
 
     private fun tryLoadBitmap(context: Context, assetPath: String): ImageBitmap? = try {
-        context.assets.open(assetPath).use { stream ->
-            BitmapFactory.decodeStream(stream)?.asImageBitmap()
+        val customPortraitFile = java.io.File(context.filesDir, "custom_hero_portrait.jpg")
+        val isHeroPortrait = assetPath.contains("todd", ignoreCase = true) || assetPath.contains("custom", ignoreCase = true) || assetPath.contains("hero", ignoreCase = true)
+        if (customPortraitFile.exists() && isHeroPortrait) {
+            BitmapFactory.decodeFile(customPortraitFile.absolutePath)?.asImageBitmap()
+        } else {
+            context.assets.open(assetPath).use { stream ->
+                BitmapFactory.decodeStream(stream)?.asImageBitmap()
+            }
         }
     } catch (_: Exception) {
         null

@@ -45,6 +45,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.window.Dialog
 import com.voicerpg.engine.audio.CombatNarrator
 import com.voicerpg.engine.audio.SpeechManager
 import com.voicerpg.engine.audio.SpeechState
@@ -85,8 +93,45 @@ fun CharacterCreationScreen(
     val coroutineScope = rememberCoroutineScope()
 
     val context = LocalContext.current
-    val heroBitmap = remember {
+    val defaultHeroBitmap = remember {
         StoryAssetLoader.loadBitmap(context, defaultHeroPortrait)
+    }
+
+    var customPortraitBitmap by remember {
+        mutableStateOf<ImageBitmap?>(
+            SelfiePortraitProcessor.getCustomPortraitFile(context)?.let { f ->
+                BitmapFactory.decodeFile(f.absolutePath)?.asImageBitmap()
+            } ?: defaultHeroBitmap
+        )
+    }
+
+    var hasCustomPortrait by remember {
+        mutableStateOf(SelfiePortraitProcessor.getCustomPortraitFile(context) != null)
+    }
+
+    var rawInputBitmap by remember { mutableStateOf<Bitmap?>(null) }
+    var showSourceDialog by remember { mutableStateOf(false) }
+    var showFilterDialog by remember { mutableStateOf(false) }
+
+    val cameraLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.TakePicturePreview()
+    ) { bmp: Bitmap? ->
+        if (bmp != null) {
+            rawInputBitmap = bmp
+            showFilterDialog = true
+        }
+    }
+
+    val galleryLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.PickVisualMedia()
+    ) { uri ->
+        if (uri != null) {
+            val loaded = SelfiePortraitProcessor.loadFromUri(context, uri)
+            if (loaded != null) {
+                rawInputBitmap = loaded
+                showFilterDialog = true
+            }
+        }
     }
 
     val titles = remember {
@@ -134,19 +179,34 @@ fun CharacterCreationScreen(
             return
         }
 
-        // 3. Title selection
+        // 3. Selfie / Camera commands
+        if (lower.contains("selfie") || lower.contains("camera") || lower.contains("picture") || lower.contains("photo")) {
+            showSourceDialog = true
+            combatNarrator?.speak("Opening badge photo capture.", force = true)
+            return
+        }
+        if (lower.contains("reset portrait") || lower.contains("reset photo") || lower.contains("default portrait")) {
+            SelfiePortraitProcessor.deleteCustomPortrait(context)
+            StoryAssetLoader.clear()
+            customPortraitBitmap = defaultHeroBitmap
+            hasCustomPortrait = false
+            combatNarrator?.speak("Portrait reset to default.", force = true)
+            return
+        }
+
+        // 4. Title selection
         titles.firstOrNull { lower.contains(it.lowercase()) }?.let {
             selectedTitle = it
             combatNarrator?.speak("Title set to $it.", force = true)
         }
 
-        // 4. Quick name selection
+        // 5. Quick name selection
         quickNames.firstOrNull { lower.contains(it.lowercase()) }?.let {
             name = it
             combatNarrator?.speak("Name set to $it.", force = true)
         }
 
-        // 5. Aura color selection
+        // 6. Aura color selection
         AuraColor.entries.firstOrNull { aura ->
             lower.contains(aura.name.lowercase()) ||
             lower.contains(aura.displayName.lowercase()) ||
@@ -231,6 +291,125 @@ fun CharacterCreationScreen(
 
             Spacer(modifier = Modifier.height(14.dp))
 
+            // Source Selection Dialog (Camera vs Gallery)
+            if (showSourceDialog) {
+                Dialog(onDismissRequest = { showSourceDialog = false }) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(RetroPanel)
+                            .border(2.dp, LogosGold, RoundedCornerShape(14.dp))
+                            .padding(18.dp)
+                    ) {
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = "📸 ASSOCIATE PHOTO ID",
+                                color = LogosGold,
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Black,
+                                fontFamily = FontFamily.Monospace
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = "Snap a real selfie or pick a photo to generate your customized retail badge portrait.",
+                                color = Color.LightGray,
+                                fontSize = 11.sp,
+                                fontFamily = FontFamily.Monospace
+                            )
+
+                            Spacer(modifier = Modifier.height(16.dp))
+
+                            Button(
+                                onClick = {
+                                    showSourceDialog = false
+                                    cameraLauncher.launch(null)
+                                },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(44.dp),
+                                shape = RoundedCornerShape(8.dp),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = LogosGold,
+                                    contentColor = RetroBlack
+                                )
+                            ) {
+                                Text(
+                                    text = "📷 TAKE SELFIE (CAMERA)",
+                                    fontFamily = FontFamily.Monospace,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 12.sp
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.height(8.dp))
+
+                            Button(
+                                onClick = {
+                                    showSourceDialog = false
+                                    galleryLauncher.launch(
+                                        PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                                    )
+                                },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(44.dp),
+                                shape = RoundedCornerShape(8.dp),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = RetroBorder,
+                                    contentColor = Color.White
+                                )
+                            ) {
+                                Text(
+                                    text = "🖼️ CHOOSE FROM GALLERY",
+                                    fontFamily = FontFamily.Monospace,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 12.sp
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.height(12.dp))
+
+                            Box(
+                                modifier = Modifier
+                                    .clickable { showSourceDialog = false }
+                                    .padding(6.dp)
+                            ) {
+                                Text(
+                                    text = "CANCEL",
+                                    color = Color.Gray,
+                                    fontSize = 11.sp,
+                                    fontFamily = FontFamily.Monospace
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Filter Configuration Dialog
+            val activeRawBitmap = rawInputBitmap
+            if (showFilterDialog && activeRawBitmap != null) {
+                SelfieFilterDialog(
+                    rawBitmap = activeRawBitmap,
+                    onDismiss = {
+                        showFilterDialog = false
+                        rawInputBitmap = null
+                    },
+                    onSavePortrait = { finalBitmap ->
+                        SelfiePortraitProcessor.saveCustomPortrait(context, finalBitmap)
+                        StoryAssetLoader.clear()
+                        customPortraitBitmap = finalBitmap.asImageBitmap()
+                        hasCustomPortrait = true
+                        showFilterDialog = false
+                        rawInputBitmap = null
+                    }
+                )
+            }
+
             // Character Preview Card with chosen Aura & Name
             val auraColorVal = Color(android.graphics.Color.parseColor(selectedAura.hexColor))
             Box(
@@ -241,66 +420,135 @@ fun CharacterCreationScreen(
                     .border(2.dp, auraColorVal, RoundedCornerShape(12.dp))
                     .padding(14.dp)
             ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    // Portrait Bust
-                    Box(
-                        modifier = Modifier
-                            .size(80.dp)
-                            .shadow(8.dp, RoundedCornerShape(10.dp), spotColor = auraColorVal)
-                            .clip(RoundedCornerShape(10.dp))
-                            .border(2.dp, auraColorVal, RoundedCornerShape(10.dp))
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        if (heroBitmap != null) {
-                            Image(
-                                bitmap = heroBitmap,
-                                contentDescription = name,
-                                contentScale = ContentScale.Crop,
-                                modifier = Modifier.fillMaxSize()
-                            )
-                        } else {
+                        // Portrait Bust with interactive camera badge
+                        Box(
+                            modifier = Modifier
+                                .size(84.dp)
+                                .shadow(8.dp, RoundedCornerShape(10.dp), spotColor = auraColorVal)
+                                .clip(RoundedCornerShape(10.dp))
+                                .border(2.dp, auraColorVal, RoundedCornerShape(10.dp))
+                                .clickable { showSourceDialog = true }
+                        ) {
+                            val activePortrait = customPortraitBitmap ?: defaultHeroBitmap
+                            if (activePortrait != null) {
+                                Image(
+                                    bitmap = activePortrait,
+                                    contentDescription = name,
+                                    contentScale = ContentScale.Crop,
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                            } else {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .background(auraColorVal.copy(alpha = 0.3f)),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = name.firstOrNull()?.toString() ?: "T",
+                                        color = auraColorVal,
+                                        fontSize = 28.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                }
+                            }
+
+                            // Camera icon overlay badge
                             Box(
                                 modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(auraColorVal.copy(alpha = 0.3f)),
-                                contentAlignment = Alignment.Center
+                                    .align(Alignment.BottomEnd)
+                                    .clip(RoundedCornerShape(topStart = 6.dp))
+                                    .background(RetroBlack.copy(alpha = 0.8f))
+                                    .padding(horizontal = 4.dp, vertical = 2.dp)
                             ) {
                                 Text(
-                                    text = name.firstOrNull()?.toString() ?: "T",
-                                    color = auraColorVal,
-                                    fontSize = 28.sp,
-                                    fontWeight = FontWeight.Bold
+                                    text = "📷",
+                                    fontSize = 11.sp
                                 )
                             }
                         }
+
+                        Spacer(modifier = Modifier.width(14.dp))
+
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = if (name.isBlank()) defaultHeroName else name,
+                                color = LogosGlow,
+                                fontSize = 18.sp,
+                                fontWeight = FontWeight.Black,
+                                fontFamily = FontFamily.Monospace
+                            )
+                            Text(
+                                text = selectedTitle,
+                                color = auraColorVal,
+                                fontSize = 12.sp,
+                                fontFamily = FontFamily.Monospace,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                            Spacer(modifier = Modifier.height(2.dp))
+                            Text(
+                                text = "${manifest.worldName} • Shift Lead",
+                                color = Color.LightGray,
+                                fontSize = 10.sp,
+                                fontFamily = FontFamily.Monospace
+                            )
+                        }
                     }
 
-                    Spacer(modifier = Modifier.width(14.dp))
+                    Spacer(modifier = Modifier.height(10.dp))
 
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(
-                            text = if (name.isBlank()) defaultHeroName else name,
-                            color = LogosGlow,
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Black,
-                            fontFamily = FontFamily.Monospace
-                        )
-                        Text(
-                            text = selectedTitle,
-                            color = auraColorVal,
-                            fontSize = 12.sp,
-                            fontFamily = FontFamily.Monospace,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        Spacer(modifier = Modifier.height(2.dp))
-                        Text(
-                            text = "${manifest.worldName} • Shift Lead",
-                            color = Color.LightGray,
-                            fontSize = 10.sp,
-                            fontFamily = FontFamily.Monospace
-                        )
+                    // Portrait Action Buttons
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .clip(RoundedCornerShape(6.dp))
+                                .background(RetroBlack)
+                                .border(1.dp, LogosGold, RoundedCornerShape(6.dp))
+                                .clickable { showSourceDialog = true }
+                                .padding(vertical = 6.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "📷 SNAP SELFIE / PHOTO",
+                                color = LogosGold,
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold,
+                                fontFamily = FontFamily.Monospace
+                            )
+                        }
+
+                        if (hasCustomPortrait) {
+                            Box(
+                                modifier = Modifier
+                                    .clip(RoundedCornerShape(6.dp))
+                                    .background(RetroBlack)
+                                    .border(1.dp, Color.Gray, RoundedCornerShape(6.dp))
+                                    .clickable {
+                                        SelfiePortraitProcessor.deleteCustomPortrait(context)
+                                        StoryAssetLoader.clear()
+                                        customPortraitBitmap = defaultHeroBitmap
+                                        hasCustomPortrait = false
+                                    }
+                                    .padding(horizontal = 10.dp, vertical = 6.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = "↺ RESET DEFAULT",
+                                    color = Color.LightGray,
+                                    fontSize = 10.sp,
+                                    fontFamily = FontFamily.Monospace
+                                )
+                            }
+                        }
                     }
                 }
             }
