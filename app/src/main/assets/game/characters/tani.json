@@ -3,7 +3,7 @@
   "id": "tani",
   "role": "npc",
   "name": "Tani",
-  "title": "Shop Team Lead",
+  "title": "Bay Lead",
   "portraitAsset": "portraits/tani.jpg",
   "themeColor": "#26C6DA",
   "ttsPitch": 1.08,
@@ -12,7 +12,7 @@
   "preferredVoiceId": null,
   "voiceAliases": [
     "tani",
-    "team lead",
+    "bay lead",
     "the lead",
     "tanya",
     "the shop lead"

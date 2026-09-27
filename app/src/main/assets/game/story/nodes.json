@@ -4555,53 +4555,24 @@
       "id": "act6_frontend_todd_1",
       "speakerId": "todd_shop",
       "side": "LEFT",
-      "text": "I can absorb a hostile customer. I have absorbed hostile customers for eight years, across every role the machine offers. What I cannot absorb is absorbing a hostile customer and then walking into a staff meeting where Abdoolie looks at the service-desk satisfaction number and asks me \u2014 in that cadence \u2014 why it isn't higher.",
-      "nextNodeId": "act6_frontend_phantom_appears"
+      "text": "I can absorb a hostile customer. I have absorbed hostile customers for eight years, across every role the machine offers. What I cannot absorb is absorbing a hostile customer and then walking into a staff meeting where Abdoolie looks at the service-desk satisfaction number and asks me — in that cadence — why it isn't higher.",
+      "nextNodeId": "act6_frontend_look_to_bays"
     },
     {
-      "id": "act6_frontend_phantom_appears",
+      "id": "act6_frontend_look_to_bays",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The shop manager \u2014 the actual manager of the automotive bays \u2014 materializes on the floor for the sixth time in six months. The technicians have taken to calling him the ghost. Today he has a printout and an expression that means the regional spreadsheet said something unpleasant.",
-      "nextNodeId": "act6_frontend_phantom_speaks"
-    },
-    {
-      "id": "act6_frontend_phantom_speaks",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "He calls an all-hands meeting in bay three \u2014 every tech, both team leads, the service writer. He holds the printout up as if it were a verdict.",
-      "nextNodeId": "act6_frontend_phantom_threat"
-    },
-    {
-      "id": "act6_frontend_phantom_threat",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "\"The numbers are not where they need to be, and I want to be very clear: nobody in this room has a job they cannot lose.\" He does not know any of their names. He has been in this bay six times. The impact wrenches know this building better than he does.",
-      "nextNodeId": "act6_frontend_tani_responds"
-    },
-    {
-      "id": "act6_frontend_tani_responds",
-      "speakerId": "tani",
-      "side": "RIGHT",
-      "text": "After the meeting. Quietly, to Todd: \"That man has never touched a lug nut in this building. He pulls out the spreadsheet when the region screams and puts it back when they stop. Don't let the panic be your problem. It isn't. It's his.\"",
-      "nextNodeId": "act6_frontend_capnh_speaks"
-    },
-    {
-      "id": "act6_frontend_capnh_speaks",
-      "speakerId": "capn_h",
-      "side": "RIGHT",
-      "text": "\"Six appearances in six months. If he shows up a seventh time it'll be because somebody above him is in genuine trouble. You want to know how good our bays are? He doesn't need to come down here. That's the review.\"",
+      "text": "Across the sales floor, through the wide glass double doors, sit the automotive bays. The smell of hot tires and clean motor oil drifts past the register banks. Out there, the work has physical edges: a bolt is torqued or it isn't. The machine's endless shifting metrics have a harder time reaching through the steel doors.",
       "nextNodeId": "act6_frontend_hub"
     },
     {
       "id": "act6_frontend_hub",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The phantom's threat hangs in the bay air. The customer gauntlet and the blind boss fight are both waiting. Say which one you face first.",
+      "text": "The customer desk buzzes under fluorescent hum while the bays echo in the distance. Choose your path through the front end.",
       "hubCompletion": {
         "requiredFlags": [
-          "flag_act6_frontend_customers",
-          "flag_act6_phantom_faced"
+          "flag_act6_frontend_customers"
         ],
         "redirectToNodeId": "act6_frontend_decision"
       },
@@ -4622,30 +4593,15 @@
           "completionFlag": "flag_act6_frontend_customers"
         },
         {
-          "id": "choice_act6_phantom",
-          "text": "Confront the phantom manager's blind threat.",
+          "id": "choice_act6_stepdown_now",
+          "text": "Make the final call — step down all the way to the shop bays.",
           "voiceKeywords": [
-            "phantom",
-            "manager",
-            "threat",
-            "confront",
-            "ghost",
-            "boss",
-            "battle"
-          ],
-          "nextNodeId": "act6_phantom_battle_intro",
-          "completionFlag": "flag_act6_phantom_faced"
-        },
-        {
-          "id": "choice_act6_decision_now",
-          "text": "Skip to the decision \u2014 the front end has made up your mind.",
-          "voiceKeywords": [
+            "step down",
+            "bays",
             "decision",
-            "skip",
-            "done",
-            "enough",
-            "made up",
-            "next",
+            "shop",
+            "call",
+            "tech",
             "move on"
           ],
           "nextNodeId": "act6_frontend_decision"
@@ -4658,7 +4614,7 @@
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
       "text": "The service desk is a wall of entitlement and noise. Say 'Enemies' and hold the line for the hundredth time.",
-      "triggerBattleEncounterId": "act6_phantom_threat",
+      "triggerBattleEncounterId": "act6_customer_gauntlet",
       "nextNodeId": "act6_frontend_battle_post"
     },
     {
@@ -4666,24 +4622,8 @@
       "speakerId": "todd_shop",
       "side": "LEFT",
       "text": "The shift ends. The building doesn't thank me. It never has. What it owes me is a different calculation, and I have been doing it wrong for eight years. Time to run the right math.",
-      "nextNodeId": "act6_frontend_hub",
+      "nextNodeId": "act6_frontend_decision",
       "setFlagOnEnter": "flag_act6_frontend_customers"
-    },
-    {
-      "id": "act6_phantom_battle_intro",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "The phantom and his printout, the customer pile-on, and the fluorescent hum of a building managed by spreadsheet. Say 'Enemies' and put it down.",
-      "triggerBattleEncounterId": "act6_phantom_threat",
-      "nextNodeId": "act6_phantom_battle_post"
-    },
-    {
-      "id": "act6_phantom_battle_post",
-      "speakerId": "narrator",
-      "side": "CENTER_NARRATOR",
-      "text": "The phantom retreats to the office. His spreadsheet returns to green or red \u2014 it will tell him when to appear again. The bay does not miss him.",
-      "nextNodeId": "act6_frontend_hub",
-      "setFlagOnEnter": "flag_act6_phantom_faced"
     },
     {
       "id": "act6_frontend_decision",
@@ -4696,7 +4636,7 @@
       "id": "act6_frontend_decision_narrator",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The decision costs another title. It costs the team lead designation and the final shred of the management ladder. It costs nothing that has not already been paid many times over. And it leads, almost immediately, to Tani and Cap'n H.",
+      "text": "The decision costs another title. It costs the hourly lead designation and the final shred of the management ladder. It costs nothing that has not already been paid many times over. And it leads, almost immediately, to Tani and Cap'n H.",
       "nextNodeId": "act6_frontend_to_pit",
       "setFlagOnEnter": "flag_act6_stepdown_two"
     },
@@ -4740,14 +4680,14 @@
       "id": "act6_pit_hub",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The pit has its own language. Learn it.",
+      "text": "The pit has its own rhythm and its own guardians. Learn the bays.",
       "hubCompletion": {
         "requiredFlags": [
           "flag_act6_pit_tani_known",
           "flag_act6_pit_capnh_known",
           "flag_act6_pit_work_learned"
         ],
-        "redirectToNodeId": "act6_pit_phantom_intrudes"
+        "redirectToNodeId": "act6_pit_aussie_intro"
       },
       "choices": [
         {
@@ -4758,7 +4698,7 @@
             "work with",
             "alongside",
             "her standard",
-            "team lead",
+            "lead",
             "learn from tani"
           ],
           "nextNodeId": "branch_act6_pit_tani",
@@ -4780,7 +4720,7 @@
         },
         {
           "id": "choice_act6_pit_work",
-          "text": "Get your hands in \u2014 learn the tech work from the inside.",
+          "text": "Get your hands in — learn the tech work from the inside.",
           "voiceKeywords": [
             "wrench",
             "work",
@@ -4795,17 +4735,17 @@
         },
         {
           "id": "choice_act6_pit_observe",
-          "text": "Observe how Tani and Cap'n H protect the crew from above.",
+          "text": "Observe the shop rhythm and the glass office above.",
           "voiceKeywords": [
             "observe",
             "watch",
-            "protect",
-            "crew",
-            "shield",
-            "leadership",
-            "how they do it"
+            "office",
+            "rhythm",
+            "aussie",
+            "manager",
+            "look up"
           ],
-          "nextNodeId": "act6_pit_phantom_intrudes"
+          "nextNodeId": "act6_pit_aussie_intro"
         }
       ],
       "revisitText": "Hydraulic lifts hiss and pneumatic ratchets echo from the shop pit. Whose technique or guidance will you learn from next?"
@@ -4835,25 +4775,153 @@
       "setFlagOnEnter": "flag_act6_pit_work_learned"
     },
     {
-      "id": "act6_pit_phantom_intrudes",
+      "id": "act6_pit_aussie_intro",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "The phantom shop manager materializes briefly \u2014 his seventh appearance. He looks at the bays, looks at his printout, makes the face of a man who expected different numbers, and walks away. Tani does not stop working. Cap'n H does not look up.",
-      "nextNodeId": "act6_pit_phantom_post"
+      "text": "For sixty days, Aussie exists only as a shadow behind tinted glass near the customer waiting lounge. He does not know how to rack a truck or the torque spec on a lug nut. He knows how to stare at spreadsheets until he gets angry. Then, at 8:00 AM on a Tuesday, the intercom crackles: 'All shop crew to the office. Immediate.'",
+      "nextNodeId": "act6_pit_office_setting"
     },
     {
-      "id": "act6_pit_phantom_post",
+      "id": "act6_pit_office_setting",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Ten techs and service writers are herded into the 8x10 office. It smells of stale carpet, ozone from a dying desktop, and damp grease. Aussie shuts the door for 'confidentiality.' But the punchline is the back wall: heavy steel pass-through racking for motor oil cases and car batteries. There is zero acoustic dampening. Outside in Aisle 6, a customer in cargo shorts comparing battery terminal grease gets a front-row seat to the inquisition.",
+      "nextNodeId": "act6_pit_meeting1_aussie_1"
+    },
+    {
+      "id": "act6_pit_meeting1_aussie_1",
+      "speakerId": "aussie",
+      "side": "RIGHT",
+      "text": "Gather up. I pulled the individual ticket metrics for the last two periods. Frankly? It's sickening. Our ticket completion times are an embarrassment, and looking at this sheet, it's not a mystery why.",
+      "nextNodeId": "act6_pit_meeting1_todd_thought"
+    },
+    {
+      "id": "act6_pit_meeting1_todd_thought",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "I know this posture. Forty-five-degree lean, palms flat on the desk, grave 'disappointed father' voice. He didn't invent this speech — he downloaded it from a district conference call three hours ago, warmed it up in the microwave, and is now serving it to people with oil under their fingernails.",
+      "nextNodeId": "act6_pit_meeting1_aussie_2"
+    },
+    {
+      "id": "act6_pit_meeting1_aussie_2",
+      "speakerId": "aussie",
+      "side": "RIGHT",
+      "text": "Marcus: four-tire mount on a truck took thirty-eight minutes against a twenty-two minute benchmark. Dave: nineteen minutes for a synthetic lube service. What are you doing in the pit, Dave, taking a nap? None of you has a job they cannot lose. If your personal numbers aren't green by next month, I will find people in the parking lot who want to work.",
+      "nextNodeId": "act6_pit_meeting1_outside"
+    },
+    {
+      "id": "act6_pit_meeting1_outside",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Through the battery rack, the customer in Aisle 6 slowly puts down a bottle of power steering fluid and stares through the wire shelving at Dave's burning red face. Aussie opens the door and retreats behind his desk.",
+      "nextNodeId": "act6_pit_meeting1_debrief"
+    },
+    {
+      "id": "act6_pit_meeting1_debrief",
       "speakerId": "tani",
       "side": "RIGHT",
-      "text": "Seven. We should have a tally board. Every time he appears and can't name the lug torque spec for a half-ton pickup, we add a tick mark.",
+      "text": "Don't let him rattle you. Dave took nineteen minutes because the last lube shop cross-threaded the drain plug and Dave had to chase the threads by hand so the customer's pan didn't strip on the interstate. That's the difference between doing the work and reading a printout.",
+      "nextNodeId": "act6_pit_meeting1_capnh"
+    },
+    {
+      "id": "act6_pit_meeting1_capnh",
+      "speakerId": "capn_h",
+      "side": "RIGHT",
+      "text": "When an office boss starts reading names off a sheet like a drill sergeant, it means his own boss chewed him out on a conference call. Keep your heads down, torque the lugs to spec, and watch each other's backs.",
+      "nextNodeId": "act6_pit_panic_cycle"
+    },
+    {
+      "id": "act6_pit_panic_cycle",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "For seven days, the shop is a high-voltage nightmare. Techs scramble between lifts like mice in an electric cage, slamming lugs at reckless speeds and skipping water in ninety-degree humidity to shave seconds off their personal dashboard metric. Then comes Day Eight. Aussie is nowhere. Day Nine: still in his office with the blinds drawn. By Day Twelve, the realization settles over the bays: the ghost has returned to his tomb.",
+      "nextNodeId": "act6_pit_panic_end"
+    },
+    {
+      "id": "act6_pit_panic_end",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "By Day Fourteen, the panic has decayed completely into the shop floor drains. The crew returns to doing the job the only way cars don't leave wheels on the highway: carefully, steadily, and safely.",
+      "nextNodeId": "act6_pit_battle_intro"
+    },
+    {
+      "id": "act6_pit_battle_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Corporate anxiety never truly dies; it just builds pressure inside the server racks until it boils over into the bays. Say 'Enemies' and push through the metric gauntlet.",
+      "triggerBattleEncounterId": "act6_phantom_threat",
+      "nextNodeId": "act6_pit_battle_post"
+    },
+    {
+      "id": "act6_pit_battle_post",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "The inquisition retreats behind the glass. The spreadsheet numbers flicker on a monitor nobody is looking at. The air hose hisses in Bay One.",
+      "nextNodeId": "act6_pit_meeting2_intro",
+      "setFlagOnEnter": "flag_act6_meeting1_done"
+    },
+    {
+      "id": "act6_pit_meeting2_intro",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Sixty days later, like a cicada emerging from the asphalt, Aussie's door swings open. 'Office. Now.' Ten techs crowd back into the sweatbox. Same stale ozone. Same battery wall. Outside in the oil aisle, an elderly woman is examining windshield washer fluid, perfectly audible over the AC vent.",
+      "nextNodeId": "act6_pit_meeting2_aussie_1"
+    },
+    {
+      "id": "act6_pit_meeting2_aussie_1",
+      "speakerId": "aussie",
+      "side": "RIGHT",
+      "text": "I've spent the morning reviewing the shop dashboard. Some of you clearly think you're geniuses. You heard what I said about individual times, so you started gaming the scan guns — scanning tickets complete while the car is still in the air to pad your personal numbers.",
+      "nextNodeId": "act6_pit_meeting2_aussie_2"
+    },
+    {
+      "id": "act6_pit_meeting2_aussie_2",
+      "speakerId": "aussie",
+      "side": "RIGHT",
+      "text": "Well, congratulations: you played yourselves. I don't care about your individual times anymore. Individual times are a fraud. From this moment on, the only number that exists is the total shop average turnaround time. If Bay Four bottlenecks on a rusted caliper, you are all slow.",
+      "nextNodeId": "act6_pit_meeting2_aussie_eval"
+    },
+    {
+      "id": "act6_pit_meeting2_aussie_eval",
+      "speakerId": "aussie",
+      "side": "RIGHT",
+      "text": "And when annual evaluations come around: if the team aggregate is below regional benchmark, every single one of you gets an Unsatisfactory rating. I don't care if you personally turned thirty flawless tires a day. The team sinks, you sink with it.",
+      "nextNodeId": "act6_pit_meeting2_outside"
+    },
+    {
+      "id": "act6_pit_meeting2_outside",
+      "speakerId": "narrator",
+      "side": "CENTER_NARRATOR",
+      "text": "Through the battery rack, the woman in Aisle 6 whispers, 'Oh my goodness,' and hurriedly wheels her shopping cart toward the garden center. Aussie dismisses the room with a flick of his wrist.",
+      "nextNodeId": "act6_pit_meeting2_todd"
+    },
+    {
+      "id": "act6_pit_meeting2_todd",
+      "speakerId": "todd_shop",
+      "side": "LEFT",
+      "text": "It is almost beautiful in its sheer, distilled incompetence. Collective punishment is the white flag of the salaried bureaucrat. If you blame the collective, you never have to actually manage anyone or understand why an eight-year-old minivan has a rusted bolt. You just declare the entire morning shift a moral failure.",
+      "nextNodeId": "act6_pit_meeting2_tani"
+    },
+    {
+      "id": "act6_pit_meeting2_tani",
+      "speakerId": "tani",
+      "side": "RIGHT",
+      "text": "Two months ago, if you helped Dave carry a heavy tire, you were a bum stealing his ticket time. Today, if you don't help Dave carry that tire, you're sabotaging the collective commune. I need a drink.",
+      "nextNodeId": "act6_pit_meeting2_capnh"
+    },
+    {
+      "id": "act6_pit_meeting2_capnh",
+      "speakerId": "capn_h",
+      "side": "RIGHT",
+      "text": "Give it five days. In five days he'll discover a new column in his spreadsheet and this whole aggregate thing will vanish like smoke. Grab the air hose. Car's on Lift Two.",
       "nextNodeId": "act6_pit_settle",
-      "setFlagOnEnter": "flag_act6_pit_settled"
+      "setFlagOnEnter": "flag_act6_meeting2_done"
     },
     {
       "id": "act6_pit_settle",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "Six months pass in the bays. The phantom arrives and retreats. The spreadsheet fluctuates. Abdoolie's cadence continues to ambush the nervous system approximately once a week and recede once named. The bays keep running.",
+      "text": "Six months pass in the bays. Aussie's goalposts shift, panic cycles bloom and wither in seven days, and Abdoolie's cadence occasionally ripples across the floor. But the bays keep running, because metal and torque are real, and the crew watches each other's backs.",
       "nextNodeId": "act6_pit_to_resolution",
       "setFlagOnEnter": "flag_act6_pit_done"
     },
@@ -4861,7 +4929,7 @@
       "id": "act6_pit_to_resolution",
       "speakerId": "narrator",
       "side": "CENTER_NARRATOR",
-      "text": "And then, at the end of a shift, standing in the bay with the overhead door cracked open and the Florida light cutting a clean line across the concrete \u2014 the memoir asks to be totaled.",
+      "text": "And then, at the end of a shift, standing in the bay with the overhead door cracked open and the Florida light cutting a clean line across the concrete — the memoir asks to be totaled.",
       "changeSceneId": "scene_act6_resolution",
       "nextNodeId": "act6_resolution_intro"
     },
