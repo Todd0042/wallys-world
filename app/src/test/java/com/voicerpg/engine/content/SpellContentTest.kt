@@ -26,8 +26,8 @@ class SpellContentTest {
         for ((spellId, spell) in pack.spells) {
             assertTrue("Spell '$spellId' must have a non-blank name", spell.name.isNotBlank())
             assertTrue(
-                "Spell '$spellId' base power or heal/mana/guard/status must be valid",
-                spell.basePower > 0 || spell.isHeal || spell.manaRestorePct > 0f || spell.isGuard || spell.status != null
+                "Spell '$spellId' base power or heal/mana/guard/status/cleanse must be valid",
+                spell.basePower > 0 || spell.isHeal || spell.manaRestorePct > 0f || spell.isGuard || spell.status != null || spell.cleansesDebuffs
             )
             assertNotNull("Spell '$spellId' must have graphics defined", spell.graphics)
             val gfx = spell.graphics!!

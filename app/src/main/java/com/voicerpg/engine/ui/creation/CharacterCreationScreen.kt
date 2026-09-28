@@ -67,11 +67,13 @@ import com.voicerpg.engine.ui.theme.RetroBlack
 import com.voicerpg.engine.ui.theme.RetroBorder
 import com.voicerpg.engine.ui.theme.RetroPanel
 import kotlinx.coroutines.delay
+import com.voicerpg.engine.engine.SaveManager
 import kotlinx.coroutines.launch
 
 @Composable
 fun CharacterCreationScreen(
     initialCustomization: PlayerCustomization = PlayerCustomization(),
+    slot: Int = SaveManager.DEFAULT_SLOT,
     speechManager: SpeechManager? = null,
     combatNarrator: CombatNarrator? = null,
     onBack: (() -> Unit)? = null,
@@ -85,29 +87,29 @@ fun CharacterCreationScreen(
     val defaultHeroTitle = manifest.defaultHeroTitle.ifBlank { heroSpeaker?.title ?: "Freight Supervisor" }
     val defaultHeroPortrait = manifest.defaultHeroPortrait ?: heroSpeaker?.portraitAsset ?: "portraits/todd.jpg"
 
-    var name by remember { mutableStateOf(initialCustomization.name.ifBlank { defaultHeroName }) }
-    var selectedTitle by remember { mutableStateOf(if (initialCustomization.title.isNotBlank() && initialCustomization.title != "The Awakened Hero") initialCustomization.title else defaultHeroTitle) }
-    var selectedAura by remember { mutableStateOf(initialCustomization.auraColor) }
+    var name by remember(slot, initialCustomization.name) { mutableStateOf(initialCustomization.name.ifBlank { defaultHeroName }) }
+    var selectedTitle by remember(slot, initialCustomization.title) { mutableStateOf(if (initialCustomization.title.isNotBlank() && initialCustomization.title != "The Awakened Hero") initialCustomization.title else defaultHeroTitle) }
+    var selectedAura by remember(slot, initialCustomization.auraColor) { mutableStateOf(initialCustomization.auraColor) }
 
     val isAutoListen = speechManager?.isAutoListen?.collectAsState()?.value ?: false
     val speechState = speechManager?.speechState?.collectAsState()?.value ?: SpeechState.Idle
     val coroutineScope = rememberCoroutineScope()
 
     val context = LocalContext.current
-    val defaultHeroBitmap = remember {
-        StoryAssetLoader.loadBitmap(context, defaultHeroPortrait)
+    val defaultHeroBitmap = remember(defaultHeroPortrait) {
+        StoryAssetLoader.loadRawAssetBitmap(context, defaultHeroPortrait)
     }
 
-    var customPortraitBitmap by remember {
+    var customPortraitBitmap by remember(slot) {
         mutableStateOf<ImageBitmap?>(
-            SelfiePortraitProcessor.getCustomPortraitFile(context)?.let { f ->
+            SelfiePortraitProcessor.getCustomPortraitFile(context, slot)?.let { f ->
                 BitmapFactory.decodeFile(f.absolutePath)?.asImageBitmap()
             } ?: defaultHeroBitmap
         )
     }
 
-    var hasCustomPortrait by remember {
-        mutableStateOf(SelfiePortraitProcessor.getCustomPortraitFile(context) != null)
+    var hasCustomPortrait by remember(slot) {
+        mutableStateOf(SelfiePortraitProcessor.getCustomPortraitFile(context, slot) != null)
     }
 
     var rawInputBitmap by remember { mutableStateOf<Bitmap?>(null) }
@@ -156,7 +158,8 @@ fun CharacterCreationScreen(
             heroClassId = defaultClass?.id ?: "floor_captain",
             title = selectedTitle,
             auraColor = selectedAura,
-            voiceAffinityBonusSchool = defaultClass?.preferredSchool ?: SpellSchool.PHYSICAL
+            voiceAffinityBonusSchool = defaultClass?.preferredSchool ?: SpellSchool.PHYSICAL,
+            customPortraitAsset = if (hasCustomPortrait) SelfiePortraitProcessor.getCustomPortraitFilename(slot) else null
         )
         onConfirmCharacter(finalCustomization)
     }
@@ -206,8 +209,8 @@ fun CharacterCreationScreen(
                 return
             }
             if (lower.contains("reset portrait") || lower.contains("reset photo") || lower.contains("default portrait")) {
-                SelfiePortraitProcessor.deleteCustomPortrait(context)
-                StoryAssetLoader.clear()
+                SelfiePortraitProcessor.deleteCustomPortrait(context, slot)
+                StoryAssetLoader.clearSlot(slot)
                 customPortraitBitmap = defaultHeroBitmap
                 hasCustomPortrait = false
                 combatNarrator?.speak("Portrait reset to default.", force = true)
@@ -510,8 +513,8 @@ fun CharacterCreationScreen(
                         rawInputBitmap = null
                     },
                     onSavePortrait = { finalBitmap ->
-                        SelfiePortraitProcessor.saveCustomPortrait(context, finalBitmap)
-                        StoryAssetLoader.clear()
+                        SelfiePortraitProcessor.saveCustomPortrait(context, finalBitmap, slot)
+                        StoryAssetLoader.clearSlot(slot)
                         customPortraitBitmap = finalBitmap.asImageBitmap()
                         hasCustomPortrait = true
                         showFilterDialog = false
@@ -643,8 +646,8 @@ fun CharacterCreationScreen(
                                     .background(RetroBlack)
                                     .border(1.dp, Color.Gray, RoundedCornerShape(6.dp))
                                     .clickable {
-                                        SelfiePortraitProcessor.deleteCustomPortrait(context)
-                                        StoryAssetLoader.clear()
+                                        SelfiePortraitProcessor.deleteCustomPortrait(context, slot)
+                                        StoryAssetLoader.clearSlot(slot)
                                         customPortraitBitmap = defaultHeroBitmap
                                         hasCustomPortrait = false
                                     }

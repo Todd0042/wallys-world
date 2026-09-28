@@ -85,6 +85,39 @@ class CharacterNameInterpolationTest {
     }
 
     @Test
+    fun testHeroNameplateDuringNarratorNode() {
+        val vm = createViewModel()
+        val defaultHeroName = GameContent.manifest.defaultHeroName.ifBlank { "Todd" }
+        val player = PlayerCustomization(name = "Jordan", title = "Floor Captain")
+
+        val effectiveHeroName = player.name.ifBlank { defaultHeroName }
+        val effectiveHeroTitle = player.title.ifBlank { GameContent.manifest.defaultHeroTitle.ifBlank { "Freight Supervisor" } }
+
+        val heroSpeaker = (GameContent.heroCharacter?.speaker ?: DialogueSpeaker(
+            id = "hero",
+            name = defaultHeroName,
+            title = effectiveHeroTitle,
+            portraitAsset = "portraits/todd.jpg",
+            themeColor = Color.White
+        )).copy(name = effectiveHeroName, title = effectiveHeroTitle)
+
+        // The bust for the hero on screen during narrator speech must display the custom user name
+        assertEquals("Jordan", heroSpeaker.name)
+        assertEquals("Floor Captain", heroSpeaker.title)
+        assertFalse(heroSpeaker.name.equals("Todd", ignoreCase = true))
+
+        // And verify that formatStoryText replaces any occurrence in narration text
+        val narrationNode = DialogueNode(
+            id = "narrator_test",
+            speaker = DialogueSpeaker.NARRATOR,
+            side = SpeakerSide.CENTER_NARRATOR,
+            text = "Todd steps onto the freight dock as the clock strikes four."
+        )
+        val formattedNarration = vm.formatNodeForPlayer(narrationNode, player)
+        assertEquals("Jordan steps onto the freight dock as the clock strikes four.", formattedNarration.text)
+    }
+
+    @Test
     fun testNoHardcodedToddInStoryNodes() {
         val assetsDir = listOf(
             File("app/src/main/assets/game"),

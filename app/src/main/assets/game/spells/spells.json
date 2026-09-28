@@ -1131,8 +1131,10 @@
       "school": "HOLY",
       "basePower": 0,
       "mpCost": 0,
-      "manaRestorePct": 0.25,
-      "description": "A gentle whisper reminding {hero} of life outside the warehouse. Dispels mental debuffs and restores mana.",
+      "status": "CLEANSE",
+      "cleansesDebuffs": true,
+      "hitsAll": true,
+      "description": "A gentle whisper reminding {hero} of life outside the warehouse. Dispels negative status effects from the fellowship.",
       "exampleChant": "inspiring words!",
       "aliases": [
         "inspiring words",
@@ -1140,7 +1142,9 @@
         "inspiring",
         "inspire",
         "remind me",
-        "whisper"
+        "whisper",
+        "cleanse",
+        "dispel"
       ],
       "graphics": {
         "effectType": "SPARK",

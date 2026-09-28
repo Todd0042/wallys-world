@@ -307,6 +307,7 @@ class MainActivity : ComponentActivity() {
                         GameScreen.CHARACTER_CREATION -> {
                             CharacterCreationScreen(
                                 initialCustomization = storyState.player,
+                                slot = storyState.currentSlot,
                                 speechManager = speechManager,
                                 combatNarrator = combatNarrator,
                                 onBack = {
