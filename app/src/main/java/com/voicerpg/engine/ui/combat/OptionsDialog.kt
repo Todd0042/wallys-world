@@ -48,6 +48,7 @@ fun OptionsDialog(
     isOpen: Boolean,
     isEyesFreeMode: Boolean,
     isNarrationEnabled: Boolean,
+    isAutoPlayEnabled: Boolean = false,
     isCombatNarrationEnabled: Boolean = true,
     isPocketGuardEnabled: Boolean = true,
     isReadChoicesEnabled: Boolean,
@@ -62,6 +63,7 @@ fun OptionsDialog(
     musicVolume: Float = 0.55f,
     onToggleEyesFreeMode: () -> Unit,
     onToggleNarration: () -> Unit,
+    onToggleAutoPlay: () -> Unit = {},
     onToggleCombatNarration: () -> Unit = {},
     onTogglePocketGuard: () -> Unit = {},
     onToggleReadChoices: () -> Unit,
@@ -279,6 +281,18 @@ fun OptionsDialog(
 
                 Spacer(modifier = Modifier.height(8.dp))
 
+                // Toggle: Auto-Play / Story Mode
+                OptionToggleRow(
+                    title = "🤖 Auto-Play / Story Mode",
+                    subtitle = "Phone automatically reads story, picks choices hands-free, and executes combat turns across any save slot.",
+                    voiceHint = "Voice command: \"Auto Play\" or \"Story Mode\"",
+                    checked = isAutoPlayEnabled,
+                    activeColor = Color(0xFFBA68C8),
+                    onCheckedChange = { onToggleAutoPlay() }
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
                 // Toggle: Read Combat Actions Aloud
                 OptionToggleRow(
                     title = "⚔️ Read Combat Actions Aloud",
@@ -376,10 +390,10 @@ fun OptionsDialog(
                             horizontalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
                             listOf(
-                                1.05f to "1.05x Slow",
-                                1.25f to "1.25x Normal",
-                                1.50f to "1.50x Fast",
-                                1.75f to "1.75x Rapid"
+                                0.85f to "0.85x Slow",
+                                1.05f to "1.05x Normal",
+                                1.25f to "1.25x Fast",
+                                1.50f to "1.50x Rapid"
                             ).forEach { (rate, label) ->
                                 val isSelected = kotlin.math.abs(speechRate - rate) < 0.08f
                                 Box(

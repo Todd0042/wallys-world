@@ -94,18 +94,22 @@ data class GameSaveData(
     // 6. User Accessibility & Audio Options
     val isEyesFreeMode: Boolean = false,
     val isAutoListen: Boolean = false,
+    val isAutoPlayEnabled: Boolean = false,
     val isChimeMuted: Boolean = true,
     val isNarrationEnabled: Boolean = true,
     val isCombatNarrationEnabled: Boolean = true,
     val isPocketGuardEnabled: Boolean = true,
     val isReadChoicesEnabled: Boolean = true,
     val isAutoReadHubChoices: Boolean = true,
-    val speechRate: Float = 1.25f,
+    val speechRate: Float = 1.05f,
     val isCharacterPitchEnabled: Boolean = true,
     val isSpeakerAttributionEnabled: Boolean = true,
     val isMusicEnabled: Boolean = true,
     val musicVolume: Float = 0.55f,
 
     // 7. Per-speaker TTS voice assignments (installed Android voice model names keyed by speaker id)
-    val voiceAssignments: Map<String, String> = emptyMap()
+    val voiceAssignments: Map<String, String> = emptyMap(),
+
+    // 8. Dynamic Simulation & Metric Tracking (Data-driven and opt-in per game)
+    val dynamicMetrics: Map<String, Float> = emptyMap()
 )

@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.voicerpg.engine.audio.CombatNarrator
 import com.voicerpg.engine.audio.SpeechManager
 import com.voicerpg.engine.content.GameContent
+import com.voicerpg.engine.engine.IncidentManager
 import com.voicerpg.engine.engine.IntentParser
 import com.voicerpg.engine.engine.SaveManager
 import com.voicerpg.engine.engine.QuestRecap
@@ -21,11 +22,14 @@ import com.voicerpg.engine.model.GameScreen
 import com.voicerpg.engine.model.MetaCommand
 import com.voicerpg.engine.model.PartyMember
 import com.voicerpg.engine.model.PlayerCustomization
+import com.voicerpg.engine.ui.story.StoryAssetLoader
 import com.voicerpg.engine.model.SaveSlotInfo
 import com.voicerpg.engine.model.SaveSummary
-import com.voicerpg.engine.ui.story.StoryAssetLoader
 import com.voicerpg.engine.model.SavedCharacterStats
 import com.voicerpg.engine.model.StoryScene
+import com.voicerpg.engine.model.MiniGameConfig
+import com.voicerpg.engine.model.MiniGameOutcome
+import com.voicerpg.engine.engine.MiniGameSimulator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -59,7 +63,11 @@ data class StoryState(
     val isBacklogRecapActive: Boolean = true,
     val isNewGameFlow: Boolean = false,
     val isPureStoryMode: Boolean = false,
-    val isStoryAutoPlayPaused: Boolean = false
+    val isStoryAutoPlayPaused: Boolean = false,
+    val dynamicMetrics: Map<String, Float> = emptyMap(),
+    val activeHubNodeId: String? = null,
+    val activeMiniGameConfig: MiniGameConfig? = null,
+    val isMiniGameTestMenuOpen: Boolean = false
 )
 
 class StoryViewModel(
@@ -153,11 +161,16 @@ class StoryViewModel(
         return false
     }
 
-    fun formatStoryText(rawText: String, playerName: String, playerTitle: String = ""): String {
+    fun formatStoryText(
+        rawText: String,
+        playerName: String,
+        playerTitle: String = "",
+        metrics: Map<String, Float> = emptyMap()
+    ): String {
         if (rawText.isBlank()) return rawText
-        val defaultName = GameContent.manifest.defaultHeroName.ifBlank { "Todd" }
+        val defaultName = GameContent.manifest.defaultHeroName.ifBlank { "Hero" }
         val effectiveName = playerName.ifBlank { defaultName }
-        val effectiveTitle = playerTitle.ifBlank { GameContent.manifest.defaultHeroTitle.ifBlank { "Freight Supervisor" } }
+        val effectiveTitle = playerTitle.ifBlank { GameContent.manifest.defaultHeroTitle.ifBlank { "Adventurer" } }
 
         var result = rawText
             .replace("{hero}", effectiveName)
@@ -173,8 +186,23 @@ class StoryViewModel(
             .replace("{heroName}'s", "$effectiveName's")
             .replace("{player}'s", "$effectiveName's")
 
-        // If player has a custom name different from defaultName (e.g. not Todd), replace any leftover defaultName references
-        if (!effectiveName.equals(defaultName, ignoreCase = true)) {
+        // Dynamic metric token replacement if metrics are present
+        if (metrics.isNotEmpty() || GameContent.metrics.isNotEmpty()) {
+            for ((metricId, metricVal) in metrics) {
+                if (result.contains("{$metricId}")) {
+                    result = result.replace("{$metricId}", "${metricVal.toInt()}%")
+                }
+            }
+            for (metric in GameContent.metrics.values) {
+                if (result.contains("{${metric.id}}")) {
+                    val valNum = metrics[metric.id] ?: metric.initialValue
+                    result = result.replace("{${metric.id}}", "${valNum.toInt()}%")
+                }
+            }
+        }
+
+        // If player has a custom name different from defaultName, replace any leftover defaultName references
+        if (!effectiveName.equals(defaultName, ignoreCase = true) && !defaultName.contains("{")) {
             result = result.replace(Regex("\\b${Regex.escape(defaultName)}'s\\b", RegexOption.IGNORE_CASE), "$effectiveName's")
             result = result.replace(Regex("\\b${Regex.escape(defaultName)}'\\b", RegexOption.IGNORE_CASE), "$effectiveName'")
             result = result.replace(Regex("\\b${Regex.escape(defaultName)}\\b", RegexOption.IGNORE_CASE), effectiveName)
@@ -183,12 +211,16 @@ class StoryViewModel(
         return result
     }
 
-    fun formatNodeForPlayer(node: DialogueNode, player: PlayerCustomization): DialogueNode {
-        val defaultHeroName = GameContent.manifest.defaultHeroName.ifBlank { "Todd" }
+    fun formatNodeForPlayer(
+        node: DialogueNode,
+        player: PlayerCustomization,
+        metrics: Map<String, Float> = emptyMap()
+    ): DialogueNode {
+        val defaultHeroName = GameContent.manifest.defaultHeroName.ifBlank { "Hero" }
         val effectiveName = player.name.ifBlank { defaultHeroName }
-        val effectiveTitle = player.title.ifBlank { GameContent.manifest.defaultHeroTitle.ifBlank { "Freight Supervisor" } }
+        val effectiveTitle = player.title.ifBlank { GameContent.manifest.defaultHeroTitle.ifBlank { "Adventurer" } }
 
-        val isHero = node.speaker.id in setOf("hero", "todd_shop", "todd") ||
+        val isHero = node.speaker.id in setOf("hero", "player") ||
                 node.speaker == GameContent.heroCharacter?.speaker ||
                 node.speaker.name.equals(defaultHeroName, ignoreCase = true)
 
@@ -201,12 +233,12 @@ class StoryViewModel(
             node.speaker
         }
 
-        val formattedText = formatStoryText(node.text, effectiveName, effectiveTitle)
-        val formattedRevisit = node.revisitText?.let { formatStoryText(it, effectiveName, effectiveTitle) }
+        val formattedText = formatStoryText(node.text, effectiveName, effectiveTitle, metrics)
+        val formattedRevisit = node.revisitText?.let { formatStoryText(it, effectiveName, effectiveTitle, metrics) }
         val formattedChoices = node.choices.map { choice ->
             choice.copy(
-                text = formatStoryText(choice.text, effectiveName, effectiveTitle),
-                voiceKeywords = choice.voiceKeywords.map { formatStoryText(it, effectiveName, effectiveTitle) }
+                text = formatStoryText(choice.text, effectiveName, effectiveTitle, metrics),
+                voiceKeywords = choice.voiceKeywords.map { formatStoryText(it, effectiveName, effectiveTitle, metrics) }
             )
         }
 
@@ -234,6 +266,7 @@ class StoryViewModel(
         val node = _state.value.currentNode
         if (effectiveDialogueChoices(node).isNotEmpty()) return false
         if (node.triggerBattleEncounterId != null) return false
+        if (node.triggerMiniGameId != null) return true
         if (node.choices.isNotEmpty()) return true
         if (node.nextNodeId != null) return StoryScript.ALL_NODES.containsKey(node.nextNodeId)
         // Terminal node (no choices, no next): the playthrough is complete or a dead end.
@@ -300,6 +333,15 @@ class StoryViewModel(
         } else {
             cancelPendingStoryMode()
         }
+        persistCurrentState()
+    }
+
+    fun toggleAutoPlay(): Boolean {
+        val willEnable = !_state.value.isPureStoryMode
+        setPureStoryMode(willEnable)
+        val msg = if (willEnable) "Auto play enabled." else "Auto play disabled."
+        combatNarrator.speak(msg, force = true)
+        return willEnable
     }
 
     fun toggleStoryAutoPlayPause(): Boolean {
@@ -345,8 +387,10 @@ class StoryViewModel(
         } else {
             saveManager.deleteSave(storySlot)
             val manifest = GameContent.manifest
-            val defaultName = manifest.defaultHeroName.ifBlank { "Todd" }
-            val defaultTitle = manifest.defaultHeroTitle.ifBlank { "Freight Supervisor" }
+            val defaultName = manifest.defaultHeroName.ifBlank { "Hero" }
+            val defaultTitle = manifest.defaultHeroTitle.ifBlank { "The Awakened Hero" }
+            val defaultPlayer = PlayerCustomization(name = defaultName, title = defaultTitle)
+            saveManager.createInitialSave(defaultPlayer, storySlot)
             saveManager.currentSlot = storySlot
             StoryAssetLoader.activeSlot = storySlot
             _state.value = _state.value.copy(
@@ -356,7 +400,7 @@ class StoryViewModel(
                 currentSlot = storySlot,
                 isPureStoryMode = true,
                 isStoryAutoPlayPaused = false,
-                player = PlayerCustomization(name = defaultName, title = defaultTitle)
+                player = defaultPlayer
             )
         }
     }
@@ -478,11 +522,14 @@ class StoryViewModel(
     /**
      * Resumes a game save from the Title Screen. Defaults to the active slot.
      */
-    fun continueGame(slot: Int? = null) {
+    fun continueGame(slot: Int? = null, startInAutoPlay: Boolean = false) {
         val targetSlot = if (slot == SaveManager.STORY_MODE_SLOT) SaveManager.STORY_MODE_SLOT else (slot ?: _state.value.currentSlot).coerceIn(1, SaveManager.MAX_SLOTS)
         saveManager.currentSlot = targetSlot
         StoryAssetLoader.activeSlot = targetSlot
         val existingSave = saveManager.load(targetSlot) ?: return
+        if (startInAutoPlay && !existingSave.isAutoPlayEnabled) {
+            saveManager.save(existingSave.copy(isAutoPlayEnabled = true), targetSlot)
+        }
         val restoredScene = StoryScript.ALL_SCENES[existingSave.currentSceneId] ?: StoryScript.INITIAL_SCENE
         val rawRestoredNode = StoryScript.ALL_NODES[existingSave.currentNodeId] ?: StoryScript.INITIAL_NODE
         val baseRestoredNode = resolveEffectiveHubNode(rawRestoredNode, existingSave.narrativeFlags)
@@ -517,10 +564,10 @@ class StoryViewModel(
             )
         }
 
-        val isStoryMode = targetSlot == SaveManager.STORY_MODE_SLOT
+        val isStoryMode = startInAutoPlay || existingSave.isAutoPlayEnabled || (targetSlot == SaveManager.STORY_MODE_SLOT)
         _state.value = _state.value.copy(
             currentScene = restoredScene,
-            currentNode = formatNodeForPlayer(restoredNode, existingSave.player),
+            currentNode = formatNodeForPlayer(restoredNode, existingSave.player, existingSave.dynamicMetrics),
             gameScreen = GameScreen.STORY_EXPLORATION,
             previousScreen = null,
             player = existingSave.player,
@@ -536,7 +583,8 @@ class StoryViewModel(
             saveSlots = saveManager.getAllSlotInfos(),
             dialogueHistory = restoredHistory,
             isPureStoryMode = isStoryMode,
-            isStoryAutoPlayPaused = false
+            isStoryAutoPlayPaused = false,
+            dynamicMetrics = existingSave.dynamicMetrics
         )
         combatNarrator.setEyesFreeMode(existingSave.isEyesFreeMode, lockGuard = false)
         combatNarrator.setPocketGuardEnabled(existingSave.isPocketGuardEnabled)
@@ -554,6 +602,9 @@ class StoryViewModel(
         musicManager?.setVolume(existingSave.musicVolume)
         musicManager?.playTrack(restoredScene.musicAsset)
         narrateCurrentNode()
+        if (isStoryMode) {
+            scheduleStoryModeNextStep(_state.value.currentNode, delayMs = 1200L)
+        }
     }
 
     /**
@@ -613,11 +664,11 @@ class StoryViewModel(
         combatNarrator.stop()
         speechManager.cancel()
         val manifest = GameContent.manifest
-        val defaultName = manifest.defaultHeroName.ifBlank { "Todd" }
-        val defaultTitle = manifest.defaultHeroTitle.ifBlank { "Freight Supervisor" }
+        val defaultName = manifest.defaultHeroName.ifBlank { "Hero" }
+        val defaultTitle = manifest.defaultHeroTitle.ifBlank { "The Awakened Hero" }
         StoryAssetLoader.activeSlot = targetSlot
         _state.value = _state.value.copy(
-            gameScreen = GameScreen.CHARACTER_CREATION,
+            gameScreen = GameScreen.AUDIO_SETUP,
             previousScreen = GameScreen.TITLE,
             isNewGameFlow = true,
             currentSlot = targetSlot,
@@ -712,7 +763,8 @@ class StoryViewModel(
             saveSlots = saveManager.getAllSlotInfos(),
             dialogueHistory = listOf(initialEntry),
             isPureStoryMode = isStoryMode,
-            isStoryAutoPlayPaused = false
+            isStoryAutoPlayPaused = false,
+            dynamicMetrics = GameContent.metrics.values.associate { it.id to it.initialValue }
         )
         musicManager?.playTrack(initialScene.musicAsset)
         persistCurrentState()
@@ -796,6 +848,11 @@ class StoryViewModel(
             return
         }
 
+        if (node.triggerMiniGameId != null) {
+            triggerMiniGame(node.triggerMiniGameId)
+            return
+        }
+
         val nextId = node.nextNodeId
         if (nextId != null) {
             val nextNode = StoryScript.ALL_NODES[nextId]
@@ -831,16 +888,65 @@ class StoryViewModel(
         val nextNode = StoryScript.ALL_NODES[choice.nextNodeId]
         if (nextNode != null) {
             val updatedDecisions = _state.value.decisionsMade + choice.id
+            var currentMetrics = _state.value.dynamicMetrics
+            if (choice.metricDeltas.isNotEmpty() && GameContent.metrics.isNotEmpty()) {
+                val updated = currentMetrics.toMutableMap()
+                for ((metricId, delta) in choice.metricDeltas) {
+                    val def = GameContent.metrics[metricId]
+                    val currVal = updated[metricId] ?: def?.initialValue ?: 0f
+                    val clamped = if (def != null) (currVal + delta).coerceIn(def.minValue, def.maxValue) else currVal + delta
+                    updated[metricId] = clamped
+                }
+                currentMetrics = updated
+            }
             if (choice.completionFlag != null && _state.value.narrativeFlags[choice.completionFlag] != true) {
                 _state.value = _state.value.copy(
                     narrativeFlags = _state.value.narrativeFlags + (choice.completionFlag to true),
-                    decisionsMade = updatedDecisions
+                    decisionsMade = updatedDecisions,
+                    dynamicMetrics = currentMetrics
                 )
             } else {
-                _state.value = _state.value.copy(decisionsMade = updatedDecisions)
+                _state.value = _state.value.copy(decisionsMade = updatedDecisions, dynamicMetrics = currentMetrics)
+            }
+            if (!choice.assignHeroClassId.isNullOrBlank()) {
+                assignHeroClass(choice.assignHeroClassId)
             }
             applyNodeTransition(nextNode)
         }
+    }
+
+    fun assignHeroClass(classId: String) {
+        val heroClass = GameContent.classes.firstOrNull { it.id.equals(classId, ignoreCase = true) } ?: return
+        val starterSpells = GameContent.spellsForClass(heroClass.id)
+
+        val updatedPlayer = _state.value.player.copy(
+            heroClassId = classId,
+            title = heroClass.title.ifBlank { _state.value.player.title },
+            voiceAffinityBonusSchool = heroClass.preferredSchool,
+            customPortraitAsset = if (_state.value.player.customPortraitAsset?.contains("custom") == true) {
+                _state.value.player.customPortraitAsset
+            } else {
+                heroClass.portraitAsset ?: _state.value.player.customPortraitAsset
+            }
+        )
+        val updatedPartyStats = _state.value.partyStats.map { stat ->
+            if (stat.id == "hero") {
+                stat.copy(
+                    loreClass = heroClass.title,
+                    currentHp = heroClass.startingHp,
+                    maxHp = heroClass.startingHp,
+                    currentMp = heroClass.startingMp,
+                    maxMp = heroClass.startingMp,
+                    speed = heroClass.startingSpeed,
+                    spellIds = starterSpells.map { it.id }
+                )
+            } else stat
+        }
+        _state.value = _state.value.copy(
+            player = updatedPlayer,
+            partyStats = updatedPartyStats
+        )
+        persistCurrentState()
     }
 
     private fun applyNodeTransition(newNode: DialogueNode, suppressNarration: Boolean = false) {
@@ -853,6 +959,37 @@ class StoryViewModel(
         var effectiveNode = resolveEffectiveHubNode(newNode, updatedFlags)
         if (effectiveNode.setFlagOnEnter != null && updatedFlags[effectiveNode.setFlagOnEnter] != true) {
             updatedFlags = updatedFlags + (effectiveNode.setFlagOnEnter to true)
+        }
+
+        // Procedural incident check on hub return
+        if (GameContent.incidents.isNotEmpty()) {
+            val isHubNode = effectiveNode.id.endsWith("_hub") || effectiveNode.hubCompletion != null
+            val isReturningToHub = isHubNode && (effectiveNode.id in _state.value.visitedNodeIds)
+
+            if (isReturningToHub) {
+                if (updatedFlags["incident_just_happened"] == true) {
+                    updatedFlags = updatedFlags + ("incident_just_happened" to false)
+                } else if (effectiveNode.allowIncidents) {
+                    if (kotlin.random.Random.nextFloat() < 0.45f) {
+                        val candidateState = _state.value.copy(narrativeFlags = updatedFlags)
+                        val chosen = IncidentManager.selectRandomIncident(
+                            state = candidateState,
+                            availableIncidents = GameContent.incidents.values
+                        )
+                        if (chosen?.triggerNodeId != null) {
+                            val triggerNode = StoryScript.ALL_NODES[chosen.triggerNodeId]
+                            if (triggerNode != null && triggerNode.id !in _state.value.visitedNodeIds) {
+                                updatedFlags = updatedFlags + ("flag_incident_${chosen.id}_done" to true) + ("incident_just_happened" to true)
+                                effectiveNode = triggerNode
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!effectiveNode.assignHeroClassId.isNullOrBlank()) {
+            assignHeroClass(effectiveNode.assignHeroClassId)
         }
 
         var updatedPartyStats = _state.value.partyStats
@@ -917,12 +1054,28 @@ class StoryViewModel(
         } else {
             effectiveNode.text
         }
+        var currentMetrics = _state.value.dynamicMetrics
+        if (GameContent.metrics.isNotEmpty()) {
+            val updated = currentMetrics.toMutableMap()
+            for ((metricId, overrideVal) in effectiveNode.metricOverrides) {
+                val def = GameContent.metrics[metricId]
+                val clamped = if (def != null) overrideVal.coerceIn(def.minValue, def.maxValue) else overrideVal
+                updated[metricId] = clamped
+            }
+            for ((metricId, delta) in effectiveNode.metricDeltas) {
+                val def = GameContent.metrics[metricId]
+                val currVal = updated[metricId] ?: def?.initialValue ?: 0f
+                val clamped = if (def != null) (currVal + delta).coerceIn(def.minValue, def.maxValue) else currVal + delta
+                updated[metricId] = clamped
+            }
+            currentMetrics = updated
+        }
         val baseNode = if (activeText != effectiveNode.text) {
             effectiveNode.copy(text = activeText)
         } else {
             effectiveNode
         }
-        val displayNode = formatNodeForPlayer(baseNode, _state.value.player)
+        val displayNode = formatNodeForPlayer(baseNode, _state.value.player, currentMetrics)
 
         val updatedVisited = _state.value.visitedNodeIds + newNode.id + effectiveNode.id
 
@@ -942,7 +1095,8 @@ class StoryViewModel(
             narrativeFlags = updatedFlags,
             partyStats = updatedPartyStats,
             dialogueHistory = updatedHistory,
-            visitedNodeIds = updatedVisited
+            visitedNodeIds = updatedVisited,
+            dynamicMetrics = currentMetrics
         )
 
         musicManager?.playTrack(targetScene.musicAsset)
@@ -1068,6 +1222,7 @@ class StoryViewModel(
             isPocketGuardEnabled = combatNarrator.isPocketGuardEnabled.value,
             isCombatNarrationEnabled = combatNarrator.isCombatNarrationEnabled.value,
             isAutoListen = speechManager.isAutoListen.value,
+            isAutoPlayEnabled = s.isPureStoryMode,
             isChimeMuted = speechManager.isChimeMuted.value,
             isNarrationEnabled = combatNarrator.isNarrationEnabled.value,
             isReadChoicesEnabled = combatNarrator.isReadChoicesEnabled.value,
@@ -1077,7 +1232,8 @@ class StoryViewModel(
             isSpeakerAttributionEnabled = combatNarrator.isSpeakerAttributionEnabled.value,
             isMusicEnabled = musicManager?.isMusicEnabled?.value ?: currentSave.isMusicEnabled,
             musicVolume = musicManager?.musicVolume?.value ?: currentSave.musicVolume,
-            voiceAssignments = combatNarrator.getVoiceAssignments()
+            voiceAssignments = combatNarrator.getVoiceAssignments(),
+            dynamicMetrics = s.dynamicMetrics
         )
         saveManager.save(updatedSave, slot)
     }
@@ -1144,6 +1300,117 @@ class StoryViewModel(
             musicManager?.playTrack(com.voicerpg.engine.audio.MusicManager.TRACK_TITLE)
         } else {
             musicManager?.playTrack(com.voicerpg.engine.audio.MusicManager.TRACK_EXPLORATION)
+        }
+    }
+
+    fun openAssetViewer() {
+        cancelPendingAutoAdvance()
+        cancelPendingStoryMode()
+        combatNarrator.stop()
+        speechManager.cancel()
+        _state.value = _state.value.copy(
+            previousScreen = _state.value.gameScreen,
+            gameScreen = GameScreen.ASSET_VIEWER
+        )
+    }
+
+    fun returnFromAssetViewer() {
+        val rawTarget = _state.value.previousScreen
+        val returnTarget = if (rawTarget == null || rawTarget == GameScreen.ASSET_VIEWER) {
+            GameScreen.TITLE
+        } else {
+            rawTarget
+        }
+        _state.value = _state.value.copy(
+            previousScreen = null,
+            gameScreen = returnTarget
+        )
+        if (returnTarget == GameScreen.TITLE) {
+            musicManager?.playTrack(com.voicerpg.engine.audio.MusicManager.TRACK_TITLE)
+        } else if (returnTarget == GameScreen.STORY_EXPLORATION) {
+            musicManager?.playTrack(_state.value.currentScene.musicAsset)
+        }
+    }
+
+    fun openMiniGameTestMenu() {
+        _state.value = _state.value.copy(isMiniGameTestMenuOpen = true)
+    }
+
+    fun closeMiniGameTestMenu() {
+        _state.value = _state.value.copy(isMiniGameTestMenuOpen = false)
+    }
+
+    fun triggerMiniGame(miniGameId: String) {
+        cancelPendingAutoAdvance()
+        cancelPendingStoryMode()
+        val config = GameContent.minigameById(miniGameId) ?: MiniGameConfig(
+            id = miniGameId,
+            title = miniGameId.replace('_', ' ').replaceFirstChar { it.uppercase() }
+        )
+        if (_state.value.isPureStoryMode) {
+            val outcome = MiniGameSimulator.simulate(
+                config = config,
+                skillModifier = 1.0f,
+                fatigueModifier = 1.0f
+            )
+            onMiniGameFinished(outcome)
+        } else {
+            speechManager.cancel()
+            combatNarrator.stop()
+            val prev = _state.value.gameScreen
+            _state.value = _state.value.copy(
+                gameScreen = GameScreen.MINI_GAME,
+                previousScreen = prev,
+                activeMiniGameConfig = config,
+                isMiniGameTestMenuOpen = false
+            )
+        }
+    }
+
+    fun onSkipMiniGame() {
+        val config = _state.value.activeMiniGameConfig ?: MiniGameConfig(id = "minigame", title = "Mini-Game")
+        val outcome = MiniGameSimulator.simulate(
+            config = config,
+            skillModifier = 1.0f,
+            fatigueModifier = 1.0f
+        )
+        onMiniGameFinished(outcome)
+    }
+
+    fun onMiniGameFinished(outcome: MiniGameOutcome) {
+        cancelPendingAutoAdvance()
+        cancelPendingStoryMode()
+
+        if (_state.value.previousScreen == GameScreen.TITLE) {
+            _state.value = _state.value.copy(
+                gameScreen = GameScreen.TITLE,
+                previousScreen = null,
+                activeMiniGameConfig = null,
+                isMiniGameTestMenuOpen = false
+            )
+            return
+        }
+
+        val lastNode = _state.value.currentNode
+        val updatedMetrics = _state.value.dynamicMetrics.toMutableMap()
+        outcome.metricDeltas.forEach { (k, v) ->
+            val cur = updatedMetrics[k] ?: 50f
+            updatedMetrics[k] = (cur + v).coerceIn(0f, 100f)
+        }
+
+        _state.value = _state.value.copy(
+            gameScreen = GameScreen.STORY_EXPLORATION,
+            previousScreen = null,
+            activeMiniGameConfig = null,
+            dynamicMetrics = updatedMetrics
+        )
+
+        val nextNodeId = lastNode.nextNodeId
+        if (!nextNodeId.isNullOrBlank()) {
+            val nextNode = GameContent.nodes[nextNodeId]
+            if (nextNode != null) {
+                applyNodeTransition(nextNode)
+            }
         }
     }
 
@@ -1326,6 +1593,30 @@ class StoryViewModel(
                     onOpenOptions?.invoke()
                     return
                 }
+                lower.contains("asset viewer") || lower.contains("gallery") || lower.contains("jukebox") || lower.contains("music player") || lower.contains("view assets") || lower.contains("soundtrack") -> {
+                    openAssetViewer()
+                    return
+                }
+                lower.contains("test minigame") || lower.contains("test minigames") || lower.contains("arcade") || lower.contains("minigames") || lower.contains("mini game") -> {
+                    if (GameContent.minigames.isNotEmpty()) {
+                        openMiniGameTestMenu()
+                    }
+                    return
+                }
+                _state.value.isMiniGameTestMenuOpen && (lower.contains("close") || lower.contains("cancel") || lower.contains("back")) -> {
+                    closeMiniGameTestMenu()
+                    return
+                }
+                else -> {
+                    if (_state.value.isMiniGameTestMenuOpen && GameContent.minigames.isNotEmpty()) {
+                        for (mg in GameContent.minigames.values) {
+                            if (lower.contains(mg.id.lowercase()) || lower.contains(mg.title.lowercase())) {
+                                triggerMiniGame(mg.id)
+                                return
+                            }
+                        }
+                    }
+                }
             }
             return
         }
@@ -1470,9 +1761,9 @@ class StoryViewModel(
             MetaCommand.SPEED_UP_NARRATION -> {
                 val current = combatNarrator.speechRate.value
                 val next = when {
+                    current < 0.95f -> 1.05f
                     current < 1.15f -> 1.25f
-                    current < 1.35f -> 1.50f
-                    else -> 1.75f
+                    else -> 1.50f
                 }
                 combatNarrator.setSpeechRate(next)
                 persistCurrentState()
@@ -1482,9 +1773,9 @@ class StoryViewModel(
             MetaCommand.SLOW_DOWN_NARRATION -> {
                 val current = combatNarrator.speechRate.value
                 val next = when {
-                    current > 1.60f -> 1.50f
                     current > 1.35f -> 1.25f
-                    else -> 1.05f
+                    current > 1.15f -> 1.05f
+                    else -> 0.85f
                 }
                 combatNarrator.setSpeechRate(next)
                 persistCurrentState()
@@ -1492,9 +1783,9 @@ class StoryViewModel(
                 return
             }
             MetaCommand.RESET_NARRATION_SPEED -> {
-                combatNarrator.setSpeechRate(1.25f)
+                combatNarrator.setSpeechRate(1.05f)
                 persistCurrentState()
-                combatNarrator.speak("Narration speed reset to normal 1.25x.", force = true)
+                combatNarrator.speak("Narration speed reset to normal 1.05x.", force = true)
                 return
             }
             else -> Unit
@@ -1517,6 +1808,15 @@ class StoryViewModel(
         if (node.triggerBattleEncounterId != null) {
             val combatKeywords = listOf("fight", "battle", "attack", "fireball", "commence", "strike", "charge", "to battle", "engage", "slay", "ready", "start", "draw blade")
             if (combatKeywords.any { lower.contains(it) }) {
+                advanceDialogue()
+                return
+            }
+        }
+
+        // 2b. Mini-game trigger command
+        if (node.triggerMiniGameId != null) {
+            val miniGameKeywords = listOf("play", "start", "begin", "ready", "mini game", "game", "go", "action")
+            if (miniGameKeywords.any { lower.contains(it) }) {
                 advanceDialogue()
                 return
             }
