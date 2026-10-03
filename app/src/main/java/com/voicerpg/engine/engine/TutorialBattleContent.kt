@@ -5,6 +5,7 @@ import com.voicerpg.engine.content.GameCharacter
 import com.voicerpg.engine.content.GameContent
 import com.voicerpg.engine.model.DialogueSpeaker
 import com.voicerpg.engine.model.Enemy
+import com.voicerpg.engine.model.SpellCategory
 import com.voicerpg.engine.model.SpellSchool
 
 data class TutorialSpellDef(
@@ -18,7 +19,16 @@ data class TutorialSpellDef(
     val manaRestorePct: Float = 0f,
     val description: String,
     val aliases: List<String> = emptyList()
-)
+) {
+    val category: SpellCategory
+        get() = when {
+            isHeal -> SpellCategory.HEAL
+            manaRestorePct > 0f -> SpellCategory.MANA
+            isGuard || (basePower == 0 && !hitsAll) -> SpellCategory.DEFENSE
+            hitsAll -> SpellCategory.AOE_ATTACK
+            else -> SpellCategory.ATTACK
+        }
+}
 
 data class TutorialCharacterDef(
     val id: String,
@@ -84,9 +94,12 @@ sealed class TutorialBattleStep {
 object TutorialBattleContent {
 
     val CHARACTERS: List<TutorialCharacterDef>
-        get() = GameContent.characters.values
-            .filter { it.combat != null && it.role != com.voicerpg.engine.content.CharacterRole.NARRATOR }
-            .map { it.toTutorialDef() }
+        get() {
+            val hero = GameContent.heroCharacter?.takeIf { it.combat != null }
+            val others = GameContent.characters.values
+                .filter { it.combat != null && it.role != com.voicerpg.engine.content.CharacterRole.NARRATOR && it.id != hero?.id }
+            return listOfNotNull(hero?.toTutorialDef()) + others.map { it.toTutorialDef() }
+        }
 
     private fun GameCharacter.toTutorialDef(): TutorialCharacterDef {
         val combat = combat!!
@@ -231,7 +244,9 @@ object TutorialBattleContent {
             resultText = "In real combat, enemies will strike back on their own turn. Use healing spells, guards, and smart strategy to keep your party alive."
         )
         steps += TutorialBattleStep.CompletionPopup(
-            text = "Well done. You now know the basics of commanding your party. Every spell grows stronger with vivid, dramatic incantation. Your journey awaits."
+            text = GameContent.manifest.tutorialCompletionText.ifBlank {
+                "Well done. You now know the basics of commanding your party. Every spell grows stronger with vivid, dramatic incantation. Your journey awaits."
+            }
         )
         return steps
     }

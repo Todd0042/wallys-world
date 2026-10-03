@@ -161,7 +161,7 @@ class CombatNarrator(
     private val _isAutoReadHubChoices = MutableStateFlow(true)
     val isAutoReadHubChoices: StateFlow<Boolean> = _isAutoReadHubChoices.asStateFlow()
 
-    private val _speechRate = MutableStateFlow(1.05f)
+    private val _speechRate = MutableStateFlow(1.25f)
     val speechRate: StateFlow<Float> = _speechRate.asStateFlow()
 
     private val _isCharacterPitchEnabled = MutableStateFlow(true)

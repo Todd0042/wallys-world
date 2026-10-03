@@ -1515,9 +1515,9 @@ class CombatViewModel(
             MetaCommand.SPEED_UP_NARRATION -> {
                 val current = combatNarrator.speechRate.value
                 val next = when {
-                    current < 0.95f -> 1.05f
                     current < 1.15f -> 1.25f
-                    else -> 1.50f
+                    current < 1.35f -> 1.50f
+                    else -> 1.75f
                 }
                 combatNarrator.setSpeechRate(next)
                 combatNarrator.speak("Narration speed increased to %.2fx.".format(next), force = true) {
@@ -1532,9 +1532,9 @@ class CombatViewModel(
             MetaCommand.SLOW_DOWN_NARRATION -> {
                 val current = combatNarrator.speechRate.value
                 val next = when {
+                    current > 1.60f -> 1.50f
                     current > 1.35f -> 1.25f
-                    current > 1.15f -> 1.05f
-                    else -> 0.85f
+                    else -> 1.05f
                 }
                 combatNarrator.setSpeechRate(next)
                 combatNarrator.speak("Narration speed decreased to %.2fx.".format(next), force = true) {
@@ -1547,8 +1547,8 @@ class CombatViewModel(
                 }
             }
             MetaCommand.RESET_NARRATION_SPEED -> {
-                combatNarrator.setSpeechRate(1.05f)
-                combatNarrator.speak("Narration speed reset to normal 1.05x.", force = true) {
+                combatNarrator.setSpeechRate(1.25f)
+                combatNarrator.speak("Narration speed reset to normal 1.25x.", force = true) {
                     if (_state.value.phase == CombatPhase.PLAYER_INPUT && speechManager.isAutoListen.value) {
                         activeScope.launch {
                             delay(100)

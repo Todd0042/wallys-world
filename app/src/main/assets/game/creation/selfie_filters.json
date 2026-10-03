@@ -42,9 +42,9 @@
     "enabledByDefault": true,
     "label": "📺 CRT Scanlines",
     "description": "Retro surveillance monitor lines",
-    "lineAlpha": 32,
-    "lineSpacing": 3.8,
-    "strokeWidth": 1.8
+    "lineAlpha": 85,
+    "lineSpacing": 6.0,
+    "strokeWidth": 3.0
   },
   "vignette": {
     "enabled": true,

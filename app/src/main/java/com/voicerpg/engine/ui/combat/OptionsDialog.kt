@@ -376,10 +376,10 @@ fun OptionsDialog(
                             horizontalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
                             listOf(
-                                0.85f to "0.85x Slow",
-                                1.05f to "1.05x Normal",
-                                1.25f to "1.25x Fast",
-                                1.50f to "1.50x Rapid"
+                                1.05f to "1.05x Slow",
+                                1.25f to "1.25x Normal",
+                                1.50f to "1.50x Fast",
+                                1.75f to "1.75x Rapid"
                             ).forEach { (rate, label) ->
                                 val isSelected = kotlin.math.abs(speechRate - rate) < 0.08f
                                 Box(

@@ -50,9 +50,9 @@ data class ScanlineConfig(
     val enabledByDefault: Boolean = true,
     val label: String = "Scanlines",
     val description: String = "CRT monitor scanlines",
-    val lineAlpha: Int = 32,
-    val lineSpacing: Float = 3.8f,
-    val strokeWidth: Float = 1.8f
+    val lineAlpha: Int = 85,
+    val lineSpacing: Float = 6.0f,
+    val strokeWidth: Float = 3.0f
 )
 
 data class VignetteConfig(
