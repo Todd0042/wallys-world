@@ -51,4 +51,3 @@ Driving `StoryViewModel`/`TutorialBattleViewModel`/`CombatViewModel` in tests th
 
 - Always run the full unit suite: `./gradlew testDebugUnitTest` (must be clean).
 - Compilation of engine code: `./gradlew compileDebugKotlin` (must be clean).
-- GitHub releases / ADB device installs are the **game project's** choice; do not auto-create releases or install without being asked.
