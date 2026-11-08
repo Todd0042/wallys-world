@@ -468,7 +468,7 @@ private fun TutorialCommandDock(
                                 Text(
                                     text = "FREE",
                                     color = Color(0xFF81C784),
-                                    fontSize = 9.sp,
+                                    fontSize = 8.5.sp,
                                     fontWeight = FontWeight.Bold,
                                     fontFamily = FontFamily.Monospace
                                 )
@@ -847,7 +847,7 @@ private fun SpellOverviewPreviewCard(charDef: com.voicerpg.engine.engine.Tutoria
                     Column(modifier = Modifier.weight(1f)) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(5.dp)
+                            horizontalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
                             Text(
                                 text = spell.name,
@@ -856,31 +856,6 @@ private fun SpellOverviewPreviewCard(charDef: com.voicerpg.engine.engine.Tutoria
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.Monospace
                             )
-                            // Category Badge
-                            Box(
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(3.dp))
-                                    .background(spell.category.tagBg)
-                                    .border(0.5.dp, spell.category.tagColor.copy(alpha = 0.7f), RoundedCornerShape(3.dp))
-                                    .padding(horizontal = 3.dp, vertical = 1.dp)
-                            ) {
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(2.dp)
-                                ) {
-                                    Text(
-                                        text = spell.category.icon,
-                                        fontSize = 7.5.sp
-                                    )
-                                    Text(
-                                        text = spell.category.label,
-                                        color = spell.category.tagColor,
-                                        fontSize = 7.sp,
-                                        fontWeight = FontWeight.Black,
-                                        fontFamily = FontFamily.Monospace
-                                    )
-                                }
-                            }
                             Text(
                                 text = "[${spell.school.displayName}]",
                                 color = spell.school.themeColor,

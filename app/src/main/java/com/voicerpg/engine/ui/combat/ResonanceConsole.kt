@@ -398,8 +398,17 @@ fun ResonanceConsole(
             val spells = activePartyMember?.spells ?: emptyList()
             spells.forEach { spell ->
                 val preset = SpellChantPresets.getPreset(spell, selectedTier)
+                val icon = when (spell.school) {
+                    SpellSchool.PYROMANCY -> "🔥"
+                    SpellSchool.CRYOMANCY -> "❄️"
+                    SpellSchool.ELECTROMANCY -> "⚡"
+                    SpellSchool.NATURE -> "🌿"
+                    SpellSchool.HOLY -> if (spell.isHeal) "💚" else "⚔️"
+                    SpellSchool.SHADOW -> "🗡️"
+                    SpellSchool.PHYSICAL -> "🛡️"
+                }
                 ChantChip(
-                    title = "${spell.category.icon} [${spell.category.label}] ${spell.name} [${preset.label.take(4)}]",
+                    title = "$icon ${spell.name} [${preset.label.take(4)}]",
                     chantText = preset.chantText,
                     acousticProfile = preset.acousticProfile,
                     enabled = isInputEnabled,

@@ -59,10 +59,7 @@ data class Spell(
         get() = when {
             isHeal -> SpellCategory.HEAL
             manaRestorePct > 0f -> SpellCategory.MANA
-            isGuard || isCleanse || (basePower == 0 && !hitsAll) ||
-                status?.contains("GUARD", ignoreCase = true) == true ||
-                status?.contains("BARRIER", ignoreCase = true) == true ||
-                status?.contains("DEFENSE", ignoreCase = true) == true -> SpellCategory.DEFENSE
+            isGuard || (basePower == 0 && !hitsAll) -> SpellCategory.DEFENSE
             hitsAll -> SpellCategory.AOE_ATTACK
             else -> SpellCategory.ATTACK
         }
@@ -137,10 +134,21 @@ data class Enemy(
 enum class TargetSelection {
     FIRST_ALIVE_ENEMY,
     SPECIFIC_ENEMY,
+    ORC,
+    ARCHER,
+    SHAMAN,
     ALL_ENEMIES,
     PARTY_LOWEST,
     SELF,
-    SPECIFIC_HERO
+    SPECIFIC_HERO,
+    HERO,
+    CEDRIC,
+    LYRA,
+    ZEPHYR,
+    MARCO,
+    VANCE,
+    KASH,
+    KENNEDY
 }
 
 enum class MetaCommand {
@@ -177,7 +185,10 @@ data class ParsedIntent(
     val rawUtterance: String,
     val targetEnemyId: String? = null,
     val targetHeroId: String? = null,
-    val metaCommand: MetaCommand = MetaCommand.NONE
+    val metaCommand: MetaCommand = MetaCommand.NONE,
+    val isWrongCharacterSpell: Boolean = false,
+    val wrongCharacterOwnerId: String? = null,
+    val wrongCharacterOwnerName: String? = null
 )
 
 /**

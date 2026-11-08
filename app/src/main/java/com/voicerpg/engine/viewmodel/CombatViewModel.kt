@@ -1257,7 +1257,7 @@ class CombatViewModel(
                     else if (lowestAlly != null) "${chosenSpell.name} ${lowestAlly.name}"
                     else chosenSpell.name
                 }
-                chosenSpell.manaRestorePct > 0f -> chosenSpell.exampleChant.ifBlank { chosenSpell.name }
+                chosenSpell.manaRestorePct > 0f -> "attune"
                 chosenSpell.hitsAll -> "${chosenSpell.name} all"
                 aliveEnemy != null -> "${chosenSpell.name} ${aliveEnemy.name}"
                 else -> chosenSpell.name
@@ -1515,9 +1515,9 @@ class CombatViewModel(
             MetaCommand.SPEED_UP_NARRATION -> {
                 val current = combatNarrator.speechRate.value
                 val next = when {
+                    current < 0.95f -> 1.05f
                     current < 1.15f -> 1.25f
-                    current < 1.35f -> 1.50f
-                    else -> 1.75f
+                    else -> 1.50f
                 }
                 combatNarrator.setSpeechRate(next)
                 combatNarrator.speak("Narration speed increased to %.2fx.".format(next), force = true) {
@@ -1532,9 +1532,9 @@ class CombatViewModel(
             MetaCommand.SLOW_DOWN_NARRATION -> {
                 val current = combatNarrator.speechRate.value
                 val next = when {
-                    current > 1.60f -> 1.50f
                     current > 1.35f -> 1.25f
-                    else -> 1.05f
+                    current > 1.15f -> 1.05f
+                    else -> 0.85f
                 }
                 combatNarrator.setSpeechRate(next)
                 combatNarrator.speak("Narration speed decreased to %.2fx.".format(next), force = true) {
@@ -1547,8 +1547,8 @@ class CombatViewModel(
                 }
             }
             MetaCommand.RESET_NARRATION_SPEED -> {
-                combatNarrator.setSpeechRate(1.25f)
-                combatNarrator.speak("Narration speed reset to normal 1.25x.", force = true) {
+                combatNarrator.setSpeechRate(1.05f)
+                combatNarrator.speak("Narration speed reset to normal 1.05x.", force = true) {
                     if (_state.value.phase == CombatPhase.PLAYER_INPUT && speechManager.isAutoListen.value) {
                         activeScope.launch {
                             delay(100)
@@ -1707,8 +1707,7 @@ class CombatViewModel(
         val hasHealSupportKeyword = lower.contains("heal") || lower.contains("mend") || lower.contains("restore") ||
                 lower.contains("cure") || lower.contains("protect") || lower.contains("shield") ||
                 lower.contains("lay on hands") || lower.contains("soothing rain") ||
-                lower.contains("cleanse") || lower.contains("dispel") || lower.contains("purify") ||
-                lower.contains("rub") || lower.contains("backrub") || lower.contains("words") || lower.contains("whisper")
+                lower.contains("cleanse") || lower.contains("dispel") || lower.contains("purify")
         val isSupportSpell = activeHero.spells.any { it.isHeal || it.isGuard || it.cleansesDebuffs || it.isCleanse }
         val isHealSupportForOther = invokedOtherHero != null && isSupportSpell && (
             hasHealSupportKeyword || activeHero.spells.any { spell ->
@@ -2156,8 +2155,6 @@ class CombatViewModel(
         val currentParty = _state.value.party
         val targetsToHeal = resolveHealTargets(caster, spell, target, targetHeroId)
 
-        // Heals are affinity-immune: voice quality alone scales them (plus shallow level potency).
-        // Party-wide heals share the potency: a big spell spread over everyone is tuned down.
         val healAmount = if (spell.basePower > 0) {
             DamageResolver.resolveHeal(
                 spellBasePower = spell.basePower.toFloat(),
@@ -2389,10 +2386,11 @@ class CombatViewModel(
             for (i in 0 until 8) {
                 val dx = (Random.nextFloat() * magnitude * 2f - magnitude)
                 val dy = (Random.nextFloat() * magnitude * 2f - magnitude)
-                _state.value = _state.value.copy(screenShakeOffsetX = dx, screenShakeOffsetY = dy)
+                // Atomic recompute-from-current so concurrent summons/attacks can never be lost to a stale snapshot write.
+                _state.update { it.copy(screenShakeOffsetX = dx, screenShakeOffsetY = dy) }
                 delay(30)
             }
-            _state.value = _state.value.copy(screenShakeOffsetX = 0f, screenShakeOffsetY = 0f)
+            _state.update { it.copy(screenShakeOffsetX = 0f, screenShakeOffsetY = 0f) }
         }
     }
 

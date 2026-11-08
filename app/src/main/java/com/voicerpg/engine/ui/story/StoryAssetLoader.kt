@@ -65,9 +65,9 @@ object StoryAssetLoader {
     var activeSlot: Int = SaveManager.DEFAULT_SLOT
 
     /**
-     * Loads any arbitrary asset path (portraits, title screens).
-     * Not orientation-aware — use [loadBackground] for scene backgrounds.
-     */
+      * Loads any arbitrary asset path (portraits, title screens).
+      * Not orientation-aware — use [loadBackground] for scene backgrounds.
+      */
     fun loadBitmap(context: Context, assetPath: String, slot: Int? = null): ImageBitmap? {
         val targetSlot = slot ?: activeSlot
         val defaultHeroPortrait = GameContent.manifest.defaultHeroPortrait
@@ -83,9 +83,9 @@ object StoryAssetLoader {
     }
 
     /**
-     * Loads raw asset bitmap directly from assets without intercepting for custom hero portraits.
-     * Useful for character creation when showing the default fallback portrait.
-     */
+      * Loads raw asset bitmap directly from assets without intercepting for custom hero portraits.
+      * Useful for character creation when showing the default fallback portrait.
+      */
     fun loadRawAssetBitmap(context: Context, assetPath: String): ImageBitmap? = try {
         val cacheKey = "raw_$assetPath"
         if (bitmapCache.containsKey(cacheKey)) {

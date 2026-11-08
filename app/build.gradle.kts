@@ -90,9 +90,14 @@ dependencies {
     // JSON Serialization for Game Save System
     implementation("com.google.code.gson:gson:2.11.0")
 
-    // ML Kit for Selfie Segmentation & Face Detection
+    // ML Kit for Selfie Segmentation & Face Detection & On-Device Translation
     implementation("com.google.mlkit:segmentation-selfie:16.0.0-beta6")
     implementation("com.google.mlkit:face-detection:16.1.7")
+    implementation("com.google.mlkit:translate:17.0.3")
+
+    // TensorFlow Lite for Neural Stylization
+    implementation("org.tensorflow:tensorflow-lite:2.16.1")
+    implementation("org.tensorflow:tensorflow-lite-support:0.4.4")
 
     // Testing
     testImplementation("junit:junit:4.13.2")

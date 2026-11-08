@@ -3,7 +3,6 @@ package com.voicerpg.engine.viewmodel
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.voicerpg.engine.content.GameContent
 import com.voicerpg.engine.audio.CombatNarrator
 import com.voicerpg.engine.audio.MusicManager
 import com.voicerpg.engine.audio.SfxManager
@@ -223,15 +222,12 @@ class TutorialBattleViewModel(
         if (nextIdx < TutorialBattleContent.STEPS.size) {
             applyStep(nextIdx)
         } else {
-            val completionMsg = GameContent.manifest.tutorialCompletionText.ifBlank {
-                "You have mastered the fundamentals of vocal incantation and party command! Your journey awaits."
-            }
             _state.value = _state.value.copy(
                 isCompleted = true,
                 isModalVisible = true,
                 modalType = ModalCardType.COMPLETION,
                 modalTitle = "TUTORIAL COMPLETE",
-                modalMessage = completionMsg
+                modalMessage = "You have mastered the fundamentals of vocal incantation and fellowship command! The Logos echoes with your power."
             )
         }
     }

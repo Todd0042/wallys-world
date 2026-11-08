@@ -22,11 +22,11 @@ object EnvironmentAssetLoader {
     ): ImageBitmap? {
         val envDef = GameContent.environmentById(environmentId) ?: GameContent.environmentById(environment.name)
         val basePath = envDef?.backgroundAsset?.ifBlank { null } ?: when (environment) {
-            BattleEnvironment.FOREST -> "environments/parking_lot.jpg"
-            BattleEnvironment.CASTLE -> "environments/sales_floor.jpg"
-            BattleEnvironment.DUNGEON -> "environments/trench.jpg"
-            BattleEnvironment.CAVE -> "environments/service_bay.jpg"
-            BattleEnvironment.SWAMP -> "environments/break_room.jpg"
+            BattleEnvironment.FOREST -> "environments/forest.jpg"
+            BattleEnvironment.CASTLE -> "environments/castle.jpg"
+            BattleEnvironment.DUNGEON -> "environments/dungeon.jpg"
+            BattleEnvironment.CAVE -> "environments/cave.jpg"
+            BattleEnvironment.SWAMP -> "environments/swamp.jpg"
         }
 
         val resolvedPath = if (isPortrait) portraitVariantPath(basePath) else basePath

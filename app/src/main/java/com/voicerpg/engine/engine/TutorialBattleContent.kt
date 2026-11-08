@@ -5,7 +5,6 @@ import com.voicerpg.engine.content.GameCharacter
 import com.voicerpg.engine.content.GameContent
 import com.voicerpg.engine.model.DialogueSpeaker
 import com.voicerpg.engine.model.Enemy
-import com.voicerpg.engine.model.SpellCategory
 import com.voicerpg.engine.model.SpellSchool
 
 data class TutorialSpellDef(
@@ -20,13 +19,13 @@ data class TutorialSpellDef(
     val description: String,
     val aliases: List<String> = emptyList()
 ) {
-    val category: SpellCategory
+    val category: com.voicerpg.engine.model.SpellCategory
         get() = when {
-            isHeal -> SpellCategory.HEAL
-            manaRestorePct > 0f -> SpellCategory.MANA
-            isGuard || (basePower == 0 && !hitsAll) -> SpellCategory.DEFENSE
-            hitsAll -> SpellCategory.AOE_ATTACK
-            else -> SpellCategory.ATTACK
+            isHeal -> com.voicerpg.engine.model.SpellCategory.HEAL
+            manaRestorePct > 0f -> com.voicerpg.engine.model.SpellCategory.MANA
+            isGuard || (basePower == 0 && !hitsAll) -> com.voicerpg.engine.model.SpellCategory.DEFENSE
+            hitsAll -> com.voicerpg.engine.model.SpellCategory.AOE_ATTACK
+            else -> com.voicerpg.engine.model.SpellCategory.ATTACK
         }
 }
 
@@ -244,9 +243,7 @@ object TutorialBattleContent {
             resultText = "In real combat, enemies will strike back on their own turn. Use healing spells, guards, and smart strategy to keep your party alive."
         )
         steps += TutorialBattleStep.CompletionPopup(
-            text = GameContent.manifest.tutorialCompletionText.ifBlank {
-                "Well done. You now know the basics of commanding your party. Every spell grows stronger with vivid, dramatic incantation. Your journey awaits."
-            }
+            text = "Well done. You now know the basics of commanding your party. Every spell grows stronger with vivid, dramatic incantation. Your journey awaits."
         )
         return steps
     }
