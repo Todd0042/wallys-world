@@ -142,7 +142,7 @@ Workplace battles adapt the engine's 5 spell categories:
 
 ## 4. Pure Story Mode & Dialogue Auto-Play
 
-Implements the engine's non-blocking auto-play mode in [`StoryScreen.kt`](file:///home/todd/Documents/GitHub/wallys-world/app/src/main/java/com/voicerpg/engine/ui/story/StoryScreen.kt):
+Implements the engine's non-blocking auto-play mode in [`StoryScreen.kt`](app/src/main/java/com/voicerpg/engine/ui/story/StoryScreen.kt):
 - Prompts are automatically selected at branching points when Pure Story Mode is enabled.
 - Combat encounters can be toggled to auto-resolve or prompt for quick voice shouts.
 
@@ -150,7 +150,7 @@ Implements the engine's non-blocking auto-play mode in [`StoryScreen.kt`](file:/
 
 ## 5. Audio Setup Wizard Bypass & Fast Character Flow
 
-Wally's World streamlines game onboarding by bypassing legacy audio diagnostic wizards and taking players straight to character creation in [`AssociateBadgeScreen`](file:///home/todd/Documents/GitHub/wallys-world/app/src/main/java/com/voicerpg/engine/ui/creation/CharacterCreationScreen.kt).
+Wally's World streamlines game onboarding by bypassing legacy audio diagnostic wizards and taking players straight to character creation in [`AssociateBadgeScreen`](app/src/main/java/com/voicerpg/engine/ui/creation/CharacterCreationScreen.kt).
 
 ---
 
