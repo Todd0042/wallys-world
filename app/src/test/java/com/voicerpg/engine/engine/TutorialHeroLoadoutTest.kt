@@ -44,18 +44,6 @@ class TutorialHeroLoadoutTest {
             heroChar.speaker.name,
             firstTutorialChar.name
         )
-
-        // Specifically guard against loading Adriana before Todd
-        assertNotEquals(
-            "Tutorial must not load Adriana as the primary hero",
-            "adriana",
-            firstTutorialChar.id.lowercase()
-        )
-        assertNotEquals(
-            "Tutorial must not load Adriana as the primary hero",
-            "Adriana",
-            firstTutorialChar.name
-        )
     }
 
     @Test

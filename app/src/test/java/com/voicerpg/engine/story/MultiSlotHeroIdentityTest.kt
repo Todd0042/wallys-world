@@ -59,69 +59,69 @@ class MultiSlotHeroIdentityTest {
     fun testFourSavesMaintainIndependentHeroIdentities() {
         val vm = createViewModel()
 
-        // 1. Create save in Slot 1 ("Todd")
+        // 1. Create save in Slot 1
         val player1 = PlayerCustomization(
-            name = "Todd",
-            title = "Freight Supervisor",
+            name = "HeroOne",
+            title = "Paladin",
             customPortraitAsset = SelfiePortraitProcessor.getCustomPortraitFilename(1)
         )
         vm.startNewGame(player1, slot = 1)
-        assertEquals("Todd", vm.state.value.player.name)
+        assertEquals("HeroOne", vm.state.value.player.name)
         assertEquals("custom_hero_portrait_slot_1.jpg", vm.state.value.player.customPortraitAsset)
 
-        // 2. Create save in Slot 2 ("Alex")
+        // 2. Create save in Slot 2
         val player2 = PlayerCustomization(
-            name = "Alex",
-            title = "Floor Captain",
+            name = "HeroTwo",
+            title = "Mage",
             customPortraitAsset = SelfiePortraitProcessor.getCustomPortraitFilename(2)
         )
         vm.startNewGame(player2, slot = 2)
-        assertEquals("Alex", vm.state.value.player.name)
+        assertEquals("HeroTwo", vm.state.value.player.name)
         assertEquals("custom_hero_portrait_slot_2.jpg", vm.state.value.player.customPortraitAsset)
 
-        // 3. Create save in Slot 3 ("Jordan")
+        // 3. Create save in Slot 3
         val player3 = PlayerCustomization(
-            name = "Jordan",
-            title = "Shop Lead",
+            name = "HeroThree",
+            title = "Rogue",
             customPortraitAsset = null // Default portrait
         )
         vm.startNewGame(player3, slot = 3)
-        assertEquals("Jordan", vm.state.value.player.name)
+        assertEquals("HeroThree", vm.state.value.player.name)
         assertEquals(null, vm.state.value.player.customPortraitAsset)
 
-        // 4. Create save in Story Mode Slot (0) ("Skagg")
+        // 4. Create save in Story Mode Slot (0)
         val playerStory = PlayerCustomization(
-            name = "Skagg",
-            title = "Night Associate",
+            name = "HeroStory",
+            title = "Chronicle Seeker",
             customPortraitAsset = SelfiePortraitProcessor.getCustomPortraitFilename(SaveManager.STORY_MODE_SLOT)
         )
         vm.startNewGame(playerStory, slot = SaveManager.STORY_MODE_SLOT)
-        assertEquals("Skagg", vm.state.value.player.name)
+        assertEquals("HeroStory", vm.state.value.player.name)
         assertTrue("Story mode slot must be marked pure story mode", vm.state.value.isPureStoryMode)
         assertEquals("custom_hero_portrait_story.jpg", vm.state.value.player.customPortraitAsset)
 
         // Verify each slot loads independently without contamination
         vm.continueGame(1)
         assertEquals(1, vm.state.value.currentSlot)
-        assertEquals("Todd", vm.state.value.player.name)
+        assertEquals("HeroOne", vm.state.value.player.name)
         assertFalse(vm.state.value.isPureStoryMode)
         assertEquals("custom_hero_portrait_slot_1.jpg", vm.state.value.player.customPortraitAsset)
 
         vm.continueGame(2)
         assertEquals(2, vm.state.value.currentSlot)
-        assertEquals("Alex", vm.state.value.player.name)
+        assertEquals("HeroTwo", vm.state.value.player.name)
         assertFalse(vm.state.value.isPureStoryMode)
         assertEquals("custom_hero_portrait_slot_2.jpg", vm.state.value.player.customPortraitAsset)
 
         vm.continueGame(3)
         assertEquals(3, vm.state.value.currentSlot)
-        assertEquals("Jordan", vm.state.value.player.name)
+        assertEquals("HeroThree", vm.state.value.player.name)
         assertFalse(vm.state.value.isPureStoryMode)
         assertEquals(null, vm.state.value.player.customPortraitAsset)
 
         vm.continueGame(SaveManager.STORY_MODE_SLOT)
         assertEquals(SaveManager.STORY_MODE_SLOT, vm.state.value.currentSlot)
-        assertEquals("Skagg", vm.state.value.player.name)
+        assertEquals("HeroStory", vm.state.value.player.name)
         assertTrue(vm.state.value.isPureStoryMode)
         assertEquals("custom_hero_portrait_story.jpg", vm.state.value.player.customPortraitAsset)
     }
@@ -140,14 +140,14 @@ class MultiSlotHeroIdentityTest {
 
         // Player confirms their custom character in Pure Story Mode
         val customStoryHero = PlayerCustomization(
-            name = "Wally",
-            title = "Store Manager",
+            name = "HeroWanderer",
+            title = "Chronicle Seeker",
             customPortraitAsset = SelfiePortraitProcessor.getCustomPortraitFilename(SaveManager.STORY_MODE_SLOT)
         )
         vm.startNewGame(customStoryHero, slot = SaveManager.STORY_MODE_SLOT)
 
         assertEquals("Must navigate to STORY_EXPLORATION", GameScreen.STORY_EXPLORATION, vm.state.value.gameScreen)
-        assertEquals("Wally", vm.state.value.player.name)
+        assertEquals("HeroWanderer", vm.state.value.player.name)
         assertEquals(SaveManager.STORY_MODE_SLOT, vm.state.value.currentSlot)
         assertTrue("Pure story mode must remain active after character creation", vm.state.value.isPureStoryMode)
 
@@ -163,7 +163,7 @@ class MultiSlotHeroIdentityTest {
         val vm = createViewModel()
 
         // Create an existing story mode save
-        val player = PlayerCustomization(name = "AutoHero", title = "Overnight Lead")
+        val player = PlayerCustomization(name = "AutoHero", title = "Seeker")
         vm.startNewGame(player, slot = SaveManager.STORY_MODE_SLOT)
         assertEquals(GameScreen.STORY_EXPLORATION, vm.state.value.gameScreen)
 

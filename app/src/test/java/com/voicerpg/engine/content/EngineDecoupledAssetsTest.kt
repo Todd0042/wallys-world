@@ -68,14 +68,13 @@ class EngineDecoupledAssetsTest {
             assertTrue("Portrait asset '$portraitPath' must exist on disk", portraitFile.exists())
         }
 
-        // Test alias resolution
-        val trenchByAlias = GameContent.environmentById("dungeon")
-        assertNotNull("Environment should resolve by alias 'dungeon'", trenchByAlias)
-        assertEquals("trench", trenchByAlias?.id)
-
-        val salesFloorByAlias = GameContent.environmentById("castle")
-        assertNotNull("Environment should resolve by alias 'castle'", salesFloorByAlias)
-        assertEquals("sales_floor", salesFloorByAlias?.id)
+        // Every declared alias resolves to its environment (case-insensitive), whatever the game declares.
+        for ((id, env) in pack.environments) {
+            for (alias in env.aliases) {
+                assertEquals("Alias '$alias' must resolve to '$id'", id, GameContent.environmentById(alias)?.id)
+                assertEquals("Alias '${alias.uppercase()}' must resolve to '$id'", id, GameContent.environmentById(alias.uppercase())?.id)
+            }
+        }
     }
 
     @Test
@@ -100,9 +99,9 @@ class EngineDecoupledAssetsTest {
         val pyromancyFlesh = AffinityTable.affinity(School.PYROMANCY, EnemyFamily.FLESH)
         assertEquals(1.2f, pyromancyFlesh, 0.001f)
 
-        val line = AffinityTable.narrationLine(School.PYROMANCY, "Freight Wall", 1.5f)
+        val line = AffinityTable.narrationLine(School.PYROMANCY, "Practice Dummy", 1.5f)
         assertNotNull("Narration line should be generated", line)
-        assertTrue("Narration line must contain enemy name", line!!.contains("Freight Wall"))
+        assertTrue("Narration line must contain enemy name", line!!.contains("Practice Dummy"))
         assertTrue("Narration line must contain school name", line.contains("pyromancy"))
     }
 
@@ -124,6 +123,38 @@ class EngineDecoupledAssetsTest {
         assertTrue("Encounters must not be empty", pack.encounters.isNotEmpty())
         for ((_, enc) in pack.encounters) {
             assertTrue("Encounter '${enc.id}' must have an environmentId", enc.environmentId.isNotBlank())
+        }
+    }
+
+    @Test
+    fun testEnemyMovesetsAndSpritesDecoupled() {
+        val pack = loadPack()
+        assertTrue("Enemy movesets should not be empty", pack.enemyMovesets.isNotEmpty())
+        assertTrue("Enemy sprites should not be empty", pack.enemySprites.isNotEmpty())
+
+        // Verify construct bruiser moveset loaded
+        val bruiserMoveset = GameContent.movesetById("construct_bruiser")
+        assertNotNull("construct_bruiser moveset must exist", bruiserMoveset)
+        assertTrue("construct_bruiser moveset must have moves", bruiserMoveset!!.moves.isNotEmpty())
+
+        // Verify enemy sprite loaded
+        val dummySprite = GameContent.enemySpriteById("practice_dummy")
+        assertNotNull("practice_dummy sprite must exist", dummySprite)
+        assertTrue("practice_dummy must have idleUpright frame", dummySprite!!.idleUpright.isNotEmpty())
+    }
+
+    @Test
+    fun testHeroEmbeddedSpriteAndSpells() {
+        loadPack()
+        val hero = GameContent.characterById("hero")
+        assertNotNull("Hero must exist", hero)
+        assertNotNull("Hero embedded sprite must exist", hero?.sprite)
+        assertTrue("Hero sprite must have idleUpright frame", hero!!.sprite!!.idleUpright.isNotEmpty())
+        assertNotNull("Hero combat must exist", hero.combat)
+        assertTrue("Hero combat spells must not be empty", hero.combat!!.spells.isNotEmpty())
+        for (spell in hero.combat!!.spells) {
+            assertTrue("Hero spell ids must not be blank", spell.id.isNotBlank())
+            assertTrue("Hero spell '${spell.id}' must have a name", spell.name.isNotBlank())
         }
     }
 }
