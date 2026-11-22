@@ -1,4 +1,6 @@
-package com.voicerpg.engine.combat
+package com.voicerpg.game.combat
+
+import com.voicerpg.engine.combat.*
 
 import com.voicerpg.engine.audio.SpeechManager
 import com.voicerpg.engine.content.GameContent

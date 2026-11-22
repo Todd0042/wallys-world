@@ -1,4 +1,6 @@
-package com.voicerpg.engine.content
+package com.voicerpg.game.content
+
+import com.voicerpg.engine.content.*
 
 import com.voicerpg.engine.ui.sprites.PixelSpriteData
 import com.voicerpg.engine.ui.sprites.SpriteFrame

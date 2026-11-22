@@ -10,6 +10,8 @@
   "titleBackgroundAsset": "story/squeeze_title.jpg",
   "victoryLine": "Shift complete. You held the line.",
   "defeatLine": "Your team was decisively crushed, but this is retail — corporate policy does not recognize death as an excused absence. Dust off the vest, clock back in, and press on.",
+  "defeatTitle": "💀 CLOCKED OUT (DEFEAT) 💀",
+  "defeatContinueLabel": "PRESS ON (STILL ON THE CLOCK) ➔",
   "defaultHeroName": "Todd",
   "defaultHeroTitle": "Freight Supervisor",
   "quickNames": [

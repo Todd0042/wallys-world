@@ -33,7 +33,7 @@
       "rejuvenate", "verdant", "root", "roots", "canopy", "bloom", "petal",
       "moss", "fern", "blossom", "undergrowth", "bark", "seed", "sprout",
       "wildwood", "pollen", "bramble", "nettle", "willow", "oaken", "earthen",
-      "grow"
+      "grow", "oil"
     ],
     "SHADOW": [
       "umbra", "abyss", "abyssal", "venom", "venomous", "phantom", "whisper",
@@ -45,7 +45,7 @@
       "blade", "cleave", "rend", "slash", "steel", "shatter", "strike",
       "vanguard", "shield", "smash", "pulverize", "bash", "crush", "charge",
       "aegis", "barrier", "attune",
-      "breathe", "push", "hold", "haul", "clear", "grind", "line"
+      "breathe", "push", "hold", "haul", "clear", "grind", "line", "grill"
     ]
   }
 }
