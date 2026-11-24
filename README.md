@@ -9,7 +9,7 @@
 # 🛒 Wally's World: Retail Survival Voice JRPG
 
 [![Version](https://img.shields.io/badge/Version-1.22.0-ff2a85.svg)](https://github.com/Todd0042/wallys-world/releases)
-[![License: PolyForm Noncommercial](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-00f0ff.svg)](LICENSE)
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-00f0ff.svg)](LICENSE)
 [![Platform: Android 8.0+](https://img.shields.io/badge/Platform-Android%208.0%2B%20(API%2026%2B)-3DDC84.svg?logo=android&logoColor=white)](https://developer.android.com)
 [![16 KB Page Size](https://img.shields.io/badge/16%20KB-Compatible-success.svg)](https://developer.android.com/16kb-page-size)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-7F52FF.svg?logo=kotlin&logoColor=white)](https://kotlinlang.org)
@@ -120,7 +120,7 @@ Start playing immediately without lengthy audio calibration screens:
 
 ## 1. Clean Architecture & Framework Integration
 
-Wally's World runs entirely on the open-source **[VoiceRPG Engine](https://github.com/Todd0042/voice-rpg-engine)** framework, cleanly decoupling narrative content from underlying engine subsystems:
+Wally's World runs entirely on the source-available **[VoiceRPG Engine](https://github.com/Todd0042/voice-rpg-engine)** framework, cleanly decoupling narrative content from underlying engine subsystems:
 
 ```
 +-----------------------------------------------------------------------+
@@ -298,7 +298,7 @@ Wally's World includes unit test coverage for retail movesets, choice matching, 
 ---
 
 <p align="center">
-  If you enjoy playing Wally's World, consider supporting open-source development:<br/><br/>
+  If you enjoy playing Wally's World, consider supporting its development:<br/><br/>
   <a href="https://ko-fi.com/todd0042" target="_blank">
     <img src="https://img.shields.io/badge/☕_Support_Wally's_World_on_Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Support on Ko-fi">
   </a>
