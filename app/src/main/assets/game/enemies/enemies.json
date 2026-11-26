@@ -689,7 +689,8 @@
       "xpReward": 760,
       "movesetId": "boss_template",
       "spriteId": "jury_brute",
-      "spriteTint": "#B71C1C"
+      "spriteTint": "#B71C1C",
+      "isBoss": true
     },
     {
       "id": "ownerless_building",

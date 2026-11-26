@@ -8,316 +8,557 @@
   ],
   "party": [
     {
-      "id": "hero", "name": "Todd, Hourly Associate",
+      "id": "hero",
+      "name": "Todd, Hourly Associate",
       "look": "Todd from portraits/todd.jpg in his first years: tired eyes with dark circles, messy brown hair, stubble, the teal Wally's vest with orange piping and a smiley badge over a grey T-shirt, work gloves, jeans and steel-toe boots; a box cutter on a lanyard. Determined slouch of someone on hour nine of an unload.",
       "moves": "charge: plants his feet and breathes through it, shoulders rising; cast: throws a hand forward, a wave of willpower (release=4); attack: Freight Push, shoulder-drives forward as if moving a pallet; ko: drops to one knee, then sits against a box; victory: wipes his forehead, a small tired smile."
     },
     {
-      "id": "todd_shop", "name": "Todd, Shop Manager",
+      "id": "todd_shop",
+      "name": "Todd, Shop Manager",
       "look": "The same Todd years later running the auto service bays: navy mechanic's work shirt with the sleeves rolled, the smiley badge on the chest pocket, grease on the forearms, a heavy pneumatic impact wrench in one hand, a shop rag in the back pocket, steel-toe boots. More confident stance than the associate.",
       "moves": "charge: the impact wrench spins up, sparks at the socket; cast: Volt Snap / Coolant Chill / Bay Heat, points the wrench like a wand and a jet of sparks, coolant or heat shoots out (release=4); attack: Tire Grind, swings a tire iron or rolls a tire into the foe; ko: slumps against a tool chest; victory: spins the wrench and holsters it."
     },
     {
-      "id": "adriana", "name": "Adriana",
+      "id": "adriana",
+      "name": "Adriana",
       "look": "Adriana from portraits/adriana.jpg: long dark wavy hair, warm brown eyes, a tan cardigan over a soft grey top, jeans; calm, grounded posture. Her 'weapon' is steadiness itself: a warm golden shield of light she can raise (Unbroken Aegis) and a coffee mug she never spills.",
       "moves": "charge: hand over heart, eyes closed, golden light gathering; cast: Lifeline Mend / Steady Presence, opens her hands and a warm gold glow flows forward (release=4); attack: Truth Smite, points and a clean beam of light strikes; ko: kneels, still upright; victory: a relieved smile, mug raised."
     },
     {
-      "id": "adriana_inspiration", "name": "Adriana's Inspiration", "variant_of": "adriana",
+      "id": "adriana_inspiration",
+      "name": "Adriana's Inspiration",
+      "variant_of": "adriana",
       "look": "Adriana as she fights beside Todd from far away (36 encounters): a translucent, softly glowing golden version of her, hovering a few pixels above the floor."
     }
   ],
   "families": [
     {
-      "key": "practice_dummy", "name": "Shift Simulator", "placeholder": "practice_dummy",
+      "key": "practice_dummy",
+      "name": "Shift Simulator",
+      "placeholder": "practice_dummy",
       "look": "A battered training mannequin on a wheeled base wearing a teal vest, a laminated 'new hire' card on a lanyard, a blank face with a drawn-on smiley. Used by the voice tutorial.",
       "moves": "attack: rocks forward on its base; death: tips over and rolls away.",
-      "members": [{"id": "practice_dummy"}]
+      "members": [
+        {
+          "id": "practice_dummy"
+        }
+      ]
     },
     {
-      "key": "freight_wall", "name": "The Freight Wall", "placeholder": "freight_brute",
+      "key": "freight_wall",
+      "name": "The Freight Wall",
+      "placeholder": "freight_brute",
       "look": "A hulking golem built from stacked cardboard freight boxes and a broken pallet base, shrink-wrap trailing like torn skin, two dark gaps between boxes for eyes, box-flap arms. Leans forward like it's about to topple onto you.",
       "moves": "attack: slams down with a box-stack arm; cast: shrink-wrap lashes out; windup: the stack sways.",
       "members": [
-        {"id": "freight_wall"},
-        {"id": "interstate_gauntlet", "variant": "the Asphalt Gauntlet: orange-and-white construction barriers instead of boxes, brake-light red eyes (a separate sheet would sell it better)"}
+        {
+          "id": "freight_wall"
+        },
+        {
+          "id": "interstate_gauntlet",
+          "variant": "the Asphalt Gauntlet: orange-and-white construction barriers instead of boxes, brake-light red eyes (a separate sheet would sell it better)"
+        }
       ]
     },
     {
-      "key": "fluorescent_hum", "name": "The Fluorescent Hum", "placeholder": "hum_occultist",
+      "key": "fluorescent_hum",
+      "name": "The Fluorescent Hum",
+      "placeholder": "hum_occultist",
       "look": "The enemy in almost every fight: a long fluorescent tube creature hanging from a broken ceiling fixture on two chains, its ballast box a jaw that buzzes, cold white-green light flickering in waves along the tube, sparks at the ends. Floats; its lowest point is the fixture's dangling chain.",
       "moves": "cast: Sigil Pulse, the tube strobes and a pulse of cold light rolls out; attack: Grinding Slab, swings down on its chains; idle: a slow flicker, the hum visible as little vibration lines.",
-      "members": [{"id": "fluorescent_hum"}]
+      "members": [
+        {
+          "id": "fluorescent_hum"
+        }
+      ]
     },
     {
-      "key": "dashboard", "name": "The Dashboard", "placeholder": "dash_sniper",
+      "key": "dashboard",
+      "name": "The Dashboard",
+      "placeholder": "dash_sniper",
       "look": "A wall monitor on a rolling stand come alive: the screen a face of red and green gauges and a jagged line graph for a mouth, power cables for arms. The Hour-Occupancy Gauge, always in the red.",
       "moves": "cast and attack: Bolt Volley / Suppressive Fire, the screen flashes and fires red metric bars like bolts.",
       "members": [
-        {"id": "metrics_dashboard"},
-        {"id": "register_blitz", "variant": "the Register Blitz: a POS register screen, every lane light blazing red"}
+        {
+          "id": "metrics_dashboard"
+        },
+        {
+          "id": "register_blitz",
+          "variant": "the Register Blitz: a POS register screen, every lane light blazing red"
+        }
       ]
     },
     {
-      "key": "the_ringer", "name": "The Ringer", "placeholder": "ringer_brute",
+      "key": "the_ringer",
+      "name": "The Ringer",
+      "placeholder": "ringer_brute",
       "look": "Management's pet: a smug floor lead in a pressed teal vest, a phone handset on a coiled cord swung like a whip (the 'paging wand'), a clipboard tucked under the arm, chin up.",
       "moves": "attack: lashes the handset cord; cast: War Cry, shouts into the handset and a page blares out.",
-      "members": [{"id": "the_ringer"}]
+      "members": [
+        {
+          "id": "the_ringer"
+        }
+      ]
     },
     {
-      "key": "poisoned_email", "name": "The Poisoned Email", "placeholder": "poisoned_phantom",
+      "key": "poisoned_email",
+      "name": "The Poisoned Email",
+      "placeholder": "poisoned_phantom",
       "look": "A floating envelope-phantom: an open email window with a sickly purple glow, the envelope flap a fanged mouth, a cursor for an eye, a trailing tail of 'Reply All' threads. Hovers.",
       "moves": "cast: Void Bolt / Siphon Essence, spits a purple message bolt; attack: Enveloping Dark, wraps around the target.",
       "members": [
-        {"id": "poisoned_email"},
-        {"id": "redemption_schedule", "variant": "the Redemption Schedule: a payment table on parchment, a heavy chain dangling from it, cold blue instead of purple"}
+        {
+          "id": "poisoned_email"
+        },
+        {
+          "id": "redemption_schedule",
+          "variant": "the Redemption Schedule: a payment table on parchment, a heavy chain dangling from it, cold blue instead of purple"
+        }
       ]
     },
     {
-      "key": "bay_grime", "name": "The Bay Grime", "placeholder": "grime_brute",
+      "key": "bay_grime",
+      "name": "The Bay Grime",
+      "placeholder": "grime_brute",
       "look": "A creeping slab of oil-soaked concrete grime: a black, glistening sludge mound with a boot half-swallowed in it, rainbow oil sheen, a drain grate for a mouth.",
       "moves": "attack: rears up and slaps down; windup: bubbles.",
-      "members": [{"id": "bay_grime"}]
+      "members": [
+        {
+          "id": "bay_grime"
+        }
+      ]
     },
     {
-      "key": "crowd_mass", "name": "The Queue Wall", "placeholder": "grime_brute",
+      "key": "crowd_mass",
+      "name": "The Queue Wall",
+      "placeholder": "grime_brute",
       "look": "Bodies pressing forward: a lumpy wall of impatient shoppers fused into one mass, many arms holding receipts, phones and return bags, several mouths open mid-complaint.",
       "moves": "attack: the whole mass surges forward; cast: War Cry, a roar of complaints.",
       "members": [
-        {"id": "queue_wall"},
-        {"id": "customer_grind", "variant": "the Customer Gauntlet: redder and angrier, more fists"},
-        {"id": "friday_rush", "variant": "the Friday Rush: a line of service customers with pickup-truck headlights glaring behind them (a separate sheet with a truck would sell it better)"}
+        {
+          "id": "queue_wall"
+        },
+        {
+          "id": "customer_grind",
+          "variant": "the Customer Gauntlet: redder and angrier, more fists"
+        },
+        {
+          "id": "friday_rush",
+          "variant": "the Friday Rush: a line of service customers with pickup-truck headlights glaring behind them (a separate sheet with a truck would sell it better)"
+        }
       ]
     },
     {
-      "key": "shopper", "name": "The Sixth in Line", "placeholder": "rush_sniper",
+      "key": "shopper",
+      "name": "The Sixth in Line",
+      "placeholder": "rush_sniper",
       "look": "A single impatient shopper: phone held up, foot tapping, a full cart handle under one hand, a number ticket in the other.",
       "moves": "attack: Aimed Shot, flings the number ticket; cast: Volley Shot, a barrage of 'Excuse me?'s as little speech-burst sparks (no text).",
       "members": [
-        {"id": "sixth_in_line"},
-        {"id": "grab_and_run", "variant": "the Grab-and-Run: a hooded shoplifter mid-sprint with an armful of electronics"}
+        {
+          "id": "sixth_in_line"
+        },
+        {
+          "id": "grab_and_run",
+          "variant": "the Grab-and-Run: a hooded shoplifter mid-sprint with an armful of electronics"
+        }
       ]
     },
     {
-      "key": "tire_tower", "name": "The Tire Tower", "placeholder": "tire_brute",
+      "key": "tire_tower",
+      "name": "The Tire Tower",
+      "placeholder": "tire_brute",
       "look": "A teetering stack of mounted tires (rims and all) that has learned to walk: lug-nut eyes glinting from the top tire, a tire-iron arm, tread marks down its sides.",
       "moves": "attack: Crush, topples its top tires onto the target; cast: Steam Vent, the valve stems hiss.",
-      "members": [{"id": "tire_tower"}]
+      "members": [
+        {
+          "id": "tire_tower"
+        }
+      ]
     },
     {
-      "key": "memo", "name": "The Retirement Memo", "placeholder": "memo_occultist",
+      "key": "memo",
+      "name": "The Retirement Memo",
+      "placeholder": "memo_occultist",
       "look": "A tall, polite sheet of company letterhead with a red wax seal for a heart, folded paper arms, a neat corporate signature curling like a smile. Polite corporate execution.",
       "moves": "cast: Void Bolt, fires paper cuts; attack: wraps the target like an envelope.",
       "members": [
-        {"id": "retirement_memo"},
-        {"id": "parting_shot_enemy", "variant": "the Parting Shot: a crumpled grey note, the whisper that travels down the hall"}
+        {
+          "id": "retirement_memo"
+        },
+        {
+          "id": "parting_shot_enemy",
+          "variant": "the Parting Shot: a crumpled grey note, the whisper that travels down the hall"
+        }
       ]
     },
     {
-      "key": "camera_eye", "name": "The Watchful Eye", "placeholder": "eye_sniper",
+      "key": "camera_eye",
+      "name": "The Watchful Eye",
+      "placeholder": "eye_sniper",
       "look": "A ceiling security camera dome on a tripod of cables, one red lens eye that never blinks, a little red recording light pulsing.",
       "moves": "cast and attack: Bolt Volley, flashes and fires a red scan beam.",
       "members": [
-        {"id": "jury_watch"},
-        {"id": "hostile_floor", "variant": "the Hostile Floor: two lenses on one stalk, one warm and one cold (two faces, one spine)"}
+        {
+          "id": "jury_watch"
+        },
+        {
+          "id": "hostile_floor",
+          "variant": "the Hostile Floor: two lenses on one stalk, one warm and one cold (two faces, one spine)"
+        }
       ]
     },
     {
-      "key": "faceless_suit", "name": "The Man They Wanted", "placeholder": "wanted_occultist",
+      "key": "faceless_suit",
+      "name": "The Man They Wanted",
+      "placeholder": "wanted_occultist",
       "look": "Upper management's favourite answer: a tall man in a black suit and red tie with no face at all, just smooth shadow, a briefcase in hand.",
       "moves": "cast: Siphon Essence, the faceless head tilts and drains light; attack: briefcase swing.",
-      "members": [{"id": "want_man"}]
+      "members": [
+        {
+          "id": "want_man"
+        }
+      ]
     },
     {
-      "key": "file_folder", "name": "The Grievance File", "placeholder": "file_occultist",
+      "key": "file_folder",
+      "name": "The Grievance File",
+      "placeholder": "file_occultist",
       "look": "A fat manila file folder walking on its spine, papers spilling like a tongue, a red 'UNSUBSTANTIATED' rubber stamp for a fist (stamp face blank, no text).",
       "moves": "attack: Thorn Lash, slams the stamp; cast: Choking Pollen, a puff of loose paper.",
       "members": [
-        {"id": "grievance_file"},
-        {"id": "claim_blizzard", "variant": "the Claim Blizzard: icy white, loose forms swirling around it"},
-        {"id": "zero_report", "variant": "the Unrealistic Standard: a red folder with a graph arrow shooting straight up"}
+        {
+          "id": "grievance_file"
+        },
+        {
+          "id": "claim_blizzard",
+          "variant": "the Claim Blizzard: icy white, loose forms swirling around it"
+        },
+        {
+          "id": "zero_report",
+          "variant": "the Unrealistic Standard: a red folder with a graph arrow shooting straight up"
+        }
       ]
     },
     {
-      "key": "paper_storm", "name": "The Blotter Regulars", "placeholder": "tide_occultist",
+      "key": "paper_storm",
+      "name": "The Blotter Regulars",
+      "placeholder": "tide_occultist",
       "look": "A weather system of theft: a whirling funnel of torn price tags, empty hangers and blotter clippings with two hooded silhouettes inside it.",
       "moves": "cast: Bramble Whip, the funnel lashes out; attack: sweeps across like a gust.",
-      "members": [{"id": "blotter_regulars"}]
+      "members": [
+        {
+          "id": "blotter_regulars"
+        }
+      ]
     },
     {
-      "key": "shingles_flame", "name": "The Fourth Signal", "placeholder": "nail_fire_brute",
+      "key": "shingles_flame",
+      "name": "The Fourth Signal",
+      "placeholder": "nail_fire_brute",
       "look": "The body's scorecard: a writhing line of nerve fire shaped like a creature, red-orange blisters along its back, an angry glow; it hurts to look at.",
       "moves": "cast: Shockwave, flares; attack: Crushing Blow, lashes like a whip of fire.",
-      "members": [{"id": "shingles_four"}]
+      "members": [
+        {
+          "id": "shingles_four"
+        }
+      ]
     },
     {
-      "key": "goalpost_cart", "name": "The Moving Goalposts", "placeholder": "lapse_sniper",
+      "key": "goalpost_cart",
+      "name": "The Moving Goalposts",
+      "placeholder": "lapse_sniper",
       "look": "A yellow American-football goalpost bolted to a rolling cart, wheels squealing as it rolls away just as you reach it; a little grin on the crossbar.",
       "moves": "attack: rams forward on its wheels; windup: rolls back.",
-      "members": [{"id": "goalpost_cart"}]
+      "members": [
+        {
+          "id": "goalpost_cart"
+        }
+      ]
     },
     {
-      "key": "calibration_gauge", "name": "The Calibration Lapse", "placeholder": "lapse_sniper",
+      "key": "calibration_gauge",
+      "name": "The Calibration Lapse",
+      "placeholder": "lapse_sniper",
       "look": "A service-bay torque wrench and pressure gauge fused into a gangly creature, a peeling expired calibration sticker over one eye, sparking at the joints.",
       "moves": "cast: Bolt Volley, the gauge needle snaps and fires sparks.",
-      "members": [{"id": "calibration_lapse"}]
+      "members": [
+        {
+          "id": "calibration_lapse"
+        }
+      ]
     },
     {
-      "key": "debt_machine", "name": "The Bay Debt", "placeholder": "debt_brute",
+      "key": "debt_machine",
+      "name": "The Bay Debt",
+      "placeholder": "debt_brute",
       "look": "Years of deferred maintenance: a rusted, leaking vehicle lift and compressor grown into one lumbering machine, peeling yellow paint, a dented tool chest for a body.",
       "moves": "attack: Iron Slam with the lift arm; cast: Steam Vent from a cracked hose.",
       "members": [
-        {"id": "bay_debt"},
-        {"id": "pay_cut_weight", "variant": "the Pay Cut: grey and leaden, a heavy weight hanging from its arm"}
+        {
+          "id": "bay_debt"
+        },
+        {
+          "id": "pay_cut_weight",
+          "variant": "the Pay Cut: grey and leaden, a heavy weight hanging from its arm"
+        }
       ]
     },
     {
-      "key": "edict_scroll", "name": "The Executive Edict", "placeholder": "edict_occultist",
+      "key": "edict_scroll",
+      "name": "The Executive Edict",
+      "placeholder": "edict_occultist",
       "look": "A corporate decree unrolling like a scroll, navy blue with gold dots and a red seal, its ends grown into grasping paper vines that root into the floor.",
       "moves": "cast: Bramble Whip, the vines lash; attack: Thorn Lash.",
-      "members": [{"id": "executive_edict"}]
+      "members": [
+        {
+          "id": "executive_edict"
+        }
+      ]
     },
     {
-      "key": "smile_badge", "name": "The Unstamped Smile", "placeholder": "smile_occultist",
+      "key": "smile_badge",
+      "name": "The Unstamped Smile",
+      "placeholder": "smile_occultist",
       "look": "A giant yellow smiley-face badge on a pin-back stalk, its smile too wide and its eyes faintly red; kindness that never weighs anything.",
       "moves": "cast: Choking Pollen, beams a cloying golden glow; attack: bumps forward.",
-      "members": [{"id": "unstamped_smile"}]
+      "members": [
+        {
+          "id": "unstamped_smile"
+        }
+      ]
     },
     {
-      "key": "report_shredder", "name": "The Buried Report", "placeholder": "report_occultist",
+      "key": "report_shredder",
+      "name": "The Buried Report",
+      "placeholder": "report_occultist",
       "look": "An office paper shredder that walks on its bin, a safety report half-swallowed in its teeth, strips of paper spilling out below.",
       "moves": "attack: lunges and chomps; cast: sprays shredded strips.",
       "members": [
-        {"id": "buried_report"},
-        {"id": "final_balance_sheet", "variant": "the Final Balance Sheet: a ledger book in place of the report, green and red columns"}
+        {
+          "id": "buried_report"
+        },
+        {
+          "id": "final_balance_sheet",
+          "variant": "the Final Balance Sheet: a ledger book in place of the report, green and red columns"
+        }
       ]
     },
     {
-      "key": "cc_line", "name": "The CC Line", "placeholder": "cc_occultist",
+      "key": "cc_line",
+      "name": "The CC Line",
+      "placeholder": "cc_occultist",
       "look": "An ally among enemies: a chain of linked office phones and envelopes forming a coat-rack-like figure that reaches over every gatekeeper's head; cool white and silver.",
       "moves": "cast: Void Bolt, a message zips along the chain; attack: the top handset swings down.",
-      "members": [{"id": "cc_protocol"}]
+      "members": [
+        {
+          "id": "cc_protocol"
+        }
+      ]
     },
     {
-      "key": "ownerless_building", "name": "The Ownerless Building", "placeholder": "tour_brute",
+      "key": "ownerless_building",
+      "name": "The Ownerless Building",
+      "placeholder": "tour_brute",
       "look": "The store four hours after close: a dark storefront facade on stubby legs, the automatic doors a closed mouth, one aisle light left on for an eye.",
       "moves": "attack: the facade leans in and slams; cast: the lights flicker off in a cold wave.",
-      "members": [{"id": "ownerless_building"}]
+      "members": [
+        {
+          "id": "ownerless_building"
+        }
+      ]
     },
     {
-      "key": "night_visitor", "name": "The Alternative", "placeholder": "fallguy_brute",
+      "key": "night_visitor",
+      "name": "The Alternative",
+      "placeholder": "fallguy_brute",
       "look": "The 3 AM visitor from the darkest chapter: a quiet, tall shadow in the shape of a person, edges dissolving like smoke, offering one open hand. Keep it abstract and still: no weapons, no wounds, nothing graphic. Its power is the silence around it.",
       "moves": "cast: the darkness around it swells (no projectile); attack: reaches out slowly; death: fades into morning light (the player refuses it).",
-      "members": [{"id": "the_alternative"}]
+      "members": [
+        {
+          "id": "the_alternative"
+        }
+      ]
     },
     {
-      "key": "ohmar", "name": "Ohmar, the Store Lead", "placeholder": "jury_brute",
-      "look": "Ohmar from portraits/ohmar.jpg: the biggest man in the building, dark turban, black polo with the smiley badge, arms folded, a stillness that does the threatening. Never shouts.",
-      "moves": "windup: leans forward, arms still folded; attack: Heavy Slam, slaps a hand on a table; cast: Shockwave, a flat declarative stare that ripples out.",
-      "members": [{"id": "ohmar_enemy"}]
-    },
-    {
-      "key": "aussie", "name": "Aussie", "placeholder": "memo_occultist",
+      "key": "aussie",
+      "name": "Aussie",
+      "placeholder": "memo_occultist",
       "look": "Aussie from portraits/aussie.jpg: stocky, scowling, navy polo, lanyard badge, clipboard with an angry spreadsheet; the absentee salaried manager who only has one tool, the collective threat.",
       "moves": "attack: smacks the clipboard; cast: waves the spreadsheet, red cells flying out.",
-      "members": [{"id": "phantom_manager"}]
+      "members": [
+        {
+          "id": "phantom_manager"
+        }
+      ]
     }
   ],
   "bosses": [
     {
-      "id": "mattie_t_enemy", "name": "Mattie-T, Store Manager", "cell": 96, "placeholder": "mattie_brute",
+      "id": "mattie_t_enemy",
+      "name": "Mattie-T, Store Manager",
+      "cell": 96,
+      "placeholder": "mattie_brute",
       "look": "Mattie-T from portraits/mattie_t.jpg: bald, light-blue dress shirt and dark tie, smiling behind a desk with a computer; the man who sent the 'not ready' email before you walked in.",
       "moves": "attack: Crushing Blow (slams the keyboard); cast: Shockwave (hits Send, a purple envelope bolt); charge_ultimate: types furiously, the monitor glowing; ultimate: Cataclysm, a storm of emails swirling around him."
     },
     {
-      "id": "jury_enemy", "name": "Jury, Store Manager", "cell": 96, "placeholder": "jury_brute",
+      "id": "jury_enemy",
+      "name": "Jury, Store Manager",
+      "cell": 96,
+      "placeholder": "jury_brute",
       "look": "Jury from portraits/jury.jpg: short auburn hair, navy blazer, arms crossed, a wall of security monitors glowing behind her; casual malice.",
       "moves": "attack: points and says it twice (a sharp shockwave); cast: the monitors flicker and fire red scan lines; charge_ultimate: steps forward, witnesses' silhouettes behind; ultimate: Cataclysm, a grievance form slams down from above."
     },
     {
-      "id": "shingles_fire", "name": "The Shingles Fire", "cell": 96, "placeholder": "nail_fire_brute",
+      "id": "shingles_fire",
+      "name": "The Shingles Fire",
+      "cell": 96,
+      "placeholder": "nail_fire_brute",
       "look": "The first outbreak as a boss: a towering column of nerve fire in the shape of a burning line across a forehead, blistering red and orange, flickering with pain. Appears three times, each angrier.",
       "moves": "attack: lashes; cast: flares; charge_ultimate: burns white-hot; ultimate: Cataclysm, erupts across the whole arena. p2_ (optional): the hungrier later outbreaks."
     },
     {
-      "id": "gated_tour", "name": "The Area Director", "cell": 96, "placeholder": "tour_brute",
+      "id": "gated_tour",
+      "name": "The Area Director",
+      "cell": 96,
+      "placeholder": "tour_brute",
       "look": "Corporate inspection tour: an Area Director in a sharp charcoal suit and polished shoes, with five more suits silhouetted behind (one sprite, the pack as a shadowy backdrop), a tablet held like a gavel.",
       "moves": "attack: taps the tablet, a red X slams down; cast: the suits behind all point at once; charge_ultimate: the pack gathers; ultimate: the whole inspection descends."
     },
     {
-      "id": "fall_guy_index", "name": "District Safety Investigator", "cell": 96, "placeholder": "fallguy_brute",
+      "id": "fall_guy_index",
+      "name": "District Safety Investigator",
+      "cell": 96,
+      "placeholder": "fallguy_brute",
       "look": "A safety investigator in a hi-vis vest over a dress shirt, hard hat under one arm, sliding a rewritten report across an invisible table with a pen offered for your signature.",
       "moves": "attack: slaps the report down; cast: the pen glows, a signature line snakes toward you; ultimate: a loose wheel rolls in and the blame lands."
     },
     {
-      "id": "regional_desk", "name": "The Regional Desk", "cell": 128, "placeholder": "desk_brute",
+      "id": "regional_desk",
+      "name": "The Regional Desk",
+      "cell": 128,
+      "placeholder": "desk_brute",
       "look": "Built to fossilize complaints: a huge dark-wood executive desk on legs, three ringing phones and a calendar for a face, drawers that open as mouths full of stacked tickets.",
       "moves": "attack: a drawer slams out; cast: the phones ring and fire bolts; charge_ultimate: every phone lights up; ultimate: an avalanche of fossilised tickets."
     },
     {
-      "id": "one_man_close", "name": "The One-Man Close", "cell": 128, "placeholder": "tour_brute",
+      "id": "one_man_close",
+      "name": "The One-Man Close",
+      "cell": 128,
+      "placeholder": "tour_brute",
       "look": "Midnight, forty thousand square feet of dark: the whole store as a looming silhouette, rows of dead aisle lights, a single key glinting at its heart; the empty building pressing in.",
       "moves": "attack: the dark leans in; cast: the lights go out aisle by aisle in a wave; ultimate: every door slams at once."
     },
     {
-      "id": "parking_draw", "name": "The Parking Lot Draw", "cell": 96, "placeholder": "fallguy_brute",
+      "id": "parking_draw",
+      "name": "The Parking Lot Draw",
+      "cell": 96,
+      "placeholder": "fallguy_brute",
       "look": "A dispute walking to its cars at eleven at night: two shadowy figures facing off under a sodium parking-lot light, hands hovering near their waistbands. Tense, not violent: no weapons drawn.",
       "moves": "attack: the figures surge forward; cast: headlights flare; ultimate: the light pole flickers and the tension snaps (a flash, no gunfire)."
     },
     {
-      "id": "overhaul_wall", "name": "The Freight-to-Floor", "cell": 128, "placeholder": "freight_brute",
+      "id": "overhaul_wall",
+      "name": "The Freight-to-Floor",
+      "cell": 128,
+      "placeholder": "freight_brute",
       "look": "The overhaul all at once: a giant freight wall golem with bins and topstock for armour and a big red countdown clock set in its chest.",
       "moves": "attack: Crushing Blow with a pallet fist; cast: boxes rain down; charge_ultimate: the clock ticks faster; ultimate: the whole rebuild collapses forward."
     },
     {
-      "id": "aspirant_zero", "name": "The Regional Audit", "cell": 96, "placeholder": "mattie_brute",
+      "id": "aspirant_zero",
+      "name": "The Regional Audit",
+      "cell": 96,
+      "placeholder": "mattie_brute",
       "look": "Pressure from above: a towering regional director in a grey suit wielding an oversized clipboard, a magnifying glass eye, checklist ribbons trailing.",
       "moves": "attack: Iron Slam with the clipboard; cast: Steam Vent, the magnifying glass focuses a hot beam; ultimate: every checkbox turns red."
     },
     {
-      "id": "meat_grinder", "name": "The Overnight Meat Grinder", "cell": 128, "placeholder": "nail_fire_brute",
+      "id": "meat_grinder",
+      "name": "The Overnight Meat Grinder",
+      "cell": 128,
+      "placeholder": "nail_fire_brute",
       "look": "Thirteen names, numbered: a huge industrial grinder machine in the dark backroom, a conveyor belt mouth, red warning lights, worn name badges hanging off its rim like trophies (no readable names).",
       "moves": "attack: the belt drags forward; cast: the warning lights flare; charge_ultimate: the grinder revs; ultimate: Cataclysm."
     },
     {
-      "id": "relocation_contract", "name": "The Relocation Contract", "cell": 96, "placeholder": "poisoned_phantom",
+      "id": "relocation_contract",
+      "name": "The Relocation Contract",
+      "cell": 96,
+      "placeholder": "poisoned_phantom",
       "look": "The collar that has been waiting: a long contract document coiling like a serpent, a heavy golden collar open at its head, clawback figures as scales.",
       "moves": "attack: lunges with the collar; cast: the contract tightens; ultimate: the collar snaps shut around the arena."
     },
     {
-      "id": "azalia_enemy", "name": "Azalia, Store Manager", "cell": 96, "placeholder": "azalia_brute",
+      "id": "azalia_enemy",
+      "name": "Azalia, Store Manager",
+      "cell": 96,
+      "placeholder": "azalia_brute",
       "look": "Azalia from portraits/azalia.jpg: warm smile, short brown hair, the teal vest with smiley badge over a mustard shirt; weaponised kindness that cancels every consequence.",
       "moves": "attack: a gentle pat that hits like a hammer; cast: beams a golden smile that dissolves a write-up; ultimate: a flood of smiley badges."
     },
     {
-      "id": "jay_dau_enemy", "name": "Jay-Dau, Store Manager", "cell": 96, "placeholder": "jay_dau_brute",
+      "id": "jay_dau_enemy",
+      "name": "Jay-Dau, Store Manager",
+      "cell": 96,
+      "placeholder": "jay_dau_brute",
       "look": "Jay-Dau from portraits/jay_dau.jpg: bald, big grin, teal vest over a dark shirt, a stack of quarterly reports under one hand; friend by daylight, hell on the clock.",
       "moves": "attack: slams the reports; cast: the grin flips to a glare; p2_ (optional): the friendly face gone. Ultimate: quarterly pressure crashing down."
     },
     {
-      "id": "amandy_enemy", "name": "Amandy, Store Lead", "cell": 96, "placeholder": "amandy_brute",
+      "id": "amandy_enemy",
+      "name": "Amandy, Store Lead",
+      "cell": 96,
+      "placeholder": "amandy_brute",
       "look": "Amandy from portraits/amandy.jpg: dark hair pulled back, teal vest, a walkie-talkie raised, arms crossed; the screaming assistant manager at full tilt.",
       "moves": "attack: shouts into the radio (a red shockwave); cast: fire, the redone plan flung at you; ultimate: a screaming storm of demands."
     },
     {
-      "id": "sriniviii_enemy", "name": "Sriniviii, Store Manager", "cell": 96, "placeholder": "sriniviii_brute",
+      "id": "sriniviii_enemy",
+      "name": "Sriniviii, Store Manager",
+      "cell": 96,
+      "placeholder": "sriniviii_brute",
       "look": "Sriniviii from portraits/sriniviii.jpg: neat dark hair, teal vest over a white shirt, hands clasped, a polite smile; the morning verdict after every overnight.",
       "moves": "attack: a sharp gesture; cast: wheels the goalposts away; ultimate: the verdict lands."
     },
     {
-      "id": "abdoolie_enemy", "name": "Abdoolie, Store Manager", "cell": 96, "placeholder": "abdoolie_brute",
+      "id": "abdoolie_enemy",
+      "name": "Abdoolie, Store Manager",
+      "cell": 96,
+      "placeholder": "abdoolie_brute",
       "look": "Abdoolie from portraits/abdoolie.jpg: thin, grey work shirt with the smiley badge, hands at his sides, a cold stillness and flat declarative stare; he sounds like Ohmar.",
       "moves": "attack: a pause, then a cold strike; cast: a ripple of silence; ultimate: the cadence repeats until the room freezes."
+    },
+    {
+      "id": "ohmar_enemy",
+      "name": "Ohmar, the Store Lead",
+      "cell": 96,
+      "placeholder": "jury_brute",
+      "look": "Ohmar from portraits/ohmar.jpg: the biggest man in the building, dark turban, black polo with the smiley badge, arms folded, a stillness that does the threatening. Never shouts.",
+      "moves": "windup: leans forward, arms still folded; attack: Heavy Slam, a hand flat on the table; cast: Shockwave, a flat declarative stare that ripples out; charge_ultimate: the closed door, the formal chair, the pause before the question; ultimate: Cataclysm, the voice never rises and the room freezes."
     }
   ],
   "remove": [
-    {"id": "paperwork_tide", "why": "in no encounter (The Blotter Regulars took its sprite)"},
-    {"id": "paralysis_smile", "why": "boss in no encounter (Azalia's fight uses The Unstamped Smile)"},
-    {"id": "paradox_face", "why": "boss in no encounter (Jay-Dau's own fight covers it)"},
-    {"id": "abdoolie_ghost", "why": "in no encounter (Abdoolie fights in person)"}
+    {
+      "id": "paperwork_tide",
+      "why": "in no encounter (The Blotter Regulars took its sprite)"
+    },
+    {
+      "id": "paralysis_smile",
+      "why": "boss in no encounter (Azalia's fight uses The Unstamped Smile)"
+    },
+    {
+      "id": "paradox_face",
+      "why": "boss in no encounter (Jay-Dau's own fight covers it)"
+    },
+    {
+      "id": "abdoolie_ghost",
+      "why": "in no encounter (Abdoolie fights in person)"
+    }
   ],
   "notes": [
-    "Ohmar is a regular enemy in the data but his chapter plays like a boss fight (\"the terror of the region, made flesh\"); consider making him a boss with a 96 px sheet.",
     "Adriana's Inspiration fights in 36 encounters as a recolour of Adriana; draw her own sheet (a floating, glowing pose set) if the recolour isn't enough.",
     "The unused enemies under 'remove' can stay if they're meant for a future chapter; then each needs a sheet before release."
   ]

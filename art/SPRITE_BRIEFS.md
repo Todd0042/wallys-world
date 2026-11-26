@@ -6,7 +6,7 @@ Every fighter, enemy and boss is mapped to a sprite key below. A sheet named aft
 
 A memoir told as a JRPG: eight years and five states inside a big-box retailer, its freight trenches, service bays and offices. The party is Todd and Adriana; most enemies are the forces of the job made into monsters (the freight wall, the fluorescent hum, the poisoned email, the dashboard), and the bosses are the managers and machines of the company. Keep the humans grounded and recognisable from `app/src/main/assets/portraits/` (Wally's associates wear a teal vest with orange piping and a yellow smiley badge); make the abstract enemies strange and readable, ordinary workplace objects with a face, limbs and menace, like the existing 20x26 sprites they replace. Tone: weary, sincere, darkly funny, never cartoonish about the hard moments.
 
-**To draw: 47 sheets** (3 party fighters, 27 enemy families, 17 bosses). Everything else is a recolour of one of those.
+**To draw: 47 sheets** (3 party fighters, 26 enemy families, 18 bosses). Everything else is a recolour of one of those.
 
 ## Style (every sprite)
 
@@ -67,7 +67,7 @@ Adriana as she fights beside Todd from far away (36 encounters): a translucent, 
 
 A recolour of `adriana` (no art needed unless it should differ).
 
-## Enemy families (27, 64 px)
+## Enemy families (26, 64 px)
 
 ### `practice_dummy`: Shift Simulator
 
@@ -301,14 +301,6 @@ The 3 AM visitor from the darkest chapter: a quiet, tall shadow in the shape of 
 
 Draws: The Alternative (The 3 AM Visitor, void/shadow)
 
-### `ohmar`: Ohmar, the Store Lead
-
-Ohmar from portraits/ohmar.jpg: the biggest man in the building, dark turban, black polo with the smiley badge, arms folded, a stillness that does the threatening. Never shouts.
-
-*Moves*: windup: leans forward, arms still folded; attack: Heavy Slam, slaps a hand on a table; cast: Shockwave, a flat declarative stare that ripples out.
-
-Draws: Ohmar, the Store Lead (The Region's Enforcer, flesh/shadow)
-
 ### `aussie`: Aussie
 
 Aussie from portraits/aussie.jpg: stocky, scowling, navy polo, lanyard badge, clipboard with an angry spreadsheet; the absentee salaried manager who only has one tool, the collective threat.
@@ -317,7 +309,7 @@ Aussie from portraits/aussie.jpg: stocky, scowling, navy polo, lanyard badge, cl
 
 Draws: Aussie (The Absentee Salaried Manager, void/shadow)
 
-## Bosses (17 to draw, each its own sprite)
+## Bosses (18 to draw, each its own sprite)
 
 ### `mattie_t_enemy`: Mattie-T, Store Manager (96 px)
 
@@ -455,6 +447,14 @@ Abdoolie from portraits/abdoolie.jpg: thin, grey work shirt with the smiley badg
 
 Element: flesh/shadow.
 
+### `ohmar_enemy`: Ohmar, the Store Lead (96 px)
+
+Ohmar from portraits/ohmar.jpg: the biggest man in the building, dark turban, black polo with the smiley badge, arms folded, a stillness that does the threatening. Never shouts.
+
+*Moves*: windup: leans forward, arms still folded; attack: Heavy Slam, a hand flat on the table; cast: Shockwave, a flat declarative stare that ripples out; charge_ultimate: the closed door, the formal chair, the pause before the question; ultimate: Cataclysm, the voice never rises and the room freezes.
+
+Element: flesh/shadow.
+
 ## Not drawn: remove from the game
 
 These enemies aren't reached by the story; remove them (and their encounters) from `enemies.json` at the sprite rollout instead of drawing them, or the sprite contract will block the release:
@@ -465,6 +465,5 @@ These enemies aren't reached by the story; remove them (and their encounters) fr
 
 ## Notes for the game
 
-- Ohmar is a regular enemy in the data but his chapter plays like a boss fight ("the terror of the region, made flesh"); consider making him a boss with a 96 px sheet.
 - Adriana's Inspiration fights in 36 encounters as a recolour of Adriana; draw her own sheet (a floating, glowing pose set) if the recolour isn't enough.
 - The unused enemies under 'remove' can stay if they're meant for a future chapter; then each needs a sheet before release.
