@@ -62,21 +62,6 @@
       "spriteTint": "#EF9A9A"
     },
     {
-      "id": "paperwork_tide",
-      "name": "The Paperwork Tide",
-      "subtitle": "Violation After Violation After Violation",
-      "family": "VERDANT",
-      "selfElement": "NATURE",
-      "hp": 140,
-      "attack": 18,
-      "defense": 3,
-      "speed": 45,
-      "xpReward": 90,
-      "movesetId": "verdant_caster",
-      "spriteId": "tide_occultist",
-      "spriteTint": "#81C784"
-    },
-    {
       "id": "poisoned_email",
       "name": "The Poisoned Email",
       "subtitle": "Wasn't Ready, He Said",
@@ -337,22 +322,6 @@
       "spriteTint": "#F48FB1"
     },
     {
-      "id": "paralysis_smile",
-      "name": "The Paralysis of Kindness",
-      "subtitle": "No Consequence Follows",
-      "family": "VERDANT",
-      "selfElement": "NATURE",
-      "hp": 800,
-      "attack": 26,
-      "defense": 10,
-      "speed": 50,
-      "xpReward": 630,
-      "movesetId": "boss_template",
-      "isBoss": true,
-      "spriteId": "smile_brute",
-      "spriteTint": "#EC407A"
-    },
-    {
       "id": "buried_report",
       "name": "The Buried Report",
       "subtitle": "The Wheel Was Never Loose",
@@ -599,22 +568,6 @@
       "spriteTint": "#EFEBE9"
     },
     {
-      "id": "paradox_face",
-      "name": "The Paradox of Jay-Dau",
-      "subtitle": "Friend by Daylight, Hell on the Clock",
-      "family": "FLESH",
-      "selfElement": "SHADOW",
-      "hp": 930,
-      "attack": 28,
-      "defense": 12,
-      "speed": 55,
-      "xpReward": 730,
-      "movesetId": "boss_template",
-      "isBoss": true,
-      "spriteId": "jury_brute",
-      "spriteTint": "#1565C0"
-    },
-    {
       "id": "meat_grinder",
       "name": "The Overnight Meat Grinder",
       "subtitle": "Thirteen Names, Numbered",
@@ -781,21 +734,6 @@
       "movesetId": "boss_template",
       "spriteId": "debt_brute",
       "spriteTint": "#455A64"
-    },
-    {
-      "id": "abdoolie_ghost",
-      "name": "Abdoolie's Ghost",
-      "subtitle": "The Voice That Sounds Like Ohmar",
-      "family": "VOID",
-      "selfElement": "SHADOW",
-      "hp": 950,
-      "attack": 30,
-      "defense": 12,
-      "speed": 44,
-      "xpReward": 760,
-      "movesetId": "boss_template",
-      "spriteId": "wanted_occultist",
-      "spriteTint": "#4A148C"
     },
     {
       "id": "phantom_manager",

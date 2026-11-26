@@ -540,26 +540,8 @@
       "moves": "windup: leans forward, arms still folded; attack: Heavy Slam, a hand flat on the table; cast: Shockwave, a flat declarative stare that ripples out; charge_ultimate: the closed door, the formal chair, the pause before the question; ultimate: Cataclysm, the voice never rises and the room freezes."
     }
   ],
-  "remove": [
-    {
-      "id": "paperwork_tide",
-      "why": "in no encounter (The Blotter Regulars took its sprite)"
-    },
-    {
-      "id": "paralysis_smile",
-      "why": "boss in no encounter (Azalia's fight uses The Unstamped Smile)"
-    },
-    {
-      "id": "paradox_face",
-      "why": "boss in no encounter (Jay-Dau's own fight covers it)"
-    },
-    {
-      "id": "abdoolie_ghost",
-      "why": "in no encounter (Abdoolie fights in person)"
-    }
-  ],
+  "remove": [],
   "notes": [
-    "Adriana's Inspiration fights in 36 encounters as a recolour of Adriana; draw her own sheet (a floating, glowing pose set) if the recolour isn't enough.",
-    "The unused enemies under 'remove' can stay if they're meant for a future chapter; then each needs a sheet before release."
+    "Adriana's Inspiration fights in 36 encounters as a recolour of Adriana; draw her own sheet (a floating, glowing pose set) if the recolour isn't enough."
   ]
 }
