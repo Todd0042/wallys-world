@@ -54,10 +54,6 @@
       "members": [
         {
           "id": "freight_wall"
-        },
-        {
-          "id": "interstate_gauntlet",
-          "variant": "the Asphalt Gauntlet: orange-and-white construction barriers instead of boxes, brake-light red eyes (a separate sheet would sell it better)"
         }
       ]
     },
@@ -110,10 +106,6 @@
       "members": [
         {
           "id": "poisoned_email"
-        },
-        {
-          "id": "redemption_schedule",
-          "variant": "the Redemption Schedule: a payment table on parchment, a heavy chain dangling from it, cold blue instead of purple"
         }
       ]
     },
@@ -138,10 +130,6 @@
       "members": [
         {
           "id": "queue_wall"
-        },
-        {
-          "id": "customer_grind",
-          "variant": "the Customer Gauntlet: redder and angrier, more fists"
         },
         {
           "id": "friday_rush",
@@ -186,10 +174,6 @@
       "members": [
         {
           "id": "retirement_memo"
-        },
-        {
-          "id": "parting_shot_enemy",
-          "variant": "the Parting Shot: a crumpled grey note, the whisper that travels down the hall"
         }
       ]
     },
@@ -206,18 +190,6 @@
         {
           "id": "hostile_floor",
           "variant": "the Hostile Floor: two lenses on one stalk, one warm and one cold (two faces, one spine)"
-        }
-      ]
-    },
-    {
-      "key": "faceless_suit",
-      "name": "The Man They Wanted",
-      "placeholder": "wanted_occultist",
-      "look": "Upper management's favourite answer: a tall man in a black suit and red tie with no face at all, just smooth shadow, a briefcase in hand.",
-      "moves": "cast: Siphon Essence, the faceless head tilts and drains light; attack: briefcase swing.",
-      "members": [
-        {
-          "id": "want_man"
         }
       ]
     },
@@ -254,30 +226,6 @@
       ]
     },
     {
-      "key": "shingles_flame",
-      "name": "The Fourth Signal",
-      "placeholder": "nail_fire_brute",
-      "look": "The body's scorecard: a writhing line of nerve fire shaped like a creature, red-orange blisters along its back, an angry glow; it hurts to look at.",
-      "moves": "cast: Shockwave, flares; attack: Crushing Blow, lashes like a whip of fire.",
-      "members": [
-        {
-          "id": "shingles_four"
-        }
-      ]
-    },
-    {
-      "key": "goalpost_cart",
-      "name": "The Moving Goalposts",
-      "placeholder": "lapse_sniper",
-      "look": "A yellow American-football goalpost bolted to a rolling cart, wheels squealing as it rolls away just as you reach it; a little grin on the crossbar.",
-      "moves": "attack: rams forward on its wheels; windup: rolls back.",
-      "members": [
-        {
-          "id": "goalpost_cart"
-        }
-      ]
-    },
-    {
       "key": "calibration_gauge",
       "name": "The Calibration Lapse",
       "placeholder": "lapse_sniper",
@@ -298,10 +246,6 @@
       "members": [
         {
           "id": "bay_debt"
-        },
-        {
-          "id": "pay_cut_weight",
-          "variant": "the Pay Cut: grey and leaden, a heavy weight hanging from its arm"
         }
       ]
     },
@@ -338,10 +282,6 @@
       "members": [
         {
           "id": "buried_report"
-        },
-        {
-          "id": "final_balance_sheet",
-          "variant": "the Final Balance Sheet: a ledger book in place of the report, green and red columns"
         }
       ]
     },
@@ -354,42 +294,6 @@
       "members": [
         {
           "id": "cc_protocol"
-        }
-      ]
-    },
-    {
-      "key": "ownerless_building",
-      "name": "The Ownerless Building",
-      "placeholder": "tour_brute",
-      "look": "The store four hours after close: a dark storefront facade on stubby legs, the automatic doors a closed mouth, one aisle light left on for an eye.",
-      "moves": "attack: the facade leans in and slams; cast: the lights flicker off in a cold wave.",
-      "members": [
-        {
-          "id": "ownerless_building"
-        }
-      ]
-    },
-    {
-      "key": "night_visitor",
-      "name": "The Alternative",
-      "placeholder": "fallguy_brute",
-      "look": "The 3 AM visitor from the darkest chapter: a quiet, tall shadow in the shape of a person, edges dissolving like smoke, offering one open hand. Keep it abstract and still: no weapons, no wounds, nothing graphic. Its power is the silence around it.",
-      "moves": "cast: the darkness around it swells (no projectile); attack: reaches out slowly; death: fades into morning light (the player refuses it).",
-      "members": [
-        {
-          "id": "the_alternative"
-        }
-      ]
-    },
-    {
-      "key": "aussie",
-      "name": "Aussie",
-      "placeholder": "memo_occultist",
-      "look": "Aussie from portraits/aussie.jpg: stocky, scowling, navy polo, lanyard badge, clipboard with an angry spreadsheet; the absentee salaried manager who only has one tool, the collective threat.",
-      "moves": "attack: smacks the clipboard; cast: waves the spreadsheet, red cells flying out.",
-      "members": [
-        {
-          "id": "phantom_manager"
         }
       ]
     }
@@ -538,6 +442,102 @@
       "placeholder": "jury_brute",
       "look": "Ohmar from portraits/ohmar.jpg: the biggest man in the building, dark turban, black polo with the smiley badge, arms folded, a stillness that does the threatening. Never shouts.",
       "moves": "windup: leans forward, arms still folded; attack: Heavy Slam, a hand flat on the table; cast: Shockwave, a flat declarative stare that ripples out; charge_ultimate: the closed door, the formal chair, the pause before the question; ultimate: Cataclysm, the voice never rises and the room freezes."
+    },
+    {
+      "id": "interstate_gauntlet",
+      "name": "The Asphalt Gauntlet",
+      "cell": 96,
+      "placeholder": "freight_brute",
+      "look": "A hundred miles of headlights: a hulking golem of stacked orange-and-white construction barriers and traffic cones on a cracked asphalt base, reflective tape striping its body, two brake-light red eyes, a road sign bent into each fist.",
+      "moves": "windup: the barrier stack sways, hazard lights blinking; attack: Crushing Blow, a barrier arm slams down; cast: Shockwave, a wave of headlight glare rolls out; charge_ultimate: every light on its body flashes amber, brakes squealing; ultimate: Cataclysm, the whole stack topples forward like a pile-up."
+    },
+    {
+      "id": "goalpost_cart",
+      "name": "The Moving Goalposts",
+      "cell": 96,
+      "placeholder": "lapse_sniper",
+      "look": "A yellow American-football goalpost bolted to a rolling cart, wheels squealing as it rolls away just as you reach it; a little grin on the crossbar.",
+      "moves": "windup: rolls back, wheels squealing; attack: Crushing Blow, rams forward on its wheels; cast: Shockwave, the crossbar rings like a bell; charge_ultimate: the cart rolls back further and further out of reach; ultimate: Cataclysm, the goalpost slams down as the cart charges through."
+    },
+    {
+      "id": "ownerless_building",
+      "name": "The Ownerless Building",
+      "cell": 96,
+      "placeholder": "tour_brute",
+      "look": "The store four hours after close: a dark storefront facade on stubby legs, the automatic doors a closed mouth, one aisle light left on for an eye.",
+      "moves": "windup: the facade leans in, doors grinding; attack: Crushing Blow, the facade slams; cast: Shockwave, the lights flicker off in a cold wave; charge_ultimate: every aisle light goes dark but the one eye; ultimate: Cataclysm, the doors lock and the whole front falls in."
+    },
+    {
+      "id": "shingles_four",
+      "name": "The Fourth Signal",
+      "cell": 96,
+      "placeholder": "nail_fire_brute",
+      "look": "The body's scorecard: a writhing line of nerve fire shaped like a creature, red-orange blisters along its back, an angry glow; it hurts to look at.",
+      "moves": "windup: the nerve line coils, blisters glowing; attack: Crushing Blow, lashes like a whip of fire; cast: Shockwave, flares outward; charge_ultimate: the whole body burns white-hot along one side; ultimate: Cataclysm, a searing line of fire runs the length of the field."
+    },
+    {
+      "id": "redemption_schedule",
+      "name": "The Redemption Schedule",
+      "cell": 96,
+      "placeholder": "poisoned_phantom",
+      "look": "Thousands owed for walking away: a floating payment table on yellowed parchment, rows of figures in cold blue ink, a heavy iron chain and padlock dangling from it, a signature line curling like a smile. Hovers.",
+      "moves": "windup: the chain swings; attack: Crushing Blow, the chain lashes; cast: Shockwave, the figures peel off as cold blue bolts; charge_ultimate: the totals add up, the padlock glows; ultimate: Cataclysm, the chain wraps the whole party and the lock snaps shut."
+    },
+    {
+      "id": "the_alternative",
+      "name": "The Alternative",
+      "cell": 96,
+      "placeholder": "fallguy_brute",
+      "look": "The 3 AM visitor from the darkest chapter: a quiet, tall shadow in the shape of a person, edges dissolving like smoke, offering one open hand. Keep it abstract and still: no weapons, no wounds, nothing graphic. Its power is the silence around it.",
+      "moves": "windup: the shadow grows taller and more still; attack: Crushing Blow, reaches out slowly; cast: Shockwave, the darkness around it swells (no projectile); charge_ultimate: the room goes silent, the open hand waits; ultimate: Cataclysm, a wave of quiet darkness (abstract, nothing graphic); death: fades into morning light (the player refuses it)."
+    },
+    {
+      "id": "parting_shot_enemy",
+      "name": "The Parting Shot",
+      "cell": 96,
+      "placeholder": "memo_occultist",
+      "look": "'He'll be out in two months anyway': a crumpled grey office note on folded paper legs, a smudged signature for a sneer, its edges whispering into paper wisps that travel down the hall.",
+      "moves": "windup: the note unfolds, muttering; attack: Crushing Blow, wraps the target like an envelope; cast: Shockwave, fires a hiss of paper cuts; charge_ultimate: the whisper spreads, more notes fluttering in; ultimate: Cataclysm, a storm of crumpled notes."
+    },
+    {
+      "id": "pay_cut_weight",
+      "name": "The Pay Cut",
+      "cell": 96,
+      "placeholder": "debt_brute",
+      "look": "Twenty-four thousand reasons to doubt yourself: a grey, leaden machine built from a rusted vehicle lift and a counterweight, a huge iron weight hanging from its arm, a dented tool chest for a body.",
+      "moves": "windup: the weight swings back; attack: Crushing Blow, Iron Slam with the lift arm; cast: Shockwave, steam vents from a cracked hose; charge_ultimate: the weight rises to the top of the lift, chains straining; ultimate: Cataclysm, the weight drops."
+    },
+    {
+      "id": "final_balance_sheet",
+      "name": "The Final Balance Sheet",
+      "cell": 96,
+      "placeholder": "report_occultist",
+      "look": "Everything the machine cost and could not take: an office shredder walking on its bin with a thick ledger book in its teeth, green and red columns spilling out as strips below.",
+      "moves": "windup: the blades whir up; attack: Crushing Blow, lunges and chomps; cast: Shockwave, sprays shredded strips; charge_ultimate: the ledger pages flip fast, columns glowing red; ultimate: Cataclysm, the final total slams down."
+    },
+    {
+      "id": "customer_grind",
+      "name": "The Customer Gauntlet",
+      "cell": 96,
+      "placeholder": "grime_brute",
+      "look": "The entitled and the abusive: a lumpy wall of furious shoppers fused into one red-faced mass, many fists raised holding receipts, phones and return bags, mouths open mid-complaint, a 'SPEAK TO YOUR MANAGER' energy to the whole shape.",
+      "moves": "windup: the mass leans back, fists rising; attack: the whole mass surges forward; cast: War Cry, a roar of complaints; charge_ultimate: every phone comes up recording; ultimate: the whole crowd crashes over the counter."
+    },
+    {
+      "id": "phantom_manager",
+      "name": "Aussie",
+      "cell": 96,
+      "placeholder": "memo_occultist",
+      "look": "Aussie from portraits/aussie.jpg: stocky, scowling, navy polo, lanyard badge, clipboard with an angry spreadsheet; the absentee salaried manager who only has one tool, the collective threat.",
+      "moves": "windup: taps the clipboard, scowling; attack: Crushing Blow, smacks the clipboard down; cast: Shockwave, waves the spreadsheet, red cells flying out; charge_ultimate: flips to the last page, the collective threat in red; ultimate: Cataclysm, the spreadsheet explodes into a storm of red cells."
+    },
+    {
+      "id": "want_man",
+      "name": "The Man They Wanted",
+      "cell": 96,
+      "placeholder": "wanted_occultist",
+      "look": "Upper management's favourite answer: a tall man in a black suit and red tie with no face at all, just smooth shadow, a briefcase in hand.",
+      "moves": "windup: the faceless head tilts; attack: briefcase swing; cast: Siphon Essence, drains light from the room; charge_ultimate: the briefcase opens, shadow pouring out; ultimate: the shadow swallows the field and the light comes back slowly."
     }
   ],
   "remove": [],

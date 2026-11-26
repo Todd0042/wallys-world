@@ -6,7 +6,7 @@ Every fighter, enemy and boss is mapped to a sprite key below. A sheet named aft
 
 A memoir told as a JRPG: eight years and five states inside a big-box retailer, its freight trenches, service bays and offices. The party is Todd and Adriana; most enemies are the forces of the job made into monsters (the freight wall, the fluorescent hum, the poisoned email, the dashboard), and the bosses are the managers and machines of the company. Keep the humans grounded and recognisable from `app/src/main/assets/portraits/` (Wally's associates wear a teal vest with orange piping and a yellow smiley badge); make the abstract enemies strange and readable, ordinary workplace objects with a face, limbs and menace, like the existing 20x26 sprites they replace. Tone: weary, sincere, darkly funny, never cartoonish about the hard moments.
 
-**To draw: 47 sheets** (3 party fighters, 26 enemy families, 18 bosses). Everything else is a recolour of one of those.
+**To draw: 53 sheets** (3 party fighters, 20 enemy families, 30 bosses). Everything else is a recolour of one of those.
 
 ## Style (every sprite)
 
@@ -73,7 +73,7 @@ Adriana as she fights beside Todd from far away (36 encounters): a translucent, 
 
 A recolour of `adriana` (no art needed unless it should differ).
 
-## Enemy families (26, 64 px)
+## Enemy families (20, 64 px)
 
 ### `practice_dummy`: Shift Simulator
 
@@ -94,9 +94,6 @@ A hulking golem built from stacked cardboard freight boxes and a broken pallet b
 *Moves*: attack: slams down with a box-stack arm; cast: shrink-wrap lashes out; windup: the stack sways.
 
 Draws: The Freight Wall (Forty Eight Feet of Unopened Boxes, construct/physical)
-
-Recolours:
-- `interstate_gauntlet`: The Asphalt Gauntlet (A Hundred Miles of Headlights, construct/physical): the Asphalt Gauntlet: orange-and-white construction barriers instead of boxes, brake-light red eyes (a separate sheet would sell it better)
 
 ### `fluorescent_hum`: The Fluorescent Hum
 
@@ -141,9 +138,6 @@ A floating envelope-phantom: an open email window with a sickly purple glow, the
 
 Draws: The Poisoned Email (Wasn't Ready, He Said, void/shadow)
 
-Recolours:
-- `redemption_schedule`: The Redemption Schedule (Thousands Owed for Walking Away, void/shadow): the Redemption Schedule: a payment table on parchment, a heavy chain dangling from it, cold blue instead of purple
-
 ### `bay_grime`: The Bay Grime
 
 > **Deliver:** `app/src/main/assets/game/sprites/sheets/bay_grime.png` + `bay_grime.json` · **enemy** · **64x64** cells · tags: idle, attack (impact=4), hurt (+ windup, cast (release=4), death)
@@ -165,7 +159,6 @@ Bodies pressing forward: a lumpy wall of impatient shoppers fused into one mass,
 Draws: The Queue Wall (Bodies Pressing Forward, construct/physical)
 
 Recolours:
-- `customer_grind`: The Customer Gauntlet (The Entitled and the Abusive, flesh/physical): the Customer Gauntlet: redder and angrier, more fists
 - `friday_rush`: The Friday Rush (A Line of Pickups Around the Block, flesh/physical): the Friday Rush: a line of service customers with pickup-truck headlights glaring behind them (a separate sheet with a truck would sell it better)
 
 ### `shopper`: The Sixth in Line
@@ -201,9 +194,6 @@ A tall, polite sheet of company letterhead with a red wax seal for a heart, fold
 
 Draws: The Retirement Memo (Polite Corporate Execution, void/shadow)
 
-Recolours:
-- `parting_shot_enemy`: The Parting Shot ('He'll Be Out in Two Months Anyway', void/shadow): the Parting Shot: a crumpled grey note, the whisper that travels down the hall
-
 ### `camera_eye`: The Watchful Eye
 
 > **Deliver:** `app/src/main/assets/game/sprites/sheets/camera_eye.png` + `camera_eye.json` · **enemy** · **64x64** cells · tags: idle, attack (impact=4), hurt (+ windup, cast (release=4), death)
@@ -216,16 +206,6 @@ Draws: The Watchful Eye (Jury's Camera That Never Blinks, construct/electromancy
 
 Recolours:
 - `hostile_floor`: The Hostile Floor (Two Faces, One Spine, construct/electromancy): the Hostile Floor: two lenses on one stalk, one warm and one cold (two faces, one spine)
-
-### `faceless_suit`: The Man They Wanted
-
-> **Deliver:** `app/src/main/assets/game/sprites/sheets/faceless_suit.png` + `faceless_suit.json` · **enemy** · **64x64** cells · tags: idle, attack (impact=4), hurt (+ windup, cast (release=4), death)
-
-Upper management's favourite answer: a tall man in a black suit and red tie with no face at all, just smooth shadow, a briefcase in hand.
-
-*Moves*: cast: Siphon Essence, the faceless head tilts and drains light; attack: briefcase swing.
-
-Draws: The Man They Wanted (Upper Management's Favorite Answer, void/shadow)
 
 ### `file_folder`: The Grievance File
 
@@ -251,26 +231,6 @@ A weather system of theft: a whirling funnel of torn price tags, empty hangers a
 
 Draws: The Blotter Regulars (Weekly Visitors, a Weather System, verdant/nature)
 
-### `shingles_flame`: The Fourth Signal
-
-> **Deliver:** `app/src/main/assets/game/sprites/sheets/shingles_flame.png` + `shingles_flame.json` · **enemy** · **64x64** cells · tags: idle, attack (impact=4), hurt (+ windup, cast (release=4), death)
-
-The body's scorecard: a writhing line of nerve fire shaped like a creature, red-orange blisters along its back, an angry glow; it hurts to look at.
-
-*Moves*: cast: Shockwave, flares; attack: Crushing Blow, lashes like a whip of fire.
-
-Draws: The Fourth Signal (The Body Keeps the Score, construct/pyromancy)
-
-### `goalpost_cart`: The Moving Goalposts
-
-> **Deliver:** `app/src/main/assets/game/sprites/sheets/goalpost_cart.png` + `goalpost_cart.json` · **enemy** · **64x64** cells · tags: idle, attack (impact=4), hurt (+ windup, cast (release=4), death)
-
-A yellow American-football goalpost bolted to a rolling cart, wheels squealing as it rolls away just as you reach it; a little grin on the crossbar.
-
-*Moves*: attack: rams forward on its wheels; windup: rolls back.
-
-Draws: The Moving Goalposts (Mounted Firmly on Wheels, construct/electromancy)
-
 ### `calibration_gauge`: The Calibration Lapse
 
 > **Deliver:** `app/src/main/assets/game/sprites/sheets/calibration_gauge.png` + `calibration_gauge.json` · **enemy** · **64x64** cells · tags: idle, attack (impact=4), hurt (+ windup, cast (release=4), death)
@@ -290,9 +250,6 @@ Years of deferred maintenance: a rusted, leaking vehicle lift and compressor gro
 *Moves*: attack: Iron Slam with the lift arm; cast: Steam Vent from a cracked hose.
 
 Draws: The Bay Debt (Years of Deferred Maintenance, construct/physical)
-
-Recolours:
-- `pay_cut_weight`: The Pay Cut (Twenty-Four Thousand Reasons to Doubt Yourself, void/shadow): the Pay Cut: grey and leaden, a heavy weight hanging from its arm
 
 ### `edict_scroll`: The Executive Edict
 
@@ -324,9 +281,6 @@ An office paper shredder that walks on its bin, a safety report half-swallowed i
 
 Draws: The Buried Report (The Wheel Was Never Loose, verdant/nature)
 
-Recolours:
-- `final_balance_sheet`: The Final Balance Sheet (Everything the Machine Cost and Could Not Take, construct/physical): the Final Balance Sheet: a ledger book in place of the report, green and red columns
-
 ### `cc_line`: The CC Line
 
 > **Deliver:** `app/src/main/assets/game/sprites/sheets/cc_line.png` + `cc_line.json` · **enemy** · **64x64** cells · tags: idle, attack (impact=4), hurt (+ windup, cast (release=4), death)
@@ -337,37 +291,7 @@ An ally among enemies: a chain of linked office phones and envelopes forming a c
 
 Draws: The CC Line (Bypass Every Smiling Gatekeeper, void/shadow)
 
-### `ownerless_building`: The Ownerless Building
-
-> **Deliver:** `app/src/main/assets/game/sprites/sheets/ownerless_building.png` + `ownerless_building.json` · **enemy** · **64x64** cells · tags: idle, attack (impact=4), hurt (+ windup, cast (release=4), death)
-
-The store four hours after close: a dark storefront facade on stubby legs, the automatic doors a closed mouth, one aisle light left on for an eye.
-
-*Moves*: attack: the facade leans in and slams; cast: the lights flicker off in a cold wave.
-
-Draws: The Ownerless Building (Four Hours After Close, construct/cryomancy)
-
-### `night_visitor`: The Alternative
-
-> **Deliver:** `app/src/main/assets/game/sprites/sheets/night_visitor.png` + `night_visitor.json` · **enemy** · **64x64** cells · tags: idle, attack (impact=4), hurt (+ windup, cast (release=4), death)
-
-The 3 AM visitor from the darkest chapter: a quiet, tall shadow in the shape of a person, edges dissolving like smoke, offering one open hand. Keep it abstract and still: no weapons, no wounds, nothing graphic. Its power is the silence around it.
-
-*Moves*: cast: the darkness around it swells (no projectile); attack: reaches out slowly; death: fades into morning light (the player refuses it).
-
-Draws: The Alternative (The 3 AM Visitor, void/shadow)
-
-### `aussie`: Aussie
-
-> **Deliver:** `app/src/main/assets/game/sprites/sheets/aussie.png` + `aussie.json` · **enemy** · **64x64** cells · tags: idle, attack (impact=4), hurt (+ windup, cast (release=4), death)
-
-Aussie from portraits/aussie.jpg: stocky, scowling, navy polo, lanyard badge, clipboard with an angry spreadsheet; the absentee salaried manager who only has one tool, the collective threat.
-
-*Moves*: attack: smacks the clipboard; cast: waves the spreadsheet, red cells flying out.
-
-Draws: Aussie (The Absentee Salaried Manager, void/shadow)
-
-## Bosses (18 to draw, each its own sprite)
+## Bosses (30 to draw, each its own sprite)
 
 ### `mattie_t_enemy`: Mattie-T, Store Manager (96 px)
 
@@ -548,6 +472,126 @@ Ohmar from portraits/ohmar.jpg: the biggest man in the building, dark turban, bl
 *Moves*: windup: leans forward, arms still folded; attack: Heavy Slam, a hand flat on the table; cast: Shockwave, a flat declarative stare that ripples out; charge_ultimate: the closed door, the formal chair, the pause before the question; ultimate: Cataclysm, the voice never rises and the room freezes.
 
 Element: flesh/shadow.
+
+### `interstate_gauntlet`: The Asphalt Gauntlet (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/interstate_gauntlet.png` + `interstate_gauntlet.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+A hundred miles of headlights: a hulking golem of stacked orange-and-white construction barriers and traffic cones on a cracked asphalt base, reflective tape striping its body, two brake-light red eyes, a road sign bent into each fist.
+
+*Moves*: windup: the barrier stack sways, hazard lights blinking; attack: Crushing Blow, a barrier arm slams down; cast: Shockwave, a wave of headlight glare rolls out; charge_ultimate: every light on its body flashes amber, brakes squealing; ultimate: Cataclysm, the whole stack topples forward like a pile-up.
+
+Element: construct/physical.
+
+### `goalpost_cart`: The Moving Goalposts (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/goalpost_cart.png` + `goalpost_cart.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+A yellow American-football goalpost bolted to a rolling cart, wheels squealing as it rolls away just as you reach it; a little grin on the crossbar.
+
+*Moves*: windup: rolls back, wheels squealing; attack: Crushing Blow, rams forward on its wheels; cast: Shockwave, the crossbar rings like a bell; charge_ultimate: the cart rolls back further and further out of reach; ultimate: Cataclysm, the goalpost slams down as the cart charges through.
+
+Element: construct/electromancy.
+
+### `ownerless_building`: The Ownerless Building (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/ownerless_building.png` + `ownerless_building.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+The store four hours after close: a dark storefront facade on stubby legs, the automatic doors a closed mouth, one aisle light left on for an eye.
+
+*Moves*: windup: the facade leans in, doors grinding; attack: Crushing Blow, the facade slams; cast: Shockwave, the lights flicker off in a cold wave; charge_ultimate: every aisle light goes dark but the one eye; ultimate: Cataclysm, the doors lock and the whole front falls in.
+
+Element: construct/cryomancy.
+
+### `shingles_four`: The Fourth Signal (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/shingles_four.png` + `shingles_four.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+The body's scorecard: a writhing line of nerve fire shaped like a creature, red-orange blisters along its back, an angry glow; it hurts to look at.
+
+*Moves*: windup: the nerve line coils, blisters glowing; attack: Crushing Blow, lashes like a whip of fire; cast: Shockwave, flares outward; charge_ultimate: the whole body burns white-hot along one side; ultimate: Cataclysm, a searing line of fire runs the length of the field.
+
+Element: construct/pyromancy.
+
+### `redemption_schedule`: The Redemption Schedule (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/redemption_schedule.png` + `redemption_schedule.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+Thousands owed for walking away: a floating payment table on yellowed parchment, rows of figures in cold blue ink, a heavy iron chain and padlock dangling from it, a signature line curling like a smile. Hovers.
+
+*Moves*: windup: the chain swings; attack: Crushing Blow, the chain lashes; cast: Shockwave, the figures peel off as cold blue bolts; charge_ultimate: the totals add up, the padlock glows; ultimate: Cataclysm, the chain wraps the whole party and the lock snaps shut.
+
+Element: void/shadow.
+
+### `the_alternative`: The Alternative (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/the_alternative.png` + `the_alternative.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+The 3 AM visitor from the darkest chapter: a quiet, tall shadow in the shape of a person, edges dissolving like smoke, offering one open hand. Keep it abstract and still: no weapons, no wounds, nothing graphic. Its power is the silence around it.
+
+*Moves*: windup: the shadow grows taller and more still; attack: Crushing Blow, reaches out slowly; cast: Shockwave, the darkness around it swells (no projectile); charge_ultimate: the room goes silent, the open hand waits; ultimate: Cataclysm, a wave of quiet darkness (abstract, nothing graphic); death: fades into morning light (the player refuses it).
+
+Element: void/shadow.
+
+### `parting_shot_enemy`: The Parting Shot (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/parting_shot_enemy.png` + `parting_shot_enemy.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+'He'll be out in two months anyway': a crumpled grey office note on folded paper legs, a smudged signature for a sneer, its edges whispering into paper wisps that travel down the hall.
+
+*Moves*: windup: the note unfolds, muttering; attack: Crushing Blow, wraps the target like an envelope; cast: Shockwave, fires a hiss of paper cuts; charge_ultimate: the whisper spreads, more notes fluttering in; ultimate: Cataclysm, a storm of crumpled notes.
+
+Element: void/shadow.
+
+### `pay_cut_weight`: The Pay Cut (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/pay_cut_weight.png` + `pay_cut_weight.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+Twenty-four thousand reasons to doubt yourself: a grey, leaden machine built from a rusted vehicle lift and a counterweight, a huge iron weight hanging from its arm, a dented tool chest for a body.
+
+*Moves*: windup: the weight swings back; attack: Crushing Blow, Iron Slam with the lift arm; cast: Shockwave, steam vents from a cracked hose; charge_ultimate: the weight rises to the top of the lift, chains straining; ultimate: Cataclysm, the weight drops.
+
+Element: void/shadow.
+
+### `final_balance_sheet`: The Final Balance Sheet (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/final_balance_sheet.png` + `final_balance_sheet.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+Everything the machine cost and could not take: an office shredder walking on its bin with a thick ledger book in its teeth, green and red columns spilling out as strips below.
+
+*Moves*: windup: the blades whir up; attack: Crushing Blow, lunges and chomps; cast: Shockwave, sprays shredded strips; charge_ultimate: the ledger pages flip fast, columns glowing red; ultimate: Cataclysm, the final total slams down.
+
+Element: construct/physical.
+
+### `customer_grind`: The Customer Gauntlet (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/customer_grind.png` + `customer_grind.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+The entitled and the abusive: a lumpy wall of furious shoppers fused into one red-faced mass, many fists raised holding receipts, phones and return bags, mouths open mid-complaint, a 'SPEAK TO YOUR MANAGER' energy to the whole shape.
+
+*Moves*: windup: the mass leans back, fists rising; attack: the whole mass surges forward; cast: War Cry, a roar of complaints; charge_ultimate: every phone comes up recording; ultimate: the whole crowd crashes over the counter.
+
+Element: flesh/physical.
+
+### `phantom_manager`: Aussie (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/phantom_manager.png` + `phantom_manager.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+Aussie from portraits/aussie.jpg: stocky, scowling, navy polo, lanyard badge, clipboard with an angry spreadsheet; the absentee salaried manager who only has one tool, the collective threat.
+
+*Moves*: windup: taps the clipboard, scowling; attack: Crushing Blow, smacks the clipboard down; cast: Shockwave, waves the spreadsheet, red cells flying out; charge_ultimate: flips to the last page, the collective threat in red; ultimate: Cataclysm, the spreadsheet explodes into a storm of red cells.
+
+Element: void/shadow.
+
+### `want_man`: The Man They Wanted (96 px)
+
+> **Deliver:** `app/src/main/assets/game/sprites/sheets/want_man.png` + `want_man.json` · **boss** · **96x96** cells · tags: idle, windup, attack (impact=4), cast (release=4), hurt, charge_ultimate, ultimate (release=5) (+ death)
+
+Upper management's favourite answer: a tall man in a black suit and red tie with no face at all, just smooth shadow, a briefcase in hand.
+
+*Moves*: windup: the faceless head tilts; attack: briefcase swing; cast: Siphon Essence, drains light from the room; charge_ultimate: the briefcase opens, shadow pouring out; ultimate: the shadow swallows the field and the light comes back slowly.
+
+Element: void/shadow.
 
 ## Notes for the game
 

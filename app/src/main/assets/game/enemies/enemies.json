@@ -13,7 +13,7 @@
       "speed": 35,
       "xpReward": 80,
       "movesetId": "construct_bruiser",
-      "spriteId": "freight_brute",
+      "spriteId": "freight_wall",
       "spriteTint": "#A1887F"
     },
     {
@@ -28,7 +28,7 @@
       "speed": 40,
       "xpReward": 60,
       "movesetId": "construct_caster",
-      "spriteId": "hum_occultist",
+      "spriteId": "fluorescent_hum",
       "spriteTint": "#B2EBF2"
     },
     {
@@ -43,7 +43,7 @@
       "speed": 55,
       "xpReward": 110,
       "movesetId": "construct_sniper",
-      "spriteId": "dash_sniper",
+      "spriteId": "dashboard",
       "spriteTint": "#4FC3F7"
     },
     {
@@ -58,7 +58,7 @@
       "speed": 50,
       "xpReward": 100,
       "movesetId": "flesh_bruiser",
-      "spriteId": "ringer_brute",
+      "spriteId": "the_ringer",
       "spriteTint": "#EF9A9A"
     },
     {
@@ -74,7 +74,7 @@
       "xpReward": 120,
       "movesetId": "void_caster",
       "isBoss": false,
-      "spriteId": "poisoned_phantom",
+      "spriteId": "poisoned_email",
       "spriteTint": "#9575CD"
     },
     {
@@ -90,7 +90,7 @@
       "xpReward": 600,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "mattie_brute",
+      "spriteId": "mattie_t_enemy",
       "spriteTint": "#EF5350"
     },
     {
@@ -120,7 +120,7 @@
       "speed": 36,
       "xpReward": 85,
       "movesetId": "construct_bruiser",
-      "spriteId": "grime_brute",
+      "spriteId": "bay_grime",
       "spriteTint": "#4E342E"
     },
     {
@@ -135,7 +135,7 @@
       "speed": 42,
       "xpReward": 90,
       "movesetId": "construct_bruiser",
-      "spriteId": "tire_brute",
+      "spriteId": "tire_tower",
       "spriteTint": "#455A64"
     },
     {
@@ -150,7 +150,7 @@
       "speed": 58,
       "xpReward": 110,
       "movesetId": "flesh_sniper",
-      "spriteId": "rush_sniper",
+      "spriteId": "friday_rush",
       "spriteTint": "#FFB300"
     },
     {
@@ -165,7 +165,7 @@
       "speed": 50,
       "xpReward": 100,
       "movesetId": "void_caster",
-      "spriteId": "memo_occultist",
+      "spriteId": "memo",
       "spriteTint": "#8E24AA"
     },
     {
@@ -180,7 +180,7 @@
       "speed": 52,
       "xpReward": 105,
       "movesetId": "construct_sniper",
-      "spriteId": "eye_sniper",
+      "spriteId": "camera_eye",
       "spriteTint": "#7E57C2"
     },
     {
@@ -195,8 +195,9 @@
       "speed": 46,
       "xpReward": 130,
       "movesetId": "void_caster",
-      "spriteId": "wanted_occultist",
-      "spriteTint": "#BF360C"
+      "spriteId": "want_man",
+      "spriteTint": "#BF360C",
+      "isBoss": true
     },
     {
       "id": "grievance_file",
@@ -210,7 +211,7 @@
       "speed": 44,
       "xpReward": 120,
       "movesetId": "verdant_caster",
-      "spriteId": "file_occultist",
+      "spriteId": "file_folder",
       "spriteTint": "#9E9D24"
     },
     {
@@ -226,7 +227,7 @@
       "xpReward": 650,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "jury_brute",
+      "spriteId": "jury_enemy",
       "spriteTint": "#7E57C2"
     },
     {
@@ -242,7 +243,7 @@
       "xpReward": 300,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "nail_fire_brute",
+      "spriteId": "shingles_fire",
       "spriteTint": "#E53935"
     },
     {
@@ -257,7 +258,7 @@
       "speed": 50,
       "xpReward": 100,
       "movesetId": "construct_sniper",
-      "spriteId": "lapse_sniper",
+      "spriteId": "calibration_gauge",
       "spriteTint": "#FBC02D"
     },
     {
@@ -272,7 +273,7 @@
       "speed": 34,
       "xpReward": 95,
       "movesetId": "construct_bruiser",
-      "spriteId": "debt_brute",
+      "spriteId": "debt_machine",
       "spriteTint": "#6D4C41"
     },
     {
@@ -287,7 +288,7 @@
       "speed": 52,
       "xpReward": 115,
       "movesetId": "verdant_caster",
-      "spriteId": "edict_occultist",
+      "spriteId": "edict_scroll",
       "spriteTint": "#66BB6A"
     },
     {
@@ -303,7 +304,7 @@
       "xpReward": 660,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "tour_brute",
+      "spriteId": "gated_tour",
       "spriteTint": "#5E35B1"
     },
     {
@@ -318,7 +319,7 @@
       "speed": 46,
       "xpReward": 95,
       "movesetId": "verdant_caster",
-      "spriteId": "smile_occultist",
+      "spriteId": "smile_badge",
       "spriteTint": "#F48FB1"
     },
     {
@@ -333,7 +334,7 @@
       "speed": 48,
       "xpReward": 110,
       "movesetId": "verdant_caster",
-      "spriteId": "report_occultist",
+      "spriteId": "report_shredder",
       "spriteTint": "#8D6E63"
     },
     {
@@ -349,7 +350,7 @@
       "xpReward": 660,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "fallguy_brute",
+      "spriteId": "fall_guy_index",
       "spriteTint": "#37474F"
     },
     {
@@ -364,7 +365,7 @@
       "speed": 55,
       "xpReward": 120,
       "movesetId": "void_caster",
-      "spriteId": "cc_occultist",
+      "spriteId": "cc_line",
       "spriteTint": "#7E57C2"
     },
     {
@@ -380,7 +381,7 @@
       "xpReward": 680,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "desk_brute",
+      "spriteId": "regional_desk",
       "spriteTint": "#00ACC1"
     },
     {
@@ -395,7 +396,7 @@
       "speed": 60,
       "xpReward": 120,
       "movesetId": "flesh_sniper",
-      "spriteId": "rush_sniper",
+      "spriteId": "shopper",
       "spriteTint": "#FF8A65"
     },
     {
@@ -410,7 +411,7 @@
       "speed": 34,
       "xpReward": 100,
       "movesetId": "construct_bruiser",
-      "spriteId": "grime_brute",
+      "spriteId": "crowd_mass",
       "spriteTint": "#795548"
     },
     {
@@ -425,7 +426,7 @@
       "speed": 62,
       "xpReward": 130,
       "movesetId": "flesh_sniper",
-      "spriteId": "dash_sniper",
+      "spriteId": "register_blitz",
       "spriteTint": "#F4511E"
     },
     {
@@ -441,7 +442,7 @@
       "xpReward": 700,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "tour_brute",
+      "spriteId": "one_man_close",
       "spriteTint": "#263238"
     },
     {
@@ -456,7 +457,7 @@
       "speed": 48,
       "xpReward": 120,
       "movesetId": "verdant_caster",
-      "spriteId": "tide_occultist",
+      "spriteId": "paper_storm",
       "spriteTint": "#66BB6A"
     },
     {
@@ -471,7 +472,7 @@
       "speed": 58,
       "xpReward": 130,
       "movesetId": "flesh_sniper",
-      "spriteId": "rush_sniper",
+      "spriteId": "grab_and_run",
       "spriteTint": "#F57C00"
     },
     {
@@ -486,7 +487,7 @@
       "speed": 50,
       "xpReward": 115,
       "movesetId": "verdant_caster",
-      "spriteId": "file_occultist",
+      "spriteId": "claim_blizzard",
       "spriteTint": "#9E9D24"
     },
     {
@@ -501,7 +502,7 @@
       "speed": 54,
       "xpReward": 125,
       "movesetId": "construct_sniper",
-      "spriteId": "eye_sniper",
+      "spriteId": "hostile_floor",
       "spriteTint": "#C62828"
     },
     {
@@ -517,7 +518,7 @@
       "xpReward": 680,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "fallguy_brute",
+      "spriteId": "parking_draw",
       "spriteTint": "#263238"
     },
     {
@@ -533,7 +534,7 @@
       "xpReward": 720,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "freight_brute",
+      "spriteId": "overhaul_wall",
       "spriteTint": "#6D4C41"
     },
     {
@@ -549,7 +550,7 @@
       "xpReward": 690,
       "movesetId": "construct_bruiser",
       "isBoss": true,
-      "spriteId": "mattie_brute",
+      "spriteId": "aspirant_zero",
       "spriteTint": "#FFA726"
     },
     {
@@ -564,7 +565,7 @@
       "speed": 44,
       "xpReward": 110,
       "movesetId": "verdant_caster",
-      "spriteId": "file_occultist",
+      "spriteId": "zero_report",
       "spriteTint": "#EFEBE9"
     },
     {
@@ -580,7 +581,7 @@
       "xpReward": 760,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "nail_fire_brute",
+      "spriteId": "meat_grinder",
       "spriteTint": "#B71C1C"
     },
     {
@@ -596,7 +597,7 @@
       "xpReward": 800,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "poisoned_phantom",
+      "spriteId": "relocation_contract",
       "spriteTint": "#1A237E"
     },
     {
@@ -611,8 +612,9 @@
       "speed": 45,
       "xpReward": 700,
       "movesetId": "boss_template",
-      "spriteId": "freight_brute",
-      "spriteTint": "#455A64"
+      "spriteId": "interstate_gauntlet",
+      "spriteTint": "#455A64",
+      "isBoss": true
     },
     {
       "id": "goalpost_cart",
@@ -626,8 +628,9 @@
       "speed": 55,
       "xpReward": 680,
       "movesetId": "boss_template",
-      "spriteId": "lapse_sniper",
-      "spriteTint": "#FBC02D"
+      "spriteId": "goalpost_cart",
+      "spriteTint": "#FBC02D",
+      "isBoss": true
     },
     {
       "id": "ohmar_enemy",
@@ -641,7 +644,7 @@
       "speed": 52,
       "xpReward": 760,
       "movesetId": "boss_template",
-      "spriteId": "jury_brute",
+      "spriteId": "ohmar_enemy",
       "spriteTint": "#B71C1C",
       "isBoss": true
     },
@@ -657,8 +660,9 @@
       "speed": 40,
       "xpReward": 700,
       "movesetId": "boss_template",
-      "spriteId": "tour_brute",
-      "spriteTint": "#37474F"
+      "spriteId": "ownerless_building",
+      "spriteTint": "#37474F",
+      "isBoss": true
     },
     {
       "id": "shingles_four",
@@ -672,8 +676,9 @@
       "speed": 58,
       "xpReward": 740,
       "movesetId": "boss_template",
-      "spriteId": "nail_fire_brute",
-      "spriteTint": "#B71C1C"
+      "spriteId": "shingles_four",
+      "spriteTint": "#B71C1C",
+      "isBoss": true
     },
     {
       "id": "redemption_schedule",
@@ -687,8 +692,9 @@
       "speed": 55,
       "xpReward": 800,
       "movesetId": "boss_template",
-      "spriteId": "poisoned_phantom",
-      "spriteTint": "#1A237E"
+      "spriteId": "redemption_schedule",
+      "spriteTint": "#1A237E",
+      "isBoss": true
     },
     {
       "id": "the_alternative",
@@ -702,8 +708,9 @@
       "speed": 60,
       "xpReward": 850,
       "movesetId": "boss_template",
-      "spriteId": "fallguy_brute",
-      "spriteTint": "#000000"
+      "spriteId": "the_alternative",
+      "spriteTint": "#000000",
+      "isBoss": true
     },
     {
       "id": "parting_shot_enemy",
@@ -717,8 +724,9 @@
       "speed": 58,
       "xpReward": 780,
       "movesetId": "boss_template",
-      "spriteId": "memo_occultist",
-      "spriteTint": "#8E24AA"
+      "spriteId": "parting_shot_enemy",
+      "spriteTint": "#8E24AA",
+      "isBoss": true
     },
     {
       "id": "pay_cut_weight",
@@ -732,8 +740,9 @@
       "speed": 38,
       "xpReward": 680,
       "movesetId": "boss_template",
-      "spriteId": "debt_brute",
-      "spriteTint": "#455A64"
+      "spriteId": "pay_cut_weight",
+      "spriteTint": "#455A64",
+      "isBoss": true
     },
     {
       "id": "phantom_manager",
@@ -747,8 +756,9 @@
       "speed": 50,
       "xpReward": 620,
       "movesetId": "boss_template",
-      "spriteId": "memo_occultist",
-      "spriteTint": "#37474F"
+      "spriteId": "phantom_manager",
+      "spriteTint": "#37474F",
+      "isBoss": true
     },
     {
       "id": "customer_grind",
@@ -762,8 +772,9 @@
       "speed": 56,
       "xpReward": 500,
       "movesetId": "flesh_bruiser",
-      "spriteId": "rush_sniper",
-      "spriteTint": "#E64A19"
+      "spriteId": "customer_grind",
+      "spriteTint": "#E64A19",
+      "isBoss": true
     },
     {
       "id": "final_balance_sheet",
@@ -777,8 +788,9 @@
       "speed": 30,
       "xpReward": 1000,
       "movesetId": "boss_template",
-      "spriteId": "report_occultist",
-      "spriteTint": "#1B5E20"
+      "spriteId": "final_balance_sheet",
+      "spriteTint": "#1B5E20",
+      "isBoss": true
     },
     {
       "id": "azalia_enemy",
@@ -793,7 +805,7 @@
       "xpReward": 630,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "azalia_brute",
+      "spriteId": "azalia_enemy",
       "spriteTint": "#EC407A"
     },
     {
@@ -809,7 +821,7 @@
       "xpReward": 730,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "jay_dau_brute",
+      "spriteId": "jay_dau_enemy",
       "spriteTint": "#1565C0"
     },
     {
@@ -825,7 +837,7 @@
       "xpReward": 550,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "amandy_brute",
+      "spriteId": "amandy_enemy",
       "spriteTint": "#EF5350"
     },
     {
@@ -841,7 +853,7 @@
       "xpReward": 690,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "sriniviii_brute",
+      "spriteId": "sriniviii_enemy",
       "spriteTint": "#5E35B1"
     },
     {
@@ -857,7 +869,7 @@
       "xpReward": 760,
       "movesetId": "boss_template",
       "isBoss": true,
-      "spriteId": "abdoolie_brute",
+      "spriteId": "abdoolie_enemy",
       "spriteTint": "#37474F"
     }
   ]
