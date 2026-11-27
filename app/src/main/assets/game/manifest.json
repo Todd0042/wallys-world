@@ -1,6 +1,7 @@
 {
   "_doc": "Game manifest: top-level metadata the engine pulls at boot. 'The Squeeze' is a gritty retail-management memoir set inside a fictional megastore chain (Wally's World). All content is drop-in JSON; the engine itself remains genre-neutral.",
   "combatResource": "none",
+  "allowClassSelectionInCreation": false,
   "gameTitle": "The Squeeze",
   "gameSubtitle": "A Wally's World Memoir",
   "worldName": "Wally's World",

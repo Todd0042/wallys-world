@@ -143,7 +143,7 @@
       "school": "HOLY",
       "basePower": 50,
       "isHeal": true,
-      "description": "Patch up the associate next to you \u2014 a promised swap of the worst task, a cold drink from your bin.",
+      "description": "Patch up whoever's flagging, or yourself: a promised swap of the worst task, a cold drink from your bin. Say a name to pick who.",
       "exampleChant": "mend crew!",
       "aliases": [
         "mend crew",
@@ -159,7 +159,9 @@
         "secondaryColor": "#69F0AE",
         "particleCount": 24,
         "screenShake": 0.0
-      }
+      },
+      "target": "ally",
+      "healPctOfMax": 0.15
     },
     {
       "id": "steady_hands",
@@ -1006,7 +1008,7 @@
       "school": "HOLY",
       "basePower": 140,
       "isHeal": true,
-      "description": "The vital lifeline that pulls {hero} back from exhaustion and restores health.",
+      "description": "The vital lifeline that pulls whoever is falling back from exhaustion; with no name, it finds {hero}.",
       "exampleChant": "lifeline mend!",
       "aliases": [
         "lifeline mend",
@@ -1022,7 +1024,9 @@
         "secondaryColor": "#69F0AE",
         "particleCount": 26,
         "screenShake": 0.0
-      }
+      },
+      "target": "ally",
+      "healPctOfMax": 0.45
     },
     {
       "id": "the_backrub",
@@ -1046,7 +1050,9 @@
         "secondaryColor": "#FFF9C4",
         "particleCount": 18,
         "screenShake": 0.0
-      }
+      },
+      "hitsAll": true,
+      "healPctOfMax": 0.2
     },
     {
       "id": "inspiring_words",
@@ -1165,6 +1171,51 @@
         "secondaryColor": "#FFFFFF",
         "particleCount": 20,
         "screenShake": 0.0
+      },
+      "target": "ally",
+      "status": "BLESS"
+    },
+    {
+      "id": "calm_rebuke",
+      "name": "Calm Rebuke",
+      "school": "HOLY",
+      "basePower": 48,
+      "hitsAll": true,
+      "description": "The level voice that tells every manager in the room exactly what they did, without once raising it.",
+      "exampleChant": "calm rebuke!",
+      "aliases": [
+        "calm rebuke",
+        "rebuke",
+        "call it out",
+        "say it plainly"
+      ],
+      "graphics": {
+        "effectType": "WAVE",
+        "primaryColor": "#F06292",
+        "secondaryColor": "#FFF9C4",
+        "particleCount": 22,
+        "screenShake": 2.0
+      }
+    },
+    {
+      "id": "frozen_out",
+      "name": "Frozen Out",
+      "school": "CRYOMANCY",
+      "basePower": 55,
+      "description": "She stops engaging: no argument, no reaction, nothing for the bluster to push against until it runs out of air.",
+      "exampleChant": "frozen out!",
+      "aliases": [
+        "frozen out",
+        "freeze them out",
+        "freeze out",
+        "the silent treatment"
+      ],
+      "graphics": {
+        "effectType": "PROJECTILE",
+        "primaryColor": "#80DEEA",
+        "secondaryColor": "#F48FB1",
+        "particleCount": 20,
+        "screenShake": 2.0
       }
     }
   ]

@@ -1,13 +1,80 @@
 {
-  "_doc": "HERO CLASS — the Floor Captain: voice of the freight line. Physical, durable, all grind.",
+  "_doc": "Todd's only class, so character creation offers no class choice (manifest allowClassSelectionInCreation: false). The engine reads the hero's title, HP and speed from the class, and the hero's spell kit too: starterSpellIds is the kit Todd starts with, spellGrants add spells when their story flag is set (each flag is a hub beat the story requires, so every playthrough gets them). Only additions, never replacements; no mana in this game. characters/todd.json mirrors starterSpellIds for the tutorial.",
   "id": "floor_captain",
   "title": "Floor Captain",
-  "subtitle": "Voice of the Freight Line",
-  "description": "The one who clears the dock and holds the line. Heavy vitality, plain language, and the endurance to outlast the wall of boxes.",
-  "startingHp": 330,
-  "startingSpeed": 55,
+  "subtitle": "From the Freight Line to the Service Bay",
+  "description": "The one who clears the dock, holds the line and later runs the bays. He starts with the basics and picks up the rest of the job one story beat at a time.",
+  "startingHp": 340,
+  "startingSpeed": 58,
   "startingBaseAttack": 30,
   "preferredSchool": "PHYSICAL",
-  "starterSpellIds": ["line_drill", "freight_push", "hold_ground", "grind_out"],
-  "voiceKeywords": ["floor captain", "captain", "freight", "line leader", "stocking", "physical"]
+  "starterSpellIds": [
+    "line_drill",
+    "volt_snap",
+    "mend_crew"
+  ],
+  "spellGrants": [
+    {
+      "flag": "flag_floor_led",
+      "spellIds": [
+        "freight_push"
+      ]
+    },
+    {
+      "flag": "flag_front_rot_seen",
+      "spellIds": [
+        "grind_out"
+      ]
+    },
+    {
+      "flag": "flag_todd_shop",
+      "spellIds": [
+        "coolant_chill"
+      ]
+    },
+    {
+      "flag": "flag_lamar_bays",
+      "spellIds": [
+        "bay_heat"
+      ]
+    },
+    {
+      "flag": "flag_fall_shield",
+      "spellIds": [
+        "hold_ground"
+      ]
+    },
+    {
+      "flag": "flag_carolina_crew",
+      "spellIds": [
+        "backroom_whisper"
+      ]
+    },
+    {
+      "flag": "flag_pueblo_unload",
+      "spellIds": [
+        "root_cause"
+      ]
+    },
+    {
+      "flag": "flag_florida_crew_met",
+      "spellIds": [
+        "morning_surge"
+      ]
+    },
+    {
+      "flag": "flag_act6_crash_financial",
+      "spellIds": [
+        "searing_shift"
+      ]
+    }
+  ],
+  "voiceKeywords": [
+    "floor captain",
+    "captain",
+    "freight",
+    "line leader",
+    "shop",
+    "physical"
+  ]
 }

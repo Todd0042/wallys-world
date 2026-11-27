@@ -1,5 +1,5 @@
 {
-  "_doc": "Adriana \u2014 Todd's wife. Deeply experienced and fully capable in her own right; applies internally for the Shop Manager position and is denied because 'they wanted a man for the job.' The discrimination that ultimately drives the family out of the area. Dialogue-only.",
+  "_doc": "Adriana \u2014 Todd's wife. Deeply experienced and fully capable in her own right; applies internally for the Shop Manager position and is denied because 'they wanted a man for the job.' The discrimination that ultimately drives the family out of the area. In person (4 fights) she is the party's support: a party heal by % of max HP (The Backrub), a very strong targetable heal (Lifeline Mend) and one attack (Truth Smite), with more attacks granted by the story.",
   "id": "adriana",
   "role": "npc",
   "name": "Adriana",
@@ -26,11 +26,11 @@
     "avatarTint": "#F06292",
     "startAtb": 0.35,
     "spellIds": [
-      "steady_presence",
       "truth_smite",
-      "unbroken_aegis",
+      "the_backrub",
       "lifeline_mend",
-      "attune"
+      "steady_presence",
+      "unbroken_aegis"
     ]
   },
   "sprite": {
@@ -172,5 +172,19 @@
     "CA",
     "GB",
     "AU"
+  ],
+  "spellGrants": [
+    {
+      "flag": "flag_hall_adriana",
+      "spellIds": [
+        "calm_rebuke"
+      ]
+    },
+    {
+      "flag": "flag_florida_anchor_held",
+      "spellIds": [
+        "frozen_out"
+      ]
+    }
   ]
 }

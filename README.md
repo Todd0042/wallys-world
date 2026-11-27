@@ -76,8 +76,8 @@ Step into the steel-toed work boots of a newly hired department associate. Battl
 ## ⏰ How a Shift Works in 3 Steps
 
 1. **Clock In & Listen**: Dialogue and situational emergencies are narrated via distinct Android TTS voice characters.
-2. **Issue Spoken Directives**: Speak your retail ability or target to resolve floor conflicts (*"Adriana box cutter flurry"*, *"Clean spill on aisle 7"*).
-3. **Survive the Shift**: Keep your Morale (HP) and Energy (MP) high to successfully clock out and level up your associate tier.
+2. **Issue Spoken Directives**: Speak your retail ability or target to resolve floor conflicts (*"Volt Snap the Fluorescent Hum"*, *"Lifeline Mend Todd"*).
+3. **Survive the Shift**: Keep the team's HP up and clock out. There are no levels and no mana: Todd picks up new moves at story milestones instead.
 
 ---
 
@@ -241,12 +241,31 @@ Audio tracks are normalized to **$-16\text{ LUFS}$** (44.1 kHz Vorbis `.ogg`) to
 
 ## 6. Turn-Based Retail Battle Mechanics & Conveyor ATB
 
-Workplace battles adapt the engine's 5 spell categories:
-- `ATTACK`: Direct floor action (*"Barcode Scan Strike"*, *"Box Cutter Slice"*).
-- `AOE_ATTACK`: Full-aisle management (*"Paging All Associates"*, *"Intercom Announcement"*).
-- `HEAL`: Breakroom recovery and morale boosts (*"Coffee Break"*, *"Adriana's Inspiration"*).
-- `DEFENSE`: Conflict de-escalation (*"Managerial Waiver"*, *"Store Policy Guard"*).
-- `MANA`: Energy drinks and 15-minute breaks.
+### One Todd, a growing kit
+
+There is **no class choice** at character creation: [`manifest.json`](app/src/main/assets/game/manifest.json) sets `allowClassSelectionInCreation: false` and Todd has one class, [`classes/floor_captain.json`](app/src/main/assets/game/classes/floor_captain.json). **Todd (`hero`) fights in all 40 encounters** ([`encounters.json`](app/src/main/assets/game/encounters/encounters.json)) beside Adriana. The game has **no mana and no levels** (`combatResource: none`): Todd starts with three moves and **learns the rest at story milestones** (`spellGrants`, keyed to hub beats every playthrough passes), only ever adding.
+
+| When (story beat that sets the flag) | Todd learns | School |
+|---|---|---|
+| Start | **Line Drill**, **Volt Snap**, **Mend Crew** (heals the teammate you name, or himself) | Grunt Work, Know-How, Integrity |
+| Act I, Ch. 2: leading the overnight crew (`flag_floor_led`) | Freight Push (hits all) | Grunt Work |
+| Act I, Ch. 3: watching the front end rot (`flag_front_rot_seen`) | Grind Out | Grunt Work |
+| Act II, Ch. 5: taking over the Lamar shop (`flag_todd_shop`) | Coolant Chill | Cool Head |
+| Act II, Ch. 5: rebuilding the bays (`flag_lamar_bays`) | Bay Heat (hits all) | Fired Up |
+| Act II, Ch. 6: shielding the techs from Jury (`flag_fall_shield`) | Hold Ground (guard) | Grunt Work |
+| Act III, Ch. 10: earning the Carolina techs' trust (`flag_carolina_crew`) | Backroom Whisper | Back Channels |
+| Act IV, Ch. 17: rebuilding the Pueblo unload (`flag_pueblo_unload`) | Root Cause | Growth |
+| Act V, Ch. 23: meeting the Florida crew (`flag_florida_crew_met`) | Morning Surge (hits all) | Know-How |
+| Act VI, Ch. 28: the pay cut's arithmetic (`flag_act6_crash_financial`) | Searing Shift | Fired Up |
+
+### Adriana, the support
+
+| Fighter | Starts with | Learns |
+|---|---|---|
+| **Adriana's Inspiration** ([`adriana_inspiration.json`](app/src/main/assets/game/characters/adriana_inspiration.json)), 36 fights: untargetable, never attacks | **The Backrub** (heals the whole party by 20% of max HP), **Lifeline Mend** (heals the named teammate by 45% of max HP), Inspiring Words (cleanse) | Quiet Remember (targetable heal + Bless), Act III, Ch. 10 (`flag_carolina_home`) |
+| **Adriana in person** ([`adriana.json`](app/src/main/assets/game/characters/adriana.json)), 4 fights | The Backrub, Lifeline Mend, **Truth Smite** (her one attack), Steady Presence, Unbroken Aegis | Calm Rebuke (Integrity, hits all), Act II, Ch. 8 (`flag_hall_adriana`); Frozen Out (Cool Head), Act V, Ch. 22 (`flag_florida_anchor_held`) |
+
+Heal percentages are multiplied by resonance (20% at x1.5 = 30%). Every move is defined in [`spells/spells.json`](app/src/main/assets/game/spells/spells.json); the schools' display names (Grunt Work, Know-How, Cool Head, Fired Up, Integrity, Back Channels, Growth) and the enemy families are in [`combat/affinity_matrix.json`](app/src/main/assets/game/combat/affinity_matrix.json).
 
 Conveyor ATB Initiative gauges fill proportionally to Associate Agility $\text{Spd}_a$ versus Boss Frustration $\text{Spd}_b$:
 

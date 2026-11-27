@@ -1,5 +1,5 @@
 {
-  "_doc": "Adriana's Inspiration \u2014 Todd's mental image and emotional lifeline to his wife when isolated on the warehouse floor. Untargetable ethereal companion (isGhost, canAttack=false, isUntargetable=true) providing pure support: heals, debuff cleansing, barriers, and grounded domestic encouragement.",
+  "_doc": "Adriana's Inspiration \u2014 Todd's mental image and emotional lifeline to his wife when isolated on the warehouse floor. Untargetable ethereal companion (isGhost, canAttack=false, isUntargetable=true) providing pure support: a party heal by % of max HP (The Backrub), a very strong targetable heal (Lifeline Mend), debuff cleansing, and grounded domestic encouragement.",
   "id": "adriana_inspiration",
   "role": "npc",
   "name": "Adriana's Inspiration",
@@ -31,6 +31,7 @@
     "startAtb": 0.05,
     "spellIds": [
       "the_backrub",
+      "lifeline_mend",
       "inspiring_words"
     ]
   },
@@ -173,5 +174,13 @@
     "CA",
     "GB",
     "AU"
+  ],
+  "spellGrants": [
+    {
+      "flag": "flag_carolina_home",
+      "spellIds": [
+        "quiet_remember"
+      ]
+    }
   ]
 }

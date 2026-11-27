@@ -1,5 +1,5 @@
 {
-  "_doc": "Todd \u2014 the hero, an hourly freight associate at the fictional megastore chain Wally's World. Names, titles, policies, and brand terms are deliberately fictional for legal distance (see AGENTS.md 'Content Neutrality'); the fiction is a recognizable-but-unproveable portrait of big-box retail labor.",
+  "_doc": "Todd \u2014 the hero, an hourly freight associate at the fictional megastore chain Wally's World. Names, titles, policies, and brand terms are deliberately fictional for legal distance (see AGENTS.md 'Content Neutrality'); the fiction is a recognizable-but-unproveable portrait of big-box retail labor. Todd is the only fighter on his side for all 40 encounters (id hero); his spell kit and story grants live in classes/floor_captain.json (the engine uses the class kit for the hero), and combat.spellIds mirrors its starting kit for the tutorial.",
   "id": "hero",
   "role": "hero",
   "name": "Todd",
@@ -19,111 +19,15 @@
   ],
   "loreClass": "Freight Associate",
   "combat": {
-    "maxHp": 300,
+    "maxHp": 340,
     "speed": 58,
     "defense": 6,
     "avatarTint": "#F5B041",
     "startAtb": 0.45,
     "spellIds": [
       "line_drill",
-      "freight_push",
-      "hold_ground",
-      "grind_out",
-      "volt_snap"
-    ],
-    "spells": [
-      {
-        "id": "line_drill",
-        "name": "Line Drill",
-        "school": "PHYSICAL",
-        "basePower": 40,
-        "description": "The basic rhythm of the line: case, scan, slot, move on. Free, tireless, always available.",
-        "exampleChant": "line drill!",
-        "aliases": [
-          "line drill",
-          "drill",
-          "work the line",
-          "the line",
-          "basic",
-          "attack"
-        ],
-        "graphics": {
-          "effectType": "SLASH",
-          "primaryColor": "#ECEFF1",
-          "secondaryColor": "#FF5252",
-          "particleCount": 18,
-          "screenShake": 3.0
-        }
-      },
-      {
-        "id": "freight_push",
-        "name": "Freight Push",
-        "school": "PHYSICAL",
-        "basePower": 55,
-        "hitsAll": true,
-        "description": "Shove the wall of boxes forward with your whole body instead of letting it win.",
-        "exampleChant": "freight push!",
-        "aliases": [
-          "freight push",
-          "push",
-          "push the freight",
-          "heave",
-          "the wall"
-        ],
-        "graphics": {
-          "effectType": "WAVE",
-          "primaryColor": "#B0BEC5",
-          "secondaryColor": "#78909C",
-          "particleCount": 20,
-          "screenShake": 5.0
-        }
-      },
-      {
-        "id": "hold_ground",
-        "name": "Hold Ground",
-        "school": "PHYSICAL",
-        "basePower": 0,
-        "isGuard": true,
-        "description": "Plant your boots. Halve the incoming damage of the next assault \u2014 the mart stays up.",
-        "exampleChant": "hold ground!",
-        "aliases": [
-          "hold ground",
-          "hold",
-          "defend",
-          "guard",
-          "protect",
-          "stand your ground"
-        ],
-        "graphics": {
-          "effectType": "BURST",
-          "primaryColor": "#90A4AE",
-          "secondaryColor": "#37474F",
-          "particleCount": 18,
-          "screenShake": 0.0
-        }
-      },
-      {
-        "id": "grind_out",
-        "name": "Grind Out",
-        "school": "PHYSICAL",
-        "basePower": 60,
-        "description": "The stubborn hour: no breaks, no conversation, just the grunt work until the pallet is gone.",
-        "exampleChant": "grind out!",
-        "aliases": [
-          "grind out",
-          "grind",
-          "grind it out",
-          "push through",
-          "slog"
-        ],
-        "graphics": {
-          "effectType": "SLASH",
-          "primaryColor": "#ECEFF1",
-          "secondaryColor": "#FF5252",
-          "particleCount": 18,
-          "screenShake": 3.0
-        }
-      }
+      "volt_snap",
+      "mend_crew"
     ]
   },
   "joinWhenFlag": null,
