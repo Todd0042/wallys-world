@@ -10,6 +10,5 @@
   "startingBaseAttack": 29,
   "preferredSchool": "SHADOW",
   "starterSpellIds": ["night_shift", "shadow_doubt", "drain_energy", "backroom_whisper", "breathe"],
-  "voiceKeywords": ["night guardian", "guardian", "overnight", "shadow", "third shift", "stealth"],
-  "growth": { "maxHp": 13, "maxMp": 10, "speed": 2, "defense": 1, "potencyPct": 0.035 }
+  "voiceKeywords": ["night guardian", "guardian", "overnight", "shadow", "third shift", "stealth"]
 }

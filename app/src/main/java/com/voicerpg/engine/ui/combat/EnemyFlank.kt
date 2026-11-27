@@ -3,6 +3,7 @@ package com.voicerpg.engine.ui.combat
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -19,6 +20,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.dp
 import com.voicerpg.engine.model.CharacterStance
 import com.voicerpg.engine.model.Enemy
+import com.voicerpg.engine.ui.fx.CombatantFx
 import com.voicerpg.engine.ui.sprites.PixelCharacterView
 
 @Composable
@@ -27,15 +29,19 @@ fun EnemyFlank(
     onSelectEnemy: (Enemy) -> Unit,
     onPositionEnemy: ((String, Offset) -> Unit)? = null,
     arenaCoordinates: LayoutCoordinates? = null,
+    fxOf: ((String) -> CombatantFx)? = null,
+    /** Where each enemy's sprite is drawn, in arena pixels (the death shatter starts there). */
+    onSpriteBounds: ((String, androidx.compose.ui.geometry.Rect) -> Unit)? = null,
+    /** Enemies whose health runs in a boss bar on top (BattleHud): they get no sliver on the field. */
+    bossBarIds: Set<String> = emptySet(),
     modifier: Modifier = Modifier
 ) {
     val isLargeHorde = enemies.size > 3
 
     if (!isLargeHorde) {
         // Diagonal SNES-style staggered enemy formation
-        Column(
-            modifier = modifier.padding(end = 10.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
+        StageColumn(
+            modifier = modifier.fillMaxHeight().padding(end = 10.dp),
             horizontalAlignment = Alignment.End
         ) {
             enemies.forEachIndexed { index, enemy ->
@@ -49,25 +55,29 @@ fun EnemyFlank(
                     onSelectEnemy = onSelectEnemy,
                     onPositionEnemy = onPositionEnemy,
                     arenaCoordinates = arenaCoordinates,
+                    fx = fxOf?.invoke(enemy.id),
+                    onSpriteBounds = onSpriteBounds,
+                    hasBossBar = enemy.id in bossBarIds,
                     modifier = Modifier.offset(x = staggerX)
                 )
             }
         }
     } else {
         // 2-Column Staggered JRPG Formation (4 to 6 enemies)
-        // Front row (closer to heroes) and Back row (rearguard)
-        val frontRow = enemies.filterIndexed { index, _ -> index % 2 == 0 }
-        val backRow = enemies.filterIndexed { index, _ -> index % 2 != 0 }
+        // Front row (closer to heroes) and Back row (rearguard); bosses take the back row
+        val (bosses, others) = enemies.partition { it.isBoss }
+        val frontRow = others.filterIndexed { index, _ -> index % 2 == 0 }
+        val backRow = bosses + others.filterIndexed { index, _ -> index % 2 != 0 }
 
         Row(
-            modifier = modifier.padding(end = 6.dp),
-            horizontalArrangement = Arrangement.spacedBy(6.dp),
-            verticalAlignment = Alignment.CenterVertically
+            modifier = modifier.fillMaxHeight().padding(end = 6.dp),
+            horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.End)
         ) {
             // Front Row (closer to heroes)
-            Column(
-                verticalArrangement = Arrangement.spacedBy(6.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+            StageColumn(
+                modifier = Modifier.fillMaxHeight(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                depth = BattleStage.FRONT_COLUMN
             ) {
                 frontRow.forEachIndexed { index, enemy ->
                     val depthScale = 0.96f + index * 0.05f
@@ -77,15 +87,19 @@ fun EnemyFlank(
                         depthScale = depthScale,
                         onSelectEnemy = onSelectEnemy,
                         onPositionEnemy = onPositionEnemy,
-                        arenaCoordinates = arenaCoordinates
+                        arenaCoordinates = arenaCoordinates,
+                        fx = fxOf?.invoke(enemy.id),
+                        onSpriteBounds = onSpriteBounds,
+                        hasBossBar = enemy.id in bossBarIds
                     )
                 }
             }
 
             // Back Row (rearguard)
-            Column(
-                verticalArrangement = Arrangement.spacedBy(6.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+            StageColumn(
+                modifier = Modifier.fillMaxHeight(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                depth = BattleStage.BACK_COLUMN
             ) {
                 backRow.forEachIndexed { index, enemy ->
                     val depthScale = 0.88f + index * 0.04f
@@ -95,7 +109,10 @@ fun EnemyFlank(
                         depthScale = depthScale,
                         onSelectEnemy = onSelectEnemy,
                         onPositionEnemy = onPositionEnemy,
-                        arenaCoordinates = arenaCoordinates
+                        arenaCoordinates = arenaCoordinates,
+                        fx = fxOf?.invoke(enemy.id),
+                        onSpriteBounds = onSpriteBounds,
+                        hasBossBar = enemy.id in bossBarIds
                     )
                 }
             }
@@ -111,6 +128,9 @@ private fun EnemyCard(
     onSelectEnemy: (Enemy) -> Unit,
     onPositionEnemy: ((String, Offset) -> Unit)? = null,
     arenaCoordinates: LayoutCoordinates? = null,
+    fx: CombatantFx? = null,
+    onSpriteBounds: ((String, androidx.compose.ui.geometry.Rect) -> Unit)? = null,
+    hasBossBar: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     val stance = when {
@@ -119,6 +139,7 @@ private fun EnemyCard(
         else -> CharacterStance.READY
     }
 
+    val sprite = remember(enemy.id, enemy.spriteId) { com.voicerpg.engine.ui.sprites.SpriteLibrary.source(com.voicerpg.engine.ui.sprites.SpriteLibrary.keyFor(enemy)) }
     var cardCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
 
     LaunchedEffect(cardCoords, arenaCoordinates) {
@@ -135,20 +156,26 @@ private fun EnemyCard(
     }
 
     PixelCharacterView(
-        characterId = enemy.spriteId.ifBlank { enemy.id },
+        characterId = com.voicerpg.engine.ui.sprites.SpriteLibrary.keyFor(enemy),
         name = enemy.name,
         subtitle = enemy.subtitle,
         hpRatio = enemy.hpRatio,
         currentHp = enemy.currentHp,
-        maxHp = enemy.maxHp,
-        atbRatio = enemy.atbRatio,
         isTurnReady = enemy.isTurnReady,
         isActiveTurn = false,
         isTargeted = enemy.isAlive && enemy.isTargeted,
         stance = stance,
         isFlippedHorizontally = true,
-        pixelSize = if (isCompact) 1.65.dp else 2.2.dp,
+        pixelSize = (if (isCompact) 1.65.dp else 2.2.dp) * com.voicerpg.engine.ui.sprites.SpriteSizing.enemyFactor(enemy, sprite),
+        sprite = sprite,
+        baseAnim = com.voicerpg.engine.ui.sprites.SpriteBase.of(enemy),
         depthScale = depthScale,
+        sliverAlpha = if (hasBossBar) null else BattleHud.sliverAlpha(enemy, fx, hasBossBar = false),
+        fx = fx,
+        onSpriteLayout = if (onSpriteBounds == null) null else { coords ->
+            val arena = arenaCoordinates
+            if (arena != null && arena.isAttached && coords.isAttached) onSpriteBounds(enemy.id, arena.localBoundingBoxOf(coords))
+        },
         onClick = if (enemy.isAlive) { { onSelectEnemy(enemy) } } else null,
         modifier = modifier.onGloballyPositioned { cardCoords = it }
     )

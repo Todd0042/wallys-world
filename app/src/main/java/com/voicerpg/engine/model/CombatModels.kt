@@ -55,7 +55,9 @@ data class Spell(
     /** Game-written chants per tier name (BASIC..TRANSCENDENTAL) for hands-free presets; English only. */
     val presetChants: Map<String, String> = emptyMap(),
     /** Recorded clips played when this spell is cast (one at random). */
-    val soundBites: List<String> = emptyList()
+    val soundBites: List<String> = emptyList(),
+    /** A shorter name for the spoken spell callout (spells.json `calloutName`); blank = [name]. */
+    val calloutName: String = ""
 ) {
     val isCleanse: Boolean get() = cleansesDebuffs || status.equals("CLEANSE", ignoreCase = true) || status.equals("DISPEL", ignoreCase = true)
 
@@ -90,8 +92,6 @@ data class PartyMember(
     val avatarTint: Color = Color(0xFF4FC3F7),
     val speed: Int = 60,
     val atbGauge: Float = 0f,
-    val level: Int = 1,
-    val xp: Int = 0,
     val defense: Int = 0,
     val statuses: List<StatusInstance> = emptyList(),
     val isGuarding: Boolean = false,
@@ -100,6 +100,9 @@ data class PartyMember(
     val isUntargetable: Boolean = false,
     val spriteAlpha: Float? = null
 ) {
+    /** The name combat speech uses ("Cedric" for "Sir Cedric"). */
+    val spokenName: String get() = com.voicerpg.engine.audio.CombatLines.shortName(name)
+
     val isAlive: Boolean get() = (isGhost || currentHp > 0) && stance != CharacterStance.DEAD
     val isTurnReady: Boolean get() = isAlive && atbGauge >= 1.0f
     val hpRatio: Float get() = if (isGhost) 1.0f else if (isAlive) (currentHp.toFloat() / maxHp).coerceIn(0f, 1f) else 0f
@@ -124,20 +127,57 @@ data class Enemy(
     val family: String = "FLESH",
     val selfElement: String = "",
     val defense: Int = 0,
-    val xpReward: Int = 60,
     val movesetId: String = "",
     val statuses: List<StatusInstance> = emptyList(),
     val moveCooldowns: Map<String, Int> = emptyMap(),
     /** Extra voice words for targeting (from enemies.json), besides name and subtitle. */
     val voiceAliases: List<String> = emptyList(),
     /** Recorded clips played when this enemy attacks (unless the move has its own). */
-    val soundBites: List<String> = emptyList()
+    val soundBites: List<String> = emptyList(),
+    /** The move it telegraphed when its gauge passed 75% (M4), used on its next turn. */
+    val plannedMove: String? = null,
+    /** Charge turns left before a planned boss ultimate fires; 0 when not charging. */
+    val ultimateChargeLeft: Int = 0,
+    /** The round it was last staggered in (one stagger per enemy per round); 0 = never. */
+    val staggeredRound: Int = 0,
+    /** Sprite size multiplier (enemies.json `scale`; bosses default 2.0). */
+    val scale: Float = 1f,
+    /** Lines it may shout when it telegraphs a move (enemies.json `taunts`). */
+    val taunts: List<String> = emptyList(),
+    val hitReaction: HitReaction = HitReaction.FLINCH,
+    /** A portrait panel for its ultimate (enemies.json `cutIn`). */
+    val cutIn: CutInSpec? = null,
+    /** How combat speech names it (enemies.json `shortName`); blank = the last word of [name]. */
+    val shortName: String = ""
 ) {
+    /** The name combat speech uses ("Orc" for "Blighted Orc"). */
+    val spokenName: String get() = com.voicerpg.engine.audio.CombatLines.shortName(name, shortName)
+
     val isAlive: Boolean get() = currentHp > 0
     val isTurnReady: Boolean get() = isAlive && atbGauge >= 1.0f
     val hpRatio: Float get() = if (isAlive) (currentHp.toFloat() / maxHp).coerceIn(0f, 1f) else 0f
     val atbRatio: Float get() = if (isAlive) atbGauge.coerceIn(0f, 1f) else 0f
+
+    companion object {
+        /** A boss's default `scale`: enlarges the small legacy grids. Boss sheets are drawn boss-sized already. */
+        const val DEFAULT_BOSS_SCALE = 2.0f
+    }
 }
+
+/** How an enemy's sprite reacts to a blow (enemies.json `hitReaction`). */
+enum class HitReaction {
+    FLINCH, STAGGER, COMIC_SPIN;
+
+    companion object {
+        fun parse(raw: String?): HitReaction = entries.firstOrNull { it.name.equals(raw?.trim(), ignoreCase = true) } ?: FLINCH
+    }
+}
+
+/**
+ * A cut-in panel (characters' `combat.cutIn`, enemies' `cutIn`): portrait asset, colour (#RRGGBB) and an
+ * optional quote. Missing fields fall back to the character's portrait and theme colour.
+ */
+data class CutInSpec(val portrait: String? = null, val color: String? = null, val quote: String? = null)
 
 enum class TargetSelection {
     FIRST_ALIVE_ENEMY,
@@ -160,6 +200,10 @@ enum class MetaCommand {
     LOCK_SCREEN,
     TOGGLE_AUTO_LISTEN,
     TOGGLE_NARRATION,
+    /** Options → Spell callouts ("spell callouts", "callouts"). */
+    TOGGLE_SPELL_CALLOUTS,
+    /** Options → Battle reports ("battle reports", "combat reports"). */
+    TOGGLE_BATTLE_REPORTS,
     TOGGLE_READ_CHOICES,
     TOGGLE_SPEAKER_ATTRIBUTION,
     TOGGLE_MUSIC,
@@ -223,7 +267,9 @@ data class EncounterDefinition(
     val enemies: List<Enemy>,
     val initialParty: List<PartyMember>? = null,
     val bossPhases: List<BossPhaseRule> = emptyList(),
-    val midBattleJoin: MidBattleJoin? = null
+    val midBattleJoin: MidBattleJoin? = null,
+    /** Overrides `presentation.json` music.intensityTrack for this fight. */
+    val intensityTrack: String? = null
 )
 
 data class FloatingCombatText(

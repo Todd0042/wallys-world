@@ -65,6 +65,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var combatNarrator: CombatNarrator
     private lateinit var musicManager: MusicManager
     private lateinit var saveManager: SaveManager
+    private lateinit var motionSettings: com.voicerpg.engine.engine.MotionSettings
     private lateinit var combatViewModel: CombatViewModel
     private lateinit var storyViewModel: StoryViewModel
     private lateinit var tutorialBattleViewModel: TutorialBattleViewModel
@@ -100,6 +101,7 @@ class MainActivity : ComponentActivity() {
         combatNarrator.registerSpeakers(com.voicerpg.engine.content.GameContent.allSpeakers)
         musicManager = MusicManager(this)
         saveManager = SaveManager(this)
+        motionSettings = com.voicerpg.engine.engine.MotionSettings()
 
         combatViewModel = CombatViewModel(
             speechManager = speechManager,
@@ -111,7 +113,8 @@ class MainActivity : ComponentActivity() {
             speechManager = speechManager,
             combatNarrator = combatNarrator,
             saveManager = saveManager,
-            musicManager = musicManager
+            musicManager = musicManager,
+            motionSettings = motionSettings
         )
         tutorialBattleViewModel = TutorialBattleViewModel(
             speechManager = speechManager,
@@ -159,7 +162,8 @@ class MainActivity : ComponentActivity() {
             val isEyesFreeMode by combatNarrator.isEyesFreeMode.collectAsState()
             val isPocketGuardLocked by combatNarrator.isPocketGuardLocked.collectAsState()
             val isPocketGuardEnabled by combatNarrator.isPocketGuardEnabled.collectAsState()
-            val isCombatNarrationEnabled by combatNarrator.isCombatNarrationEnabled.collectAsState()
+            val isSpellCalloutsEnabled by combatNarrator.isSpellCalloutsEnabled.collectAsState()
+            val isBattleReportsEnabled by combatNarrator.isBattleReportsEnabled.collectAsState()
             val speechState by speechManager.speechState.collectAsState()
             val rmsLevel by speechManager.rmsLevel.collectAsState()
             val isTtsSpeaking by combatNarrator.isSpeaking.collectAsState()
@@ -173,6 +177,8 @@ class MainActivity : ComponentActivity() {
             val isChimeMuted by speechManager.isChimeMuted.collectAsState()
             val isMusicEnabled by musicManager.isMusicEnabled.collectAsState()
             val musicVolume by musicManager.musicVolume.collectAsState()
+            val isReduceMotion by motionSettings.reduceMotion.collectAsState()
+            val isReduceFlashing by motionSettings.reduceFlashing.collectAsState()
             var showDebugWarp by remember { mutableStateOf(false) }
             val isDeveloperToolsEnabled by combatViewModel.isDeveloperToolsEnabled.collectAsState()
 
@@ -276,6 +282,8 @@ class MainActivity : ComponentActivity() {
                                 isAutoListen = isAutoListen,
                                 onContinue = { storyViewModel.continueGame() },
                                 onNewGame = { storyViewModel.startNewGameFlow() },
+                                startupNotice = storyState.startupNotice,
+                                onDismissStartupNotice = { storyViewModel.dismissStartupNotice() },
                                 onSelectSlot = { slot -> storyViewModel.selectSlot(slot) },
                                 onDeleteSlot = { slot -> storyViewModel.deleteSlot(slot) },
                                 onContinueSlot = { slot -> storyViewModel.continueGame(slot) },
@@ -399,6 +407,7 @@ class MainActivity : ComponentActivity() {
                         GameScreen.COMBAT_ARENA -> {
                             RetroBattleScreen(
                                 viewModel = combatViewModel,
+                                motionSettings = motionSettings,
                                 onReturnToStory = { storyViewModel.switchToStory() },
                                 onContinueStory = {
                                     combatNarrator.stop()
@@ -434,7 +443,8 @@ class MainActivity : ComponentActivity() {
                         isEyesFreeMode = isEyesFreeMode,
                         isNarrationEnabled = isNarrationEnabled,
                         isAutoPlayEnabled = storyState.isPureStoryMode,
-                        isCombatNarrationEnabled = isCombatNarrationEnabled,
+                        isSpellCalloutsEnabled = isSpellCalloutsEnabled,
+                        isBattleReportsEnabled = isBattleReportsEnabled,
                         isPocketGuardEnabled = isPocketGuardEnabled,
                         isReadChoicesEnabled = isReadChoicesEnabled,
                         isAutoReadHubChoices = isAutoReadHubChoices,
@@ -457,8 +467,12 @@ class MainActivity : ComponentActivity() {
                         onToggleAutoPlay = {
                             storyViewModel.toggleAutoPlay()
                         },
-                        onToggleCombatNarration = {
-                            combatNarrator.toggleCombatNarrationEnabled()
+                        onToggleSpellCallouts = {
+                            combatNarrator.toggleSpellCalloutsEnabled()
+                            storyViewModel.persistCurrentState()
+                        },
+                        onToggleBattleReports = {
+                            combatNarrator.toggleBattleReportsEnabled()
                             storyViewModel.persistCurrentState()
                         },
                         onTogglePocketGuard = {
@@ -469,7 +483,8 @@ class MainActivity : ComponentActivity() {
                             when (preset) {
                                 PlaystylePreset.POCKET_WALK -> {
                                     combatNarrator.setPocketGuardEnabled(true)
-                                    combatNarrator.setCombatNarrationEnabled(true)
+                                    combatNarrator.setSpellCalloutsEnabled(true)
+                                    combatNarrator.setBattleReportsEnabled(true)
                                     combatNarrator.setNarrationEnabled(true)
                                     combatNarrator.setReadChoicesEnabled(true)
                                     combatNarrator.setAutoReadHubChoices(true)
@@ -479,7 +494,8 @@ class MainActivity : ComponentActivity() {
                                 }
                                 PlaystylePreset.STORYBOOK -> {
                                     combatNarrator.setPocketGuardEnabled(false)
-                                    combatNarrator.setCombatNarrationEnabled(true)
+                                    combatNarrator.setSpellCalloutsEnabled(true)
+                                    combatNarrator.setBattleReportsEnabled(true)
                                     combatNarrator.setNarrationEnabled(true)
                                     combatNarrator.setReadChoicesEnabled(true)
                                     combatNarrator.setEyesFreeMode(true, lockGuard = false)
@@ -488,7 +504,8 @@ class MainActivity : ComponentActivity() {
                                 }
                                 PlaystylePreset.CLASSIC_TACTICAL -> {
                                     combatNarrator.setPocketGuardEnabled(false)
-                                    combatNarrator.setCombatNarrationEnabled(false)
+                                    combatNarrator.setSpellCalloutsEnabled(true)
+                                    combatNarrator.setBattleReportsEnabled(false)
                                     combatNarrator.setNarrationEnabled(true)
                                     combatNarrator.setReadChoicesEnabled(false)
                                     combatNarrator.setEyesFreeMode(false, lockGuard = false)
@@ -535,6 +552,16 @@ class MainActivity : ComponentActivity() {
                         },
                         onMusicVolumeChange = { vol ->
                             musicManager.setVolume(vol)
+                            storyViewModel.persistCurrentState()
+                        },
+                        isReduceMotion = isReduceMotion,
+                        onToggleReduceMotion = {
+                            motionSettings.toggleReduceMotion()
+                            storyViewModel.persistCurrentState()
+                        },
+                        isReduceFlashing = isReduceFlashing,
+                        onToggleReduceFlashing = {
+                            motionSettings.toggleReduceFlashing()
                             storyViewModel.persistCurrentState()
                         },
                         onOpenVoiceSettings = {

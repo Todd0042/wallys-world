@@ -10,6 +10,5 @@
   "startingBaseAttack": 30,
   "preferredSchool": "PHYSICAL",
   "starterSpellIds": ["line_drill", "freight_push", "hold_ground", "grind_out", "breathe"],
-  "voiceKeywords": ["floor captain", "captain", "freight", "line leader", "stocking", "physical"],
-  "growth": { "maxHp": 16, "maxMp": 8, "speed": 1, "defense": 2, "potencyPct": 0.03 }
+  "voiceKeywords": ["floor captain", "captain", "freight", "line leader", "stocking", "physical"]
 }

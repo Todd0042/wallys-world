@@ -49,7 +49,8 @@ fun OptionsDialog(
     isEyesFreeMode: Boolean,
     isNarrationEnabled: Boolean,
     isAutoPlayEnabled: Boolean = false,
-    isCombatNarrationEnabled: Boolean = true,
+    isSpellCalloutsEnabled: Boolean = true,
+    isBattleReportsEnabled: Boolean = false,
     isPocketGuardEnabled: Boolean = true,
     isReadChoicesEnabled: Boolean,
     isAutoReadHubChoices: Boolean = true,
@@ -64,7 +65,8 @@ fun OptionsDialog(
     onToggleEyesFreeMode: () -> Unit,
     onToggleNarration: () -> Unit,
     onToggleAutoPlay: () -> Unit = {},
-    onToggleCombatNarration: () -> Unit = {},
+    onToggleSpellCallouts: () -> Unit = {},
+    onToggleBattleReports: () -> Unit = {},
     onTogglePocketGuard: () -> Unit = {},
     onToggleReadChoices: () -> Unit,
     onToggleAutoReadHubChoices: () -> Unit = {},
@@ -74,6 +76,10 @@ fun OptionsDialog(
     onToggleChimeMute: () -> Unit,
     onToggleMusic: () -> Unit = {},
     onMusicVolumeChange: (Float) -> Unit = {},
+    isReduceMotion: Boolean = false,
+    onToggleReduceMotion: () -> Unit = {},
+    isReduceFlashing: Boolean = false,
+    onToggleReduceFlashing: () -> Unit = {},
     onOpenVoiceSettings: (() -> Unit)? = null,
     onOpenVoiceAssignment: (() -> Unit)? = null,
     onOpenLanguageSelection: (() -> Unit)? = null,
@@ -87,9 +93,9 @@ fun OptionsDialog(
     if (!isOpen) return
 
     val activePreset = when {
-        isEyesFreeMode && isPocketGuardEnabled && isCombatNarrationEnabled && isAutoListen -> PlaystylePreset.POCKET_WALK
-        isEyesFreeMode && !isPocketGuardEnabled && isCombatNarrationEnabled && isAutoListen -> PlaystylePreset.STORYBOOK
-        !isEyesFreeMode && !isCombatNarrationEnabled && !isAutoListen -> PlaystylePreset.CLASSIC_TACTICAL
+        isEyesFreeMode && isPocketGuardEnabled && isBattleReportsEnabled && isAutoListen -> PlaystylePreset.POCKET_WALK
+        isEyesFreeMode && !isPocketGuardEnabled && isBattleReportsEnabled && isAutoListen -> PlaystylePreset.STORYBOOK
+        !isEyesFreeMode && isSpellCalloutsEnabled && !isBattleReportsEnabled && !isAutoListen -> PlaystylePreset.CLASSIC_TACTICAL
         else -> PlaystylePreset.CUSTOM
     }
 
@@ -294,14 +300,26 @@ fun OptionsDialog(
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Toggle: Read Combat Actions Aloud
+                // Toggle: Spell callouts (the spell and its resonance)
                 OptionToggleRow(
-                    title = "⚔️ Read Combat Actions Aloud",
-                    subtitle = "Phone speaks player turns, spell damage, and enemy attacks aloud (screen on or off).",
-                    voiceHint = "Voice command: \"Combat narration\" or \"Read combat\"",
-                    checked = isCombatNarrationEnabled,
+                    title = "🔮 Spell Callouts",
+                    subtitle = "Each cast is called out with its resonance (\"Fireball! Master!\") and its one-word result (Weak!, Broken!).",
+                    voiceHint = "Voice command: \"Spell callouts\"",
+                    checked = isSpellCalloutsEnabled,
+                    activeColor = Color(0xFFBA68C8),
+                    onCheckedChange = { onToggleSpellCallouts() }
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                // Toggle: Battle reports (everything else; pocket mode always keeps the essentials)
+                OptionToggleRow(
+                    title = "📜 Battle Reports",
+                    subtitle = "Damage, heals, enemy moves and whose turn it is, in a few words each. Pocket mode always keeps the essentials.",
+                    voiceHint = "Voice command: \"Battle reports\"",
+                    checked = isBattleReportsEnabled,
                     activeColor = Color(0xFFFF7043),
-                    onCheckedChange = { onToggleCombatNarration() }
+                    onCheckedChange = { onToggleBattleReports() }
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -703,6 +721,30 @@ fun OptionsDialog(
 
                 Spacer(modifier = Modifier.height(8.dp))
 
+                // Toggle: Reduce Motion (visual comfort)
+                OptionToggleRow(
+                    title = "🌀 Reduce Motion",
+                    subtitle = "Battles keep the arena still: no screen shake or zoom, and only a brief freeze when spells land.",
+                    voiceHint = "",
+                    checked = isReduceMotion,
+                    activeColor = Color(0xFFB39DDB),
+                    onCheckedChange = { onToggleReduceMotion() }
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                // Toggle: Reduce Flashing (visual comfort, photosensitivity)
+                OptionToggleRow(
+                    title = "⚡ Reduce Flashing",
+                    subtitle = "No full-screen white flash on the strongest spells. Flashes are always limited to three a second.",
+                    voiceHint = "",
+                    checked = isReduceFlashing,
+                    activeColor = Color(0xFFFFF59D),
+                    onCheckedChange = { onToggleReduceFlashing() }
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
                 // Toggle: Hands-Free Auto Listen
                 OptionToggleRow(
                     title = "👂 Hands-Free Auto-Listen",
@@ -1009,13 +1051,15 @@ private fun OptionToggleRow(
                     lineHeight = 13.sp,
                     fontFamily = FontFamily.Monospace
                 )
-                Spacer(modifier = Modifier.height(2.dp))
-                Text(
-                    text = voiceHint,
-                    color = Color(0xFF80D8FF),
-                    fontSize = 9.sp,
-                    fontFamily = FontFamily.Monospace
-                )
+                if (voiceHint.isNotBlank()) {
+                    Spacer(modifier = Modifier.height(2.dp))
+                    Text(
+                        text = voiceHint,
+                        color = Color(0xFF80D8FF),
+                        fontSize = 9.sp,
+                        fontFamily = FontFamily.Monospace
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.width(8.dp))

@@ -10,6 +10,5 @@
   "startingBaseAttack": 28,
   "preferredSchool": "ELECTROMANCY",
   "starterSpellIds": ["floor_charge", "static_pressure", "morning_surge", "spark_ideas", "breathe"],
-  "voiceKeywords": ["process engineer", "engineer", "analyst", "data", "electromancy", "spreadsheet"],
-  "growth": { "maxHp": 12, "maxMp": 10, "speed": 2, "defense": 1, "potencyPct": 0.04 }
+  "voiceKeywords": ["process engineer", "engineer", "analyst", "data", "electromancy", "spreadsheet"]
 }

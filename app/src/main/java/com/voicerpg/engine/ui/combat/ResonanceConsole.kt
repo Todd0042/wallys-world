@@ -80,7 +80,9 @@ fun ResonanceConsole(
     onStartListening: () -> Unit,
     onStopListening: () -> Unit,
     onSubmitChant: (String, AcousticProfile?) -> Unit,
-    onCycleHero: () -> Unit = {},
+    /** The party's gauges (BattleHud): one chip per hero; tapping one selects that hero. */
+    partyChips: List<BattleHud.PartyChip> = emptyList(),
+    onSelectHero: (String) -> Unit = {},
     isChimeMuted: Boolean = true,
     onToggleChimeMute: () -> Unit = {},
     isAutoListen: Boolean = false,
@@ -123,41 +125,16 @@ fun ResonanceConsole(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            if (activePartyMember != null && isInputEnabled) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    Text(
-                        text = "▶ ACTING: ${activePartyMember.name.uppercase()}",
-                        color = LogosGold,
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.Bold,
-                        fontFamily = FontFamily.Monospace
-                    )
-                    Box(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(4.dp))
-                            .background(Color(0xFF263238))
-                            .border(1.dp, LogosGold, RoundedCornerShape(4.dp))
-                            .clickable { onCycleHero() }
-                            .padding(horizontal = 6.dp, vertical = 3.dp)
-                    ) {
-                        Text(
-                            text = "⟳ SWITCH",
-                            color = LogosGold,
-                            fontSize = 8.sp,
-                            fontWeight = FontWeight.Bold,
-                            fontFamily = FontFamily.Monospace
-                        )
-                    }
-                }
+            if (partyChips.isNotEmpty()) {
+                PartyChips(chips = partyChips, onSelect = onSelectHero, modifier = Modifier.weight(1f))
+                Spacer(modifier = Modifier.width(6.dp))
             } else {
                 Text(
                     text = "COMMAND CONSOLE",
                     color = Color(0xFF90A4AE),
                     fontSize = 11.sp,
-                    fontFamily = FontFamily.Monospace
+                    fontFamily = FontFamily.Monospace,
+                    modifier = Modifier.weight(1f)
                 )
             }
 
@@ -175,7 +152,7 @@ fun ResonanceConsole(
                         .padding(horizontal = 6.dp, vertical = 3.dp)
                 ) {
                     Text(
-                        text = if (isAutoListen) "🎙️ AUTO" else "🎙️ TAP-TALK",
+                        text = if (isAutoListen) "🎙️AUTO" else "🎙️TAP",
                         color = if (isAutoListen) Color(0xFF82B1FF) else Color(0xFFCFD8DC),
                         fontSize = 8.sp,
                         fontWeight = FontWeight.Bold,
@@ -190,10 +167,10 @@ fun ResonanceConsole(
                         .background(if (isChimeMuted) Color(0xFF1B2A20) else Color(0xFF2E1C1D))
                         .border(1.dp, if (isChimeMuted) Color(0xFF69F0AE) else Color(0xFFFF5252), RoundedCornerShape(4.dp))
                         .clickable { onToggleChimeMute() }
-                        .padding(horizontal = 8.dp, vertical = 3.dp)
+                        .padding(horizontal = 5.dp, vertical = 3.dp)
                 ) {
                     Text(
-                        text = if (isChimeMuted) "🔇 CHIME OFF" else "🔔 CHIME ON",
+                        text = if (isChimeMuted) "🔇" else "🔔",
                         color = if (isChimeMuted) Color(0xFF69F0AE) else Color(0xFFFF8A80),
                         fontSize = 8.sp,
                         fontWeight = FontWeight.Bold,
@@ -228,8 +205,8 @@ fun ResonanceConsole(
             }
         }
 
-        // Resonance Meter Bar
-        ResonanceMeterBar(lastResonance = lastResonance)
+        // Resonance Meter Bar (fills live with the voice while listening, then snaps to the scored value)
+        ResonanceMeterBar(lastResonance = lastResonance, liveLevel = if (isListening) rmsLevel else null)
 
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -536,9 +513,17 @@ fun ResonanceConsole(
 }
 
 @Composable
-private fun ResonanceMeterBar(lastResonance: ResonanceResult?) {
-    val score = lastResonance?.score ?: 0f
-    val tier = lastResonance?.tier ?: ResonanceTier.BASIC
+private fun ResonanceMeterBar(lastResonance: ResonanceResult?, liveLevel: Float? = null) {
+    // While charging, the bar follows the voice (smoothed); when the chant is scored it snaps to the score.
+    val live = liveLevel?.let { level ->
+        androidx.compose.animation.core.animateFloatAsState(
+            targetValue = level.coerceIn(0f, 1f),
+            animationSpec = androidx.compose.animation.core.tween(90),
+            label = "live_resonance"
+        ).value
+    }
+    val score = live ?: lastResonance?.score ?: 0f
+    val tier = if (live != null) ResonanceTier.BASIC else lastResonance?.tier ?: ResonanceTier.BASIC
 
     Column(modifier = Modifier.fillMaxWidth()) {
         Row(
@@ -548,7 +533,7 @@ private fun ResonanceMeterBar(lastResonance: ResonanceResult?) {
         ) {
             val bonus = lastResonance?.bonusPercent ?: 0
             Text(
-                text = "RESONANCE: ${tier.title.uppercase()} (+${bonus}%)",
+                text = if (live != null) "RESONANCE: CHARGING…" else "RESONANCE: ${tier.title.uppercase()} (+${bonus}%)",
                 color = when (tier) {
                     ResonanceTier.TRANSCENDENTAL -> Color(0xFFFFEE58)
                     ResonanceTier.MYTHIC -> LogosGold

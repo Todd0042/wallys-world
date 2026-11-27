@@ -3,6 +3,7 @@ package com.voicerpg.engine.ui.combat
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -19,6 +20,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.voicerpg.engine.model.PartyMember
+import com.voicerpg.engine.ui.fx.CombatantFx
 import com.voicerpg.engine.ui.sprites.PixelCharacterView
 
 @Composable
@@ -28,13 +30,13 @@ fun PartyFlank(
     onSelectHero: (PartyMember) -> Unit,
     onPositionHero: ((String, Offset) -> Unit)? = null,
     arenaCoordinates: LayoutCoordinates? = null,
+    fxOf: ((String) -> CombatantFx)? = null,
     modifier: Modifier = Modifier
 ) {
     if (party.size <= 3) {
         // Diagonal SNES-style staggered column anchored to the floor plane
-        Column(
-            modifier = modifier.padding(start = 10.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+        StageColumn(
+            modifier = modifier.fillMaxHeight().padding(start = 10.dp),
             horizontalAlignment = Alignment.Start
         ) {
             party.forEachIndexed { index, member ->
@@ -49,6 +51,7 @@ fun PartyFlank(
                     arenaCoordinates = arenaCoordinates,
                     onSelectHero = onSelectHero,
                     onPositionHero = onPositionHero,
+                    fx = fxOf?.invoke(member.id),
                     modifier = Modifier.offset(x = staggerX)
                 )
             }
@@ -86,15 +89,15 @@ fun PartyFlank(
         }
 
         Row(
-            modifier = modifier.padding(start = 6.dp),
-            horizontalArrangement = Arrangement.spacedBy(14.dp),
-            verticalAlignment = Alignment.CenterVertically
+            modifier = modifier.fillMaxHeight().padding(start = 6.dp),
+            horizontalArrangement = Arrangement.spacedBy(14.dp)
         ) {
             // Back Row: left side of screen
             if (backRowMembers.isNotEmpty()) {
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(verticalSpacing),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                StageColumn(
+                    modifier = Modifier.fillMaxHeight(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    depth = BattleStage.BACK_COLUMN
                 ) {
                     backRowMembers.forEachIndexed { index, member ->
                         val depthScale = 0.88f + index * 0.05f
@@ -105,7 +108,8 @@ fun PartyFlank(
                             depthScale = depthScale,
                             arenaCoordinates = arenaCoordinates,
                             onSelectHero = onSelectHero,
-                            onPositionHero = onPositionHero
+                            onPositionHero = onPositionHero,
+                            fx = fxOf?.invoke(member.id)
                         )
                     }
                 }
@@ -113,9 +117,10 @@ fun PartyFlank(
 
             // Front Row: in front of support row
             if (frontRowMembers.isNotEmpty()) {
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(frontVerticalSpacing),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                StageColumn(
+                    modifier = Modifier.fillMaxHeight(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    depth = BattleStage.FRONT_COLUMN
                 ) {
                     frontRowMembers.forEachIndexed { index, member ->
                         val depthScale = 0.98f + index * 0.06f
@@ -126,7 +131,8 @@ fun PartyFlank(
                             depthScale = depthScale,
                             arenaCoordinates = arenaCoordinates,
                             onSelectHero = onSelectHero,
-                            onPositionHero = onPositionHero
+                            onPositionHero = onPositionHero,
+                            fx = fxOf?.invoke(member.id)
                         )
                     }
                 }
@@ -144,6 +150,7 @@ private fun PartyFlankMemberItem(
     arenaCoordinates: LayoutCoordinates?,
     onSelectHero: (PartyMember) -> Unit,
     onPositionHero: ((String, Offset) -> Unit)?,
+    fx: CombatantFx? = null,
     modifier: Modifier = Modifier
 ) {
     var cardCoords by remember { mutableStateOf<LayoutCoordinates?>(null) }
@@ -167,9 +174,6 @@ private fun PartyFlankMemberItem(
         subtitle = member.loreClass,
         hpRatio = member.hpRatio,
         currentHp = member.currentHp,
-        maxHp = member.maxHp,
-        mpRatio = member.mpRatio,
-        atbRatio = member.atbRatio,
         isTurnReady = member.isTurnReady,
         isActiveTurn = isActiveTurn,
         stance = member.stance,
@@ -177,7 +181,10 @@ private fun PartyFlankMemberItem(
         isGhost = member.isGhost,
         spriteAlpha = member.spriteAlpha,
         pixelSize = scaledPixelSize,
+        sprite = remember(member.id) { com.voicerpg.engine.ui.sprites.SpriteLibrary.source(com.voicerpg.engine.ui.sprites.SpriteLibrary.keyFor(member)) },
+        baseAnim = com.voicerpg.engine.ui.sprites.SpriteBase.of(member, isActive = isActiveTurn),
         depthScale = depthScale,
+        fx = fx,
         onClick = { onSelectHero(member) },
         modifier = modifier.onGloballyPositioned { cardCoords = it }
     )

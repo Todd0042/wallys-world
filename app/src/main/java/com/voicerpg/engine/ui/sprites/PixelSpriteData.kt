@@ -2,12 +2,19 @@ package com.voicerpg.engine.ui.sprites
 
 import androidx.compose.ui.graphics.Color
 import com.voicerpg.engine.content.GameContent
+import com.voicerpg.engine.content.SpriteDefinition
 
 enum class SpriteFrame {
     IDLE_UPRIGHT,
     IDLE_CROUCH,
     ACTION_CAST,
-    DAMAGED
+    DAMAGED,
+    /** Optional: attacking (falls back to ACTION_CAST). */
+    ATTACK,
+    /** Optional: the instant of a hit (falls back to DAMAGED). */
+    HURT,
+    /** Optional: what shatters on death (falls back to DAMAGED). */
+    DEATH
 }
 
 /**
@@ -89,10 +96,16 @@ object PixelSpriteData {
         "...................."
     )
 
-    fun getPixelMatrix(
-        characterId: String,
-        frame: SpriteFrame
-    ): Pair<List<String>, Map<Char, Color>> {
+    private val FALLBACK = SpriteDefinition(
+        palette = FALLBACK_PALETTE,
+        idleUpright = FALLBACK_UPRIGHT,
+        idleCrouch = FALLBACK_CROUCH,
+        actionCast = FALLBACK_UPRIGHT,
+        damaged = FALLBACK_CROUCH
+    )
+
+    /** The legacy grid sprite for [characterId] (a character, an enemy sprite or template), or the neutral silhouette. */
+    fun definitionFor(characterId: String): SpriteDefinition {
         // 1. Dynamic sprite resolution from loaded character content
         val directCharacter = GameContent.characterById(characterId)
         val character = directCharacter ?: GameContent.characters.values.firstOrNull { c ->
@@ -101,10 +114,7 @@ object PixelSpriteData {
             characterId.equals(c.speaker.name, ignoreCase = true) ||
             c.voiceAliases.any { it.equals(characterId, ignoreCase = true) }
         }
-        if (character?.sprite != null) {
-            val grid = character.sprite.getFrame(frame)
-            return grid to character.sprite.palette
-        }
+        character?.sprite?.let { return it }
 
         // 2. Dynamic sprite resolution from loaded enemy sprites
         val directEnemySprite = GameContent.enemySpriteById(characterId)
@@ -120,16 +130,15 @@ object PixelSpriteData {
                 }?.value
             }
         }
-        if (enemySprite != null) {
-            val grid = enemySprite.getFrame(frame)
-            return grid to enemySprite.palette
-        }
-
         // 3. Fallback neutral silhouette
-        val grid = when (frame) {
-            SpriteFrame.IDLE_UPRIGHT -> FALLBACK_UPRIGHT
-            else -> FALLBACK_CROUCH
-        }
-        return grid to FALLBACK_PALETTE
+        return enemySprite ?: FALLBACK
+    }
+
+    fun getPixelMatrix(
+        characterId: String,
+        frame: SpriteFrame
+    ): Pair<List<String>, Map<Char, Color>> {
+        val def = definitionFor(characterId)
+        return def.getFrame(frame) to def.palette
     }
 }

@@ -91,8 +91,6 @@ data class SavedCharacterStats(
     val currentMp: Int,
     val maxMp: Int,
     val speed: Int,
-    val level: Int = 1,
-    val xp: Int = 0,
     val spellIds: List<String> = emptyList()
 ) {
     companion object {
@@ -106,8 +104,6 @@ data class SavedCharacterStats(
                 currentMp = member.currentMp,
                 maxMp = member.maxMp,
                 speed = member.speed,
-                level = member.level,
-                xp = member.xp,
                 spellIds = member.spells.map { it.id }
             )
         }
@@ -115,7 +111,8 @@ data class SavedCharacterStats(
 }
 
 data class GameSaveData(
-    val saveVersion: Int = 1,
+    /** Format version; saves older than [CURRENT_VERSION] are cleared on load (see SaveManager). */
+    val saveVersion: Int = CURRENT_VERSION,
     val saveTimestamp: Long = System.currentTimeMillis(),
     val totalPlaytimeSeconds: Long = 0L,
 
@@ -149,7 +146,12 @@ data class GameSaveData(
     val isAutoPlayEnabled: Boolean = false,
     val isChimeMuted: Boolean = true,
     val isNarrationEnabled: Boolean = true,
+    /** Before the split into callouts and reports: the single combat narration toggle (old saves fall back on it). */
     val isCombatNarrationEnabled: Boolean = true,
+    /** Options → Spell callouts; null in a save from before the split. */
+    val isSpellCalloutsEnabled: Boolean? = null,
+    /** Options → Battle reports; null in a save from before the split. */
+    val isBattleReportsEnabled: Boolean? = null,
     val isPocketGuardEnabled: Boolean = true,
     val isReadChoicesEnabled: Boolean = true,
     val isAutoReadHubChoices: Boolean = true,
@@ -158,6 +160,8 @@ data class GameSaveData(
     val isSpeakerAttributionEnabled: Boolean = true,
     val isMusicEnabled: Boolean = true,
     val musicVolume: Float = 0.55f,
+    val isReduceMotion: Boolean = false,
+    val isReduceFlashing: Boolean = false,
 
     // 7. Per-speaker TTS voice assignments (installed Android voice model names keyed by speaker id)
     val voiceAssignments: Map<String, String> = emptyMap(),
@@ -168,4 +172,18 @@ data class GameSaveData(
     // 9. Multilingual Localization Options
     val selectedLanguage: String = "en",
     val selectedRegion: String = ""
-)
+) {
+    /** The saved spell callouts setting; a save from before the split uses its single combat narration toggle. */
+    val spellCallouts: Boolean get() = isSpellCalloutsEnabled ?: isCombatNarrationEnabled
+
+    /** The saved battle reports setting; a save from before the split uses its single combat narration toggle. */
+    val battleReports: Boolean get() = isBattleReportsEnabled ?: isCombatNarrationEnabled
+
+    companion object {
+        /**
+         * 2: levels and XP removed, spells worked out from story flags. Older saves (1, or 0 when the field is
+         * missing) are cleared rather than converted.
+         */
+        const val CURRENT_VERSION = 2
+    }
+}

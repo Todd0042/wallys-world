@@ -10,6 +10,5 @@
   "startingBaseAttack": 26,
   "preferredSchool": "HOLY",
   "starterSpellIds": ["mend_crew", "soothe_crew", "steady_hands", "calm_floor", "breathe"],
-  "voiceKeywords": ["service steward", "steward", "service", "people person", "holy", "care"],
-  "growth": { "maxHp": 12, "maxMp": 12, "speed": 1, "defense": 1, "potencyPct": 0.035 }
+  "voiceKeywords": ["service steward", "steward", "service", "people person", "holy", "care"]
 }

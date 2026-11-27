@@ -73,7 +73,9 @@ data class StoryState(
     val pendingSelectedRegion: String = "",
     val selectedLanguage: String = "en",
     val selectedRegion: String = "",
-    val showFirstLaunchLanguagePrompt: Boolean = false
+    val showFirstLaunchLanguagePrompt: Boolean = false,
+    /** A one-time message for the title screen (e.g. saves from an older version were cleared); null when none. */
+    val startupNotice: String? = null
 )
 
 class StoryViewModel(
@@ -81,6 +83,7 @@ class StoryViewModel(
     val combatNarrator: CombatNarrator,
     val saveManager: SaveManager = SaveManager(),
     val musicManager: com.voicerpg.engine.audio.MusicManager? = null,
+    val motionSettings: com.voicerpg.engine.engine.MotionSettings = com.voicerpg.engine.engine.MotionSettings(),
     private val scopeOverride: CoroutineScope? = null
 ) : ViewModel() {
 
@@ -93,11 +96,16 @@ class StoryViewModel(
     companion object {
         /** Engine convention: a node setting this flag marks the playthrough complete. */
         const val GAME_COMPLETED_FLAG = "game_completed"
+        /** How far a hub branch is followed looking for its way back (longer runs are treated as moving on). */
+        const val MAX_BRANCH_LENGTH = 40
 
         /**
          * Chapter warp targets derived from scene data files (chapterIndex + entry node).
          * No chapters are hardcoded in the engine.
          */
+        /** Shown and spoken once when saves from an older version were cleared on start. */
+        const val OLD_SAVES_CLEARED_NOTICE = "Saves from an earlier version of the game were cleared."
+
         val DEBUG_CHAPTER_TARGETS: List<DebugChapterTarget>
             get() = GameContent.scenes.values
                 .distinctBy { it.chapterIndex }
@@ -123,17 +131,49 @@ class StoryViewModel(
         return isChoiceLocked(choice, node, _state.value.narrativeFlags)
     }
 
+    /**
+     * Whether [choice] (an option of [node]) is done: its completion flag is set; or, among a real hub's options (a
+     * node with `hubCompletion`), its battle is won or the player has played its branch and the branch has nothing
+     * left to choose. A branch is a run of plain
+     * nodes leading back to [node]: played once its first node was visited or a flag it sets is set. A branch
+     * into a sub-hub is played once that sub-hub is finished (all its required flags set).
+     */
     fun isChoiceCompleted(
         choice: DialogueChoice,
         flags: Map<String, Boolean> = _state.value.narrativeFlags,
-        defeated: List<String> = _state.value.defeatedEncounters
+        defeated: List<String> = _state.value.defeatedEncounters,
+        node: DialogueNode? = _state.value.currentNode,
+        visited: Set<String> = _state.value.visitedNodeIds
     ): Boolean {
         if (choice.completionFlag != null && flags[choice.completionFlag] == true) {
             return true
         }
+        // Beyond its own flag, a choice is a task to tick off only among a real hub's options (a node with
+        // hubCompletion): a plain fork's options aren't, and a battle a story repeats (each day's rush) stays open.
+        val inHub = node == null || node.hubCompletion != null
         val target = StoryScript.ALL_NODES[choice.nextNodeId]
-        if (target?.triggerBattleEncounterId != null && defeated.contains(target.triggerBattleEncounterId)) {
+        if (inHub && target?.triggerBattleEncounterId != null && defeated.contains(target.triggerBattleEncounterId)) {
             return true
+        }
+        return node?.hubCompletion != null && isBranchPlayed(choice, node, flags, visited)
+    }
+
+    private fun isBranchPlayed(choice: DialogueChoice, hub: DialogueNode, flags: Map<String, Boolean>, visited: Set<String>): Boolean {
+        val path = mutableListOf<DialogueNode>()
+        var id: String? = choice.nextNodeId
+        repeat(MAX_BRANCH_LENGTH) {
+            val n = StoryScript.ALL_NODES[id] ?: return false
+            if (n.id == hub.id) {
+                // Back at the hub with nothing chosen on the way: played if the player went down it.
+                return path.isNotEmpty() && (path.first().id in visited || path.any { p -> p.setFlagOnEnter?.let { flags[it] == true } == true })
+            }
+            if (n.choices.isNotEmpty()) {
+                val sub = n.hubCompletion ?: return false
+                return n.id in visited && sub.requiredFlags.isNotEmpty() && sub.requiredFlags.all { flags[it] == true }
+            }
+            if (n.triggerBattleEncounterId != null || n.triggerMiniGameId != null || n.changeSceneId != null) return false
+            path += n
+            id = n.nextNodeIdFor(flags)
         }
         return false
     }
@@ -146,17 +186,16 @@ class StoryViewModel(
         // 2. Hub gating: In a hub node (declaring hubCompletion), all dialogue options
         // (choices with completionFlag that do not trigger battle) must be completed
         // before advancing choices (e.g. battles, scene transitions) are unlocked.
+        // A way on (a battle, a new scene, or no completion flag) is never one of the dialogue choices it waits for,
+        // so it can't wait on itself (a camp's "rest and move on" with its own flag used to lock the whole node).
         val completion = node.hubCompletion
-        val targetNode = StoryScript.ALL_NODES[choice.nextNodeId]
-        val isBattleOrAdvance = choice.completionFlag == null ||
-            targetNode?.triggerBattleEncounterId != null ||
-            targetNode?.changeSceneId != null
+        fun isWayOn(c: DialogueChoice): Boolean {
+            val target = StoryScript.ALL_NODES[c.nextNodeId]
+            return c.completionFlag == null || target?.triggerBattleEncounterId != null || target?.changeSceneId != null
+        }
 
-        if (completion != null && isBattleOrAdvance) {
-            val dialogueChoices = node.choices.filter { other ->
-                val otherTarget = StoryScript.ALL_NODES[other.nextNodeId]
-                other.completionFlag != null && otherTarget?.triggerBattleEncounterId == null
-            }
+        if (completion != null && isWayOn(choice)) {
+            val dialogueChoices = node.choices.filterNot(::isWayOn)
             if (dialogueChoices.isNotEmpty()) {
                 val allDialogueDone = dialogueChoices.all { flags[it.completionFlag] == true }
                 if (!allDialogueDone) {
@@ -258,7 +297,7 @@ class StoryViewModel(
 
     private fun eligibleChoices(node: DialogueNode): List<DialogueChoice> =
         node.choices.filter { choice ->
-            val notCompleted = !isChoiceCompleted(choice, _state.value.narrativeFlags, _state.value.defeatedEncounters)
+            val notCompleted = !isChoiceCompleted(choice, _state.value.narrativeFlags, _state.value.defeatedEncounters, node)
             val notLocked = !isChoiceLocked(choice, node, _state.value.narrativeFlags)
             notCompleted && notLocked
         }
@@ -534,7 +573,8 @@ class StoryViewModel(
             )
             combatNarrator.setEyesFreeMode(existingSave.isEyesFreeMode, lockGuard = false)
             combatNarrator.setPocketGuardEnabled(existingSave.isPocketGuardEnabled)
-            combatNarrator.setCombatNarrationEnabled(existingSave.isCombatNarrationEnabled)
+            combatNarrator.setSpellCalloutsEnabled(existingSave.spellCallouts)
+            combatNarrator.setBattleReportsEnabled(existingSave.battleReports)
             combatNarrator.setNarrationEnabled(existingSave.isNarrationEnabled)
             combatNarrator.setReadChoicesEnabled(existingSave.isReadChoicesEnabled)
             combatNarrator.setAutoReadHubChoices(existingSave.isAutoReadHubChoices)
@@ -546,6 +586,8 @@ class StoryViewModel(
             speechManager.setChimeMuted(existingSave.isChimeMuted)
             musicManager?.setMusicEnabled(existingSave.isMusicEnabled)
             musicManager?.setVolume(existingSave.musicVolume)
+            motionSettings.setReduceMotion(existingSave.isReduceMotion)
+            motionSettings.setReduceFlashing(existingSave.isReduceFlashing)
             musicManager?.playTrack(com.voicerpg.engine.audio.MusicManager.TRACK_EXPLORATION)
         } else {
             // First time player: start at Language Selection or Title Screen
@@ -561,6 +603,19 @@ class StoryViewModel(
                 showFirstLaunchLanguagePrompt = !globalSettings.isLanguageSetupCompleted
             )
         }
+
+        // Saves from an older format were cleared while the slots were read: say so once, on the title screen.
+        saveManager.load(SaveManager.STORY_MODE_SLOT)
+        if (saveManager.takeClearedOutdatedSaves() > 0) {
+            val notice = com.voicerpg.engine.localization.TranslationManager.translate(OLD_SAVES_CLEARED_NOTICE)
+            _state.value = _state.value.copy(startupNotice = notice)
+            combatNarrator.speak(notice, force = true)
+        }
+    }
+
+    /** Hides the title screen's one-time notice. */
+    fun dismissStartupNotice() {
+        _state.value = _state.value.copy(startupNotice = null)
     }
 
     /**
@@ -632,7 +687,8 @@ class StoryViewModel(
         )
         combatNarrator.setEyesFreeMode(existingSave.isEyesFreeMode, lockGuard = false)
         combatNarrator.setPocketGuardEnabled(existingSave.isPocketGuardEnabled)
-        combatNarrator.setCombatNarrationEnabled(existingSave.isCombatNarrationEnabled)
+        combatNarrator.setSpellCalloutsEnabled(existingSave.spellCallouts)
+        combatNarrator.setBattleReportsEnabled(existingSave.battleReports)
         combatNarrator.setNarrationEnabled(existingSave.isNarrationEnabled)
         combatNarrator.setReadChoicesEnabled(existingSave.isReadChoicesEnabled)
         combatNarrator.setAutoReadHubChoices(existingSave.isAutoReadHubChoices)
@@ -644,6 +700,8 @@ class StoryViewModel(
         speechManager.setChimeMuted(existingSave.isChimeMuted)
         musicManager?.setMusicEnabled(existingSave.isMusicEnabled)
         musicManager?.setVolume(existingSave.musicVolume)
+        motionSettings.setReduceMotion(existingSave.isReduceMotion)
+            motionSettings.setReduceFlashing(existingSave.isReduceFlashing)
         musicManager?.playTrack(restoredScene.musicAsset)
         narrateCurrentNode()
         if (isStoryMode) {
@@ -1262,7 +1320,7 @@ class StoryViewModel(
                 // If the hub still has an eligible choice that is not yet completed (e.g. an unlocked battle),
                 // do not redirect immediately; let the choice be presented and chosen.
                 val hasPendingChoice = effective.choices.any { choice ->
-                    val notCompleted = !isChoiceCompleted(choice, flags, _state.value.defeatedEncounters)
+                    val notCompleted = !isChoiceCompleted(choice, flags, _state.value.defeatedEncounters, effective)
                     val notLocked = !isChoiceLocked(choice, effective, flags)
                     notCompleted && notLocked && choice.nextNodeId != completion.redirectToNodeId
                 }
@@ -1337,8 +1395,6 @@ class StoryViewModel(
                 currentMp = member.currentMp,
                 maxMp = member.maxMp,
                 speed = member.speed,
-                level = member.level,
-                xp = member.xp,
                 spellIds = mergedSpells
             )
         }
@@ -1363,7 +1419,9 @@ class StoryViewModel(
             recentDialogueLog = s.dialogueHistory.takeLast(60),
             isEyesFreeMode = combatNarrator.isEyesFreeMode.value,
             isPocketGuardEnabled = combatNarrator.isPocketGuardEnabled.value,
-            isCombatNarrationEnabled = combatNarrator.isCombatNarrationEnabled.value,
+            isCombatNarrationEnabled = combatNarrator.isSpellCalloutsEnabled.value || combatNarrator.isBattleReportsEnabled.value,
+            isSpellCalloutsEnabled = combatNarrator.isSpellCalloutsEnabled.value,
+            isBattleReportsEnabled = combatNarrator.isBattleReportsEnabled.value,
             isAutoListen = speechManager.isAutoListen.value,
             isAutoPlayEnabled = s.isPureStoryMode,
             isChimeMuted = speechManager.isChimeMuted.value,
@@ -1375,6 +1433,8 @@ class StoryViewModel(
             isSpeakerAttributionEnabled = combatNarrator.isSpeakerAttributionEnabled.value,
             isMusicEnabled = musicManager?.isMusicEnabled?.value ?: currentSave.isMusicEnabled,
             musicVolume = musicManager?.musicVolume?.value ?: currentSave.musicVolume,
+            isReduceMotion = motionSettings.reduceMotion.value,
+            isReduceFlashing = motionSettings.reduceFlashing.value,
             voiceAssignments = combatNarrator.getVoiceAssignments(),
             dynamicMetrics = s.dynamicMetrics
         )

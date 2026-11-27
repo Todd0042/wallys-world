@@ -32,13 +32,6 @@
       "grind_out",
       "breathe"
     ],
-    "growth": {
-      "maxHp": 15,
-      "maxMp": 9,
-      "speed": 1,
-      "defense": 1,
-      "potencyPct": 0.03
-    },
     "spells": [
       {
         "id": "line_drill",

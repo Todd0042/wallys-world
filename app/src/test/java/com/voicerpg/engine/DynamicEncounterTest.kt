@@ -29,6 +29,7 @@ import org.junit.Test
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class DynamicEncounterTest {
 
@@ -48,9 +49,23 @@ class DynamicEncounterTest {
         )
     }
 
+    private val directorScope = CoroutineScope(kotlinx.coroutines.SupervisorJob() + Dispatchers.Unconfined)
+
     @After
     fun tearDown() {
         viewModel.cleanup()
+        directorScope.coroutineContext[kotlinx.coroutines.Job]?.cancel()
+    }
+
+    /** What RetroBattleScreen does: a director that plays this view model's cues at its live sprite positions. */
+    private fun attachDirector(): com.voicerpg.engine.ui.fx.BattleFxDirector {
+        val director = com.voicerpg.engine.ui.fx.BattleFxDirector(positionOf = { id ->
+            viewModel.combatantSlot(id).let { (x, y) -> androidx.compose.ui.geometry.Offset(x, y) }
+        })
+        directorScope.launch(start = kotlinx.coroutines.CoroutineStart.UNDISPATCHED) {
+            viewModel.cues.collect { director.play(it) }
+        }
+        return director
     }
 
     // =============================================================================
@@ -489,8 +504,6 @@ class DynamicEncounterTest {
                 currentMp = 40,
                 maxMp = 90,
                 speed = 40,
-                level = 10,
-                xp = 100,
                 spellIds = listOf("power_strike", "mending_touch", "aegis_guard")
             )
         )
@@ -511,7 +524,7 @@ class DynamicEncounterTest {
         )
 
         val cedric = viewModel.state.value.party.first { it.id == "cedric" }
-        assertEquals(10, cedric.level)
+        assertEquals("carried HP", 100, cedric.currentHp)
         assertTrue(cedric.spells.any { it.id == "aegis_guard" })
         // GameContent ships no breath/attune discipline for Cedric (breathSpellFor("cedric")
         // returns null), so the imported kit's final spell is the last persisted spell rather
@@ -623,13 +636,16 @@ class DynamicEncounterTest {
         viewModel.updateCombatantPosition("hero", 220f, 600f)
         viewModel.updateCombatantPosition("archer", 960f, 750f)
 
+        // The battle screen's effects director, fed by the view model's cues
+        val director = attachDirector()
+
         // Cast fireball targeting archer
         viewModel.processIncantation("Fireball archer")
 
         var projectile: com.voicerpg.engine.ui.vfx.ActiveSpellProjectile? = null
-        for (i in 0 until 20) {
+        for (i in 0 until 40) {
             Thread.sleep(50)
-            projectile = viewModel.spellVfxEngine.projectiles.firstOrNull()
+            projectile = director.projectiles.projectiles.firstOrNull()
             if (projectile != null) break
         }
 
@@ -656,13 +672,15 @@ class DynamicEncounterTest {
         viewModel.updateCombatantPosition("archer", 960f, 600f)
         viewModel.updateCombatantPosition("shaman", 960f, 800f)
 
+        val director = attachDirector()
+
         // Cast Chain Lightning AoE spell
         viewModel.processIncantation("Chain lightning all foes")
 
         var projectiles: List<com.voicerpg.engine.ui.vfx.ActiveSpellProjectile> = emptyList()
-        for (i in 0 until 20) {
+        for (i in 0 until 40) {
             Thread.sleep(50)
-            projectiles = viewModel.spellVfxEngine.projectiles.toList()
+            projectiles = director.projectiles.projectiles.toList()
             if (projectiles.isNotEmpty()) break
         }
 

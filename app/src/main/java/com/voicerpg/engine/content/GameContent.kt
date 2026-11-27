@@ -9,7 +9,6 @@ import com.google.gson.annotations.SerializedName
 import com.voicerpg.engine.combat.EnemyMove
 import com.voicerpg.engine.combat.Moveset
 import com.voicerpg.engine.combat.PhaseRule
-import com.voicerpg.engine.combat.StatGrowth
 import com.voicerpg.engine.combat.StatusDef
 import com.voicerpg.engine.combat.StatusTier
 import com.voicerpg.engine.model.SpellGraphics
@@ -46,6 +45,8 @@ import java.io.File
 // =============================================================================
 
 data class ManifestDto(
+    /** 1 = the game opts in to the sprite contract (docs/SPRITE_PLAN.md); a release build checks it regardless. */
+    val spriteContract: Int = 0,
     val gameTitle: String = "VoiceRPG Engine",
     val gameSubtitle: String = "",
     val worldName: String = "the realm",
@@ -115,16 +116,6 @@ data class ResonanceProfileDto(
     }
 }
 
-data class GrowthDto(
-    val maxHp: Int = 18,
-    val maxMp: Int = 8,
-    val speed: Int = 1,
-    val defense: Int = 1,
-    val potencyPct: Float = 0.03f
-) {
-    fun toStatGrowth(): StatGrowth = StatGrowth(maxHp, maxMp, speed, defense, potencyPct)
-}
-
 data class CharacterCombatDto(
     val maxHp: Int = 100,
     val maxMp: Int = 50,
@@ -138,7 +129,8 @@ data class CharacterCombatDto(
     val spriteAlpha: Float? = null,
     val spellIds: List<String>? = null,
     val spells: List<SpellDto>? = null,
-    val growth: GrowthDto? = null
+    /** Portrait panel for MYTHIC+ casts: { portrait, color, quote }. */
+    val cutIn: com.voicerpg.engine.model.CutInSpec? = null
 )
 
 data class SpellGrantDto(
@@ -153,7 +145,11 @@ data class SpriteFramesDto(
     val idle_crouch: List<String>? = null,
     @SerializedName(value = "action_cast", alternate = ["actionCast"])
     val action_cast: List<String>? = null,
-    val damaged: List<String>? = null
+    val damaged: List<String>? = null,
+    /** Optional frames (fall back to action_cast / damaged / damaged). */
+    val attack: List<String>? = null,
+    val hurt: List<String>? = null,
+    val death: List<String>? = null
 )
 
 data class SpriteDefinitionDto(
@@ -206,7 +202,6 @@ data class ClassDto(
     val preferredSchool: String = "PHYSICAL",
     val starterSpellIds: List<String>? = null,
     val voiceKeywords: List<String>? = null,
-    val growth: GrowthDto? = null,
     val portraitAsset: String? = null
 )
 
@@ -229,6 +224,8 @@ data class SpellGraphicsDto(
 data class SpellDto(
     val id: String = "",
     val name: String = "",
+    /** What the spell callout says when [name] is too long to call out ("Rent Freeze!"). */
+    val calloutName: String? = null,
     val school: String = "PHYSICAL",
     val basePower: Int = 0,
     val mpCost: Int = 0,
@@ -264,7 +261,10 @@ data class EnemyMoveDto(
     val summonCount: Int = 0,
     val graphics: SpellGraphicsDto? = null,
     /** Optional recorded clips (asset paths, e.g. audio/quotes/x.ogg); one plays at random. */
-    val soundBites: List<String>? = null
+    val soundBites: List<String>? = null,
+    val titleCard: Boolean? = null,
+    val windupMs: Long? = null,
+    val intentIcon: String? = null
 ) {
     fun toEnemyMove(): EnemyMove = EnemyMove(
         name = name.ifBlank { "Attack" },
@@ -278,7 +278,10 @@ data class EnemyMoveDto(
         summon = summon,
         summonCount = summonCount,
         graphics = graphics?.toSpellGraphics(),
-        soundBites = soundBites.orEmpty().filter { it.isNotBlank() }
+        soundBites = soundBites.orEmpty().filter { it.isNotBlank() },
+        titleCard = titleCard,
+        windupMs = windupMs?.coerceIn(0L, 3000L),
+        intentIcon = intentIcon?.takeIf { it.isNotBlank() }
     )
 }
 
@@ -311,6 +314,8 @@ data class EnemySpellsFileDto(
 data class EnemyDto(
     val id: String = "",
     val name: String = "",
+    /** How combat speech names it ("Orc" for "Blighted Orc"); blank = the last word of [name]. */
+    val shortName: String? = null,
     val subtitle: String = "",
     val family: String = "FLESH",
     val selfElement: String = "",
@@ -318,7 +323,6 @@ data class EnemyDto(
     val attack: Int = 10,
     val defense: Int = 0,
     val speed: Int = 50,
-    val xpReward: Int = 60,
     val movesetId: String = "",
     val isBoss: Boolean = false,
     val spriteId: String = "",
@@ -326,7 +330,13 @@ data class EnemyDto(
     /** Extra words that target this enemy by voice ("warrior" for an orc), besides its name and subtitle. */
     val voiceAliases: List<String>? = null,
     /** Optional recorded clips (asset paths, e.g. audio/quotes/x.ogg); one plays at random. */
-    val soundBites: List<String>? = null
+    val soundBites: List<String>? = null,
+    /** Sprite size multiplier; bosses default to 2.0. */
+    val scale: Float? = null,
+    val taunts: List<String>? = null,
+    /** flinch | stagger | comic_spin */
+    val hitReaction: String? = null,
+    val cutIn: com.voicerpg.engine.model.CutInSpec? = null
 )
 
 data class EnemyFileDto(val enemies: List<EnemyDto>? = null)
@@ -371,7 +381,9 @@ data class EncounterDto(
     val party: List<String>? = null,
     val enemies: List<EncounterEnemyDto>? = null,
     val bossPhases: List<BossPhaseDto>? = null,
-    val midBattleJoin: MidBattleJoinDto? = null
+    val midBattleJoin: MidBattleJoinDto? = null,
+    /** A second music track for when this fight turns desperate (crossfaded in). */
+    val intensityTrack: String? = null
 )
 
 data class EncounterFileDto(val encounters: List<EncounterDto>? = null)
@@ -572,7 +584,10 @@ data class EnvironmentDefinitionDto(
     val ambientThemeColor: String = "#FFFFFF",
     val backgroundAsset: String = "",
     val aliases: List<String>? = null,
-    val overlayType: String = "FOREST"
+    val overlayType: String = "FOREST",
+    /** Where the backdrop picture's floor starts, as a fraction of its height (the `_p` variant has its own). */
+    val artHorizon: Float? = null,
+    val artHorizonPortrait: Float? = null
 )
 
 data class EnvironmentFileDto(
@@ -650,6 +665,7 @@ data class CommandCatalogDto(
 // =============================================================================
 
 data class GameManifest(
+    val spriteContract: Int = 0,
     val gameTitle: String,
     val gameSubtitle: String,
     val worldName: String = "the realm",
@@ -752,8 +768,15 @@ data class EnvironmentDefinition(
     val ambientThemeColor: Color,
     val backgroundAsset: String,
     val aliases: List<String> = emptyList(),
-    val overlayType: String = "FOREST"
-)
+    val overlayType: String = "FOREST",
+    /** Painted horizon of the backdrop picture (fraction of its height); aligned with the battle stage's. */
+    val artHorizon: Float? = null,
+    val artHorizonPortrait: Float? = null
+) {
+    fun artHorizonFor(portraitVariant: Boolean): Float =
+        (if (portraitVariant) artHorizonPortrait ?: artHorizon else artHorizon)
+            ?: com.voicerpg.engine.ui.combat.BattleStage.DEFAULT_ART_HORIZON
+}
 
 data class AffinityMatrix(
     val floor: Float,
@@ -776,7 +799,6 @@ data class HeroClassDef(
     val preferredSchool: SpellSchool,
     val starterSpellIds: List<String>,
     val voiceKeywords: List<String>,
-    val growth: StatGrowth,
     val portraitAsset: String? = null
 )
 
@@ -792,11 +814,11 @@ data class CharacterCombat(
     val avatarTint: Color,
     val startAtb: Float,
     val spells: List<Spell>,
-    val growth: StatGrowth,
     val isGhost: Boolean = false,
     val canAttack: Boolean = true,
     val isUntargetable: Boolean = false,
-    val spriteAlpha: Float? = null
+    val spriteAlpha: Float? = null,
+    val cutIn: com.voicerpg.engine.model.CutInSpec? = null
 )
 
 data class SpriteDefinition(
@@ -804,13 +826,19 @@ data class SpriteDefinition(
     val idleUpright: List<String>,
     val idleCrouch: List<String>,
     val actionCast: List<String>,
-    val damaged: List<String>
+    val damaged: List<String>,
+    val attack: List<String>? = null,
+    val hurt: List<String>? = null,
+    val death: List<String>? = null
 ) {
     fun getFrame(frame: SpriteFrame): List<String> = when (frame) {
         SpriteFrame.IDLE_UPRIGHT -> idleUpright
         SpriteFrame.IDLE_CROUCH -> idleCrouch
         SpriteFrame.ACTION_CAST -> actionCast
         SpriteFrame.DAMAGED -> damaged
+        SpriteFrame.ATTACK -> attack ?: actionCast
+        SpriteFrame.HURT -> hurt ?: damaged
+        SpriteFrame.DEATH -> death ?: damaged
     }
 }
 
@@ -865,8 +893,6 @@ data class GameCharacter(
             currentMp = c.maxMp,
             maxMp = c.maxMp,
             speed = c.speed,
-            level = 1,
-            xp = 0,
             spellIds = c.spells.map { it.id }
         )
     }
@@ -883,13 +909,17 @@ data class EnemyTemplate(
     val attack: Int,
     val defense: Int,
     val speed: Int,
-    val xpReward: Int,
     val movesetId: String,
     val isBoss: Boolean,
     val spriteId: String,
     val spriteTint: Color,
     val voiceAliases: List<String> = emptyList(),
-    val soundBites: List<String> = emptyList()
+    val soundBites: List<String> = emptyList(),
+    val scale: Float = if (isBoss) com.voicerpg.engine.model.Enemy.DEFAULT_BOSS_SCALE else 1.0f,
+    val taunts: List<String> = emptyList(),
+    val hitReaction: com.voicerpg.engine.model.HitReaction = com.voicerpg.engine.model.HitReaction.FLINCH,
+    val cutIn: com.voicerpg.engine.model.CutInSpec? = null,
+    val shortName: String = ""
 ) {
     fun toEnemy(
         instanceId: String? = null,
@@ -918,11 +948,15 @@ data class EnemyTemplate(
             spriteId = spriteId,
             family = family,
             selfElement = selfElement,
-            xpReward = xpReward,
             movesetId = movesetId,
             atbGauge = atbGauge,
             voiceAliases = voiceAliases,
-            soundBites = soundBites
+            soundBites = soundBites,
+            scale = scale,
+            taunts = taunts,
+            hitReaction = hitReaction,
+            cutIn = cutIn,
+            shortName = if (nameOverride != null) "" else shortName
         )
     }
 }
@@ -947,12 +981,43 @@ class GameContentPack(
     val environments: Map<String, EnvironmentDefinition> = emptyMap(),
     val statusCatalog: Map<String, StatusDef> = emptyMap(),
     val affinityMatrix: AffinityMatrix? = null,
+    val presentation: PresentationConfig = PresentationConfig(),
     val thesaurusRoots: Map<SpellSchool, List<String>> = emptyMap(),
     val metrics: Map<String, MetricDefinition> = emptyMap(),
     val incidents: Map<String, IncidentDefinition> = emptyMap(),
     val minigames: Map<String, MiniGameConfig> = emptyMap(),
-    val commandCatalogs: Map<String, com.voicerpg.engine.model.CommandCatalog> = emptyMap()
+    val commandCatalogs: Map<String, com.voicerpg.engine.model.CommandCatalog> = emptyMap(),
+    /** Aseprite battle sheets by sprite id (`sprites/sheets/`), and per-sprite settings and variants. */
+    val spriteSheets: Map<String, SpriteSheet> = emptyMap(),
+    val spriteSettings: Map<String, SpriteSetting> = emptyMap()
 ) {
+    /**
+     * The sheet a sprite key draws: a variant of a sheet, the sheet itself, or the sheet named by the
+     * character or enemy template with that id. Null when only a legacy text grid (or nothing) exists.
+     */
+    fun resolveSheet(key: String): ResolvedSheet? {
+        direct(key)?.let { return it }
+        characters[key]?.spriteId?.takeIf { it.isNotBlank() && it != key }?.let { id -> direct(id)?.let { return it } }
+        enemyTemplates[key]?.spriteId?.takeIf { it.isNotBlank() && it != key }?.let { id -> direct(id)?.let { return it } }
+        return null
+    }
+
+    /** Own sheet, then a variant's base, then a placeholder (each resolved the same way; cycles stop). */
+    private fun direct(key: String, seen: Set<String> = emptySet()): ResolvedSheet? {
+        if (key in seen) return null
+        val setting = spriteSettings[key]
+        spriteSheets[key]?.let { return ResolvedSheet(key, it, setting) }
+        setting?.base?.let { base ->
+            val b = direct(base, seen + key) ?: return null
+            return ResolvedSheet(key, b.sheet, setting, b.isPlaceholder, b.missing)
+        }
+        setting?.placeholder?.let { stand ->
+            val p = direct(stand, seen + key) ?: return null
+            return ResolvedSheet(key, p.sheet, setting, isPlaceholder = true, missing = key)
+        }
+        return null
+    }
+
     val heroCharacter: GameCharacter? = characters.values.firstOrNull { it.role == CharacterRole.HERO }
 
     /** All speakers that can hold a TTS voice binding (narrator first). */
@@ -1082,7 +1147,6 @@ class GameContentPack(
             preferredSchool = SpellSchool.PHYSICAL,
             starterSpellIds = emptyList(),
             voiceKeywords = listOf("adventurer", "hero"),
-            growth = StatGrowth(14, 10, 1, 1, 0.035f),
             portraitAsset = null
         )
     }
@@ -1120,6 +1184,12 @@ class FileContentSource(private val rootDir: File) : ContentSource {
 
 /** Parses the JSON content tree into a resolved [GameContentPack]. */
 class GameContentLoader(private val source: ContentSource) {
+
+    private companion object {
+        const val SPRITE_SHEET_DIR = "sprites/sheets"
+        /** The content folder inside the APK's assets (sheet PNG paths are given from the assets root). */
+        const val CONTENT_ASSET_ROOT = "game"
+    }
 
     private val gson = Gson()
 
@@ -1175,6 +1245,16 @@ class GameContentLoader(private val source: ContentSource) {
             }
             .toMap()
 
+        val spriteSheets = source.listFiles(SPRITE_SHEET_DIR)
+            .mapNotNull { file ->
+                val id = file.removeSuffix(".json")
+                source.readText("$SPRITE_SHEET_DIR/$file")?.let { AsepriteParser.parse(id, it, "$CONTENT_ASSET_ROOT/$SPRITE_SHEET_DIR") }
+            }
+            .associateBy { it.id }
+        val spriteSettings = (read("sprites/sprites.json", SpriteSettingsFileDto::class.java)?.sprites ?: emptyMap())
+            .map { (id, dto) -> dto.toSetting(id) }
+            .associateBy { it.id }
+
         val enemyMovesets = (read("enemies/enemy_spells.json", EnemySpellsFileDto::class.java)?.movesets ?: emptyMap())
             .mapValues { it.value.toMoveset() }
 
@@ -1196,6 +1276,8 @@ class GameContentLoader(private val source: ContentSource) {
                 narrations = it.narrations ?: emptyMap()
             )
         }
+
+        val presentation = read("combat/presentation.json", PresentationFileDto::class.java)?.toConfig() ?: PresentationConfig()
 
         val thesaurusDto = read("spells/thesaurus.json", ThesaurusFileDto::class.java)
         val thesaurusRoots = thesaurusDto?.schools?.mapNotNull { (schoolStr, words) ->
@@ -1234,6 +1316,7 @@ class GameContentLoader(private val source: ContentSource) {
 
         val pack = GameContentPack(
             manifest = GameManifest(
+                spriteContract = manifestDto.spriteContract,
                 gameTitle = manifestDto.gameTitle,
                 gameSubtitle = manifestDto.gameSubtitle,
                 worldName = manifestDto.worldName,
@@ -1287,11 +1370,14 @@ class GameContentLoader(private val source: ContentSource) {
             environments = environments,
             statusCatalog = statusCatalog,
             affinityMatrix = affinityMatrix,
+            presentation = presentation,
             thesaurusRoots = thesaurusRoots,
             metrics = metrics,
             incidents = incidents,
             minigames = minigames,
-            commandCatalogs = commandCatalogs
+            commandCatalogs = commandCatalogs,
+            spriteSheets = spriteSheets,
+            spriteSettings = spriteSettings
         )
         return if (pack.scenes.isEmpty() || pack.nodes.isEmpty()) EmergencyFallback.build() else pack
     }
@@ -1304,6 +1390,7 @@ class GameContentLoader(private val source: ContentSource) {
 
     private fun SpellDto.toSpell(): Spell = Spell(
         id = id,
+        calloutName = calloutName?.trim().orEmpty(),
         name = name.ifBlank { id },
         school = runCatching { SpellSchool.valueOf(school) }.getOrDefault(SpellSchool.PHYSICAL),
         basePower = basePower,
@@ -1335,7 +1422,6 @@ class GameContentLoader(private val source: ContentSource) {
         preferredSchool = runCatching { SpellSchool.valueOf(preferredSchool) }.getOrDefault(SpellSchool.PHYSICAL),
         starterSpellIds = starterSpellIds ?: emptyList(),
         voiceKeywords = voiceKeywords ?: emptyList(),
-        growth = (growth ?: GrowthDto()).toStatGrowth(),
         portraitAsset = portraitAsset
     )
 
@@ -1363,11 +1449,11 @@ class GameContentLoader(private val source: ContentSource) {
                 avatarTint = parseHexColor(c.avatarTint, Color(0xFF4FC3F7)),
                 startAtb = c.startAtb,
                 spells = allSpells,
-                growth = (c.growth ?: GrowthDto()).toStatGrowth(),
                 isGhost = c.isGhost,
                 canAttack = c.canAttack,
                 isUntargetable = c.isUntargetable,
-                spriteAlpha = c.spriteAlpha
+                spriteAlpha = c.spriteAlpha,
+                cutIn = c.cutIn
             )
         }
         val resolvedSprite = sprite?.toSpriteDefinition()
@@ -1413,7 +1499,10 @@ class GameContentLoader(private val source: ContentSource) {
                 idleUpright = idleUp,
                 idleCrouch = idleCr,
                 actionCast = actCast,
-                damaged = dmg
+                damaged = dmg,
+                attack = f?.attack?.takeIf { it.isNotEmpty() },
+                hurt = f?.hurt?.takeIf { it.isNotEmpty() },
+                death = f?.death?.takeIf { it.isNotEmpty() }
             )
         }
         return null
@@ -1422,6 +1511,7 @@ class GameContentLoader(private val source: ContentSource) {
     private fun EnemyDto.toTemplate(): EnemyTemplate = EnemyTemplate(
         id = id,
         name = name.ifBlank { id },
+        shortName = shortName?.trim().orEmpty(),
         subtitle = subtitle,
         family = family,
         selfElement = selfElement,
@@ -1429,13 +1519,16 @@ class GameContentLoader(private val source: ContentSource) {
         attack = attack,
         defense = defense,
         speed = speed,
-        xpReward = xpReward,
         movesetId = movesetId,
         isBoss = isBoss,
         spriteId = spriteId,
         spriteTint = parseHexColor(spriteTint, Color(0xFFE57373)),
         voiceAliases = voiceAliases?.filter { it.isNotBlank() } ?: emptyList(),
-        soundBites = soundBites.orEmpty().filter { it.isNotBlank() }
+        soundBites = soundBites.orEmpty().filter { it.isNotBlank() },
+        scale = scale?.takeIf { it.isFinite() }?.coerceIn(0.5f, 3f) ?: if (isBoss) 2.0f else 1.0f,
+        taunts = taunts.orEmpty().filter { it.isNotBlank() },
+        hitReaction = com.voicerpg.engine.model.HitReaction.parse(hitReaction),
+        cutIn = cutIn
     )
 
     private fun EncounterDto.toDefinition(
@@ -1484,7 +1577,8 @@ class GameContentLoader(private val source: ContentSource) {
                     announcementText = it.announcementText,
                     afterEnemyActions = it.afterEnemyActions
                 )
-            }
+            },
+            intensityTrack = intensityTrack?.takeIf { it.isNotBlank() }
         )
     }
 
@@ -1552,7 +1646,9 @@ class GameContentLoader(private val source: ContentSource) {
         ambientThemeColor = parseHexColor(ambientThemeColor, Color.White),
         backgroundAsset = backgroundAsset,
         aliases = aliases ?: emptyList(),
-        overlayType = overlayType
+        overlayType = overlayType,
+        artHorizon = artHorizon?.takeIf { it in 0.05f..0.95f },
+        artHorizonPortrait = artHorizonPortrait?.takeIf { it in 0.05f..0.95f }
     )
 
     private fun StatusDefDto.toStatusDef(): StatusDef = StatusDef(
@@ -1697,6 +1793,8 @@ object GameContent {
     val encounters: Map<String, EncounterDefinition> get() = pack.encounters
     val enemyTemplates: Map<String, EnemyTemplate> get() = pack.enemyTemplates
     val enemySprites: Map<String, SpriteDefinition> get() = pack.enemySprites
+    val spriteSheets: Map<String, SpriteSheet> get() = pack.spriteSheets
+    val spriteSettings: Map<String, SpriteSetting> get() = pack.spriteSettings
     val enemyMovesets: Map<String, Moveset> get() = pack.enemyMovesets
     val narrator: DialogueSpeaker get() = pack.narrator
     val heroCharacter: GameCharacter? get() = pack.heroCharacter
@@ -1708,6 +1806,7 @@ object GameContent {
     val environments: Map<String, EnvironmentDefinition> get() = pack.environments
     val statusCatalog: Map<String, StatusDef> get() = pack.statusCatalog
     val affinityMatrix: AffinityMatrix? get() = pack.affinityMatrix
+    val presentation: PresentationConfig get() = pack.presentation
     val thesaurusRoots: Map<SpellSchool, List<String>> get() = pack.thesaurusRoots
     val selfieConfig: SelfieFilterConfig get() = manifest.selfieConfig
     val metrics: Map<String, MetricDefinition> get() = pack.metrics

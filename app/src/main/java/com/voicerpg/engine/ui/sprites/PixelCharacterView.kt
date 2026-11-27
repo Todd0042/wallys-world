@@ -36,18 +36,15 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.voicerpg.engine.model.CharacterStance
-import com.voicerpg.engine.ui.theme.HpCritical
-import com.voicerpg.engine.ui.theme.HpGreen
-import com.voicerpg.engine.ui.theme.HpWarning
 import com.voicerpg.engine.ui.theme.LogosGold
 import com.voicerpg.engine.ui.theme.LogosGlow
-import com.voicerpg.engine.ui.theme.MpBlue
 
 @Composable
 fun PixelCharacterView(
@@ -56,9 +53,6 @@ fun PixelCharacterView(
     subtitle: String,
     hpRatio: Float,
     currentHp: Int,
-    maxHp: Int,
-    mpRatio: Float? = null,
-    atbRatio: Float,
     isTurnReady: Boolean,
     isActiveTurn: Boolean,
     isTargeted: Boolean = false,
@@ -68,6 +62,19 @@ fun PixelCharacterView(
     spriteAlpha: Float? = null,
     pixelSize: Dp = 2.2.dp,
     depthScale: Float = 1f,
+    /**
+     * Opacity of the thin health sliver under the name (regular enemies: targeted or just hit), or null for
+     * none. Gauges otherwise live in the HUD (BattleHud), not on the field.
+     */
+    sliverAlpha: Float? = null,
+    /** The sprite to draw (a sheet or a legacy grid); null looks it up from [characterId]. */
+    sprite: SpriteSource? = null,
+    /** The resting animation from the combat state (SpriteBase); the battle's cues play over it. */
+    baseAnim: AnimTag = AnimTag.IDLE,
+    /** Live battle effects (flash, knockback, squash, glow, intent, charge bar), from the FX director. */
+    fx: com.voicerpg.engine.ui.fx.CombatantFx? = null,
+    /** Reports where the sprite itself is drawn (for effects such as the death shatter). */
+    onSpriteLayout: ((androidx.compose.ui.layout.LayoutCoordinates) -> Unit)? = null,
     onClick: (() -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
@@ -102,15 +109,26 @@ fun PixelCharacterView(
         baseAlpha
     }
 
-    val currentFrame = when {
-        isDead -> SpriteFrame.DAMAGED
-        stance == CharacterStance.DAMAGED -> SpriteFrame.DAMAGED
-        stance == CharacterStance.CASTING -> SpriteFrame.ACTION_CAST
-        cycleProgress > 0.5f -> SpriteFrame.IDLE_CROUCH
-        else -> SpriteFrame.IDLE_UPRIGHT
+    // Sprite and animation: the director's animator in battle, a local one elsewhere (tutorial, gallery).
+    val source = sprite ?: androidx.compose.runtime.remember(characterId) { SpriteLibrary.source(characterId) }
+    val animator = fx?.animator ?: androidx.compose.runtime.remember(characterId) { SpriteAnimator() }
+    androidx.compose.runtime.SideEffect {
+        animator.source = source
+        animator.base = baseAnim
     }
-
-    val (matrix, palette) = PixelSpriteData.getPixelMatrix(characterId, currentFrame)
+    if (fx == null) {
+        androidx.compose.runtime.LaunchedEffect(animator) {
+            var last = 0L
+            while (true) {
+                androidx.compose.runtime.withFrameNanos { now ->
+                    if (last != 0L) animator.step((now - last) / 1_000_000_000f)
+                    last = now
+                }
+            }
+        }
+    }
+    // A sprite with its own fall animation lies down by itself; others are tipped over as before.
+    val hasOwnFall = (if (isFlippedHorizontally) "death" else "ko") in source.animationNames && source is SheetSprite
 
     val targetStepOffset = when {
         isDead -> 0.dp
@@ -125,18 +143,55 @@ fun PixelCharacterView(
         label = "step_offset_$characterId"
     )
 
+    val facing = if (isFlippedHorizontally) -1f else 1f
     Column(
         modifier = modifier
             .offset(x = stepForwardOffset)
             .graphicsLayer {
-                scaleX = depthScale
-                scaleY = depthScale
+                // Knockback, squash/stretch and the attack lean are read here (layer-only: no relayout).
+                val squash = fx?.squash ?: 0f
+                translationX = ((fx?.knockback ?: 0f) + facing * 10f * (fx?.lean ?: 0f)).dp.toPx()
+                scaleX = depthScale * (1f + 0.18f * squash)
+                scaleY = depthScale * (1f - 0.18f * squash)
+                rotationZ = facing * 6f * (fx?.lean ?: 0f)
+                // A small idle hop on the breathing cycle (still when fallen)
+                translationY = if (isDead || source is SheetSprite) 0f else -(1.5f * cycleProgress).dp.toPx() // sheets breathe in their own idle
                 transformOrigin = TransformOrigin(0.5f, 1.0f)
+                alpha = if (fx?.hidden == true) 0f else (fx?.fade ?: 1f)
             }
             .clickable(enabled = !isDead && onClick != null) { onClick?.invoke() }
             .padding(horizontal = 4.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // A taunt in a speech bubble
+        val speech = fx?.speech
+        if (speech != null && !isDead) {
+            Text(
+                text = speech,
+                color = Color(0xFF111111),
+                fontSize = 9.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Monospace,
+                maxLines = 2,
+                modifier = Modifier
+                    .padding(bottom = 2.dp)
+                    .width(110.dp)
+                    .background(Color(0xFFFFFDE7), RoundedCornerShape(8.dp))
+                    .border(1.dp, Color(0xFF424242), RoundedCornerShape(8.dp))
+                    .padding(horizontal = 5.dp, vertical = 2.dp)
+            )
+        }
+
+        // Telegraphed intent (what this enemy is about to do)
+        val intent = fx?.intent
+        if (intent != null && !isDead) {
+            Text(
+                text = intent,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(bottom = 1.dp)
+            )
+        }
+
         // Targeted Indicator / Floating Name
         if (isTargeted && !isDead) {
             Text(
@@ -156,105 +211,28 @@ fun PixelCharacterView(
             fontFamily = FontFamily.Monospace
         )
 
-        if (isDead) {
-            // Defeated / Fallen Badge — zero resources available
-            Box(
-                modifier = Modifier
-                    .padding(vertical = 2.dp)
-                    .clip(RoundedCornerShape(3.dp))
-                    .background(Color(0xFF2B1113))
-                    .border(1.dp, Color(0xFFEF5350), RoundedCornerShape(3.dp))
-                    .padding(horizontal = 6.dp, vertical = 2.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = if (isFlippedHorizontally) "DEFEATED" else "FALLEN",
-                    color = Color(0xFFFF8A80),
-                    fontSize = 8.sp,
-                    fontWeight = FontWeight.Bold,
-                    fontFamily = FontFamily.Monospace
-                )
-            }
-        } else {
-            // Mini HP Bar
-            val hpColor = when {
-                hpRatio > 0.5f -> HpGreen
-                hpRatio > 0.2f -> HpWarning
-                else -> HpCritical
-            }
-
-            Box(
-                modifier = Modifier
-                    .width(48.dp)
-                    .height(4.dp)
-                    .clip(RoundedCornerShape(2.dp))
-                    .background(Color(0xFF1E1E28))
-                    .border(0.5.dp, Color.Black, RoundedCornerShape(2.dp))
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(hpRatio.coerceIn(0f, 1f))
-                        .fillMaxHeight()
-                        .background(hpColor)
-                )
-            }
-
-            // Optional MP Bar
-            if (mpRatio != null) {
-                Spacer(modifier = Modifier.height(1.dp))
-                Box(
-                    modifier = Modifier
-                        .width(48.dp)
-                        .height(2.5.dp)
-                        .clip(RoundedCornerShape(1.dp))
-                        .background(Color(0xFF1E1E28))
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth(mpRatio.coerceIn(0f, 1f))
-                            .fillMaxHeight()
-                            .background(MpBlue)
-                    )
-                }
-            }
-
-            // ATB Bar
-            Spacer(modifier = Modifier.height(1.dp))
-            Box(
-                modifier = Modifier
-                    .width(48.dp)
-                    .height(3.dp)
-                    .clip(RoundedCornerShape(1.5.dp))
-                    .background(Color(0xFF1E1E28))
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(atbRatio.coerceIn(0f, 1f))
-                        .fillMaxHeight()
-                        .background(if (isTurnReady) LogosGold else Color(0xFFFF9800))
-                )
-            }
-
-            Text(
-                text = "$currentHp/$maxHp",
-                color = Color(0xFFD0D8DC),
-                fontSize = 7.5.sp,
-                fontFamily = FontFamily.Monospace,
-                modifier = Modifier.padding(top = 1.dp)
-            )
+        if (sliverAlpha != null && !isDead) {
+            com.voicerpg.engine.ui.combat.EnemySliver(hpRatio = hpRatio, alpha = sliverAlpha, modifier = Modifier.padding(top = 1.dp))
         }
 
         Spacer(modifier = Modifier.height(3.dp))
 
         // Pixel Art Canvas anchored to a perspective ground contact shadow
-        val spriteWidth = pixelSize * (matrix.firstOrNull()?.length ?: 12)
-        val spriteHeight = pixelSize * matrix.size
+        val density = androidx.compose.ui.platform.LocalDensity.current
+        val artPx = when (source) {
+            is SheetSprite -> sheetArtPx(sizeFactor = (pixelSize / 2.2.dp) * source.scale)
+            is GridSprite -> with(density) { pixelSize.toPx() }
+        }
+        val spriteWidth = with(density) { (source.cellW * artPx).toDp() }
+        val spriteHeight = with(density) { (source.feet.second.coerceAtLeast(1) * artPx).toDp() }
+        val tipOver = isDead && !hasOwnFall
 
         Box(
             modifier = Modifier
-                .padding(top = if (isDead) 16.dp else 0.dp)
+                .padding(top = if (tipOver) 16.dp else 0.dp)
                 .graphicsLayer {
-                    if (isDead) {
+                    rotationZ = fx?.spin ?: 0f
+                    if (tipOver) {
                         rotationZ = if (isFlippedHorizontally) 90f else -90f
                         transformOrigin = TransformOrigin(0.5f, 0.85f)
                         alpha = if (isEthereal) (spriteFinalAlpha * 0.55f) else 0.55f
@@ -304,31 +282,32 @@ fun PixelCharacterView(
                 }
             }
 
-            Canvas(
-                modifier = Modifier.size(
-                    width = spriteWidth,
-                    height = spriteHeight
-                )
-            ) {
-                val pPx = pixelSize.toPx()
-                val numCols = matrix.firstOrNull()?.length ?: 12
-
-                for (row in matrix.indices) {
-                    val line = matrix[row]
-                    for (col in line.indices) {
-                        val char = line[col]
-                        if (char != '.') {
-                            val color = palette[char] ?: Color.Magenta
-                            val targetCol = if (isFlippedHorizontally) (numCols - 1 - col) else col
-                            drawRect(
-                                color = if (stance == CharacterStance.DAMAGED) Color(0xFFFF5252) else color,
-                                topLeft = Offset(targetCol * pPx, row * pPx),
-                                size = Size(pPx, pPx)
-                            )
-                        }
-                    }
+            // Wind-up / charge aura behind the sprite
+            val glow = fx?.glow
+            if (glow != null && !isDead) {
+                Canvas(modifier = Modifier.size(width = spriteWidth + 28.dp, height = spriteHeight + 16.dp)) {
+                    val strength = (fx.glowStrength).coerceIn(0f, 1f)
+                    drawOval(
+                        brush = Brush.radialGradient(
+                            colors = listOf(glow.copy(alpha = 0.55f * strength), glow.copy(alpha = 0.18f * strength), Color.Transparent),
+                            center = Offset(size.width / 2f, size.height * 0.55f),
+                            radius = size.maxDimension * (0.45f + 0.15f * strength)
+                        ),
+                        topLeft = Offset.Zero,
+                        size = size
+                    )
                 }
             }
+
+            SpriteCanvas(
+                source = source,
+                frame = animator.frame,
+                artPx = artPx,
+                flipped = isFlippedHorizontally,
+                flash = fx?.flash ?: 0f,
+                hurtTint = stance == CharacterStance.DAMAGED && source is GridSprite,
+                modifier = if (onSpriteLayout != null) Modifier.onGloballyPositioned(onSpriteLayout) else Modifier
+            )
         }
     }
 }
