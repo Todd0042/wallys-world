@@ -31,6 +31,7 @@
     ]
   },
   "joinWhenFlag": null,
+  "costumes": [{ "flag": "flag_todd_shop", "spriteId": "todd_shop" }],
   "spellGrants": [],
   "gender": "male",
   "sprite": {

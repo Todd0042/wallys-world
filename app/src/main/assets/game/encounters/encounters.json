@@ -16,13 +16,13 @@
           "id": "freight_wall_a",
           "name": "The Freight Wall",
           "isTargeted": true,
-          "atbGauge": 0.35, "hp": 330, "attack": 29
+          "atbGauge": 0.35, "hp": 448, "attack": 29
         },
         {
           "templateId": "fluorescent_hum",
           "id": "hum_a",
           "name": "The Fluorescent Hum",
-          "atbGauge": 0.2, "hp": 124, "attack": 32
+          "atbGauge": 0.2, "hp": 169, "attack": 32
         }
       ]
     },
@@ -181,13 +181,13 @@
           "id": "wanted_boss",
           "name": "The Man They Wanted",
           "isTargeted": true,
-          "atbGauge": 0.4, "hp": 799, "attack": 19
+          "atbGauge": 0.4, "hp": 799, "attack": 22
         },
         {
           "templateId": "grievance_file",
           "id": "file_a",
           "name": "The Grievance File",
-          "atbGauge": 0.3, "hp": 652, "attack": 18
+          "atbGauge": 0.3, "hp": 652, "attack": 21
         }
       ],
       "bossPhases": [
@@ -223,15 +223,15 @@
           "id": "jury_boss",
           "name": "Jury",
           "isTargeted": true,
-          "atbGauge": 0.4, "attack": 16,
-          "hp": 1377
+          "atbGauge": 0.4, "attack": 20,
+          "hp": 1090
         },
         {
           "templateId": "grievance_file",
           "id": "file_b",
           "name": "The Grievance File",
-          "atbGauge": 0.25, "attack": 12,
-          "hp": 302
+          "atbGauge": 0.25, "attack": 15,
+          "hp": 239
         }
       ],
       "bossPhases": [
@@ -381,13 +381,13 @@
           "id": "azalia_boss",
           "name": "Azalia",
           "isTargeted": true,
-          "atbGauge": 0.4, "hp": 545, "attack": 18
+          "atbGauge": 0.4, "hp": 609, "attack": 15
         },
         {
           "templateId": "unstamped_smile",
           "id": "smile_a",
           "name": "The Unstamped Smile",
-          "atbGauge": 0.3, "hp": 102, "attack": 13
+          "atbGauge": 0.3, "hp": 114, "attack": 11
         }
       ],
       "bossPhases": [
@@ -467,20 +467,20 @@
           "id": "desk_boss",
           "name": "The Regional Desk",
           "isTargeted": true,
-          "atbGauge": 0.42, "hp": 286, "attack": 16
+          "atbGauge": 0.42, "hp": 286, "attack": 17
         },
         {
           "templateId": "cc_protocol",
           "id": "cc_a",
           "name": "The CC Line",
-          "atbGauge": 0.3, "hp": 62, "attack": 14
+          "atbGauge": 0.3, "hp": 62, "attack": 15
         },
         {
           "templateId": "fluorescent_hum",
           "id": "hum_f",
           "name": "The Fluorescent Hum",
           "hp": 27,
-          "attack": 11,
+          "attack": 12,
           "atbGauge": 0.2
         }
       ],
@@ -557,19 +557,19 @@
           "id": "sixth_a",
           "name": "The Sixth in Line",
           "isTargeted": true,
-          "atbGauge": 0.35, "hp": 297, "attack": 12
+          "atbGauge": 0.35, "hp": 264, "attack": 13
         },
         {
           "templateId": "queue_wall",
           "id": "wall_a",
           "name": "The Queue Wall",
-          "atbGauge": 0.3, "hp": 417, "attack": 11
+          "atbGauge": 0.3, "hp": 370, "attack": 12
         },
         {
           "templateId": "register_blitz",
           "id": "blitz_a",
           "name": "The Register Blitz",
-          "atbGauge": 0.25, "hp": 268, "attack": 13
+          "atbGauge": 0.25, "hp": 238, "attack": 14
         }
       ]
     },
@@ -588,7 +588,7 @@
           "id": "close_boss",
           "name": "The One-Man Close",
           "isTargeted": true,
-          "atbGauge": 0.4, "hp": 138, "attack": 17
+          "atbGauge": 0.4, "hp": 138, "attack": 16
         },
         {
           "templateId": "queue_wall",
@@ -699,14 +699,14 @@
           "id": "parking_boss",
           "name": "The Parking Lot Draw",
           "isTargeted": true,
-          "atbGauge": 0.42, "hp": 751, "attack": 13
+          "atbGauge": 0.42, "hp": 751, "attack": 12
         },
         {
           "templateId": "grab_and_run",
           "id": "grab_b",
           "name": "The Crowd",
           "hp": 146,
-          "attack": 10,
+          "attack": 9,
           "atbGauge": 0.3
         },
         {
@@ -910,7 +910,7 @@
           "id": "amandy_boss",
           "name": "Amandy",
           "isTargeted": true,
-          "atbGauge": 0.4, "hp": 492, "attack": 13
+          "atbGauge": 0.4, "hp": 492, "attack": 14
         },
         {
           "templateId": "claim_blizzard",
@@ -953,14 +953,14 @@
           "id": "grinder_boss",
           "name": "The Overnight Meat Grinder",
           "isTargeted": true,
-          "atbGauge": 0.42, "hp": 422, "attack": 16
+          "atbGauge": 0.42, "hp": 422, "attack": 15
         },
         {
           "templateId": "register_blitz",
           "id": "blitz_b",
           "name": "The Empty Trailer",
           "hp": 71,
-          "attack": 12,
+          "attack": 11,
           "atbGauge": 0.3
         },
         {
@@ -968,7 +968,7 @@
           "id": "hum_m",
           "name": "The Fluorescent Hum",
           "hp": 36,
-          "attack": 10,
+          "attack": 9,
           "atbGauge": 0.2
         }
       ],
@@ -1096,7 +1096,7 @@
           "id": "gauntlet_boss",
           "name": "The Asphalt Gauntlet",
           "isTargeted": true,
-          "atbGauge": 0.44, "hp": 576, "attack": 15
+          "atbGauge": 0.44, "hp": 576, "attack": 14
         },
         {
           "templateId": "friday_rush",
@@ -1176,13 +1176,13 @@
           "id": "sriniviii_boss",
           "name": "Sriniviii",
           "isTargeted": true,
-          "atbGauge": 0.44, "hp": 271, "attack": 18
+          "atbGauge": 0.44, "hp": 271, "attack": 17
         },
         {
           "templateId": "goalpost_cart",
           "id": "goalpost_a",
           "name": "The Moving Goalposts",
-          "atbGauge": 0.3, "hp": 265, "attack": 17
+          "atbGauge": 0.3, "hp": 265, "attack": 16
         },
         {
           "templateId": "hostile_floor",
@@ -1225,7 +1225,7 @@
           "id": "ohmar_boss",
           "name": "Ohmar, the Store Lead",
           "isTargeted": true,
-          "atbGauge": 0.46, "hp": 401, "attack": 18
+          "atbGauge": 0.46, "hp": 401, "attack": 19
         },
         {
           "templateId": "cc_protocol",
@@ -1274,19 +1274,19 @@
           "id": "hostage_building",
           "name": "The Ownerless Building",
           "isTargeted": true,
-          "atbGauge": 0.44, "hp": 793, "attack": 19
+          "atbGauge": 0.44, "hp": 739, "attack": 19
         },
         {
           "templateId": "buried_report",
           "id": "pointless_task",
           "name": "The Pointless Task",
-          "atbGauge": 0.3, "hp": 151, "attack": 15
+          "atbGauge": 0.3, "hp": 141, "attack": 15
         },
         {
           "templateId": "fluorescent_hum",
           "id": "hum_hostage",
           "name": "The Hum of the Empty Store",
-          "atbGauge": 0.2, "hp": 79, "attack": 13
+          "atbGauge": 0.2, "hp": 74, "attack": 13
         }
       ],
       "bossPhases": [
@@ -1364,19 +1364,19 @@
           "id": "redemption_boss",
           "name": "The Redemption Schedule",
           "isTargeted": true,
-          "atbGauge": 0.46, "hp": 322, "attack": 19
+          "atbGauge": 0.46, "hp": 322, "attack": 17
         },
         {
           "templateId": "cc_protocol",
           "id": "clawback_florida",
           "name": "The Clawback",
-          "atbGauge": 0.3, "hp": 59, "attack": 15
+          "atbGauge": 0.3, "hp": 59, "attack": 13
         },
         {
           "templateId": "fluorescent_hum",
           "id": "hum_redemption",
           "name": "The Threat of Clawback",
-          "atbGauge": 0.2, "hp": 30, "attack": 12
+          "atbGauge": 0.2, "hp": 30, "attack": 11
         }
       ],
       "bossPhases": [
@@ -1413,19 +1413,19 @@
           "id": "alternative_boss",
           "name": "The Alternative",
           "isTargeted": true,
-          "atbGauge": 0.5, "hp": 1146, "attack": 22
+          "atbGauge": 0.5, "hp": 1146, "attack": 24
         },
         {
           "templateId": "metrics_dashboard",
           "id": "the_arithmetic",
           "name": "The Arithmetic of the Machine",
-          "atbGauge": 0.3, "hp": 171, "attack": 18
+          "atbGauge": 0.3, "hp": 171, "attack": 20
         },
         {
           "templateId": "fluorescent_hum",
           "id": "hum_3am",
           "name": "The Hum of the Silent Store",
-          "atbGauge": 0.2, "hp": 104, "attack": 14
+          "atbGauge": 0.2, "hp": 104, "attack": 15
         }
       ],
       "bossPhases": [
@@ -1462,19 +1462,19 @@
           "id": "parting_boss",
           "name": "The Parting Shot",
           "isTargeted": true,
-          "atbGauge": 0.46, "hp": 414, "attack": 17
+          "atbGauge": 0.46, "hp": 427, "attack": 17
         },
         {
           "templateId": "cc_protocol",
           "id": "whisper_line",
           "name": "The Whisper Chain",
-          "atbGauge": 0.3, "hp": 81, "attack": 15
+          "atbGauge": 0.3, "hp": 84, "attack": 15
         },
         {
           "templateId": "fluorescent_hum",
           "id": "hum_parting",
           "name": "The Hum That Doesn't Care",
-          "atbGauge": 0.2, "hp": 40, "attack": 12
+          "atbGauge": 0.2, "hp": 41, "attack": 12
         }
       ],
       "bossPhases": [
@@ -1689,13 +1689,13 @@
           "id": "balance_boss",
           "name": "The Final Balance Sheet",
           "isTargeted": true,
-          "atbGauge": 0.3, "hp": 1620, "attack": 30
+          "atbGauge": 0.3, "hp": 1562, "attack": 21
         },
         {
           "templateId": "metrics_dashboard",
           "id": "last_dashboard",
           "name": "The Machine's Last Metric",
-          "atbGauge": 0.25, "hp": 223, "attack": 39
+          "atbGauge": 0.25, "hp": 215, "attack": 28
         }
       ],
       "bossPhases": [
