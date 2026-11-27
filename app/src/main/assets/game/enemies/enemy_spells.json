@@ -968,23 +968,6 @@
             "particleCount": 16,
             "screenShake": 3.0
           }
-        },
-        {
-          "name": "Mend Ally",
-          "school": "HOLY",
-          "kind": "BUFF",
-          "powerMult": 0.0,
-          "targetRule": "SELF",
-          "applyStatus": "BLESS",
-          "cooldownTurns": 3,
-          "weight": 4,
-          "graphics": {
-            "effectType": "PILLAR",
-            "primaryColor": "#FFD700",
-            "secondaryColor": "#FFA000",
-            "particleCount": 20,
-            "screenShake": 3.0
-          }
         }
       ],
       "phases": []

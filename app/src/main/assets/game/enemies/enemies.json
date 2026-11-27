@@ -6,63 +6,77 @@
       "name": "The Freight Wall",
       "subtitle": "Forty Eight Feet of Unopened Boxes",
       "family": "CONSTRUCT",
-      "selfElement": "PHYSICAL",
+      "selfElement": "",
       "hp": 240,
       "attack": 18,
       "defense": 8,
       "speed": 35,
       "movesetId": "construct_bruiser",
       "spriteId": "freight_wall",
-      "spriteTint": "#A1887F"
+      "spriteTint": "#A1887F",
+      "weak": [],
+      "resist": [],
+      "armor": 15
     },
     {
       "id": "fluorescent_hum",
       "name": "The Fluorescent Hum",
       "subtitle": "3 AM Ballast Whine",
       "family": "CONSTRUCT",
-      "selfElement": "CRYOMANCY",
+      "selfElement": "",
       "hp": 90,
       "attack": 20,
       "defense": 2,
       "speed": 40,
       "movesetId": "construct_caster",
       "spriteId": "fluorescent_hum",
-      "spriteTint": "#B2EBF2"
+      "spriteTint": "#B2EBF2",
+      "weak": [
+        "ELECTROMANCY"
+      ],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "metrics_dashboard",
       "name": "The Dashboard",
       "subtitle": "The Hour-Occupancy Gauge",
-      "family": "CONSTRUCT",
-      "selfElement": "ELECTROMANCY",
+      "family": "UNDEAD",
+      "selfElement": "",
       "hp": 150,
       "attack": 26,
       "defense": 3,
       "speed": 55,
       "movesetId": "construct_sniper",
       "spriteId": "dashboard",
-      "spriteTint": "#4FC3F7"
+      "spriteTint": "#4FC3F7",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "the_ringer",
       "name": "The Ringer",
       "subtitle": "Management's Pet",
       "family": "FLESH",
-      "selfElement": "PHYSICAL",
+      "selfElement": "",
       "hp": 200,
       "attack": 22,
       "defense": 6,
       "speed": 50,
       "movesetId": "flesh_bruiser",
       "spriteId": "the_ringer",
-      "spriteTint": "#EF9A9A"
+      "spriteTint": "#EF9A9A",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "poisoned_email",
       "name": "The Poisoned Email",
       "subtitle": "Wasn't Ready, He Said",
-      "family": "VOID",
-      "selfElement": "SHADOW",
+      "family": "SILENCE",
+      "selfElement": "",
       "hp": 160,
       "attack": 20,
       "defense": 3,
@@ -70,14 +84,17 @@
       "movesetId": "void_caster",
       "isBoss": false,
       "spriteId": "poisoned_email",
-      "spriteTint": "#9575CD"
+      "spriteTint": "#9575CD",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "mattie_t_enemy",
       "name": "Mattie-T",
       "subtitle": "Store Manager",
       "family": "FLESH",
-      "selfElement": "SHADOW",
+      "selfElement": "",
       "hp": 780,
       "attack": 26,
       "defense": 10,
@@ -85,98 +102,123 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "mattie_t_enemy",
-      "spriteTint": "#EF5350"
+      "spriteTint": "#EF5350",
+      "weak": [
+        "PHYSICAL"
+      ],
+      "resist": [
+        "SHADOW"
+      ],
+      "armor": 15
     },
     {
       "id": "practice_dummy",
       "name": "Shift Simulator",
       "subtitle": "Set to 'Associate': Off",
       "family": "CONSTRUCT",
-      "selfElement": "PHYSICAL",
+      "selfElement": "",
       "hp": 2000,
       "attack": 0,
       "defense": 0,
       "speed": 30,
       "movesetId": "",
       "spriteId": "practice_dummy",
-      "spriteTint": "#D7CCC8"
+      "spriteTint": "#D7CCC8",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "bay_grime",
       "name": "The Bay Grime",
       "subtitle": "Oil-Soaked Concrete That Eats Your Boots",
       "family": "CONSTRUCT",
-      "selfElement": "PHYSICAL",
+      "selfElement": "",
       "hp": 230,
       "attack": 18,
       "defense": 8,
       "speed": 36,
       "movesetId": "construct_bruiser",
       "spriteId": "bay_grime",
-      "spriteTint": "#4E342E"
+      "spriteTint": "#4E342E",
+      "weak": [],
+      "resist": [],
+      "armor": 15
     },
     {
       "id": "tire_tower",
       "name": "The Tire Tower",
       "subtitle": "Forty Mounted Sets Waiting to Apologize",
       "family": "CONSTRUCT",
-      "selfElement": "PHYSICAL",
+      "selfElement": "",
       "hp": 210,
       "attack": 20,
       "defense": 7,
       "speed": 42,
       "movesetId": "construct_bruiser",
       "spriteId": "tire_tower",
-      "spriteTint": "#455A64"
+      "spriteTint": "#455A64",
+      "weak": [],
+      "resist": [],
+      "armor": 15
     },
     {
       "id": "friday_rush",
       "name": "The Friday Rush",
       "subtitle": "A Line of Pickups Around the Block",
-      "family": "FLESH",
-      "selfElement": "PHYSICAL",
+      "family": "VERDANT",
+      "selfElement": "",
       "hp": 180,
       "attack": 24,
       "defense": 4,
       "speed": 58,
       "movesetId": "flesh_sniper",
       "spriteId": "friday_rush",
-      "spriteTint": "#FFB300"
+      "spriteTint": "#FFB300",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "retirement_memo",
       "name": "The Retirement Memo",
       "subtitle": "Polite Corporate Execution",
-      "family": "VOID",
-      "selfElement": "SHADOW",
+      "family": "SILENCE",
+      "selfElement": "",
       "hp": 150,
       "attack": 22,
       "defense": 3,
       "speed": 50,
       "movesetId": "void_caster",
       "spriteId": "memo",
-      "spriteTint": "#8E24AA"
+      "spriteTint": "#8E24AA",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "jury_watch",
       "name": "The Watchful Eye",
       "subtitle": "Jury's Camera That Never Blinks",
-      "family": "CONSTRUCT",
-      "selfElement": "ELECTROMANCY",
+      "family": "UNDEAD",
+      "selfElement": "",
       "hp": 140,
       "attack": 26,
       "defense": 3,
       "speed": 52,
       "movesetId": "construct_sniper",
       "spriteId": "camera_eye",
-      "spriteTint": "#7E57C2"
+      "spriteTint": "#7E57C2",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "want_man",
       "name": "The Man They Wanted",
       "subtitle": "Upper Management's Favorite Answer",
-      "family": "VOID",
-      "selfElement": "SHADOW",
+      "family": "RADIANT",
+      "selfElement": "",
       "hp": 220,
       "attack": 22,
       "defense": 5,
@@ -184,28 +226,38 @@
       "movesetId": "void_caster",
       "spriteId": "want_man",
       "spriteTint": "#BF360C",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "HOLY"
+      ],
+      "resist": [
+        "PHYSICAL"
+      ],
+      "armor": 0
     },
     {
       "id": "grievance_file",
       "name": "The Grievance File",
       "subtitle": "Stamped 'Unsubstantiated' Before It's Read",
-      "family": "VERDANT",
-      "selfElement": "NATURE",
+      "family": "SILENCE",
+      "selfElement": "",
       "hp": 180,
       "attack": 20,
       "defense": 4,
       "speed": 44,
       "movesetId": "verdant_caster",
       "spriteId": "file_folder",
-      "spriteTint": "#9E9D24"
+      "spriteTint": "#9E9D24",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "jury_enemy",
       "name": "Jury",
       "subtitle": "Store Manager, Lamb",
       "family": "FLESH",
-      "selfElement": "SHADOW",
+      "selfElement": "",
       "hp": 820,
       "attack": 27,
       "defense": 11,
@@ -213,13 +265,20 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "jury_enemy",
-      "spriteTint": "#7E57C2"
+      "spriteTint": "#7E57C2",
+      "weak": [
+        "HOLY"
+      ],
+      "resist": [
+        "CRYOMANCY"
+      ],
+      "armor": 15
     },
     {
       "id": "shingles_fire",
       "name": "The Shingles Fire",
       "subtitle": "The Body Keeps the Score",
-      "family": "CONSTRUCT",
+      "family": "VOID",
       "selfElement": "PYROMANCY",
       "hp": 460,
       "attack": 26,
@@ -228,56 +287,72 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "shingles_fire",
-      "spriteTint": "#E53935"
+      "spriteTint": "#E53935",
+      "weak": [
+        "CRYOMANCY"
+      ],
+      "resist": [
+        "PYROMANCY"
+      ],
+      "armor": 0
     },
     {
       "id": "calibration_lapse",
       "name": "The Calibration Lapse",
       "subtitle": "Dead Sticker, Live Risk",
-      "family": "CONSTRUCT",
-      "selfElement": "ELECTROMANCY",
+      "family": "UNDEAD",
+      "selfElement": "",
       "hp": 200,
       "attack": 22,
       "defense": 4,
       "speed": 50,
       "movesetId": "construct_sniper",
       "spriteId": "calibration_gauge",
-      "spriteTint": "#FBC02D"
+      "spriteTint": "#FBC02D",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "bay_debt",
       "name": "The Bay Debt",
       "subtitle": "Years of Deferred Maintenance",
       "family": "CONSTRUCT",
-      "selfElement": "PHYSICAL",
+      "selfElement": "",
       "hp": 260,
       "attack": 20,
       "defense": 9,
       "speed": 34,
       "movesetId": "construct_bruiser",
       "spriteId": "debt_machine",
-      "spriteTint": "#6D4C41"
+      "spriteTint": "#6D4C41",
+      "weak": [],
+      "resist": [],
+      "armor": 15
     },
     {
       "id": "executive_edict",
       "name": "The Executive Edict",
       "subtitle": "Sold Out From Under the Floor",
-      "family": "VERDANT",
-      "selfElement": "NATURE",
+      "family": "SILENCE",
+      "selfElement": "",
       "hp": 160,
       "attack": 24,
       "defense": 3,
       "speed": 52,
       "movesetId": "verdant_caster",
       "spriteId": "edict_scroll",
-      "spriteTint": "#66BB6A"
+      "spriteTint": "#66BB6A",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "gated_tour",
       "name": "The Area Director",
       "subtitle": "Corporate Inspection Tour",
-      "family": "FLESH",
-      "selfElement": "SHADOW",
+      "family": "RADIANT",
+      "selfElement": "",
       "hp": 820,
       "attack": 27,
       "defense": 11,
@@ -285,42 +360,55 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "gated_tour",
-      "spriteTint": "#5E35B1"
+      "spriteTint": "#5E35B1",
+      "weak": [
+        "CRYOMANCY"
+      ],
+      "resist": [
+        "ELECTROMANCY"
+      ],
+      "armor": 15
     },
     {
       "id": "unstamped_smile",
       "name": "The Unstamped Smile",
       "subtitle": "Kindness That Never Weighs",
-      "family": "VERDANT",
-      "selfElement": "NATURE",
+      "family": "SILENCE",
+      "selfElement": "",
       "hp": 150,
       "attack": 20,
       "defense": 4,
       "speed": 46,
       "movesetId": "verdant_caster",
       "spriteId": "smile_badge",
-      "spriteTint": "#F48FB1"
+      "spriteTint": "#F48FB1",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "buried_report",
       "name": "The Buried Report",
       "subtitle": "The Wheel Was Never Loose",
-      "family": "VERDANT",
-      "selfElement": "NATURE",
+      "family": "SILENCE",
+      "selfElement": "",
       "hp": 170,
       "attack": 22,
       "defense": 4,
       "speed": 48,
       "movesetId": "verdant_caster",
       "spriteId": "report_shredder",
-      "spriteTint": "#8D6E63"
+      "spriteTint": "#8D6E63",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "fall_guy_index",
       "name": "District Safety Investigator",
       "subtitle": "Looking for a Scapegoat",
-      "family": "FLESH",
-      "selfElement": "SHADOW",
+      "family": "RADIANT",
+      "selfElement": "",
       "hp": 820,
       "attack": 27,
       "defense": 10,
@@ -328,28 +416,38 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "fall_guy_index",
-      "spriteTint": "#37474F"
+      "spriteTint": "#37474F",
+      "weak": [
+        "ELECTROMANCY"
+      ],
+      "resist": [
+        "SHADOW"
+      ],
+      "armor": 15
     },
     {
       "id": "cc_protocol",
       "name": "The CC Line",
       "subtitle": "Bypass Every Smiling Gatekeeper",
-      "family": "VOID",
-      "selfElement": "SHADOW",
+      "family": "SILENCE",
+      "selfElement": "",
       "hp": 180,
       "attack": 24,
       "defense": 4,
       "speed": 55,
       "movesetId": "void_caster",
       "spriteId": "cc_line",
-      "spriteTint": "#7E57C2"
+      "spriteTint": "#7E57C2",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "regional_desk",
       "name": "The Regional Desk",
       "subtitle": "Built to Fossilize Complaints",
-      "family": "CONSTRUCT",
-      "selfElement": "ELECTROMANCY",
+      "family": "RADIANT",
+      "selfElement": "",
       "hp": 840,
       "attack": 28,
       "defense": 11,
@@ -357,56 +455,72 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "regional_desk",
-      "spriteTint": "#00ACC1"
+      "spriteTint": "#00ACC1",
+      "weak": [
+        "PYROMANCY"
+      ],
+      "resist": [
+        "CRYOMANCY"
+      ],
+      "armor": 35
     },
     {
       "id": "sixth_in_line",
       "name": "The Sixth in Line",
       "subtitle": "Five Ahead of You, Still Waiting",
-      "family": "FLESH",
-      "selfElement": "PHYSICAL",
+      "family": "VERDANT",
+      "selfElement": "",
       "hp": 200,
       "attack": 22,
       "defense": 4,
       "speed": 60,
       "movesetId": "flesh_sniper",
       "spriteId": "shopper",
-      "spriteTint": "#FF8A65"
+      "spriteTint": "#FF8A65",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "queue_wall",
       "name": "The Queue Wall",
       "subtitle": "Bodies Pressing Forward",
-      "family": "CONSTRUCT",
-      "selfElement": "PHYSICAL",
+      "family": "VERDANT",
+      "selfElement": "",
       "hp": 280,
       "attack": 20,
       "defense": 9,
       "speed": 34,
       "movesetId": "construct_bruiser",
       "spriteId": "crowd_mass",
-      "spriteTint": "#795548"
+      "spriteTint": "#795548",
+      "weak": [],
+      "resist": [],
+      "armor": 15
     },
     {
       "id": "register_blitz",
       "name": "The Register Blitz",
       "subtitle": "Every Lane a Fire",
-      "family": "FLESH",
-      "selfElement": "ELECTROMANCY",
+      "family": "VERDANT",
+      "selfElement": "",
       "hp": 180,
       "attack": 24,
       "defense": 3,
       "speed": 62,
       "movesetId": "flesh_sniper",
       "spriteId": "register_blitz",
-      "spriteTint": "#F4511E"
+      "spriteTint": "#F4511E",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "one_man_close",
       "name": "The One-Man Close",
       "subtitle": "Forty Thousand Feet, One Key",
       "family": "CONSTRUCT",
-      "selfElement": "SHADOW",
+      "selfElement": "",
       "hp": 900,
       "attack": 29,
       "defense": 12,
@@ -414,70 +528,89 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "one_man_close",
-      "spriteTint": "#263238"
+      "spriteTint": "#263238",
+      "weak": [
+        "ELECTROMANCY"
+      ],
+      "resist": [
+        "PHYSICAL"
+      ],
+      "armor": 35
     },
     {
       "id": "blotter_regulars",
       "name": "The Blotter Regulars",
       "subtitle": "Weekly Visitors, a Weather System",
       "family": "VERDANT",
-      "selfElement": "NATURE",
+      "selfElement": "",
       "hp": 220,
       "attack": 22,
       "defense": 5,
       "speed": 48,
       "movesetId": "verdant_caster",
       "spriteId": "paper_storm",
-      "spriteTint": "#66BB6A"
+      "spriteTint": "#66BB6A",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "grab_and_run",
       "name": "The Grab-and-Run",
       "subtitle": "Eleven Seconds, Empty Shelf",
-      "family": "FLESH",
-      "selfElement": "PHYSICAL",
+      "family": "VERDANT",
+      "selfElement": "",
       "hp": 190,
       "attack": 24,
       "defense": 3,
       "speed": 58,
       "movesetId": "flesh_sniper",
       "spriteId": "grab_and_run",
-      "spriteTint": "#F57C00"
+      "spriteTint": "#F57C00",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "claim_blizzard",
       "name": "The Claim Blizzard",
       "subtitle": "Everyone Claims on Everyone",
-      "family": "VERDANT",
-      "selfElement": "NATURE",
+      "family": "SILENCE",
+      "selfElement": "",
       "hp": 170,
       "attack": 22,
       "defense": 4,
       "speed": 50,
       "movesetId": "verdant_caster",
       "spriteId": "claim_blizzard",
-      "spriteTint": "#9E9D24"
+      "spriteTint": "#9E9D24",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "hostile_floor",
       "name": "The Hostile Floor",
       "subtitle": "Two Faces, One Spine",
-      "family": "CONSTRUCT",
-      "selfElement": "ELECTROMANCY",
+      "family": "FLESH",
+      "selfElement": "",
       "hp": 200,
       "attack": 24,
       "defense": 4,
       "speed": 54,
       "movesetId": "construct_sniper",
       "spriteId": "hostile_floor",
-      "spriteTint": "#C62828"
+      "spriteTint": "#C62828",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "parking_draw",
       "name": "The Parking Lot Draw",
       "subtitle": "A Dispute Walking to Its Cars",
-      "family": "VOID",
-      "selfElement": "SHADOW",
+      "family": "VERDANT",
+      "selfElement": "",
       "hp": 880,
       "attack": 28,
       "defense": 11,
@@ -485,14 +618,21 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "parking_draw",
-      "spriteTint": "#263238"
+      "spriteTint": "#263238",
+      "weak": [
+        "CRYOMANCY"
+      ],
+      "resist": [
+        "PYROMANCY"
+      ],
+      "armor": 0
     },
     {
       "id": "overhaul_wall",
       "name": "The Freight-to-Floor",
       "subtitle": "The Rebuild Under a Clock",
       "family": "CONSTRUCT",
-      "selfElement": "PHYSICAL",
+      "selfElement": "",
       "hp": 920,
       "attack": 29,
       "defense": 13,
@@ -500,14 +640,21 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "overhaul_wall",
-      "spriteTint": "#6D4C41"
+      "spriteTint": "#6D4C41",
+      "weak": [
+        "PHYSICAL"
+      ],
+      "resist": [
+        "SHADOW"
+      ],
+      "armor": 35
     },
     {
       "id": "aspirant_zero",
       "name": "The Regional Audit",
       "subtitle": "Pressure from Above",
-      "family": "CONSTRUCT",
-      "selfElement": "SHADOW",
+      "family": "RADIANT",
+      "selfElement": "",
       "hp": 900,
       "attack": 27,
       "defense": 11,
@@ -515,28 +662,38 @@
       "movesetId": "construct_bruiser",
       "isBoss": true,
       "spriteId": "aspirant_zero",
-      "spriteTint": "#FFA726"
+      "spriteTint": "#FFA726",
+      "weak": [
+        "PHYSICAL"
+      ],
+      "resist": [
+        "PYROMANCY"
+      ],
+      "armor": 15
     },
     {
       "id": "zero_report",
       "name": "The Unrealistic Standard",
       "subtitle": "Corporate Expectations",
-      "family": "VERDANT",
-      "selfElement": "NATURE",
+      "family": "UNDEAD",
+      "selfElement": "",
       "hp": 180,
       "attack": 20,
       "defense": 4,
       "speed": 44,
       "movesetId": "verdant_caster",
       "spriteId": "zero_report",
-      "spriteTint": "#EFEBE9"
+      "spriteTint": "#EFEBE9",
+      "weak": [],
+      "resist": [],
+      "armor": 0
     },
     {
       "id": "meat_grinder",
       "name": "The Overnight Meat Grinder",
       "subtitle": "Thirteen Names, Numbered",
-      "family": "CONSTRUCT",
-      "selfElement": "PYROMANCY",
+      "family": "UNDEAD",
+      "selfElement": "",
       "hp": 950,
       "attack": 30,
       "defense": 12,
@@ -544,14 +701,21 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "meat_grinder",
-      "spriteTint": "#B71C1C"
+      "spriteTint": "#B71C1C",
+      "weak": [
+        "ELECTROMANCY"
+      ],
+      "resist": [
+        "PHYSICAL"
+      ],
+      "armor": 15
     },
     {
       "id": "relocation_contract",
       "name": "The Relocation Contract",
       "subtitle": "The Collar That Has Been Waiting",
-      "family": "VOID",
-      "selfElement": "SHADOW",
+      "family": "SILENCE",
+      "selfElement": "",
       "hp": 980,
       "attack": 30,
       "defense": 13,
@@ -559,14 +723,21 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "relocation_contract",
-      "spriteTint": "#1A237E"
+      "spriteTint": "#1A237E",
+      "weak": [
+        "PYROMANCY"
+      ],
+      "resist": [
+        "CRYOMANCY"
+      ],
+      "armor": 15
     },
     {
       "id": "interstate_gauntlet",
       "name": "The Asphalt Gauntlet",
       "subtitle": "A Hundred Miles of Headlights",
-      "family": "CONSTRUCT",
-      "selfElement": "PHYSICAL",
+      "family": "VOID",
+      "selfElement": "",
       "hp": 880,
       "attack": 29,
       "defense": 11,
@@ -574,14 +745,21 @@
       "movesetId": "boss_template",
       "spriteId": "interstate_gauntlet",
       "spriteTint": "#455A64",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "CRYOMANCY"
+      ],
+      "resist": [
+        "PHYSICAL"
+      ],
+      "armor": 0
     },
     {
       "id": "goalpost_cart",
       "name": "The Moving Goalposts",
       "subtitle": "Mounted Firmly on Wheels",
-      "family": "CONSTRUCT",
-      "selfElement": "ELECTROMANCY",
+      "family": "UNDEAD",
+      "selfElement": "",
       "hp": 860,
       "attack": 28,
       "defense": 11,
@@ -589,14 +767,21 @@
       "movesetId": "boss_template",
       "spriteId": "goalpost_cart",
       "spriteTint": "#FBC02D",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "CRYOMANCY"
+      ],
+      "resist": [
+        "PHYSICAL"
+      ],
+      "armor": 15
     },
     {
       "id": "ohmar_enemy",
       "name": "Ohmar, the Store Lead",
       "subtitle": "The Region's Enforcer",
       "family": "FLESH",
-      "selfElement": "SHADOW",
+      "selfElement": "",
       "hp": 940,
       "attack": 30,
       "defense": 12,
@@ -604,7 +789,14 @@
       "movesetId": "boss_template",
       "spriteId": "ohmar_enemy",
       "spriteTint": "#B71C1C",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "CRYOMANCY"
+      ],
+      "resist": [
+        "PYROMANCY"
+      ],
+      "armor": 15
     },
     {
       "id": "ownerless_building",
@@ -619,13 +811,20 @@
       "movesetId": "boss_template",
       "spriteId": "ownerless_building",
       "spriteTint": "#37474F",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "PYROMANCY"
+      ],
+      "resist": [
+        "CRYOMANCY"
+      ],
+      "armor": 35
     },
     {
       "id": "shingles_four",
       "name": "The Fourth Signal",
       "subtitle": "The Body Keeps the Score",
-      "family": "CONSTRUCT",
+      "family": "VOID",
       "selfElement": "PYROMANCY",
       "hp": 870,
       "attack": 29,
@@ -634,14 +833,21 @@
       "movesetId": "boss_template",
       "spriteId": "shingles_four",
       "spriteTint": "#B71C1C",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "CRYOMANCY"
+      ],
+      "resist": [
+        "PYROMANCY"
+      ],
+      "armor": 0
     },
     {
       "id": "redemption_schedule",
       "name": "The Redemption Schedule",
       "subtitle": "Thousands Owed for Walking Away",
-      "family": "VOID",
-      "selfElement": "SHADOW",
+      "family": "SILENCE",
+      "selfElement": "",
       "hp": 980,
       "attack": 30,
       "defense": 13,
@@ -649,14 +855,21 @@
       "movesetId": "boss_template",
       "spriteId": "redemption_schedule",
       "spriteTint": "#1A237E",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "ELECTROMANCY"
+      ],
+      "resist": [
+        "PHYSICAL"
+      ],
+      "armor": 15
     },
     {
       "id": "the_alternative",
       "name": "The Alternative",
       "subtitle": "The 3 AM Visitor",
       "family": "VOID",
-      "selfElement": "SHADOW",
+      "selfElement": "",
       "hp": 1000,
       "attack": 31,
       "defense": 14,
@@ -664,14 +877,21 @@
       "movesetId": "boss_template",
       "spriteId": "the_alternative",
       "spriteTint": "#000000",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "HOLY"
+      ],
+      "resist": [
+        "PYROMANCY"
+      ],
+      "armor": 0
     },
     {
       "id": "parting_shot_enemy",
       "name": "The Parting Shot",
       "subtitle": "'He'll Be Out in Two Months Anyway'",
       "family": "VOID",
-      "selfElement": "SHADOW",
+      "selfElement": "",
       "hp": 920,
       "attack": 29,
       "defense": 12,
@@ -679,14 +899,21 @@
       "movesetId": "boss_template",
       "spriteId": "parting_shot_enemy",
       "spriteTint": "#8E24AA",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "CRYOMANCY"
+      ],
+      "resist": [
+        "PYROMANCY"
+      ],
+      "armor": 0
     },
     {
       "id": "pay_cut_weight",
       "name": "The Pay Cut",
       "subtitle": "Twenty-Four Thousand Reasons to Doubt Yourself",
       "family": "VOID",
-      "selfElement": "SHADOW",
+      "selfElement": "",
       "hp": 820,
       "attack": 27,
       "defense": 10,
@@ -694,14 +921,21 @@
       "movesetId": "boss_template",
       "spriteId": "pay_cut_weight",
       "spriteTint": "#455A64",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "ELECTROMANCY"
+      ],
+      "resist": [
+        "PHYSICAL"
+      ],
+      "armor": 0
     },
     {
       "id": "phantom_manager",
       "name": "Aussie",
       "subtitle": "The Absentee Salaried Manager",
-      "family": "VOID",
-      "selfElement": "SHADOW",
+      "family": "FLESH",
+      "selfElement": "",
       "hp": 700,
       "attack": 28,
       "defense": 8,
@@ -709,14 +943,21 @@
       "movesetId": "boss_template",
       "spriteId": "phantom_manager",
       "spriteTint": "#37474F",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "ELECTROMANCY"
+      ],
+      "resist": [
+        "PHYSICAL"
+      ],
+      "armor": 0
     },
     {
       "id": "customer_grind",
       "name": "The Customer Gauntlet",
       "subtitle": "The Entitled and the Abusive",
-      "family": "FLESH",
-      "selfElement": "PHYSICAL",
+      "family": "VERDANT",
+      "selfElement": "",
       "hp": 600,
       "attack": 24,
       "defense": 6,
@@ -724,14 +965,21 @@
       "movesetId": "flesh_bruiser",
       "spriteId": "customer_grind",
       "spriteTint": "#E64A19",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "CRYOMANCY"
+      ],
+      "resist": [
+        "PYROMANCY"
+      ],
+      "armor": 15
     },
     {
       "id": "final_balance_sheet",
       "name": "The Final Balance Sheet",
       "subtitle": "Everything the Machine Cost and Could Not Take",
-      "family": "CONSTRUCT",
-      "selfElement": "PHYSICAL",
+      "family": "RADIANT",
+      "selfElement": "",
       "hp": 1100,
       "attack": 20,
       "defense": 6,
@@ -739,14 +987,21 @@
       "movesetId": "boss_template",
       "spriteId": "final_balance_sheet",
       "spriteTint": "#1B5E20",
-      "isBoss": true
+      "isBoss": true,
+      "weak": [
+        "HOLY"
+      ],
+      "resist": [
+        "ELECTROMANCY"
+      ],
+      "armor": 35
     },
     {
       "id": "azalia_enemy",
       "name": "Azalia",
       "subtitle": "Store Manager, Florence",
       "family": "FLESH",
-      "selfElement": "NATURE",
+      "selfElement": "",
       "hp": 800,
       "attack": 26,
       "defense": 10,
@@ -754,14 +1009,21 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "azalia_enemy",
-      "spriteTint": "#EC407A"
+      "spriteTint": "#EC407A",
+      "weak": [
+        "ELECTROMANCY"
+      ],
+      "resist": [
+        "CRYOMANCY"
+      ],
+      "armor": 15
     },
     {
       "id": "jay_dau_enemy",
       "name": "Jay-Dau",
       "subtitle": "Store Manager, Pueblo",
       "family": "FLESH",
-      "selfElement": "SHADOW",
+      "selfElement": "",
       "hp": 930,
       "attack": 28,
       "defense": 12,
@@ -769,7 +1031,14 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "jay_dau_enemy",
-      "spriteTint": "#1565C0"
+      "spriteTint": "#1565C0",
+      "weak": [
+        "PYROMANCY"
+      ],
+      "resist": [
+        "PHYSICAL"
+      ],
+      "armor": 15
     },
     {
       "id": "amandy_enemy",
@@ -784,14 +1053,21 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "amandy_enemy",
-      "spriteTint": "#EF5350"
+      "spriteTint": "#EF5350",
+      "weak": [
+        "CRYOMANCY"
+      ],
+      "resist": [
+        "PYROMANCY"
+      ],
+      "armor": 15
     },
     {
       "id": "sriniviii_enemy",
       "name": "Sriniviii",
       "subtitle": "Store Manager, St. Augustine",
       "family": "FLESH",
-      "selfElement": "SHADOW",
+      "selfElement": "",
       "hp": 880,
       "attack": 29,
       "defense": 11,
@@ -799,14 +1075,21 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "sriniviii_enemy",
-      "spriteTint": "#5E35B1"
+      "spriteTint": "#5E35B1",
+      "weak": [
+        "PHYSICAL"
+      ],
+      "resist": [
+        "PYROMANCY"
+      ],
+      "armor": 15
     },
     {
       "id": "abdoolie_enemy",
       "name": "Abdoolie",
       "subtitle": "Store Manager",
       "family": "FLESH",
-      "selfElement": "SHADOW",
+      "selfElement": "",
       "hp": 950,
       "attack": 30,
       "defense": 12,
@@ -814,7 +1097,14 @@
       "movesetId": "boss_template",
       "isBoss": true,
       "spriteId": "abdoolie_enemy",
-      "spriteTint": "#37474F"
+      "spriteTint": "#37474F",
+      "weak": [
+        "PYROMANCY"
+      ],
+      "resist": [
+        "CRYOMANCY"
+      ],
+      "armor": 15
     }
   ]
 }

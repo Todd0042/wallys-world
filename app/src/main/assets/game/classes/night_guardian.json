@@ -1,5 +1,5 @@
 {
-  "_doc": "HERO CLASS — the Night Guardian: warden of the 4 AM unload, alliance with the dark hours.",
+  "_doc": "HERO CLASS \u2014 the Night Guardian: warden of the 4 AM unload, alliance with the dark hours.",
   "id": "night_guardian",
   "title": "Night Guardian",
   "subtitle": "Warden of the 4 AM Unload",
@@ -8,6 +8,19 @@
   "startingSpeed": 63,
   "startingBaseAttack": 29,
   "preferredSchool": "SHADOW",
-  "starterSpellIds": ["night_shift", "shadow_doubt", "drain_energy", "backroom_whisper"],
-  "voiceKeywords": ["night guardian", "guardian", "overnight", "shadow", "third shift", "stealth"]
+  "starterSpellIds": [
+    "night_shift",
+    "shadow_doubt",
+    "drain_energy",
+    "backroom_whisper",
+    "volt_snap"
+  ],
+  "voiceKeywords": [
+    "night guardian",
+    "guardian",
+    "overnight",
+    "shadow",
+    "third shift",
+    "stealth"
+  ]
 }

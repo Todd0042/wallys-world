@@ -133,7 +133,7 @@ class RetailBattleContinuationTest {
             id = "hero",
             name = "Todd",
             loreClass = "Shop Captain",
-            currentHp = 30, // critically low HP (10%)
+            currentHp = 100, // 33% HP (above Pure Story Mode's 25% emergency-heal threshold)
             maxHp = 300,
             currentMp = 90,
             maxMp = 100,
