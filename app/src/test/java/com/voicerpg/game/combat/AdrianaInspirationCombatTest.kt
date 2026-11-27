@@ -50,14 +50,19 @@ class AdrianaInspirationCombatTest {
         assertFalse("Adriana must not be able to direct-attack", combat.canAttack)
         assertEquals("Adriana should have spriteAlpha configured for translucency", 0.45f, combat.spriteAlpha ?: 0f, 0.01f)
 
-        // Spells invariant: strictly no attack spells, only a heal and debuff removal
+        // Spells invariant: the support kit, no attacks: a party heal, a strong targetable heal and debuff removal
         val spells = combat.spells
-        assertEquals("Adriana should strictly have 2 spells (heal + cleanse)", 2, spells.size)
+        assertEquals("Adriana's Inspiration starts with 3 spells (party heal, targetable heal, cleanse)", 3, spells.size)
+        assertTrue("no attack spells", spells.none { !it.isHeal && it.basePower > 0 })
 
         val healSpell = spells.firstOrNull { it.id == "the_backrub" }
         assertNotNull("Must have the_backrub", healSpell)
-        assertTrue("the_backrub must be a heal spell", healSpell!!.isHeal)
-        assertTrue("the_backrub must have positive healing power", healSpell.basePower > 0)
+        assertTrue("the_backrub must be a party heal", healSpell!!.isHeal && healSpell.hitsAll)
+        assertTrue("the_backrub heals by share of max HP", healSpell.healPctOfMax > 0f)
+
+        val lifeline = spells.firstOrNull { it.id == "lifeline_mend" }
+        assertNotNull("Must have lifeline_mend", lifeline)
+        assertTrue("lifeline_mend is a strong targetable heal", lifeline!!.isHeal && !lifeline.hitsAll && lifeline.healPctOfMax > healSpell.healPctOfMax)
 
         val cleanseSpell = spells.firstOrNull { it.id == "inspiring_words" }
         assertNotNull("Must have inspiring_words", cleanseSpell)
@@ -191,7 +196,8 @@ class AdrianaInspirationCombatTest {
 
         val chosen = vm.triggerAutoHeroAction(adrianaMember)
         assertNotNull("Auto play must pick an action for Adriana", chosen)
-        assertEquals("Auto play should pick heal spell when ally is wounded", "the_backrub", chosen!!.id)
+        // One ally wounded: the strong targetable heal on them (a party heal is for when several are hurt).
+        assertEquals("Auto play should pick the targetable heal when one ally is wounded", "lifeline_mend", chosen!!.id)
     }
 
     @Test

@@ -8,7 +8,7 @@
 
 # 🛒 Wally's World: The Squeeze
 
-[![Version](https://img.shields.io/badge/Version-1.23.0-ff2a85.svg)](https://github.com/Todd0042/wallys-world/releases)
+[![Version](https://img.shields.io/badge/Version-1.23.1-ff2a85.svg)](https://github.com/Todd0042/wallys-world/releases)
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-00f0ff.svg)](LICENSE)
 [![Platform: Android 8.0+](https://img.shields.io/badge/Platform-Android%208.0%2B%20(API%2026%2B)-3DDC84.svg?logo=android&logoColor=white)](https://developer.android.com)
 [![16 KB Page Size](https://img.shields.io/badge/16%20KB-Compatible-success.svg)](https://developer.android.com/16kb-page-size)
@@ -18,7 +18,7 @@
 [![Voice Control: Hands-Free](https://img.shields.io/badge/Controls-Hands--Free%20Voice-orange.svg)](app/src/main/java/com/voicerpg/engine/audio/SpeechManager.kt)
 [![Speech: Android Offline STT](https://img.shields.io/badge/Speech-Android%20Offline%20STT-3DDC84.svg)](https://developer.android.com/reference/android/speech/SpeechRecognizer)
 [![Audio: Dynamic Ducking](https://img.shields.io/badge/Audio-Dynamic%20Ducking-green.svg)](app/src/main/java/com/voicerpg/engine/audio/MusicManager.kt)
-[![Unit Tests](https://img.shields.io/badge/Unit%20Tests-368%20Passing-39ff14.svg)](app/src/test/java/com/voicerpg/engine/)
+[![Unit Tests](https://img.shields.io/badge/Unit%20Tests-392%20Passing-39ff14.svg)](app/src/test/java/com/voicerpg/engine/)
 [![Support on Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20Creator-F16061?style=flat&logo=ko-fi&logoColor=white)](https://ko-fi.com/todd0042)
 
 > **A voice-controlled memoir RPG for Android: live six acts and 33 chapters of big-box retail management, from a 4 AM unload in Utah to a service bay in Florida, speaking every move aloud while Adriana keeps you standing, fully playable with the screen off.**
@@ -483,7 +483,7 @@ wallys-world/
 
 ## 13. Tests & Build
 
-Wally's World runs **368 automated unit tests** (the engine's suite against this game's content), covering choice matching, hub gating, save state integrity, multi-language commands, Adriana's Inspiration in combat and combat balance. Game-specific tests live in [`app/src/test/java/com/voicerpg/game/`](app/src/test/java/com/voicerpg/game/).
+Wally's World runs **392 automated unit tests** (the engine's suite against this game's content, plus the game's own tests), covering choice matching, hub gating, save state integrity, multi-language commands, Adriana's Inspiration in combat and combat balance. Game-specific tests live in [`app/src/test/java/com/voicerpg/game/`](app/src/test/java/com/voicerpg/game/).
 
 ```bash
 # Run all unit tests (writes the balance report to app/build/reports/balance.txt)

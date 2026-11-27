@@ -133,7 +133,7 @@ class RetailBattleContinuationTest {
             id = "hero",
             name = "Todd",
             loreClass = "Shop Captain",
-            currentHp = 100, // 33% HP (above Pure Story Mode's 25% emergency-heal threshold)
+            currentHp = 120, // 40% HP: above Pure Story Mode's emergency heal for a solo hero (35%)
             maxHp = 300,
             currentMp = 90,
             maxMp = 100,
@@ -152,25 +152,32 @@ class RetailBattleContinuationTest {
         )
         viewModel.setPlayerInputPhaseForTesting("hero")
 
-        // 1. With 2 enemies alive, even at 10% HP, hero must pick AoE damage spell and NOT heal
+        // 1. With 2 enemies alive and the hero out of danger, Pure Story Mode picks the area attack, not a heal
         val chosenWithMultipleEnemies = viewModel.triggerAutoHeroAction(hero)
         assertEquals("Should choose AoE spell when more than 1 enemy", "freight_push", chosenWithMultipleEnemies?.id)
-        org.junit.Assert.assertFalse("Should never heal in auto play fights", chosenWithMultipleEnemies?.isHeal == true)
+        org.junit.Assert.assertFalse("Should not heal while out of danger", chosenWithMultipleEnemies?.isHeal == true)
 
-        // 2. With only 1 enemy alive, hero must pick offensive spell and NOT heal even at 10% HP
+        // 2. With only 1 enemy alive, still the strongest attack (it can't finish the enemy this turn), no heal
         val singleEnemyList = listOf(
             com.voicerpg.engine.model.Enemy(id = "e1", name = "Cart 1", subtitle = "Minion", currentHp = 100, maxHp = 100, baseAttack = 10),
             com.voicerpg.engine.model.Enemy(id = "e2", name = "Cart 2", subtitle = "Minion", currentHp = 0, maxHp = 100, baseAttack = 10)
         )
-        viewModel.startEncounter(
+        // A fresh battle: the first cast is still resolving on its own thread in the first one.
+        val secondBattle = com.voicerpg.engine.viewmodel.CombatViewModel(
+            speechManager = dummySpeech,
+            combatNarrator = dummyNarrator,
+            scopeOverride = testScope
+        )
+        secondBattle.setPureStoryMode(true)
+        secondBattle.startEncounter(
             party = listOf(hero),
             enemies = singleEnemyList,
             environment = com.voicerpg.engine.model.BattleEnvironment.CASTLE
         )
-        viewModel.setPlayerInputPhaseForTesting("hero")
+        secondBattle.setPlayerInputPhaseForTesting("hero")
 
-        val chosenWithSingleEnemy = viewModel.triggerAutoHeroAction(hero)
-        org.junit.Assert.assertFalse("Should never heal in auto play fights even with 1 enemy", chosenWithSingleEnemy?.isHeal == true)
+        val chosenWithSingleEnemy = secondBattle.triggerAutoHeroAction(hero)
+        org.junit.Assert.assertFalse("Should not heal while out of danger, even with 1 enemy", chosenWithSingleEnemy?.isHeal == true)
         assertEquals("Should choose offensive spell and not heal", "freight_push", chosenWithSingleEnemy?.id)
     }
 }

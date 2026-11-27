@@ -57,13 +57,15 @@ class EnemySpriteTest {
             assertTrue("Resolved palette for '$spriteId' must not be empty", resolvedPalette.isNotEmpty())
         }
 
-        // 2. Verify all enemy templates have valid spriteIds defined in enemy_sprites.json
+        // 2. Every enemy template's sprite resolves: its own text grid, a sprite sheet (or variant), or the roster's
+        //    placeholder (sprites/sprites.json) that draws a grid until the sheet arrives.
         assertTrue("Enemy templates catalog should not be empty", pack.enemyTemplates.isNotEmpty())
         for ((templateId, template) in pack.enemyTemplates) {
             assertTrue("Enemy template '$templateId' spriteId should not be blank", template.spriteId.isNotBlank())
-            assertNotNull(
-                "Enemy template '$templateId' spriteId '${template.spriteId}' should resolve in enemySprites",
-                pack.enemySpriteById(template.spriteId)
+            val key = template.spriteId
+            assertTrue(
+                "Enemy template '$templateId' spriteId '$key' should resolve (grid, sheet or placeholder)",
+                pack.enemySpriteById(key) != null || pack.resolveSheet(key) != null || pack.gridKeyFor(key) != null
             )
 
             // Test resolution through PixelSpriteData using templateId
