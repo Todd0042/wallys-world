@@ -297,7 +297,7 @@ cd ../voice-rpg-engine && ./scripts/sync_engine_to_games.sh --check
 
 ## 9. Automated Unit Verification Suite
 
-Wally's World includes unit test coverage for retail movesets, choice matching, and save state integrity:
+Wally's World runs **368 automated unit tests** (the engine's suite against this game's content) covering retail movesets, choice matching, save state integrity and combat balance:
 
 ```bash
 # Run unit tests:
@@ -306,6 +306,8 @@ Wally's World includes unit test coverage for retail movesets, choice matching, 
 # Assemble debug APK:
 ./gradlew assembleDebug
 ```
+
+**Combat balance.** Every story fight is played by the engine's battle simulator (`BalanceContractTest`: the real combat on virtual time, with the party and spells the story has given them at that point): 38 story fights. A sensible player at the balance point (**x1.5** resonance, [`combat/balance.json`](app/src/main/assets/game/combat/balance.json)) should win in a target number of rounds with a safety margin that narrows toward the finale, a lazy x1.1 player should be able to lose late bosses, healing should never take over a fight, and Pure Story Mode must win every fight. The enemy HP and attack in [`encounters.json`](app/src/main/assets/game/encounters/encounters.json) were tuned to those targets with the engine's `BalanceTunerTest`; the report of every fight is written to `app/build/reports/balance.txt` (it reports rather than fails the build: a handful of fights still sit just outside a target).
 
 ---
 
