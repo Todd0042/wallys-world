@@ -21,7 +21,6 @@
   "joinWhenFlag": "flag_todd_shop",
   "combat": {
     "maxHp": 350,
-    "maxMp": 100,
     "speed": 58,
     "defense": 6,
     "avatarTint": "#F5B041",
@@ -35,8 +34,7 @@
       "volt_snap",
       "coolant_chill",
       "bay_heat",
-      "belt_mend",
-      "breathe"
+      "belt_mend"
     ],
     "spells": [
       {
@@ -44,7 +42,6 @@
         "name": "Lube Line",
         "school": "PHYSICAL",
         "basePower": 40,
-        "mpCost": 0,
         "description": "The basic rhythm of the service line: drain, filter, fill, torque. Free, tireless, always available.",
         "exampleChant": "lube line!",
         "aliases": [
@@ -68,7 +65,6 @@
         "name": "Tire Grind",
         "school": "PHYSICAL",
         "basePower": 55,
-        "mpCost": 12,
         "description": "Break the bead, spin the mount, seat the tire — the machine gives nothing for free, so you take the torque.",
         "exampleChant": "tire grind!",
         "aliases": [
@@ -91,7 +87,6 @@
         "name": "Bay Charge",
         "school": "PHYSICAL",
         "basePower": 52,
-        "mpCost": 12,
         "description": "Move where the work is, every bay at once, until the whole shop hums in tune.",
         "exampleChant": "bay charge!",
         "aliases": [
@@ -114,7 +109,6 @@
         "name": "Jack Hold",
         "school": "PHYSICAL",
         "basePower": 0,
-        "mpCost": 10,
         "isGuard": true,
         "description": "Plant the jack stand before you reach under the frame. Halve the next blow — nothing drops on your watch.",
         "exampleChant": "jack hold!",
@@ -139,7 +133,6 @@
         "name": "Volt Snap",
         "school": "ELECTROMANCY",
         "basePower": 58,
-        "mpCost": 14,
         "description": "The impact gun's snap: four lugs off in a heartbeat and the stubborn part gives up first.",
         "exampleChant": "volt snap!",
         "aliases": [
@@ -163,7 +156,6 @@
         "name": "Coolant Chill",
         "school": "CRYOMANCY",
         "basePower": 50,
-        "mpCost": 10,
         "description": "Drain the overheated radiator and watch the steam die — the engine cools to working temperature.",
         "exampleChant": "coolant chill!",
         "aliases": [
@@ -187,7 +179,6 @@
         "name": "Bay Heat",
         "school": "PYROMANCY",
         "basePower": 52,
-        "mpCost": 12,
         "hitsAll": true,
         "description": "The working heat of a shop at full tilt: every tech moving, every lift loaded, the whole building cooking.",
         "exampleChant": "bay heat!",
@@ -211,7 +202,6 @@
         "name": "Belt Mend",
         "school": "HOLY",
         "basePower": 50,
-        "mpCost": 16,
         "isHeal": true,
         "description": "Patch the tech who's been running all day — a swapped task, a cold drink from your bin, the line keeps moving.",
         "exampleChant": "belt mend!",
@@ -232,42 +222,10 @@
         }
       },
       {
-        "id": "breathe",
-        "name": "Breathe",
-        "school": "PHYSICAL",
-        "basePower": 0,
-        "mpCost": 0,
-        "manaRestorePct": 0.35,
-        "description": "The breath discipline: center yourself for three seconds in the break room and a third of your resolve returns.",
-        "exampleChant": "breathe",
-        "aliases": [
-          "breathe",
-          "breath",
-          "attune",
-          "center",
-          "centre",
-          "steady",
-          "focus",
-          "concentrate",
-          "gather",
-          "recover",
-          "restore mana",
-          "recover mana"
-        ],
-        "graphics": {
-          "effectType": "BURST",
-          "primaryColor": "#80DEEA",
-          "secondaryColor": "#00ACC1",
-          "particleCount": 18,
-          "screenShake": 0.0
-        }
-      },
-      {
         "id": "grease_clear",
         "name": "Grease Clear",
         "school": "PHYSICAL",
         "basePower": 46,
-        "mpCost": 14,
         "hitsAll": true,
         "description": "One sweep of the bay floor — every work order in the shop clears at once.",
         "exampleChant": "grease clear!",

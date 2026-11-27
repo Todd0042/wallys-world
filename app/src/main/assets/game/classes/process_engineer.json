@@ -5,10 +5,9 @@
   "subtitle": "The Spreadsheet Prophet",
   "description": "Reads the floor like a circuit board. Charges departments, sparks ideas, and overloads the status quo with hard data.",
   "startingHp": 280,
-  "startingMp": 115,
   "startingSpeed": 65,
   "startingBaseAttack": 28,
   "preferredSchool": "ELECTROMANCY",
-  "starterSpellIds": ["floor_charge", "static_pressure", "morning_surge", "spark_ideas", "breathe"],
+  "starterSpellIds": ["floor_charge", "static_pressure", "morning_surge", "spark_ideas"],
   "voiceKeywords": ["process engineer", "engineer", "analyst", "data", "electromancy", "spreadsheet"]
 }

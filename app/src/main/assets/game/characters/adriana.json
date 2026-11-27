@@ -21,7 +21,6 @@
   "loreClass": "Bedrock Anchor",
   "combat": {
     "maxHp": 280,
-    "maxMp": 140,
     "speed": 52,
     "defense": 6,
     "avatarTint": "#F06292",

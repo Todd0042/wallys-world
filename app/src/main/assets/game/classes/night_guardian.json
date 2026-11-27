@@ -5,10 +5,9 @@
   "subtitle": "Warden of the 4 AM Unload",
   "description": "Works unseen, strikes from the shadows of the schedule, and drinks the coffee the day crew never makes.",
   "startingHp": 300,
-  "startingMp": 100,
   "startingSpeed": 63,
   "startingBaseAttack": 29,
   "preferredSchool": "SHADOW",
-  "starterSpellIds": ["night_shift", "shadow_doubt", "drain_energy", "backroom_whisper", "breathe"],
+  "starterSpellIds": ["night_shift", "shadow_doubt", "drain_energy", "backroom_whisper"],
   "voiceKeywords": ["night guardian", "guardian", "overnight", "shadow", "third shift", "stealth"]
 }

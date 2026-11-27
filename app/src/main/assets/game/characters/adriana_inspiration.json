@@ -25,7 +25,6 @@
     "isUntargetable": true,
     "spriteAlpha": 0.45,
     "maxHp": 1,
-    "maxMp": 999,
     "speed": 12,
     "defense": 999,
     "avatarTint": "#F48FB1",

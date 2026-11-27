@@ -20,7 +20,6 @@
   "loreClass": "Freight Associate",
   "combat": {
     "maxHp": 300,
-    "maxMp": 95,
     "speed": 58,
     "defense": 6,
     "avatarTint": "#F5B041",
@@ -29,8 +28,7 @@
       "line_drill",
       "freight_push",
       "hold_ground",
-      "grind_out",
-      "breathe"
+      "grind_out"
     ],
     "spells": [
       {
@@ -38,7 +36,6 @@
         "name": "Line Drill",
         "school": "PHYSICAL",
         "basePower": 40,
-        "mpCost": 0,
         "description": "The basic rhythm of the line: case, scan, slot, move on. Free, tireless, always available.",
         "exampleChant": "line drill!",
         "aliases": [
@@ -62,7 +59,6 @@
         "name": "Freight Push",
         "school": "PHYSICAL",
         "basePower": 55,
-        "mpCost": 12,
         "hitsAll": true,
         "description": "Shove the wall of boxes forward with your whole body instead of letting it win.",
         "exampleChant": "freight push!",
@@ -86,7 +82,6 @@
         "name": "Hold Ground",
         "school": "PHYSICAL",
         "basePower": 0,
-        "mpCost": 10,
         "isGuard": true,
         "description": "Plant your boots. Halve the incoming damage of the next assault — the mart stays up.",
         "exampleChant": "hold ground!",
@@ -111,7 +106,6 @@
         "name": "Grind Out",
         "school": "PHYSICAL",
         "basePower": 60,
-        "mpCost": 14,
         "description": "The stubborn hour: no breaks, no conversation, just the grunt work until the pallet is gone.",
         "exampleChant": "grind out!",
         "aliases": [
@@ -127,37 +121,6 @@
           "secondaryColor": "#FF5252",
           "particleCount": 18,
           "screenShake": 3.0
-        }
-      },
-      {
-        "id": "breathe",
-        "name": "Breathe",
-        "school": "PHYSICAL",
-        "basePower": 0,
-        "mpCost": 0,
-        "manaRestorePct": 0.35,
-        "description": "The breath discipline: center yourself for three seconds in the break room and a third of your resolve returns.",
-        "exampleChant": "breathe",
-        "aliases": [
-          "breathe",
-          "breath",
-          "attune",
-          "center",
-          "centre",
-          "steady",
-          "focus",
-          "concentrate",
-          "gather",
-          "recover",
-          "restore mana",
-          "recover mana"
-        ],
-        "graphics": {
-          "effectType": "BURST",
-          "primaryColor": "#80DEEA",
-          "secondaryColor": "#00ACC1",
-          "particleCount": 18,
-          "screenShake": 0.0
         }
       }
     ]
