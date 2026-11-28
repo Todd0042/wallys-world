@@ -8,7 +8,7 @@
       "loreLocation": "The 4 AM Dock",
       "subtitle": "Concrete loading bays, hydraulic dock levelers, pallet jacks & stacked freight",
       "ambientThemeColor": "#FF9800",
-      "backgroundAsset": "environments/trench.jpg",
+      "backgroundAsset": "environments/trench.png",
       "aliases": ["dungeon", "DUNGEON", "TRENCH"],
       "overlayType": "DUNGEON"
     },
@@ -19,7 +19,7 @@
       "loreLocation": "Main Action Alley",
       "subtitle": "Endless aisles, fluorescent lighting, linoleum floors & retail shelving",
       "ambientThemeColor": "#2196F3",
-      "backgroundAsset": "environments/sales_floor.jpg",
+      "backgroundAsset": "environments/sales_floor.png",
       "aliases": ["castle", "CASTLE", "SALES_FLOOR"],
       "overlayType": "CASTLE"
     },
@@ -30,7 +30,7 @@
       "loreLocation": "The Highway Shop",
       "subtitle": "Hydraulic car lifts, tire racks, motor oil drums & impact wrenches",
       "ambientThemeColor": "#78909C",
-      "backgroundAsset": "environments/service_bay.jpg",
+      "backgroundAsset": "environments/service_bay.png",
       "aliases": ["cave", "CAVE", "SERVICE_BAY"],
       "overlayType": "CAVE"
     },
@@ -41,7 +41,7 @@
       "loreLocation": "Store Perimeter",
       "subtitle": "Asphalt lanes, shopping cart corrals, semi-trucks & winter wind",
       "ambientThemeColor": "#546E7A",
-      "backgroundAsset": "environments/parking_lot.jpg",
+      "backgroundAsset": "environments/parking_lot.png",
       "aliases": ["forest", "FOREST", "PARKING_LOT"],
       "overlayType": "FOREST"
     },
@@ -52,7 +52,7 @@
       "loreLocation": "Associate Lounge",
       "subtitle": "Vending machines, plastic folding tables, time clock & corkboards",
       "ambientThemeColor": "#8D6E63",
-      "backgroundAsset": "environments/break_room.jpg",
+      "backgroundAsset": "environments/break_room.png",
       "aliases": ["swamp", "SWAMP", "BREAK_ROOM"],
       "overlayType": "SWAMP"
     }

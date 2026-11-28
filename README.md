@@ -450,8 +450,8 @@ wallys-world/
 │       │   │   │   ├── encounters/       # encounters.json (40 fights)
 │       │   │   │   ├── combat/           # affinity_matrix.json, balance.json, status_catalog.json
 │       │   │   │   ├── creation/         # selfie_filters.json (associate badge)
-│       │   │   │   ├── environments/     # environments.json (battle backdrops)
-│       │   │   │   ├── sprites/          # sprites.json
+│       │   │   │   ├── environments/     # environments.json and the five battle backdrops (PNG)
+│       │   │   │   ├── sprites/          # sprites.json; sheets/: 53 battle sprite sheets (PNG + Aseprite JSON)
 │       │   │   │   ├── translations/     # Story text in de, es, fr, it, pt
 │       │   │   │   ├── commands/         # Voice commands, 6 languages (engine-owned)
 │       │   │   │   └── localization/     # Engine UI phrases (engine-owned)
@@ -465,7 +465,7 @@ wallys-world/
 │           └── game/                     # Wally's World tests (combat, content, story)
 ├── .engine-sync/                         # Engine version, checksums, guard, release gate
 ├── .github/workflows/engine_guard.yml    # CI check that engine files match the synced version
-├── art/                                  # sprite_roster.json and SPRITE_BRIEFS.md (battle sprite plan)
+├── art/                                  # sprite_roster.json, SPRITE_BRIEFS.md (battle sprite plan), sprite-previews/
 ├── docs/
 │   ├── ENEMY_TYPES_PROPOSAL.md           # School and family names, matrix, per-enemy weaknesses
 │   ├── SHOP_SKILLS_LEFT_OUT.md           # The six Shop Captain moves not in Todd's kit
