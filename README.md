@@ -455,9 +455,9 @@ wallys-world/
 │       │   │   │   ├── translations/     # Story text in de, es, fr, it, pt
 │       │   │   │   ├── commands/         # Voice commands, 6 languages (engine-owned)
 │       │   │   │   └── localization/     # Engine UI phrases (engine-owned)
-│       │   │   ├── story/                # Chapter backgrounds, landscape and portrait (_p)
+│       │   │   ├── story/                # Chapter & title backgrounds: 34 scenes in .jpg, _p.jpg, and _s.jpg
 │       │   │   ├── portraits/            # Character portraits
-│       │   │   ├── environments/         # Battle and badge backgrounds
+│       │   │   ├── environments/         # 13 battle backdrops in .png, _p.png, and _s.png (overlayType NONE)
 │       │   │   └── audio/music/          # Title, exploration, combat and per-act tracks (.ogg)
 │       │   └── res/                      # App name, launcher icons
 │       └── test/java/com/voicerpg/

@@ -133,7 +133,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The bay door rattles up and the freight is right there, wall to wall. The fluorescents start their whine. Say 'Enemies' anytime to scan the field \u2014 and remember, speak sharp and it lands harder.",
       "triggerBattleEncounterId": "trench_unload",
-      "nextNodeId": "trench_post_victory"
+      "nextNodeId": "trench_post_victory",
+      "battleEnvironmentId": "trench"
     },
     {
       "id": "trench_post_victory",
@@ -262,7 +263,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The hour-occupancy gauge is deep in the red and the pages start firing. Front-end storm. Everybody on the floor.",
       "triggerBattleEncounterId": "floor_war",
-      "nextNodeId": "floor_post_victory"
+      "nextNodeId": "floor_post_victory",
+      "battleEnvironmentId": "front_end"
     },
     {
       "id": "floor_post_victory",
@@ -406,7 +408,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The office contracts. The clock on the wall ticks once, and everything {hero} has built this act comes at you at once: the email, the squeeze, the whole machine. Speak sharp \u2014 say it loud, say it clear.",
       "triggerBattleEncounterId": "mattie_t_showdown",
-      "nextNodeId": "office_post_victory"
+      "nextNodeId": "office_post_victory",
+      "battleEnvironmentId": "manager_office"
     },
     {
       "id": "office_post_victory",
@@ -617,7 +620,8 @@
       "side": "CENTER_NARRATOR",
       "text": "Friday, 3 PM. Six bays, a line of pickups around the block, and every one of them convinced theirs is the one that has to be done before dark. The rush is a living thing and it wants to own your floor.",
       "triggerBattleEncounterId": "lamar_oil_rush",
-      "nextNodeId": "lamar_post_victory"
+      "nextNodeId": "lamar_post_victory",
+      "battleEnvironmentId": "service_bay"
     },
     {
       "id": "lamar_post_victory",
@@ -776,7 +780,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The purge audit moves through the building like weather: the retirement memo, Jury's gaze, and the old hum of the fluorescents pressing in from every ceiling. This one comes at the department all at once.",
       "triggerBattleEncounterId": "purge_audit",
-      "nextNodeId": "fall_post_victory"
+      "nextNodeId": "fall_post_victory",
+      "battleEnvironmentId": "sales_floor"
     },
     {
       "id": "fall_post_victory",
@@ -921,7 +926,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The grievance is submitted, and for a week the machinery grinds: the file, the man they wanted, the polite denials wearing the shape of review panels. The grievance was never a door \u2014 but you stand in front of it anyway, because someone has to.",
       "triggerBattleEncounterId": "brick_wall_hearing",
-      "nextNodeId": "wall_post_victory"
+      "nextNodeId": "wall_post_victory",
+      "battleEnvironmentId": "conference_room"
     },
     {
       "id": "wall_post_victory",
@@ -1063,7 +1069,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The confrontation comes at you out of the fluorescent glare \u2014 jury's malice, the file that never closes, and the whole weight of the machine standing between you and the door. In front of everyone, it all comes at once.",
       "triggerBattleEncounterId": "jury_showdown",
-      "nextNodeId": "hall_post_victory"
+      "nextNodeId": "hall_post_victory",
+      "battleEnvironmentId": "community_hall"
     },
     {
       "id": "hall_post_victory",
@@ -1170,7 +1177,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The boxes are half in and the pain is a living thing across your forehead \u2014 the first outbreak, the body's own scorecard, demanding you stop. You fight it the way you've fought every other thing in your life: one box at a time, through the fire, until the truck is full.",
       "triggerBattleEncounterId": "shingles_fire",
-      "nextNodeId": "road_post_victory"
+      "nextNodeId": "road_post_victory",
+      "battleEnvironmentId": "moving_day"
     },
     {
       "id": "road_post_victory",
@@ -1338,7 +1346,8 @@
       "side": "CENTER_NARRATOR",
       "text": "Your first ticket drops six minutes after the bays open \u2014 brakes, four wheels, and a clock that's already running. The neglect is a living thing in the room with you: the groaning lift, the dead gauges, the whole building daring you to care. Say 'Enemies' anytime to size up the fight. Speak sharp \u2014 it lands harder.",
       "triggerBattleEncounterId": "carolina_neglect",
-      "nextNodeId": "carolina_post_victory"
+      "nextNodeId": "carolina_post_victory",
+      "battleEnvironmentId": "service_bay"
     },
     {
       "id": "carolina_post_victory",
@@ -1479,7 +1488,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The edict slams into the bays at once \u2014 the new clock over every ticket, the compliance voice in every ear, the whole building leaning on the line to make an impossible number real. It's not a memo. It's a gauntlet, and it's already running.",
       "triggerBattleEncounterId": "carolina_gated_tour",
-      "nextNodeId": "tour_post_victory"
+      "nextNodeId": "tour_post_victory",
+      "battleEnvironmentId": "sales_floor"
     },
     {
       "id": "tour_post_victory",
@@ -1611,7 +1621,8 @@
       "side": "CENTER_NARRATOR",
       "text": "Azalia stands before you in the office \u2014 the smile that unmakes every consequence, the warmth that never weighs, the store manager whose refusal to enforce standards paralyzes the entire shop. Say 'Enemies' and ready yourself \u2014 she smiles while she grinds.",
       "triggerBattleEncounterId": "carolina_paralysis",
-      "nextNodeId": "azalia_post_victory"
+      "nextNodeId": "azalia_post_victory",
+      "battleEnvironmentId": "manager_office"
     },
     {
       "id": "azalia_post_victory",
@@ -1762,7 +1773,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The blame comes for you at the end of the week: the rewritten report, the visit to the area office, the smile asking if you'd like to reconsider your version of events. It's the same gauntlet as the brick wall in Colorado \u2014 except this time the wheel in the lot was real, and you have the file. Hold the line.",
       "triggerBattleEncounterId": "carolina_fall_guy",
-      "nextNodeId": "breach_post_victory"
+      "nextNodeId": "breach_post_victory",
+      "battleEnvironmentId": "conference_room"
     },
     {
       "id": "breach_post_victory",
@@ -1778,7 +1790,8 @@
       "side": "CENTER_NARRATOR",
       "text": "Now the real fight \u2014 the one the store never expected you to pick. The regional desk sits three hundred miles away behind phones and calendars, built to absorb complaints until they fossilize. But you didn't call the desk. You ran the line past the people above it, and the desk knows the difference. Fight the machine from the outside of the machine, where the smile has no power.",
       "triggerBattleEncounterId": "carolina_regional_desk",
-      "nextNodeId": "breach_regional_post"
+      "nextNodeId": "breach_regional_post",
+      "battleEnvironmentId": "conference_room"
     },
     {
       "id": "breach_regional_post",
@@ -1892,7 +1905,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The second outbreak is a living thing across your forehead \u2014 the same fire as the first, hotter for knowing exactly where it came from. The truck is half full and the body is demanding you stop, again, the way it demanded in Lamar. You fight it the way you've fought everything: one box at a time, through the fire, until the load is done.",
       "triggerBattleEncounterId": "shingles_fire_two",
-      "nextNodeId": "scar_post_victory"
+      "nextNodeId": "scar_post_victory",
+      "battleEnvironmentId": "moving_day"
     },
     {
       "id": "scar_post_victory",
@@ -2050,7 +2064,8 @@
       "side": "CENTER_NARRATOR",
       "text": "Nine o'clock and the queues stack six deep at every open register, the service desk is blinking like a strobe, and the walkie is dead air because there's no one left to page. The swarm of the evening is a living thing and it wants your floor. Say 'Enemies' to size it up \u2014 speak sharp and it lands harder.",
       "triggerBattleEncounterId": "pueblo_front_storm",
-      "nextNodeId": "pueblo_front_post"
+      "nextNodeId": "pueblo_front_post",
+      "battleEnvironmentId": "front_end"
     },
     {
       "id": "pueblo_front_post",
@@ -2066,7 +2081,8 @@
       "side": "CENTER_NARRATOR",
       "text": "Midnight. The last customer is out, the doors are locked, and what's left is yours: forty thousand square feet of dark, every till to count, every light to kill, every door to check \u2014 and the building, empty, pressing in like it's keeping count of you too. The One-Man Close. It has one rule: don't let it find a corner you missed. Say 'Enemies' \u2014 then close it like it's yours, because it is.",
       "nextNodeId": "pueblo_close_post",
-      "triggerBattleEncounterId": "pueblo_one_man_close"
+      "triggerBattleEncounterId": "pueblo_one_man_close",
+      "battleEnvironmentId": "overnight_floor"
     },
     {
       "id": "pueblo_close_post",
@@ -2296,7 +2312,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The regulars come back every week like a weather pattern \u2014 the team that sweeps housewares and electronics, the grab-and-run that empties a shelf in eleven seconds. Tonight they've got the service desk in their sights. The blotter is a living thing and it wants the lot. Say 'Enemies' \u2014 speak sharp and it lands harder.",
       "triggerBattleEncounterId": "pueblo_blotter_ring",
-      "nextNodeId": "pueblo_blotter_post"
+      "nextNodeId": "pueblo_blotter_post",
+      "battleEnvironmentId": "front_end"
     },
     {
       "id": "pueblo_blotter_post",
@@ -2312,7 +2329,8 @@
       "side": "CENTER_NARRATOR",
       "text": "Eleven at night, a dispute in the front row of the lot, and the two men walking toward their cars are both carrying \u2014 you saw the first one's hand go to his waist before the words did. The escalation is a live wire. Nobody else is on the lot with a radio. It's you, the dark, and the parking lot drawing. Say 'Enemies' \u2014 and hold the line.",
       "triggerBattleEncounterId": "pueblo_parking_draw",
-      "nextNodeId": "pueblo_parking_post"
+      "nextNodeId": "pueblo_parking_post",
+      "battleEnvironmentId": "parking_lot"
     },
     {
       "id": "pueblo_parking_post",
@@ -2431,7 +2449,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The first monthly number comes back and the machine does what it always does \u2014 it wants it faster. The overhaul hits the floor all at once: the dock, the bins, the topstock, the freight wall, the whole rebuild under a clock. This is the day it proves whether it works when leadership actually equips its people. Say 'Enemies' \u2014 and run the wall.",
       "triggerBattleEncounterId": "pueblo_freight_to_floor",
-      "nextNodeId": "pueblo_overhaul_post"
+      "nextNodeId": "pueblo_overhaul_post",
+      "battleEnvironmentId": "trench"
     },
     {
       "id": "pueblo_overhaul_post",
@@ -2590,7 +2609,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The operational walkthrough arrives: Richard co-leading the tour with you, the regional directors watching every corner of the sales floor and backroom. With Richard's compliance eye and your floor execution working in sync, the tour is sharp and coordinated. But corporate tours are always a pressure cooker. Say 'Enemies' \u2014 and show the region how a real store operates.",
       "triggerBattleEncounterId": "pueblo_compliance_visit",
-      "nextNodeId": "pueblo_visit_post"
+      "nextNodeId": "pueblo_visit_post",
+      "battleEnvironmentId": "sales_floor"
     },
     {
       "id": "pueblo_visit_post",
@@ -2766,7 +2786,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The on-the-clock Jay-Dau arrives with the quarterly pressure at his back: impossible freight numbers, a regional call in his ear, and a willingness to hand you to the machine if the numbers need a body. Stand before the Store Manager today \u2014 friend and monster in one skin. Say 'Enemies' \u2014 this one knows your name.",
       "triggerBattleEncounterId": "pueblo_paradox",
-      "nextNodeId": "pueblo_paradox_post"
+      "nextNodeId": "pueblo_paradox_post",
+      "battleEnvironmentId": "manager_office"
     },
     {
       "id": "pueblo_paradox_post",
@@ -2782,7 +2803,8 @@
       "side": "CENTER_NARRATOR",
       "text": "Amandy at full chaos is a weather system: the impossible demand, the re-done plan, the names she screams about the crew within earshot of the crew. Tonight she's running the office and wants your floor. Say 'Enemies' \u2014 then hand the impossible number back done.",
       "triggerBattleEncounterId": "pueblo_amandy_storm",
-      "nextNodeId": "pueblo_amandy_post"
+      "nextNodeId": "pueblo_amandy_post",
+      "battleEnvironmentId": "manager_office"
     },
     {
       "id": "pueblo_amandy_post",
@@ -2924,7 +2946,8 @@
       "side": "CENTER_NARRATOR",
       "text": "You stand on the overnight floor at three in the morning \u2014 empty shelves, freight pallets breathing in the dark, and the machine running its gauntlet: the impossible trailer, the silence, the loneliness of a whole building with no one to help. The meat grinder wants you to feel it. Say 'Enemies' \u2014 and listen to how loud the building is when it's empty.",
       "triggerBattleEncounterId": "pueblo_graveyard",
-      "nextNodeId": "pueblo_grinder_post"
+      "nextNodeId": "pueblo_grinder_post",
+      "battleEnvironmentId": "overnight_floor"
     },
     {
       "id": "pueblo_grinder_post",
@@ -2970,7 +2993,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The nerve fire hits during a dead hour on the floor \u2014 the same burning belt of pain across the forehead, but harder, hungrier, the third time the body keeps score while the machine watches. Fight through it one pallet at a time, the way you've fought through every other thing. Say 'Enemies' \u2014 the body is the boss tonight.",
       "triggerBattleEncounterId": "pueblo_shingles_three",
-      "nextNodeId": "pueblo_shingles_post"
+      "nextNodeId": "pueblo_shingles_post",
+      "battleEnvironmentId": "overnight_floor"
     },
     {
       "id": "pueblo_shingles_post",
@@ -3086,7 +3110,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The contract is a living thing now \u2014 the clawback, the repayment, the years of the machine leaning on you all at once, asking you to choose: the collar, or the next unknown road. It's the final boss of the longest act of your life. Say 'Enemies' and speak sharp \u2014 this one has been waiting since Lamar.",
       "triggerBattleEncounterId": "pueblo_relocation_contract",
-      "nextNodeId": "pueblo_contract_post"
+      "nextNodeId": "pueblo_contract_post",
+      "battleEnvironmentId": "conference_room"
     },
     {
       "id": "pueblo_contract_post",
@@ -3254,7 +3279,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The road ahead: headlights, construction walls, and the long dark between two states of exhaustion. Say 'Enemies' and hold your lane \u2014 this one wants to be both the fastest and the slowest hour of your life.",
       "triggerBattleEncounterId": "florida_interstate",
-      "nextNodeId": "florida_interstate_post"
+      "nextNodeId": "florida_interstate_post",
+      "battleEnvironmentId": "interstate_night"
     },
     {
       "id": "florida_interstate_post",
@@ -3434,7 +3460,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The meters, alive and green, humming with all the good months at once. Say 'Enemies' and hold them \u2014 a victory-light fight, proof the machine works when it chooses to. Savour it now. The bill comes due in one week.",
       "triggerBattleEncounterId": "florida_green_metrics",
-      "nextNodeId": "florida_green_post"
+      "nextNodeId": "florida_green_post",
+      "battleEnvironmentId": "overnight_floor"
     },
     {
       "id": "florida_green_post",
@@ -3597,7 +3624,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The formal office: door closed, chair empty, silence doing the math. Say 'Enemies' and walk in. This is the terror of the region in a room with you \u2014 the interview that never ends and never goes your way, and somehow always finds you 'not good enough.'",
       "triggerBattleEncounterId": "florida_ohmar_interrogation",
-      "nextNodeId": "florida_ohmar_post"
+      "nextNodeId": "florida_ohmar_post",
+      "battleEnvironmentId": "conference_room"
     },
     {
       "id": "florida_ohmar_post",
@@ -3613,7 +3641,8 @@
       "side": "CENTER_NARRATOR",
       "text": "A week of mornings, standing before Sriniviii's desk with the goalposts rolling between every sentence. Say 'Enemies' and face the gauntlet of 'not good enough' \u2014 beat it back long enough to remember the floor was never the problem.",
       "triggerBattleEncounterId": "florida_morning_verdict",
-      "nextNodeId": "florida_verdict_post"
+      "nextNodeId": "florida_verdict_post",
+      "battleEnvironmentId": "manager_office"
     },
     {
       "id": "florida_verdict_post",
@@ -3773,7 +3802,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The building, ownerless and patient, holding you in its fluorescent grip. Say 'Enemies' and take back the hours \u2014 the clock, the pointless pegs, the hum without a heart. The only hostage this store keeps is you, and you are leaving.",
       "triggerBattleEncounterId": "florida_hostage_hours",
-      "nextNodeId": "florida_hostage_post"
+      "nextNodeId": "florida_hostage_post",
+      "battleEnvironmentId": "backroom_3am"
     },
     {
       "id": "florida_hostage_post",
@@ -3916,7 +3946,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The fourth signal, burning across the forehead in full force: the body's final scorecard, the immune system at its absolute limit. Say 'Enemies' and fight the fever \u2014 the leave has a door, and the pain is standing in it.",
       "triggerBattleEncounterId": "florida_shingles_four",
-      "nextNodeId": "florida_leave_post"
+      "nextNodeId": "florida_leave_post",
+      "battleEnvironmentId": "backroom_3am"
     },
     {
       "id": "florida_leave_post",
@@ -3987,7 +4018,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The darkest hour, one last time: the alternative itself, standing in the backroom at 3 AM, patient as a supervisor. Say 'Enemies' and refuse it \u2014 not by fighting the plan, but by holding the face that broke it. Defeat the visitor by choosing the morning.",
       "nextNodeId": "florida_three_am_post",
-      "triggerBattleEncounterId": "florida_three_am"
+      "triggerBattleEncounterId": "florida_three_am",
+      "battleEnvironmentId": "backroom_3am"
     },
     {
       "id": "florida_three_am_post",
@@ -4098,7 +4130,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The relocation contract was designed to hold you hostage \u2014 thousands in clawback fees if you walked away. But you read every clause, found the loophole, and used the machine's own rules to disarm it. Say 'Enemies' and put the relocation trap into the ground for good.",
       "triggerBattleEncounterId": "florida_redemption_schedule",
-      "nextNodeId": "florida_redemption_post"
+      "nextNodeId": "florida_redemption_post",
+      "battleEnvironmentId": "conference_room"
     },
     {
       "id": "florida_redemption_post",
@@ -4121,7 +4154,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The parting shot, one last boss standing in the hallway: the whisper, the prediction, the machine's final arithmetic about your corpse. Say 'Enemies' and answer it \u2014 not with a defense, with the north door.",
       "triggerBattleEncounterId": "florida_parting_shot",
-      "nextNodeId": "florida_parting_post"
+      "nextNodeId": "florida_parting_post",
+      "battleEnvironmentId": "backroom_3am"
     },
     {
       "id": "florida_parting_post",
@@ -4285,7 +4319,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The pay cut doesn't arrive as a single blow. It arrives the way the machine always does: in paperwork, in silence, in the specific indignity of a number. Say 'Enemies' to face what twenty-four thousand dollars less actually feels like.",
       "triggerBattleEncounterId": "act6_pay_cut",
-      "nextNodeId": "act6_crash_post"
+      "nextNodeId": "act6_crash_post",
+      "battleEnvironmentId": "sales_floor"
     },
     {
       "id": "act6_crash_post",
@@ -4567,7 +4602,8 @@
       "side": "CENTER_NARRATOR",
       "text": "Abdoolie sits motionless behind his desk, waiting with that flat, unyielding cadence. The meeting doesn't need to break you \u2014 you only need to stand your ground and file the truth. Say 'Enemies' and answer him.",
       "triggerBattleEncounterId": "act6_abdoolie_ghost",
-      "nextNodeId": "act6_abdoolie_post"
+      "nextNodeId": "act6_abdoolie_post",
+      "battleEnvironmentId": "manager_office"
     },
     {
       "id": "act6_abdoolie_post",
@@ -4656,7 +4692,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The service desk is a wall of entitlement and noise. Say 'Enemies' and hold the line for the hundredth time.",
       "triggerBattleEncounterId": "act6_customer_gauntlet",
-      "nextNodeId": "act6_frontend_battle_post"
+      "nextNodeId": "act6_frontend_battle_post",
+      "battleEnvironmentId": "front_end"
     },
     {
       "id": "act6_frontend_battle_post",
@@ -4891,7 +4928,8 @@
       "side": "CENTER_NARRATOR",
       "text": "Corporate anxiety never truly dies; it just builds pressure inside the server racks until it boils over into the bays. Say 'Enemies' and push through the metric gauntlet.",
       "triggerBattleEncounterId": "act6_phantom_threat",
-      "nextNodeId": "act6_pit_battle_post"
+      "nextNodeId": "act6_pit_battle_post",
+      "battleEnvironmentId": "service_bay"
     },
     {
       "id": "act6_pit_battle_post",
@@ -5107,7 +5145,8 @@
       "side": "CENTER_NARRATOR",
       "text": "The final balance sheet \u2014 the machine's ledger versus the one it could not open. One more time: say 'Enemies' and put the full weight of it down.",
       "triggerBattleEncounterId": "act6_final_balance",
-      "nextNodeId": "act6_final_post"
+      "nextNodeId": "act6_final_post",
+      "battleEnvironmentId": "bay_sunrise"
     },
     {
       "id": "act6_final_post",

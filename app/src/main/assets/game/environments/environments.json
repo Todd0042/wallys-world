@@ -1,60 +1,194 @@
 {
-  "_doc": "Battle environments catalog for The Squeeze. Defines visual assets, lore metadata, ambient lighting colors, and alias fallbacks for drop-in game environments.",
+  "_doc": "Battle environments catalog for wallys-world. Generated from BATTLE_BACKGROUND_PROMPTS.md.",
   "environments": [
     {
       "id": "trench",
-      "displayName": "Loading Trench",
-      "icon": "📦",
-      "loreLocation": "The 4 AM Dock",
-      "subtitle": "Concrete loading bays, hydraulic dock levelers, pallet jacks & stacked freight",
+      "displayName": "Receiving Dock, 4 AM",
+      "icon": "\ud83d\udce6",
+      "loreLocation": "Backroom Trench",
+      "subtitle": "The receiving dock of a superstore at 4 AM",
       "ambientThemeColor": "#FF9800",
-      "backgroundAsset": "environments/trench.jpg",
-      "aliases": ["dungeon", "DUNGEON", "TRENCH"],
-      "overlayType": "DUNGEON"
+      "backgroundAsset": "environments/trench.png",
+      "aliases": [
+        "dungeon",
+        "DUNGEON",
+        "TRENCH"
+      ],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
     },
     {
       "id": "sales_floor",
-      "displayName": "Sales Floor",
-      "icon": "🏬",
+      "displayName": "Sales Floor, daytime",
+      "icon": "\ud83c\udfec",
       "loreLocation": "Main Action Alley",
-      "subtitle": "Endless aisles, fluorescent lighting, linoleum floors & retail shelving",
+      "subtitle": "The main sales floor of a superstore in daytime",
       "ambientThemeColor": "#2196F3",
-      "backgroundAsset": "environments/sales_floor.jpg",
-      "aliases": ["castle", "CASTLE", "SALES_FLOOR"],
-      "overlayType": "CASTLE"
+      "backgroundAsset": "environments/sales_floor.png",
+      "aliases": [
+        "castle",
+        "CASTLE",
+        "SALES_FLOOR"
+      ],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
+    },
+    {
+      "id": "front_end",
+      "displayName": "Registers & Service Desk",
+      "icon": "\ud83d\uded2",
+      "loreLocation": "The Front End",
+      "subtitle": "The front end of a superstore: a long bank of checkout lanes with conveyor belts and dark register screens...",
+      "ambientThemeColor": "#E53935",
+      "backgroundAsset": "environments/front_end.png",
+      "aliases": [],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
+    },
+    {
+      "id": "overnight_floor",
+      "displayName": "Sales Floor After Close",
+      "icon": "\ud83c\udf19",
+      "loreLocation": "Sales Floor After Close",
+      "subtitle": "The same superstore sales floor after midnight, closed and empty",
+      "ambientThemeColor": "#5C6BC0",
+      "backgroundAsset": "environments/overnight_floor.png",
+      "aliases": [
+        "swamp",
+        "SWAMP",
+        "OVERNIGHT_FLOOR"
+      ],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
     },
     {
       "id": "service_bay",
-      "displayName": "Service Bay",
-      "icon": "🔧",
+      "displayName": "Tire & Lube Shop",
+      "icon": "\ud83d\udd27",
       "loreLocation": "The Highway Shop",
-      "subtitle": "Hydraulic car lifts, tire racks, motor oil drums & impact wrenches",
+      "subtitle": "The auto service shop of a superstore: a row of service bays along the back with open roll-up doors onto a...",
       "ambientThemeColor": "#78909C",
-      "backgroundAsset": "environments/service_bay.jpg",
-      "aliases": ["cave", "CAVE", "SERVICE_BAY"],
-      "overlayType": "CAVE"
+      "backgroundAsset": "environments/service_bay.png",
+      "aliases": [
+        "cave",
+        "CAVE",
+        "SERVICE_BAY"
+      ],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
+    },
+    {
+      "id": "manager_office",
+      "displayName": "Store Manager's Office",
+      "icon": "\ud83d\udccb",
+      "loreLocation": "Store Manager's Office",
+      "subtitle": "A store manager's office at the end of a back hallway",
+      "ambientThemeColor": "#8D6E63",
+      "backgroundAsset": "environments/manager_office.png",
+      "aliases": [],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
+    },
+    {
+      "id": "conference_room",
+      "displayName": "Closed-Door Office",
+      "icon": "\ud83d\udeaa",
+      "loreLocation": "Area & HR office",
+      "subtitle": "A small corporate meeting room behind a closed door: a long table across the back with an empty chair...",
+      "ambientThemeColor": "#455A64",
+      "backgroundAsset": "environments/conference_room.png",
+      "aliases": [],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
+    },
+    {
+      "id": "community_hall",
+      "displayName": "Rented Community Hall",
+      "icon": "\ud83c\udf84",
+      "loreLocation": "The Christmas Party",
+      "subtitle": "A rented community hall for a store Christmas party: folding tables with white plastic tablecloths along...",
+      "ambientThemeColor": "#C62828",
+      "backgroundAsset": "environments/community_hall.png",
+      "aliases": [],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
     },
     {
       "id": "parking_lot",
-      "displayName": "Parking Lot",
-      "icon": "🚗",
+      "displayName": "Store Parking Lot, night",
+      "icon": "\ud83d\ude97",
       "loreLocation": "Store Perimeter",
-      "subtitle": "Asphalt lanes, shopping cart corrals, semi-trucks & winter wind",
+      "subtitle": "A superstore parking lot at 11 PM",
       "ambientThemeColor": "#546E7A",
-      "backgroundAsset": "environments/parking_lot.jpg",
-      "aliases": ["forest", "FOREST", "PARKING_LOT"],
-      "overlayType": "FOREST"
+      "backgroundAsset": "environments/parking_lot.png",
+      "aliases": [
+        "forest",
+        "FOREST",
+        "PARKING_LOT"
+      ],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
     },
     {
-      "id": "break_room",
-      "displayName": "Break Room",
-      "icon": "☕",
-      "loreLocation": "Associate Lounge",
-      "subtitle": "Vending machines, plastic folding tables, time clock & corkboards",
-      "ambientThemeColor": "#8D6E63",
-      "backgroundAsset": "environments/break_room.jpg",
-      "aliases": ["swamp", "SWAMP", "BREAK_ROOM"],
-      "overlayType": "SWAMP"
+      "id": "moving_day",
+      "displayName": "Leaving Town",
+      "icon": "\ud83d\ude9a",
+      "loreLocation": "The Body Keeps the Score",
+      "subtitle": "Night at a small rented house: a box truck parked along the back with its roll-up door open, half full of...",
+      "ambientThemeColor": "#6D4C41",
+      "backgroundAsset": "environments/moving_day.png",
+      "aliases": [],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
+    },
+    {
+      "id": "interstate_night",
+      "displayName": "Interstate 95 at night",
+      "icon": "\ud83d\udee3\ufe0f",
+      "loreLocation": "The Asphalt Gauntlet",
+      "subtitle": "An interstate highway at night seen from the shoulder: lanes of red tail lights and white headlights...",
+      "ambientThemeColor": "#F57C00",
+      "backgroundAsset": "environments/interstate_night.png",
+      "aliases": [],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
+    },
+    {
+      "id": "backroom_3am",
+      "displayName": "The Backroom at 3 AM",
+      "icon": "\ud83d\udd26",
+      "loreLocation": "The Ownerless Building",
+      "subtitle": "A cavernous superstore backroom at 3 AM: tall steel pallet racks disappearing up into darkness, a single...",
+      "ambientThemeColor": "#37474F",
+      "backgroundAsset": "environments/backroom_3am.png",
+      "aliases": [],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
+    },
+    {
+      "id": "bay_sunrise",
+      "displayName": "The Shop Bay at Sunrise",
+      "icon": "\ud83c\udf05",
+      "loreLocation": "The Balance Sheet",
+      "subtitle": "The same auto service shop bay at dawn: the roll-up door open on a clear sunrise, warm gold light pouring...",
+      "ambientThemeColor": "#FFB74D",
+      "backgroundAsset": "environments/bay_sunrise.png",
+      "aliases": [],
+      "overlayType": "NONE",
+      "artHorizon": 0.55,
+      "artHorizonPortrait": 0.55
     }
   ]
 }

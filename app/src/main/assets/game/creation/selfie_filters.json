@@ -1,27 +1,47 @@
 {
   "_doc": "Wally's World associate badge portrait generator and filter settings.",
   "isEnabled": true,
-  "disclaimerTitle": "⚠️ MEMOIR ADVISORY",
+  "disclaimerTitle": "\u26a0\ufe0f MEMOIR ADVISORY",
   "disclaimerText": "This game is the personal memoirs of an actual human.\n\nThis person has decided to allow you to put yourself in their shoes, but beware...\n\nYou're going to be putting yourself through absolute hell.",
-  "disclaimerConfirmButton": "STEP INTO SHOES ➔",
+  "disclaimerConfirmButton": "STEP INTO SHOES \u2794",
   "disclaimerCancelButton": "CANCEL / KEEP DEFAULT",
-  "sourceDialogTitle": "📸 ASSOCIATE PHOTO ID",
+  "sourceDialogTitle": "\ud83d\udcf8 ASSOCIATE PHOTO ID",
   "sourceDialogSubtitle": "Snap a real selfie or pick a photo to generate your customized retail badge portrait.",
-  "filterDialogTitle": "📸 ASSOCIATE BADGE FILTER",
+  "filterDialogTitle": "\ud83d\udcf8 ASSOCIATE BADGE FILTER",
   "filterDialogSubtitle": "Warehouse Graveyard Shift Simulator",
-  "filterConfirmButton": "USE BADGE ✔",
-  "backgroundToggleLabel": "🏬 Warehouse Background",
+  "filterConfirmButton": "USE BADGE \u2714",
+  "backgroundToggleLabel": "\ud83c\udfec Warehouse Background",
   "backgroundToggleDescription": "AI person cutout over store aisle",
   "availableBackgrounds": [
-    { "id": "trench", "label": "Trench", "assetPath": "environments/trench.jpg" },
-    { "id": "break_room", "label": "Break Room", "assetPath": "environments/break_room.jpg" },
-    { "id": "sales_floor", "label": "Sales Floor", "assetPath": "environments/sales_floor.jpg" },
-    { "id": "service_bay", "label": "Service Bay", "assetPath": "environments/service_bay.jpg" },
-    { "id": "parking_lot", "label": "Overnight Lot", "assetPath": "environments/parking_lot.jpg" }
+    {
+      "id": "trench",
+      "label": "Trench",
+      "assetPath": "environments/trench.png"
+    },
+    {
+      "id": "front_end",
+      "label": "Front End",
+      "assetPath": "environments/front_end.png"
+    },
+    {
+      "id": "sales_floor",
+      "label": "Sales Floor",
+      "assetPath": "environments/sales_floor.png"
+    },
+    {
+      "id": "service_bay",
+      "label": "Service Bay",
+      "assetPath": "environments/service_bay.png"
+    },
+    {
+      "id": "parking_lot",
+      "label": "Overnight Lot",
+      "assetPath": "environments/parking_lot.png"
+    }
   ],
   "eyeEffect": {
     "enabledByDefault": true,
-    "label": "🦝 Raccoon Eyes",
+    "label": "\ud83e\udd9d Raccoon Eyes",
     "description": "Sub-orbital dark exhaustion circles",
     "darkCenterColorHex": "#872D192A",
     "radiusFactor": 0.28,
@@ -29,18 +49,34 @@
   },
   "colorGrade": {
     "enabledByDefault": true,
-    "label": "💡 3 AM Fluorescents",
+    "label": "\ud83d\udca1 3 AM Fluorescents",
     "description": "Cold cyan store ballast color grading",
     "colorMatrix": [
-      0.92, 0.00, 0.00, 0.0, -5.0,
-      0.00, 1.05, 0.00, 0.0, 8.0,
-      0.00, 0.00, 1.08, 0.0, 12.0,
-      0.00, 0.00, 0.00, 1.0, 0.0
+      0.92,
+      0.0,
+      0.0,
+      0.0,
+      -5.0,
+      0.0,
+      1.05,
+      0.0,
+      0.0,
+      8.0,
+      0.0,
+      0.0,
+      1.08,
+      0.0,
+      12.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
     ]
   },
   "scanlines": {
     "enabledByDefault": true,
-    "label": "📺 CRT Scanlines",
+    "label": "\ud83d\udcfa CRT Scanlines",
     "description": "Retro surveillance monitor lines",
     "lineAlpha": 85,
     "lineSpacing": 6.0,
