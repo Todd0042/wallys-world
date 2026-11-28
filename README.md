@@ -450,7 +450,7 @@ wallys-world/
 │       │   │   │   ├── encounters/       # encounters.json (40 fights)
 │       │   │   │   ├── combat/           # affinity_matrix.json, balance.json, status_catalog.json
 │       │   │   │   ├── creation/         # selfie_filters.json (associate badge)
-│       │   │   │   ├── environments/     # environments.json and the five battle backdrops (PNG)
+│       │   │   │   ├── environments/     # environments.json (battle backdrops)
 │       │   │   │   ├── sprites/          # sprites.json; sheets/: 53 battle sprite sheets (PNG + Aseprite JSON)
 │       │   │   │   ├── translations/     # Story text in de, es, fr, it, pt
 │       │   │   │   ├── commands/         # Voice commands, 6 languages (engine-owned)
